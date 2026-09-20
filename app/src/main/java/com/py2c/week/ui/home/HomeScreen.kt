@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AutoStories
 import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Insights
 import androidx.compose.material.icons.outlined.RadioButtonUnchecked
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
@@ -51,6 +53,8 @@ fun HomeScreen(
     curriculum: WeekCurriculum,
     progress: ProgressSnapshot,
     onOpenDay: (Int) -> Unit,
+    onOpenWrongBook: () -> Unit = {},
+    onOpenReport: () -> Unit = {},
     onReset: () -> Unit,
 ) {
     val percent = progress.overallPercent(curriculum)
@@ -93,6 +97,42 @@ fun HomeScreen(
             onOpenDay = onOpenDay,
             onCheckInToday = { scope.launch { store.checkInToday() } },
         )
+        val openWrongs = progress.wrongItems.count { !it.resolved }
+        Card(onClick = onOpenWrongBook, modifier = Modifier.fillMaxWidth()) {
+            Row(
+                Modifier.padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Icon(Icons.Outlined.AutoStories, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                Column(Modifier.weight(1f)) {
+                    Text("错题本", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+                    Text(
+                        if (openWrongs == 0) "测验和实验的错题会按天列在这里，点进去重练。"
+                        else "待订正 $openWrongs 题 · 点按按天重练，做对即标记已订正",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+        Card(onClick = onOpenReport, modifier = Modifier.fillMaxWidth()) {
+            Row(
+                Modifier.padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Icon(Icons.Outlined.Insights, contentDescription = null, tint = MaterialTheme.colorScheme.secondary)
+                Column(Modifier.weight(1f)) {
+                    Text("学习报告", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+                    Text(
+                        "连续打卡 ${progress.streak} 天 · 总体 $percent% · 可系统分享",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
         curriculum.days.forEach { day ->
             DayCard(day, progress, onOpen = { onOpenDay(day.id) })
         }

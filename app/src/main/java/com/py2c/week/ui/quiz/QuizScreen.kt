@@ -37,6 +37,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.QuizQuestion
+import com.py2c.week.data.hintCategory
 import com.py2c.week.data.verdict
 import com.py2c.week.data.wrongReason
 import kotlinx.coroutines.launch
@@ -45,20 +46,23 @@ import kotlinx.coroutines.launch
 @Composable
 fun QuizScreen(
     day: CourseDay,
+    questions: List<QuizQuestion> = day.quiz,
     alreadyDone: Boolean,
     lastScore: Int?,
+    redoMode: Boolean = false,
     onBack: () -> Unit,
-    onSubmit: suspend (Int) -> Unit,
+    onSubmit: suspend (score: Int, answers: Map<String, Int>) -> Unit,
 ) {
     val answers = remember { mutableStateMapOf<String, Int>() }
     var submitted by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
-    val score = day.quiz.count { q -> answers[q.id] == q.correctIndex }
+    val score = questions.count { q -> answers[q.id] == q.correctIndex }
+    val allCorrect = submitted && score == questions.size
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("第 ${day.id} 天测验") },
+                title = { Text(if (redoMode) "错题重练 · 第 ${day.id} 天" else "第 ${day.id} 天测验") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
@@ -75,28 +79,38 @@ fun QuizScreen(
                 .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            if (alreadyDone && lastScore != null && !submitted) {
+            if (redoMode) {
+                Text(
+                    "只重练错题本里的题目。全部选对会标记为已订正。",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else if (alreadyDone && lastScore != null && !submitted) {
                 Text("上次得分 $lastScore / ${day.quiz.size}。可以重做，新分数会覆盖。", style = MaterialTheme.typography.bodyMedium)
             }
             if (submitted) {
                 Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = if (score == day.quiz.size) MaterialTheme.colorScheme.primaryContainer
+                        containerColor = if (allCorrect) MaterialTheme.colorScheme.primaryContainer
                         else MaterialTheme.colorScheme.tertiaryContainer,
                     ),
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text("答对 $score / ${day.quiz.size}", style = MaterialTheme.typography.titleLarge)
+                        Text("答对 $score / ${questions.size}", style = MaterialTheme.typography.titleLarge)
                         Text(
-                            if (score == day.quiz.size) "全部正确。错因栏不会出现——你已经选对了。"
-                            else "错题下面有「判断 / 你选了 / 错因 / 正确」四行说明，针对你点的那个选项。",
+                            when {
+                                allCorrect && redoMode -> "全部正确，已从待订正列表清掉（仍可在「已订正」里看到）。"
+                                allCorrect -> "全部正确。错因栏不会出现——你已经选对了。"
+                                redoMode -> "还有错题。选对的会立刻标记已订正，错的会留在错题本。"
+                                else -> "错题已记入错题本。可到「错题本」按天重练；下面仍有「判断 / 你选了 / 错因 / 正确」。"
+                            },
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
                 }
             }
-            day.quiz.forEachIndexed { idx, q ->
+            questions.forEachIndexed { idx, q ->
                 QuestionCard(
                     index = idx,
                     question = q,
@@ -108,14 +122,18 @@ fun QuizScreen(
             Button(
                 onClick = {
                     submitted = true
-                    scope.launch { onSubmit(score) }
+                    scope.launch { onSubmit(score, answers.toMap()) }
                 },
-                enabled = !submitted && answers.size == day.quiz.size,
+                enabled = !submitted && answers.size == questions.size,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(52.dp),
             ) {
-                Text(if (submitted) "已提交 · $score / ${day.quiz.size}" else "提交测验")
+                Text(
+                    if (submitted) "已提交 · $score / ${questions.size}"
+                    else if (redoMode) "提交重练"
+                    else "提交测验",
+                )
             }
             if (submitted) {
                 OutlinedButton(
@@ -126,7 +144,7 @@ fun QuizScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp),
-                ) { Text("再测一次") }
+                ) { Text(if (redoMode) "再练一次" else "再测一次") }
             }
         }
     }
@@ -187,6 +205,7 @@ private fun QuestionCard(
                     Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Text(question.verdict(selected), style = MaterialTheme.typography.titleSmall)
                         if (!ok) {
+                            Text("类别：${question.hintCategory()}", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.error)
                             Text("你选了：${question.choices[selected]}", style = MaterialTheme.typography.bodyMedium)
                             Text("错因：${question.wrongReason(selected)}", style = MaterialTheme.typography.bodyMedium)
                             Text("正确：${question.choices[question.correctIndex]}", style = MaterialTheme.typography.bodyMedium)

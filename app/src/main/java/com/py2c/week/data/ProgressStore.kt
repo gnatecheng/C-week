@@ -22,6 +22,7 @@ data class ProgressSnapshot(
     val revealedSolutions: Set<String> = emptySet(),
     val checkinDates: Set<String> = emptySet(),
     val checkedCourseDays: Set<Int> = emptySet(),
+    val wrongItems: List<WrongItem> = emptyList(),
 ) {
     fun overallPercent(curriculum: WeekCurriculum): Int {
         val total = curriculum.days.sumOf { it.itemCount() }
@@ -40,6 +41,7 @@ class ProgressStore(private val context: Context) {
     private val revealedKey = stringSetPreferencesKey("revealed")
     private val checkinDatesKey = stringSetPreferencesKey("checkin_dates")
     private val checkedCourseDaysKey = stringSetPreferencesKey("checked_course_days")
+    private val wrongItemsKey = stringSetPreferencesKey("wrong_items")
 
     val progress: Flow<ProgressSnapshot> = context.progressDataStore.data.map { prefs ->
         val quizzes = prefs[quizzesKey].orEmpty().mapNotNull { it.toIntOrNull() }.toSet()
@@ -63,6 +65,8 @@ class ProgressStore(private val context: Context) {
             revealedSolutions = prefs[revealedKey].orEmpty(),
             checkinDates = prefs[checkinDatesKey].orEmpty(),
             checkedCourseDays = prefs[checkedCourseDaysKey].orEmpty().mapNotNull { it.toIntOrNull() }.toSet(),
+            wrongItems = prefs[wrongItemsKey].orEmpty().mapNotNull(::parseWrongItem)
+                .sortedWith(compareBy({ it.resolved }, { it.dayId }, { -it.updatedAtMs })),
         )
     }
 
@@ -124,6 +128,84 @@ class ProgressStore(private val context: Context) {
             if (merged != current) {
                 prefs[checkedCourseDaysKey] = merged
             }
+        }
+    }
+
+    suspend fun recordQuizResults(day: CourseDay, answers: Map<String, Int>) {
+        val now = System.currentTimeMillis()
+        context.progressDataStore.edit { prefs ->
+            val current = prefs[wrongItemsKey].orEmpty().mapNotNull(::parseWrongItem).toMutableList()
+            answers.forEach { (qid, selected) ->
+                val q = day.quiz.find { it.id == qid } ?: return@forEach
+                val key = "${WrongSource.QUIZ.name}:$qid"
+                if (selected == q.correctIndex) {
+                    val idx = current.indexOfFirst { it.key == key }
+                    if (idx >= 0) {
+                        current[idx] = current[idx].copy(resolved = true, updatedAtMs = now)
+                    }
+                } else {
+                    current.removeAll { it.key == key }
+                    current.add(
+                        WrongItem(
+                            source = WrongSource.QUIZ,
+                            dayId = day.id,
+                            questionId = q.id,
+                            prompt = q.prompt,
+                            userAnswer = q.choices.getOrElse(selected) { selected.toString() },
+                            correctAnswer = q.choices.getOrElse(q.correctIndex) { "" },
+                            hintCategory = q.hintCategory(),
+                            resolved = false,
+                            updatedAtMs = now,
+                        ),
+                    )
+                }
+            }
+            prefs[wrongItemsKey] = current.map { it.serialize() }.toSet()
+        }
+    }
+
+    suspend fun recordLabResult(dayId: Int, lab: CodeLab, eval: LabEvaluation) {
+        val now = System.currentTimeMillis()
+        val key = "${WrongSource.LAB.name}:${lab.id}"
+        context.progressDataStore.edit { prefs ->
+            val current = prefs[wrongItemsKey].orEmpty().mapNotNull(::parseWrongItem).toMutableList()
+            if (eval.passed) {
+                val idx = current.indexOfFirst { it.key == key }
+                if (idx >= 0) {
+                    current[idx] = current[idx].copy(resolved = true, updatedAtMs = now)
+                }
+            } else {
+                current.removeAll { it.key == key }
+                val summary = buildString {
+                    if (eval.totalCases > 0) append("用例 ${eval.passedCases}/${eval.totalCases}")
+                    if (eval.totalChecks > 0) {
+                        if (isNotEmpty()) append(" · ")
+                        append("检查 ${eval.passedChecks}/${eval.totalChecks}")
+                    }
+                    if (eval.scorePercent > 0) {
+                        if (isNotEmpty()) append(" · ")
+                        append("得分 ${eval.scorePercent}%")
+                    }
+                    eval.failedHints.firstOrNull()?.let {
+                        if (isNotEmpty()) append(" · ")
+                        append(it)
+                    }
+                }.take(400).ifBlank { "模拟评测未通过" }
+                current.add(
+                    WrongItem(
+                        source = WrongSource.LAB,
+                        dayId = dayId,
+                        questionId = lab.id,
+                        prompt = lab.title,
+                        userAnswer = summary,
+                        correctAnswer = lab.expectedOutput.trim(),
+                        hintCategory = eval.gradeHints.firstOrNull()?.title ?: "实验未通过",
+                        resolved = false,
+                        updatedAtMs = now,
+                    ),
+                )
+            }
+            prefs[wrongItemsKey] = current.map { it.serialize() }.toSet()
         }
     }
 

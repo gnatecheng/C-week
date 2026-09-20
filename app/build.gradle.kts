@@ -12,8 +12,8 @@ android {
         applicationId = "com.py2c.week"
         minSdk = 26
         targetSdk = 35
-        versionCode = 5
-        versionName = "1.3.0"
+        versionCode = 6
+        versionName = "1.4.0"
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -74,4 +74,5 @@ dependencies {
     implementation(libs.androidx.media3.ui)
     implementation(libs.androidx.media3.common)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    testImplementation(libs.junit)
 }

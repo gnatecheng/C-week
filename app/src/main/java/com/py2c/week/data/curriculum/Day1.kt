@@ -12,6 +12,7 @@ import com.py2c.week.data.ContentBlock.Paragraph
 import com.py2c.week.data.ContentBlock.VsCode
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.LabCheck
+import com.py2c.week.data.LabTestCase
 import com.py2c.week.data.Lesson
 import com.py2c.week.data.QuizQuestion
 
@@ -351,6 +352,17 @@ int main(void) {
 }
 """.trimIndent(),
         expectedOutput = "Hello, Ada\n",
+        testCases = listOf(
+            LabTestCase("标准问候", "程序启动即打印，无输入", "Hello, Ada"),
+            LabTestCase(
+                "行尾换行",
+                "格式串必须含 \\n，否则黄金输出对不上",
+                "Hello, Ada",
+                extraChecks = listOf(
+                    LabCheck("nl-case", "记得在格式串里写 \\n，否则行尾没有换行。", CheckRule.Contains("\\n")),
+                ),
+            ),
+        ),
         checks = listOf(
             LabCheck("inc", "缺少 #include <stdio.h>。没有它，printf 可能无法编译。", CheckRule.Contains("#include <stdio.h>")),
             LabCheck("main", "需要 int main", CheckRule.ContainsRegex("""int\s+main\s*\(""")),

@@ -197,6 +197,30 @@ int main(void) {
         expectedOutput = "0 1 1 2 \n",
         testCases = listOf(
             LabTestCase("样例图", "0 连 1、2；1 连 3。源点 0", "0 1 1 2"),
+            LabTestCase(
+                "必须入队",
+                "更新 dist 后要 q[qt++] = v，否则 3 号点走不到",
+                "0 1 1 2",
+                extraChecks = listOf(
+                    LabCheck(
+                        "enq-case",
+                        "访问后要入队 q[qt++] = v。",
+                        CheckRule.ContainsRegex("""q\s*\[\s*qt\s*\+\+\s*\]\s*=\s*v"""),
+                    ),
+                ),
+            ),
+            LabTestCase(
+                "无权 +1",
+                "第一次到达即最短，写 dist[u]+1 而不是加边权",
+                "0 1 1 2",
+                extraChecks = listOf(
+                    LabCheck(
+                        "plus1-case",
+                        "无权 BFS 用 dist[v] = dist[u] + 1。",
+                        CheckRule.ContainsRegex("""dist\s*\[\s*v\s*\]\s*=\s*dist\s*\[\s*u\s*\]\s*\+\s*1"""),
+                    ),
+                ),
+            ),
         ),
         checks = listOf(
             LabCheck("if", "需要判断 dist[v] 是否未访问（<0）。", CheckRule.ContainsRegex("""dist\s*\[\s*v\s*\]\s*<\s*0""")),

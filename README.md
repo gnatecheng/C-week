@@ -12,12 +12,15 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 
 - **本周计划**：Day 1–7 卡片、勾选、总体百分比；进度用 DataStore 持久化。
 - **学习日历 / 打卡**（1.3.0）：一关一天点亮 D1–D7，本周日期条 + 连续打卡天数；完成课文/实验/测验自动盖章。
+- **错题本 + 重练**（1.4.0）：测验答错、实验未通过会记下（第几天、题号、你的作答、正确答案、错因类别）。底栏与首页可进入，按天列表，点按重练；做对即标记已订正。
+- **实验多组用例**（1.4.0）：离线模拟评测对照多组输入/输出，显示通过组数与部分得分，并给出更具体的中文错因。不需要手机上的 gcc。
+- **学习报告**（1.4.0）：连续打卡、分天完成度、测验正确率，可用系统分享面板发出去。
 - **课文播放**：中文讲解（含生活类比）、测验、**VS Code 实机录像**。第 1 天含路径/文件管理与 **逐条 bash**（pwd/ls/cd/… 及速查表）。
-- **代码实验**：应用内编辑 C 片段；**模拟运行**对照黄金输出。答错时按类别给出中文错因（缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 搞混等）。
-- **Day 7 大作业**：邻接表 + O(V²) Dijkstra 填空；测试用例；通过后可「走格子/看路径」逐步看 dist 与最短路。
+- **代码实验**：应用内编辑 C 片段；**模拟运行**对照多组用例。答错时按类别给出中文错因（缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 搞混等）。
+- **Day 7 大作业**：邻接表 + O(V²) Dijkstra 填空；多组测试用例；通过后可「走格子/看路径」逐步看 dist 与最短路。
 - **词汇表**：pointer、栈/堆、数组退化、launch.json、bash 路径等。
 - 跟随系统深色/浅色；大点击区域；等宽代码字体。
-- 当前调试包版本：**1.3.0**（versionCode 5）。
+- 当前调试包版本：**1.4.0**（versionCode 6）。
 
 ---
 
@@ -75,15 +78,15 @@ com.py2c.week
   data/          模型、DataStore 进度、课程装配
   data/curriculum/  七天课文、测验、实验、VS Code 脚本、词汇
   ui/theme/      Material 3 跟随系统
-  ui/home day lesson quiz lab glossary
+  ui/home day lesson quiz lab glossary wrongbook report
   ui/components  代码高亮、内存动画、Media3 实机录像播放器
   ui/navigation  Navigation Compose + 底栏
 ```
 
 - **离线优先**：无后端。课文与 `assets/vscode_demos/*.mp4` 打进 APK。
-- **进度**：Jetpack DataStore Preferences（课时 / 实验 / 测验分数 / 揭晓答案）。
+- **进度**：Jetpack DataStore Preferences（课时 / 实验 / 测验分数 / 揭晓答案 / 错题本）。
 - **ViewModel**：`ProgressViewModel` 把进度 Flow 交给界面。
-- **模拟评测**：正则/子串检查 + 常见 C 写法提示，不是手机上的 gcc。
+- **模拟评测**：多组用例 + 正则/子串检查 + 常见 C 写法提示，不是手机上的 gcc。部分通过会显示分数，全部通过才记实验完成。
 - **VS Code 演示**：主界面是真实 VS Code 录像 + 按时间轴高亮的中文清单；默认 0.75× 语速。Compose 假编辑器只在缺视频时显示。
 - **全屏播放**：点播放器控件里的全屏按钮，启动独立的 `FullscreenVideoActivity`（横屏、系统栏隐藏、`PlayerView` 铺满窗口）。系统返回键或右上角「退出全屏」回到课文。
 

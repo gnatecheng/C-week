@@ -11,6 +11,7 @@ import com.py2c.week.data.ContentBlock.Heading
 import com.py2c.week.data.ContentBlock.Paragraph
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.LabCheck
+import com.py2c.week.data.LabTestCase
 import com.py2c.week.data.Lesson
 import com.py2c.week.data.QuizQuestion
 
@@ -176,6 +177,12 @@ int main(void) {
 }
 """.trimIndent(),
         expectedOutput = "输入 13 → Yes\n输入 1 → No\n输入 9 → No\n",
+        testCases = listOf(
+            LabTestCase("素数 13", "输入 13", "Yes", input = "13"),
+            LabTestCase("1 不是素数", "输入 1", "No", input = "1"),
+            LabTestCase("合数 9", "输入 9", "No", input = "9"),
+            LabTestCase("最小素数 2", "输入 2", "Yes", input = "2"),
+        ),
         checks = listOf(
             LabCheck("sig", "请保持函数签名 int is_prime(int n)。", CheckRule.ContainsRegex("""int\s+is_prime\s*\(\s*int""")),
             LabCheck("lt2", "先处理 n < 2。", CheckRule.ContainsRegex("""n\s*<\s*2""")),

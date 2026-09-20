@@ -202,14 +202,28 @@ int main(void) {
                 "0 2 1 3",
             ),
             LabTestCase(
-                "直边更优？",
-                "同一张图若只用 0→1 的权 4，会被 0→2→1 的 2 打败",
-                "dist[1] 必须是 2 不是 4",
+                "不是数边",
+                "写成 dist[u]+1 会得到 0 1 1 2；0→2→1 的代价是 2 不是 1",
+                "0 2 1 3",
+                extraChecks = listOf(
+                    LabCheck(
+                        "nobfs-case",
+                        "不要写成 dist[v] = dist[u] + 1，那是 BFS。",
+                        CheckRule.NotContainsRegex("""dist\s*\[\s*v\s*\]\s*=\s*dist\s*\[\s*u\s*\]\s*\+\s*1"""),
+                    ),
+                ),
             ),
             LabTestCase(
-                "达不到",
-                "若存在孤立点，打印 -1",
-                "INF 输出成 -1",
+                "先比较再赋值",
+                "松弛必须带 if (dist[v] > dist[u] + w[e])，无条件覆盖会写坏更短路",
+                "0 2 1 3",
+                extraChecks = listOf(
+                    LabCheck(
+                        "cmp-case",
+                        "松弛条件应类似 dist[v] > dist[u] + w[e]。",
+                        CheckRule.ContainsRegex("""dist\s*\[\s*v\s*\]\s*>\s*dist\s*\[\s*u\s*\]\s*\+\s*w"""),
+                    ),
+                ),
             ),
         ),
         checks = listOf(
