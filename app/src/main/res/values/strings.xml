@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">C一周通</string>
+    <string name="app_name_en">C Week</string>
+    <string name="nav_home">本周课程</string>
+    <string name="nav_labs">代码实验</string>
+    <string name="nav_glossary">词汇表</string>
+    <string name="exit_fullscreen">退出全屏</string>
+    <string name="exit_fullscreen_hint">系统返回键或右上角退出</string>
+    <string name="fullscreen_caption_meta">步骤 %1$d / %2$d  ·  系统返回键或右上角退出</string>
+</resources>

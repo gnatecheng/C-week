@@ -1,0 +1,97 @@
+{
+  "demos": [
+    {
+      "id": "open_folder",
+      "title": "打开课程文件夹",
+      "subtitle": "真实 VS Code：工作区而不是单文件",
+      "file": "vscode_demos/01_open_folder.mp4",
+      "captions": [
+        {"atMs": 0, "text": "打开 VS Code（不要只拖一个 .c 当记事本）"},
+        {"atMs": 4000, "text": "命令面板：File: Open Folder…"},
+        {"atMs": 9000, "text": "选中 c-week 文件夹——这就是工作区根目录"},
+        {"atMs": 14000, "text": "确认打开的是文件夹，不是单个文件"},
+        {"atMs": 18000, "text": "左侧资源管理器出现工作区树；终端 cwd 将跟它走"}
+      ]
+    },
+    {
+      "id": "create_hello",
+      "title": "新建并保存 hello.c",
+      "subtitle": "真实编辑器里写下第一份源文件",
+      "file": "vscode_demos/02_create_hello.mp4",
+      "captions": [
+        {"atMs": 0, "text": "File: New File 打开空白编辑器"},
+        {"atMs": 5000, "text": "先写 #include <stdio.h>"},
+        {"atMs": 11000, "text": "写 int main(void) 与 printf(\"Hello, C\\n\")"},
+        {"atMs": 18000, "text": "return 0; 作为正常退出码"},
+        {"atMs": 23000, "text": "Ctrl+S 保存为 hello.c（扩展名必须是 .c，不要变成 .c.txt）"},
+        {"atMs": 28000, "text": "资源管理器里应看到 hello.c 落在工作区根目录"}
+      ]
+    },
+    {
+      "id": "install_cpptools",
+      "title": "安装 C/C++ 扩展",
+      "subtitle": "Microsoft C/C++（ms-vscode.cpptools）",
+      "file": "vscode_demos/03_install_cpptools.mp4",
+      "captions": [
+        {"atMs": 0, "text": "Ctrl+Shift+X 打开扩展市场"},
+        {"atMs": 5000, "text": "搜索 C/C++，确认发布者是 Microsoft"},
+        {"atMs": 12000, "text": "点 Install。扩展提供高亮、补全、调试适配"},
+        {"atMs": 20000, "text": "扩展不是编译器：本机仍要有 gcc/gdb"},
+        {"atMs": 27000, "text": "装完不要急着装一键运行插件，本周用手敲 gcc"}
+      ]
+    },
+    {
+      "id": "launch_json",
+      "title": "launch.json 与 tasks.json",
+      "subtitle": "把 F5 调试和 gcc 任务写进工作区",
+      "file": "vscode_demos/04_launch_json.mp4",
+      "captions": [
+        {"atMs": 0, "text": "Ctrl+P 打开 .vscode/launch.json"},
+        {"atMs": 4000, "text": "type=cppdbg，request=launch：用 gdb/lldb 启动程序"},
+        {"atMs": 9000, "text": "program 指向编译出的可执行文件，cwd 用工作区根"},
+        {"atMs": 14000, "text": "preLaunchTask 会在 F5 前先跑 gcc 任务"},
+        {"atMs": 18000, "text": "再打开 tasks.json：gcc -g hello.c -o hello，label 必须和 preLaunchTask 一致"}
+      ]
+    },
+    {
+      "id": "compile_run",
+      "title": "终端里 gcc 编译并运行",
+      "subtitle": "集成终端的当前目录就是工作区",
+      "file": "vscode_demos/05_compile_run.mp4",
+      "captions": [
+        {"atMs": 0, "text": "Ctrl+` 打开终端，先 pwd 确认在 c-week"},
+        {"atMs": 4000, "text": "gcc hello.c -o hello -Wall -g"},
+        {"atMs": 9000, "text": "-Wall 开警告，-g 写入调试信息给后面的 F5 用"},
+        {"atMs": 13000, "text": "./hello 看到 Hello, C，退出码 0"},
+        {"atMs": 16500, "text": "若 Permission denied：chmod +x hello 或重新 gcc"}
+      ]
+    },
+    {
+      "id": "debug_bp",
+      "title": "断点、F5、单步与变量",
+      "subtitle": "用调试器看循环，而不是只靠 printf",
+      "file": "vscode_demos/06_debug.mp4",
+      "captions": [
+        {"atMs": 0, "text": "光标放在循环体，F9 打断点（行号旁红点）"},
+        {"atMs": 4500, "text": "再按 F9 可清除；点行号左侧水槽也可以"},
+        {"atMs": 8000, "text": "打开运行和调试，或直接 F5 启动（会先跑 preLaunchTask）"},
+        {"atMs": 13000, "text": "命中后看 VARIABLES：此时的 i、累加器"},
+        {"atMs": 17500, "text": "F10 Step Over 单步跳过；F11 才进入函数"},
+        {"atMs": 22000, "text": "CALL STACK 显示调用来源；Shift+F5 停止调试"}
+      ]
+    },
+    {
+      "id": "new_source_dijkstra",
+      "title": "大作业文件 dijkstra.c",
+      "subtitle": "同一套：打开源文件 → gcc → 运行",
+      "file": "vscode_demos/07_new_source.mp4",
+      "captions": [
+        {"atMs": 0, "text": "Ctrl+P 打开 dijkstra.c（仍在同一个工作区）"},
+        {"atMs": 5000, "text": "确认终端 cwd 还是工作区根，pwd 看一眼"},
+        {"atMs": 10000, "text": "gcc dijkstra.c -o dijkstra -Wall"},
+        {"atMs": 15000, "text": "./dijkstra 对照实验里的测试用例"},
+        {"atMs": 18500, "text": "有警告先修。加权最短路不要误用 BFS 的 +1"}
+      ]
+    }
+  ]
+}

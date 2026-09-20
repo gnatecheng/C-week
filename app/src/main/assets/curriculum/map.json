@@ -1,0 +1,14 @@
+{
+  "brand": "C一周通",
+  "brandEn": "C Week",
+  "days": [
+    {"id": 1, "title": "环境、文件与 Hello World", "lessons": 12, "focus": "路径、bash 逐条、VS Code、gcc、launch.json、调试"},
+    {"id": 2, "title": "类型、变量与 I/O", "lessons": 5, "focus": "静态类型与 printf/scanf"},
+    {"id": 3, "title": "控制流与函数", "lessons": 5, "focus": "传值与原型"},
+    {"id": 4, "title": "数组、字符串、指针", "lessons": 5, "focus": "连续内存与地址"},
+    {"id": 5, "title": "结构体、堆内存、文件", "lessons": 4, "focus": "malloc/struct"},
+    {"id": 6, "title": "排序与 BFS", "lessons": 5, "focus": "邻接表与队列"},
+    {"id": 7, "title": "Dijkstra 大作业", "lessons": 4, "focus": "正权最短路"}
+  ],
+  "note": "完整课文在 Kotlin curriculum 包中随 APK 打包，可离线使用。本 JSON 供查阅课程地图。"
+}

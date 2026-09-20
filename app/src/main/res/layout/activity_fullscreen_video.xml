@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fullscreen_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:fitsSystemWindows="false">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/fullscreen_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true" />
+
+    <TextView
+        android:id="@+id/exit_fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="12dp"
+        android:background="#99000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="12dp"
+        android:text="@string/exit_fullscreen"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#CC0B1416"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/caption_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/caption_meta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="@string/exit_fullscreen_hint"
+            android:textColor="#CBD5E1"
+            android:textSize="13sp" />
+    </LinearLayout>
+</FrameLayout>
