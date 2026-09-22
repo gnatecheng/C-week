@@ -12,6 +12,7 @@ import com.py2c.week.data.ContentBlock.MemoryViz
 import com.py2c.week.data.ContentBlock.Paragraph
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.LabCheck
+import com.py2c.week.data.LabTestCase
 import com.py2c.week.data.Lesson
 import com.py2c.week.data.QuizQuestion
 
@@ -196,6 +197,11 @@ int main(void) {
 }
 """.trimIndent(),
         expectedOutput = "olleh\n",
+        testCases = listOf(
+            LabTestCase("hello", "s = \"hello\"", "olleh", input = "hello"),
+            LabTestCase("单字符", "s = \"a\"", "a", input = "a"),
+            LabTestCase("偶数长度", "s = \"ab\"", "ba", input = "ab"),
+        ),
         checks = listOf(
             LabCheck("sig", "保持 void reverse(char *s)。", CheckRule.ContainsRegex("""void\s+reverse\s*\(\s*char\s*\*""")),
             LabCheck("len", "需要知道长度，strlen 或自己数到 '\\0'。", CheckRule.ContainsRegex("""strlen\s*\(|s\[i\]\s*==\s*'\\0'|s\[i\]\s*!=\s*'\\0'""")),

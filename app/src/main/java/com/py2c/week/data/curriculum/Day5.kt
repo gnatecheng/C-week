@@ -12,6 +12,7 @@ import com.py2c.week.data.ContentBlock.MemoryViz
 import com.py2c.week.data.ContentBlock.Paragraph
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.LabCheck
+import com.py2c.week.data.LabTestCase
 import com.py2c.week.data.Lesson
 import com.py2c.week.data.QuizQuestion
 
@@ -179,6 +180,18 @@ int main(void) {
 }
 """.trimIndent(),
         expectedOutput = "Ben\n",
+        testCases = listOf(
+            LabTestCase("样例三人", "Ada 90, Ben 95, Cara 88", "Ben"),
+            LabTestCase(
+                "必须比较分数",
+                "不能写死 printf(\"Ben\")，要循环看 .score",
+                "Ben",
+                extraChecks = listOf(
+                    LabCheck("loop-case", "应遍历数组比较 score。", CheckRule.ContainsRegex("""for\s*\(""")),
+                    LabCheck("score-case", "比较的是 score 字段。", CheckRule.Contains(".score")),
+                ),
+            ),
+        ),
         checks = listOf(
             LabCheck("field", "比较的是 score 字段。", CheckRule.Contains(".score")),
             LabCheck("loop", "应遍历数组。", CheckRule.ContainsRegex("""for\s*\(""")),

@@ -10,6 +10,7 @@ import com.py2c.week.data.ContentBlock.Heading
 import com.py2c.week.data.ContentBlock.Paragraph
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.LabCheck
+import com.py2c.week.data.LabTestCase
 import com.py2c.week.data.Lesson
 import com.py2c.week.data.QuizQuestion
 
@@ -183,6 +184,13 @@ int main(void) {
 }
 """.trimIndent(),
         expectedOutput = "输入 100 时输出：\n212\n",
+        testCases = listOf(
+            LabTestCase("沸水", "输入 100（10 的倍数，先 /5 碰巧也对）", "212", input = "100"),
+            LabTestCase("冰点", "输入 0", "32", input = "0"),
+            LabTestCase("同值点", "输入 -40", "-40", input = "-40"),
+            LabTestCase("体温", "输入 37（不能被 5 整除，先 /5 会截断）", "98", input = "37"),
+            LabTestCase("一摄氏", "输入 1", "33", input = "1"),
+        ),
         checks = listOf(
             LabCheck("scanf", "请用 scanf 读入，并传 &c。", CheckRule.Contains("&c")),
             LabCheck("formula", "需要用到 * 9 和 / 5。注意先乘后除，减少整数截断误差。", CheckRule.ContainsRegex("""\*\s*9""")),

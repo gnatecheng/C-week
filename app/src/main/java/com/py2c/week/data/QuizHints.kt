@@ -11,6 +11,9 @@ fun QuizQuestion.verdict(selectedIndex: Int): String {
     return if (ok) "判断：正确" else "判断：错误"
 }
 
+/** Short Chinese category stored with a wrong-book entry. */
+fun QuizQuestion.hintCategory(): String = HINT_CATEGORIES[id] ?: "概念"
+
 private val WRONG_REASONS: Map<String, String> = mapOf(
     "d1-q1" to "code / cat / chmod 都不编译。要把 .c 变成可执行文件，本课用 gcc hello.c -o hello。",
     "d1-q2" to "C/C++ 扩展只是高亮、补全和调试胶水，里面没有 gcc。编译器要在系统里另外安装。",
@@ -53,4 +56,42 @@ private val WRONG_REASONS: Map<String, String> = mapOf(
     "d7-q2" to "每一轮在未 used 的点里选 dist 最小者，再松弛它的出边。不是按输入顺序，更不是 BFS。",
     "d7-q3" to "主测里 0→1 直边权 4，比 0→2→1 的 2 更早但更贵。BFS 数边数，不能替换加权最短路。",
     "d7-q4" to "int 溢出后可能变成很小的数，错误地通过 dist[v] > dist[u]+w 比较。INF 和类型要一起设计。",
+)
+
+private val HINT_CATEGORIES: Map<String, String> = mapOf(
+    "d1-q1" to "编译命令",
+    "d1-q2" to "工具链",
+    "d1-q3" to "输出换行",
+    "d1-q4" to "工作区路径",
+    "d1-q5" to "相对路径",
+    "d1-q6" to "调试配置",
+    "d1-q7" to "单步调试",
+    "d1-q8" to "重定向",
+    "d1-q9" to "文件命令",
+    "d1-q10" to "终端命令",
+    "d1-q11" to "查看源码",
+    "d2-q1" to "指针",
+    "d2-q2" to "整数除法",
+    "d2-q3" to "格式串",
+    "d2-q4" to "栈寿命",
+    "d3-q1" to "传值",
+    "d3-q2" to "差一错误",
+    "d3-q3" to "函数原型",
+    "d3-q4" to "赋值当比较",
+    "d4-q1" to "数组退化",
+    "d4-q2" to "C 字符串",
+    "d4-q3" to "指针",
+    "d4-q4" to "指针运算",
+    "d5-q1" to "malloc",
+    "d5-q2" to "结构体指针",
+    "d5-q3" to "sizeof",
+    "d5-q4" to "文件句柄",
+    "d6-q1" to "BFS 前提",
+    "d6-q2" to "队列下标",
+    "d6-q3" to "复杂度",
+    "d6-q4" to "邻接表",
+    "d7-q1" to "边权约束",
+    "d7-q2" to "Dijkstra 步骤",
+    "d7-q3" to "BFS 与 Dijkstra",
+    "d7-q4" to "整数溢出",
 )

@@ -76,6 +76,9 @@ data class LabTestCase(
     val name: String,
     val inputDesc: String,
     val expected: String,
+    /** Simulated stdin or function argument the offline runner feeds this case. */
+    val input: String = "",
+    val extraChecks: List<LabCheck> = emptyList(),
 )
 
 data class LabCheck(
@@ -167,6 +170,15 @@ fun CheckRule.passes(code: String): Boolean = when (this) {
     is CheckRule.NotContainsRegex -> !Regex(pattern).containsMatchIn(code)
 }
 
+data class CaseOutcome(
+    val name: String,
+    val inputDesc: String,
+    val expected: String,
+    val actual: String?,
+    val passed: Boolean,
+    val hint: String? = null,
+)
+
 data class LabEvaluation(
     val passed: Boolean,
     val failedHints: List<String>,
@@ -176,7 +188,14 @@ data class LabEvaluation(
     val checkOutcomes: List<CheckOutcome> = emptyList(),
     val passedChecks: Int = 0,
     val totalChecks: Int = 0,
-)
+    val caseOutcomes: List<CaseOutcome> = emptyList(),
+    val passedCases: Int = 0,
+    val totalCases: Int = 0,
+    /** 0–100 partial credit from test cases and structural checks. */
+    val scorePercent: Int = 0,
+) {
+    val hasPartialCredit: Boolean get() = !passed && scorePercent in 1..99
+}
 
 fun CourseDay.itemCount(): Int = lessons.size + 2 /* lab + quiz */
 

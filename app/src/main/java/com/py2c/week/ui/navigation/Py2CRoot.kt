@@ -3,8 +3,11 @@ package com.py2c.week.ui.navigation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.outlined.AutoStories
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Terminal
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -29,6 +32,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.py2c.week.data.AppContainer
 import com.py2c.week.data.completedCourseDayIds
+import com.py2c.week.data.learningReport
 import com.py2c.week.ui.ProgressViewModel
 import com.py2c.week.ui.day.DayScreen
 import com.py2c.week.ui.glossary.GlossaryScreen
@@ -39,6 +43,8 @@ import com.py2c.week.ui.lab.LabScreen
 import com.py2c.week.ui.lesson.DemoScreen
 import com.py2c.week.ui.lesson.LessonScreen
 import com.py2c.week.ui.quiz.QuizScreen
+import com.py2c.week.ui.report.ReportScreen
+import com.py2c.week.ui.wrongbook.WrongBookScreen
 
 val LocalContainer = compositionLocalOf<AppContainer> {
     error("AppContainer 未提供")
@@ -62,10 +68,12 @@ fun Py2CRoot(container: AppContainer) {
             listOf(
                 TopTab("home", "本周课程", Icons.Outlined.Home),
                 TopTab("labs", "代码实验", Icons.Outlined.Terminal),
+                TopTab("wrongs", "错题本", Icons.Outlined.AutoStories),
                 TopTab("glossary", "词汇表", Icons.AutoMirrored.Outlined.MenuBook),
             )
         }
-        val showBar = route in setOf("home", "labs", "glossary")
+        val showBar = route in setOf("home", "labs", "glossary", "wrongs")
+        val openWrongs = progress.wrongItems.count { !it.resolved }
 
         Scaffold(
             bottomBar = {
@@ -83,7 +91,15 @@ fun Py2CRoot(container: AppContainer) {
                                         restoreState = true
                                     }
                                 },
-                                icon = { Icon(tab.icon, contentDescription = tab.label) },
+                                icon = {
+                                    if (tab.route == "wrongs" && openWrongs > 0) {
+                                        BadgedBox(badge = { Badge { Text("$openWrongs") } }) {
+                                            Icon(tab.icon, contentDescription = tab.label)
+                                        }
+                                    } else {
+                                        Icon(tab.icon, contentDescription = tab.label)
+                                    }
+                                },
                                 label = { Text(tab.label) },
                             )
                         }
@@ -101,6 +117,8 @@ fun Py2CRoot(container: AppContainer) {
                         curriculum = curriculum,
                         progress = progress,
                         onOpenDay = { nav.navigate("day/$it") },
+                        onOpenWrongBook = { nav.navigate("wrongs") },
+                        onOpenReport = { nav.navigate("report") },
                         onReset = { /* handled inside */ },
                     )
                 }
@@ -109,6 +127,22 @@ fun Py2CRoot(container: AppContainer) {
                         curriculum = curriculum,
                         progress = progress,
                         onOpen = { nav.navigate("lab/$it") },
+                    )
+                }
+                composable("wrongs") {
+                    WrongBookScreen(
+                        curriculum = curriculum,
+                        progress = progress,
+                        onRedoQuiz = { dayId, qid -> nav.navigate("quiz/$dayId?only=$qid") },
+                        onRedoLab = { nav.navigate("lab/$it") },
+                        onOpenReport = { nav.navigate("report") },
+                    )
+                }
+                composable("report") {
+                    ReportScreen(
+                        curriculum = curriculum,
+                        report = progress.learningReport(curriculum),
+                        onBack = { nav.popBackStack() },
                     )
                 }
                 composable("glossary") {
@@ -128,7 +162,7 @@ fun Py2CRoot(container: AppContainer) {
                         progress = progress,
                         onBack = { nav.popBackStack() },
                         onLesson = { nav.navigate("lesson/$it") },
-                        onQuiz = { nav.navigate("quiz/${day.id}") },
+                        onQuiz = { nav.navigate("quiz/${day.id}?only=") },
                         onLab = { nav.navigate("lab/${day.lab.id}") },
                     )
                 }
@@ -151,17 +185,31 @@ fun Py2CRoot(container: AppContainer) {
                     )
                 }
                 composable(
-                    "quiz/{id}",
-                    arguments = listOf(navArgument("id") { type = NavType.IntType }),
+                    "quiz/{id}?only={only}",
+                    arguments = listOf(
+                        navArgument("id") { type = NavType.IntType },
+                        navArgument("only") {
+                            type = NavType.StringType
+                            defaultValue = ""
+                        },
+                    ),
                 ) { entry ->
                     val id = entry.arguments?.getInt("id") ?: 1
+                    val only = entry.arguments?.getString("only").orEmpty()
                     val day = curriculum.days.first { it.id == id }
+                    val questions = if (only.isBlank()) day.quiz else day.quiz.filter { it.id == only }.ifEmpty { day.quiz }
+                    val redo = only.isNotBlank()
                     QuizScreen(
                         day = day,
+                        questions = questions,
                         alreadyDone = progress.completedQuizzes.contains(id),
                         lastScore = progress.quizScores[id],
+                        redoMode = redo,
                         onBack = { nav.popBackStack() },
-                        onSubmit = { score -> container.progressStore.markQuiz(id, score) },
+                        onSubmit = { score, answers ->
+                            if (!redo) container.progressStore.markQuiz(id, score)
+                            container.progressStore.recordQuizResults(day, answers)
+                        },
                     )
                 }
                 composable(

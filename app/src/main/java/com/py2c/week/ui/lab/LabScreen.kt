@@ -70,7 +70,7 @@ fun LabListScreen(
     ) {
         Text("代码实验", style = MaterialTheme.typography.headlineMedium)
         Text(
-            "模拟评测会对照期望输出，并指出缺头文件、差一、指针、公式、TODO 空壳等具体错因。真实编译请在电脑 VS Code 使用 gcc/clang。",
+            "每题有多组离线用例：会显示通过组数和部分得分，并按类别给出中文错因（缺头文件、差一、指针、公式、TODO 空壳等）。未通过会记入错题本。真实编译请在电脑 VS Code 使用 gcc/clang。",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -142,12 +142,15 @@ fun LabScreen(
                 )
             }
             if (lab.testCases.isNotEmpty()) {
-                Text("测试用例", style = MaterialTheme.typography.titleMedium)
+                Text("测试用例（共 ${lab.testCases.size} 组，不只对照一条黄金输出）", style = MaterialTheme.typography.titleMedium)
                 lab.testCases.forEach { tc ->
                     Card(Modifier.fillMaxWidth()) {
-                        Column(Modifier.padding(12.dp)) {
+                        Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             Text(tc.name, style = MaterialTheme.typography.titleSmall)
                             Text(tc.inputDesc, style = MaterialTheme.typography.bodyMedium)
+                            if (tc.input.isNotBlank()) {
+                                Text("模拟输入：${tc.input}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodySmall)
+                            }
                             Text("期望：${tc.expected}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodyMedium)
                         }
                     }
@@ -178,12 +181,12 @@ fun LabScreen(
                         result = eval
                         scope.launch {
                             store.bumpLabAttempt(lab.id)
+                            store.recordLabResult(day.id, lab, eval)
                             if (eval.passed) {
                                 store.markLab(lab.id)
-                                val labDone = true
                                 val lessonsDone = day.lessons.count { progress.completedLessons.contains(it.id) } == day.lessons.size
                                 val quizDone = progress.completedQuizzes.contains(day.id)
-                                if (labDone && lessonsDone && quizDone) {
+                                if (lessonsDone && quizDone) {
                                     store.checkInCourseDay(day.id)
                                 }
                             }
@@ -235,19 +238,30 @@ fun LabScreen(
 
 @Composable
 private fun SimulatedResultCard(eval: LabEvaluation) {
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = if (eval.passed) MaterialTheme.colorScheme.primaryContainer
-            else MaterialTheme.colorScheme.errorContainer,
-        ),
-    ) {
+    val container = when {
+        eval.passed -> MaterialTheme.colorScheme.primaryContainer
+        eval.hasPartialCredit -> MaterialTheme.colorScheme.tertiaryContainer
+        else -> MaterialTheme.colorScheme.errorContainer
+    }
+    Card(colors = CardDefaults.cardColors(containerColor = container)) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
-                if (eval.passed) "模拟运行通过" else "模拟运行未通过",
+                when {
+                    eval.passed -> "模拟运行通过 · 100%"
+                    eval.hasPartialCredit -> "部分通过 · 得分 ${eval.scorePercent}%"
+                    else -> "模拟运行未通过 · 得分 ${eval.scorePercent}%"
+                },
                 style = MaterialTheme.typography.titleMedium,
             )
+            if (eval.totalCases > 0) {
+                Text("用例 ${eval.passedCases} / ${eval.totalCases}")
+                LinearProgressIndicator(
+                    progress = { eval.passedCases / eval.totalCases.coerceAtLeast(1).toFloat() },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
             if (eval.totalChecks > 0) {
-                Text("自动检查 ${eval.passedChecks} / ${eval.totalChecks}")
+                Text("结构检查 ${eval.passedChecks} / ${eval.totalChecks}")
                 LinearProgressIndicator(
                     progress = { eval.passedChecks / eval.totalChecks.coerceAtLeast(1).toFloat() },
                     modifier = Modifier.fillMaxWidth(),
@@ -258,9 +272,37 @@ private fun SimulatedResultCard(eval: LabEvaluation) {
             }
             if (!eval.passed) {
                 Text(
-                    "对照黄金输出失败。下面是具体错因，按类别标出（缺头文件、差一、指针、公式、TODO 空壳等）。",
+                    if (eval.hasPartialCredit)
+                        "有的用例过了、有的没过，按组数给部分分。未通过的会记入错题本；全部通过才算完成实验。"
+                    else
+                        "对照多组用例失败。下面按类别标出错因（缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 搞混等）。",
                     style = MaterialTheme.typography.bodyMedium,
                 )
+            }
+            eval.caseOutcomes.forEach { outcome ->
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Icon(
+                        if (outcome.passed) Icons.Outlined.CheckCircle else Icons.Outlined.ErrorOutline,
+                        contentDescription = if (outcome.passed) "通过" else "未通过",
+                        tint = if (outcome.passed) MaterialTheme.colorScheme.primary
+                        else MaterialTheme.colorScheme.error,
+                    )
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            if (outcome.passed) "用例「${outcome.name}」通过"
+                            else "用例「${outcome.name}」未通过",
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                        if (!outcome.passed) {
+                            Text(
+                                "期望 ${outcome.expected.trim()} · 模拟 ${outcome.actual?.trim() ?: "（无输出）"}",
+                                fontFamily = FontFamily.Monospace,
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                            outcome.hint?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
+                        }
+                    }
+                }
             }
             eval.checkOutcomes.forEach { outcome ->
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
