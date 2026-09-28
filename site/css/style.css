@@ -1,4 +1,4 @@
-/* C一周通 landing — mobile-first, prefers-color-scheme */
+/* Etai 应用集 landing (C一周通 · 轻记账 · 班级事务记录) — mobile-first, prefers-color-scheme */
 
 :root {
   color-scheme: light dark;
@@ -15,6 +15,11 @@
   --code-bg: #0f172a;
   --shadow: 0 8px 32px rgba(16, 32, 39, 0.08);
   --radius: 14px;
+  --qjz: #b45309;
+  --qjz-bright: #f59e0b;
+  --class: #0369a1;
+  --class-bright: #38bdf8;
+  --header-h: 64px;
   --max: 1080px;
   --font: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", sans-serif;
@@ -33,6 +38,8 @@
     --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     --teal: #5eead4;
     --amber: #fcd34d;
+    --qjz: #fcd34d;
+    --class: #7dd3fc;
   }
 }
 
@@ -44,6 +51,16 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+main [id] {
+  scroll-margin-top: var(--header-h);
 }
 
 body {
@@ -537,4 +554,360 @@ section:nth-of-type(even) {
 
 .site-footer a {
   color: var(--text);
+}
+
+/* ---------- mock progress widths (CSP forbids inline style attributes) ---------- */
+
+.mock-progress i.p45 { width: 45%; }
+.mock-progress i.p57 { width: 57%; }
+.mock-progress i.p62 { width: 62%; }
+.mock-progress i.p70 { width: 70%; }
+.mock-progress i.p71 { width: 71%; }
+.mock-progress i.p80 { width: 80%; }
+.mock-progress i.p88 { width: 88%; }
+.mock-progress i.p100 { width: 100%; }
+
+.notfound {
+  text-align: center;
+  max-width: 28rem;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+
+/* ---------- apps strip (collection overview) ---------- */
+
+.apps-strip {
+  border-bottom: 1px solid var(--outline);
+  background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+  padding: 0.75rem 0;
+}
+
+.apps-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.apps-strip p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.app-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem 0.3rem 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--outline);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-chip:hover {
+  border-color: var(--teal);
+}
+
+.chip-badge,
+.side-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(135deg, var(--teal-bright), var(--teal));
+  flex-shrink: 0;
+}
+
+.chip-qjz .chip-badge,
+.link-qjz .side-badge {
+  background: linear-gradient(135deg, var(--qjz-bright), #b45309);
+}
+
+.chip-class .chip-badge,
+.link-class .side-badge {
+  background: linear-gradient(135deg, var(--class-bright), #0369a1);
+}
+
+.link-top .side-badge {
+  background: var(--outline);
+  color: var(--text);
+}
+
+/* ---------- project sections (轻记账 / 班级事务记录) ---------- */
+
+.project {
+  --accent: var(--teal);
+  --accent-bright: var(--teal-bright);
+  border-top: 1px solid var(--outline);
+  padding: 3.5rem 0;
+}
+
+.project-qjz {
+  --accent: var(--qjz);
+  --accent-bright: var(--qjz-bright);
+}
+
+.project-class {
+  --accent: var(--class);
+  --accent-bright: var(--class-bright);
+}
+
+.project-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}
+
+.project .project-badge {
+  background: color-mix(in srgb, var(--accent-bright) 20%, var(--surface));
+  color: var(--accent);
+}
+
+.project-title {
+  font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.project .lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  max-width: 36em;
+}
+
+.project .btn-primary {
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent-bright) 35%, transparent);
+}
+
+.project .mock-progress i {
+  background: linear-gradient(90deg, var(--accent-bright), var(--accent));
+}
+
+.project .card .tag {
+  color: var(--accent);
+}
+
+.project-subhead {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+.project-foot {
+  margin: 1.25rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.visual-note {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+/* ---------- floating side navigation ---------- */
+
+.side-nav {
+  position: fixed;
+  z-index: 60;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.side-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.45rem;
+  list-style: none;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--outline);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.side-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.side-link .side-badge {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.side-link:hover .side-badge,
+.side-link:focus-visible .side-badge,
+.side-link.is-active .side-badge {
+  opacity: 1;
+}
+
+.side-link.is-active .side-badge {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal-bright) 35%, transparent);
+}
+
+.side-link.link-qjz.is-active .side-badge {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--qjz-bright) 40%, transparent);
+}
+
+.side-link.link-class.is-active .side-badge {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--class-bright) 40%, transparent);
+}
+
+.side-link.is-active {
+  color: var(--text);
+}
+
+/* Medium widths: dots only, label appears as a tooltip on hover / focus */
+.side-label {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  background: var(--code-bg);
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.side-link:hover .side-label,
+.side-link:focus-visible .side-label {
+  opacity: 1;
+}
+
+/* Wide screens: labels always visible inside the pill */
+@media (min-width: 1420px) {
+  .side-nav ul {
+    border-radius: 20px;
+  }
+
+  .side-link {
+    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  }
+
+  .side-label {
+    position: static;
+    transform: none;
+    opacity: 1;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-size: 0.85rem;
+  }
+}
+
+/* Narrow / mobile: compact bottom bar that never covers content */
+@media (max-width: 899px) {
+  body {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .side-nav {
+    top: auto;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: none;
+  }
+
+  .side-nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+    padding: 0.35rem 0.5rem calc(0.35rem + env(safe-area-inset-bottom, 0px));
+    border-radius: 0;
+    border-width: 1px 0 0;
+    background: var(--surface);
+    box-shadow: 0 -4px 20px rgba(16, 32, 39, 0.08);
+  }
+
+  .side-nav li {
+    flex: 1;
+  }
+
+  .side-link {
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .side-link .side-badge {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .side-label {
+    position: static;
+    transform: none;
+    opacity: 1;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .site-header .nav {
+    display: none;
+  }
 }

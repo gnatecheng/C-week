@@ -8,8 +8,16 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 
 ## 主页 Homepage
 
-静态介绍页（功能、7 天路线、下载链接）：**https://c-week.chengyitang.workers.dev**  
-源码在仓库 [`site/`](site/) 目录，由 GitHub Actions 部署到 Cloudflare Pages 项目 `c-week`。
+静态介绍页「Etai 应用集」（C一周通的功能、7 天路线、下载链接，以及另外两款应用的介绍）：**https://etai.chengyitang.workers.dev**  
+源码在仓库 [`site/`](site/) 目录，推送到 `main` 后自动部署到 Cloudflare Worker `etai`（原名 `c-week`）。
+
+主页收录的应用：
+
+| 应用 | 简介 | 仓库 |
+| --- | --- | --- |
+| C一周通 | 7 天学会 C，从 Hello World 到 Dijkstra（本仓库） | [gnatecheng/C-week](https://github.com/gnatecheng/C-week) |
+| 轻记账 | 本地优先的个人记账（Room 本地存储，无需登录） | [gnatecheng/qingjizhang](https://github.com/gnatecheng/qingjizhang) |
+| 班级事务记录 | 单班出勤、缴费、费用分摊、清单 | [gnatecheng/class-activity-record](https://github.com/gnatecheng/class-activity-record) |
 
 ---
 

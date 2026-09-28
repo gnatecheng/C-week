@@ -3,32 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>C一周通 — 7 天学会 C，从 Hello World 到 Dijkstra 最短路</title>
+    <title>Etai 应用集 — C一周通 · 轻记账 · 班级事务记录</title>
     <meta
       name="description"
-      content="C一周通（C Week）是离线 Android 课程：真实 VS Code 屏幕录像、课文测验与多组用例实验，7 天带你用 C 写出 Dijkstra 最短路。当前版本 1.4.0。"
+      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（本地优先的个人记账，版本 1.2.0）、班级事务记录（出勤、缴费、分摊、清单，版本 1.4.0）。"
     />
     <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg?v=2" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css?v=3" />
+    <script src="/js/nav.js?v=3" defer></script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://c-week.chengyitang.workers.dev/" />
-    <meta property="og:title" content="C一周通 — 7 天学会 C，从 Hello World 到 Dijkstra" />
+    <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
+    <meta property="og:title" content="Etai 应用集 — C一周通 · 轻记账 · 班级事务记录" />
     <meta
       property="og:description"
-      content="Kotlin + Jetpack Compose 离线 Android 应用：真实 VS Code 录像、错题本、多组实验评测与学习报告。"
+      content="三款离线可用的 Kotlin + Jetpack Compose Android 应用：7 天学会 C 的 C一周通、本地记账的轻记账、单班事务管理的班级事务记录。"
     />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:image" content="https://c-week.chengyitang.workers.dev/assets/favicon.svg?v=2" />
+    <meta property="og:image" content="https://etai.chengyitang.workers.dev/assets/favicon.svg?v=2" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="C一周通 — 7 天学会 C" />
+    <meta name="twitter:title" content="Etai 应用集 — C一周通 · 轻记账 · 班级事务记录" />
     <meta
       name="twitter:description"
-      content="7 天把初学者带到能用 C 写出 Dijkstra 最短路。离线课文、VS Code 实机录像、实验与测验。"
+      content="C一周通：7 天用 C 写出 Dijkstra；轻记账：本地优先的个人记账；班级事务记录：出勤、缴费、分摊、清单。"
     />
-    <meta name="twitter:image" content="https://c-week.chengyitang.workers.dev/assets/favicon.svg?v=2" />
+    <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/favicon.svg?v=2" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -37,19 +38,31 @@
       <div class="wrap inner">
         <a class="brand" href="/">
           <img src="/assets/favicon.svg?v=2" width="36" height="36" alt="" />
-          <span>C一周通</span>
+          <span>Etai 应用集</span>
         </a>
         <nav class="nav" aria-label="页面章节">
-          <a href="#features">功能</a>
+          <a href="#cweek">C一周通</a>
           <a href="#roadmap">7 天路线</a>
-          <a href="#screenshots">界面示意</a>
+          <a href="#qingjizhang">轻记账</a>
+          <a href="#class-record">班级事务记录</a>
           <a href="#faq">常见问题</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero">
+      <div class="apps-strip">
+        <div class="wrap apps-strip-inner">
+          <p>Etai 应用集：三款离线可用、数据只存本机的 Android 应用</p>
+          <ul class="app-chips" aria-label="应用列表">
+            <li><a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span>C一周通</a></li>
+            <li><a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span>轻记账</a></li>
+            <li><a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span>班级事务记录</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="cweek" class="hero" data-group="cweek">
         <div class="wrap hero-grid">
           <div>
             <span class="hero-badge">C Week · 版本 1.4.0 · 离线优先</span>
@@ -87,11 +100,11 @@
                 </div>
                 <div class="mock-card">
                   <strong>学习日历 · 连续打卡</strong>
-                  <div class="mock-progress"><i style="width: 71%"></i></div>
+                  <div class="mock-progress"><i class="p71"></i></div>
                 </div>
                 <div class="mock-card">
                   <strong>VS Code 实机录像</strong>
-                  <div class="mock-progress"><i style="width: 100%"></i></div>
+                  <div class="mock-progress"><i class="p100"></i></div>
                 </div>
               </div>
             </div>
@@ -99,7 +112,7 @@
         </div>
       </section>
 
-      <section id="features">
+      <section id="features" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
             <h2>功能亮点</h2>
@@ -151,7 +164,7 @@
         </div>
       </section>
 
-      <section id="roadmap">
+      <section id="roadmap" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
             <h2>7 天学习路线</h2>
@@ -239,7 +252,7 @@
         </div>
       </section>
 
-      <section id="screenshots">
+      <section id="screenshots" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
             <h2>界面示意</h2>
@@ -276,10 +289,11 @@
         </div>
       </section>
 
-      <section id="faq">
+      <section id="faq" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
             <h2>常见问题</h2>
+            <p>以下问答针对 C一周通；轻记账与班级事务记录的安装方式见各自介绍。</p>
           </header>
           <div class="faq-list">
             <article class="faq-item">
@@ -321,13 +335,250 @@
           </div>
         </div>
       </section>
+
+      <section id="qingjizhang" class="project project-qjz" data-group="qingjizhang" aria-labelledby="qjz-title">
+        <div class="wrap">
+          <div class="project-grid">
+            <div>
+              <span class="hero-badge project-badge">记账本 · 版本 1.2.0 · 本地优先</span>
+              <h2 id="qjz-title" class="project-title">轻记账</h2>
+              <p class="lead">
+                本地优先的个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
+              </p>
+              <div class="hero-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/gnatecheng/qingjizhang#在本地编译"
+                  rel="noopener noreferrer"
+                >
+                  获取 APK（按 README 编译）
+                </a>
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/gnatecheng/qingjizhang"
+                  rel="noopener noreferrer"
+                >
+                  查看 GitHub 源码
+                </a>
+              </div>
+              <p class="hero-meta">
+                需要 Android 8.0 及以上（API 26）· 仓库暂无 Release 安装包，可用 <code>./gradlew :app:assembleRelease</code> 自行构建（演示签名仅供自行安装）
+              </p>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="phone-frame">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <div class="mock-card">
+                    <strong>本月收入 · 支出 · 结余</strong>
+                    <div class="mock-progress"><i class="p62"></i></div>
+                  </div>
+                  <div class="mock-card">
+                    <strong>预算 · 达到 80% 警告</strong>
+                    <div class="mock-progress"><i class="p80"></i></div>
+                  </div>
+                  <div class="mock-card">
+                    <strong>分类饼图 · 近 12 个月趋势</strong>
+                    <div class="mock-progress"><i class="p45"></i></div>
+                  </div>
+                </div>
+              </div>
+              <p class="visual-note">界面示意，非真实截屏</p>
+            </div>
+          </div>
+
+          <h3 class="project-subhead">主要功能</h3>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">流水</span>
+              <h3>记一笔 · 搜索筛选</h3>
+              <p>金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
+            </article>
+            <article class="card">
+              <span class="tag">转账</span>
+              <h3>账户之间互转</h3>
+              <p>转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
+            </article>
+            <article class="card">
+              <span class="tag">分类 · 账户</span>
+              <h3>分类与账户</h3>
+              <p>支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
+            </article>
+            <article class="card">
+              <span class="tag">统计</span>
+              <h3>月度统计与趋势</h3>
+              <p>月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
+            </article>
+            <article class="card">
+              <span class="tag">预算</span>
+              <h3>预算与提醒</h3>
+              <p>每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
+            </article>
+            <article class="card">
+              <span class="tag">备份</span>
+              <h3>导入导出</h3>
+              <p>导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
+            </article>
+            <article class="card">
+              <span class="tag">自动</span>
+              <h3>周期记账</h3>
+              <p>每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
+            </article>
+            <article class="card">
+              <span class="tag">小组件</span>
+              <h3>桌面小组件</h3>
+              <p>显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
+            </article>
+            <article class="card">
+              <span class="tag">隐私</span>
+              <h3>收据拍照</h3>
+              <p>记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
+            </article>
+          </div>
+          <p class="project-foot">
+            另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。
+          </p>
+        </div>
+      </section>
+
+      <section id="class-record" class="project project-class" data-group="class-record" aria-labelledby="class-title">
+        <div class="wrap">
+          <div class="project-grid">
+            <div>
+              <span class="hero-badge project-badge">多人事务 · 版本 1.4.0 · 简体中文</span>
+              <h2 id="class-title" class="project-title">班级事务记录</h2>
+              <p class="lead">
+                单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
+              </p>
+              <div class="hero-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/gnatecheng/class-activity-record#本地运行"
+                  rel="noopener noreferrer"
+                >
+                  获取 APK（按 README 编译）
+                </a>
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/gnatecheng/class-activity-record"
+                  rel="noopener noreferrer"
+                >
+                  查看 GitHub 源码
+                </a>
+              </div>
+              <p class="hero-meta">
+                需要 Android 8.0 及以上（API 26）· 仓库暂无 Release 安装包，可用 <code>./gradlew assembleDebug</code> 构建调试包后侧载
+              </p>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="phone-frame">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <div class="mock-card">
+                    <strong>出勤 · 连续点名</strong>
+                    <div class="mock-progress"><i class="p88"></i></div>
+                  </div>
+                  <div class="mock-card">
+                    <strong>缴费 · 仅未完成</strong>
+                    <div class="mock-progress"><i class="p57"></i></div>
+                  </div>
+                  <div class="mock-card">
+                    <strong>班费账本 · 收支与余额</strong>
+                    <div class="mock-progress"><i class="p70"></i></div>
+                  </div>
+                </div>
+              </div>
+              <p class="visual-note">界面示意，非真实截屏</p>
+            </div>
+          </div>
+
+          <h3 class="project-subhead">主要功能</h3>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">成员</span>
+              <h3>成员与名单</h3>
+              <p>成员增删改、软归档（学号、备注可选）；批量粘贴导入，支持学号在前、Tab 粘贴，重名/同学号会提示；可恢复已归档成员并保留历史事务。</p>
+            </article>
+            <article class="card">
+              <span class="tag">团体</span>
+              <h3>班内小团体</h3>
+              <p>多选成员组成团体，一人可属于多个团体；事务范围可选全班或某个小团体（空团体不能作为事务范围）。</p>
+            </article>
+            <article class="card">
+              <span class="tag">事务</span>
+              <h3>四种事务</h3>
+              <p>出勤 / 缴费 / 分摊 / 清单；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。</p>
+            </article>
+            <article class="card">
+              <span class="tag">分摊</span>
+              <h3>灵活分摊</h3>
+              <p>金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除同学、按权重或固定金额分摊。</p>
+            </article>
+            <article class="card">
+              <span class="tag">进度</span>
+              <h3>进度与点名</h3>
+              <p>事务详情默认「仅未完成」，点按更新状态；缴费/分摊可编辑金额；出勤事务支持连续点名；名单按学号排序（可关）。</p>
+            </article>
+            <article class="card">
+              <span class="tag">催缴</span>
+              <h3>摘要与催缴文案</h3>
+              <p>复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。</p>
+            </article>
+            <article class="card">
+              <span class="tag">班费</span>
+              <h3>班费账本</h3>
+              <p>收入/支出流水与余额；缴费事务可将已收合计记入班费；缴费/分摊可附加备注与图片凭证。</p>
+            </article>
+            <article class="card">
+              <span class="tag">备份</span>
+              <h3>备份与导出</h3>
+              <p>数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。</p>
+            </article>
+            <article class="card">
+              <span class="tag">小组件</span>
+              <h3>未完成人数小组件</h3>
+              <p>显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。</p>
+            </article>
+          </div>
+          <p class="project-foot">
+            首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。
+          </p>
+        </div>
+      </section>
     </main>
+
+    <nav class="side-nav" aria-label="应用快速导航">
+      <ul>
+        <li>
+          <a class="side-link link-cweek is-active" href="#cweek" data-target="cweek" aria-current="true">
+            <span class="side-badge" aria-hidden="true">C</span><span class="side-label">C一周通</span>
+          </a>
+        </li>
+        <li>
+          <a class="side-link link-qjz" href="#qingjizhang" data-target="qingjizhang">
+            <span class="side-badge" aria-hidden="true">账</span><span class="side-label">轻记账</span>
+          </a>
+        </li>
+        <li>
+          <a class="side-link link-class" href="#class-record" data-target="class-record">
+            <span class="side-badge" aria-hidden="true">班</span><span class="side-label">班级事务记录</span>
+          </a>
+        </li>
+        <li>
+          <a class="side-link link-top" href="#top">
+            <span class="side-badge" aria-hidden="true">↑</span><span class="side-label">回到顶部</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <footer class="site-footer">
       <div class="wrap inner">
-        <p>© C一周通（C Week）· 开源课程应用</p>
-        <p>
-          <a href="https://github.com/gnatecheng/C-week" rel="noopener noreferrer">github.com/gnatecheng/C-week</a>
+        <p>© Etai 应用集 · C一周通 / 轻记账 / 班级事务记录 · 开源 Android 应用</p>
+        <p class="footer-links">
+          <a href="https://github.com/gnatecheng/C-week" rel="noopener noreferrer">C-week</a>
+          <a href="https://github.com/gnatecheng/qingjizhang" rel="noopener noreferrer">qingjizhang</a>
+          <a href="https://github.com/gnatecheng/class-activity-record" rel="noopener noreferrer">class-activity-record</a>
         </p>
       </div>
     </footer>
