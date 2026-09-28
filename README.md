@@ -8,7 +8,7 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 
 ## 主页 Homepage
 
-静态介绍页（功能、7 天路线、下载链接）：**https://c-week.pages.dev**  
+静态介绍页（功能、7 天路线、下载链接）：**https://c-week.chengyitang.workers.dev**  
 源码在仓库 [`site/`](site/) 目录，由 GitHub Actions 部署到 Cloudflare Pages 项目 `c-week`。
 
 ---

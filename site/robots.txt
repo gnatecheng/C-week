@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://c-week.pages.dev/sitemap.xml
+Sitemap: https://c-week.chengyitang.workers.dev/sitemap.xml
