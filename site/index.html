@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C一周通 — 7 天学会 C，从 Hello World 到 Dijkstra 最短路</title>
+    <meta
+      name="description"
+      content="C一周通（C Week）是离线 Android 课程：真实 VS Code 屏幕录像、课文测验与多组用例实验，7 天带你用 C 写出 Dijkstra 最短路。当前版本 1.4.0。"
+    />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://c-week.pages.dev/" />
+    <meta property="og:title" content="C一周通 — 7 天学会 C，从 Hello World 到 Dijkstra" />
+    <meta
+      property="og:description"
+      content="Kotlin + Jetpack Compose 离线 Android 应用：真实 VS Code 录像、错题本、多组实验评测与学习报告。"
+    />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:image" content="https://c-week.pages.dev/assets/favicon.svg" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="C一周通 — 7 天学会 C" />
+    <meta
+      name="twitter:description"
+      content="7 天把初学者带到能用 C 写出 Dijkstra 最短路。离线课文、VS Code 实机录像、实验与测验。"
+    />
+    <meta name="twitter:image" content="https://c-week.pages.dev/assets/favicon.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="wrap inner">
+        <a class="brand" href="/">
+          <img src="/assets/favicon.svg" width="36" height="36" alt="" />
+          <span>C一周通</span>
+        </a>
+        <nav class="nav" aria-label="页面章节">
+          <a href="#features">功能</a>
+          <a href="#roadmap">7 天路线</a>
+          <a href="#screenshots">界面示意</a>
+          <a href="#faq">常见问题</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="hero-badge">C Week · 版本 1.4.0 · 离线优先</span>
+            <h1>C一周通</h1>
+            <p class="lead">
+              7 天把编程初学者带到能用 <strong>C 写出 Dijkstra 最短路</strong>（正确使用数组、指针与内存）。课文含<strong>真实 VS Code 屏幕录像</strong>（H.264，打包进 APK），Kotlin + Jetpack Compose，全程可离线学习。
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="https://github.com/gnatecheng/C-week/releases/latest"
+                rel="noopener noreferrer"
+              >
+                下载最新 APK
+              </a>
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/gnatecheng/C-week"
+                rel="noopener noreferrer"
+              >
+                查看 GitHub 源码
+              </a>
+            </div>
+            <p class="hero-meta">
+              需要 Android 8.0 及以上（minSdk 26）· 应用内模拟评测，无需手机安装 gcc
+            </p>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="phone-frame">
+              <div class="phone-notch"><span></span></div>
+              <div class="phone-screen">
+                <div class="mock-card">
+                  <strong>本周课程 · Day 1–7</strong>
+                  <div class="mock-progress"><i></i></div>
+                </div>
+                <div class="mock-card">
+                  <strong>学习日历 · 连续打卡</strong>
+                  <div class="mock-progress"><i style="width: 71%"></i></div>
+                </div>
+                <div class="mock-card">
+                  <strong>VS Code 实机录像</strong>
+                  <div class="mock-progress"><i style="width: 100%"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>功能亮点</h2>
+            <p>与 APK 内一致的能力说明，无后端、课文与演示视频均打包在应用内。</p>
+          </header>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">计划</span>
+              <h3>本周计划与进度</h3>
+              <p>Day 1–7 卡片、勾选与总体百分比；进度由 DataStore 持久化，跟随系统深色/浅色。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.3.0</span>
+              <h3>学习日历 / 打卡</h3>
+              <p>一关一天点亮 D1–D7，本周日期条与连续打卡天数；完成课文、实验或测验自动盖章。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              <h3>错题本 + 重练</h3>
+              <p>测验答错、实验未通过会记录天数、题号、作答与错因类别；按天列表，做对即标记已订正。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              <h3>实验多组用例</h3>
+              <p>离线模拟评测对照多组输入/输出，显示通过组数与部分得分，并给出更具体的中文错因。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              <h3>学习报告</h3>
+              <p>连续打卡、分天完成度、测验正确率，可通过系统分享面板发送。</p>
+            </article>
+            <article class="card">
+              <h3>课文 · 测验 · 录像</h3>
+              <p>中文讲解（含生活类比）、测验、VS Code 实机录像；第 1 天含路径/文件管理与逐条 bash（pwd/ls/cd 等及速查表）。</p>
+            </article>
+            <article class="card">
+              <h3>代码实验</h3>
+              <p>应用内编辑 C 片段；模拟运行对照多组用例。错因覆盖缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 混淆等。</p>
+            </article>
+            <article class="card">
+              <h3>Day 7 大作业</h3>
+              <p>邻接表 + O(V²) Dijkstra 填空；多组测试用例；通过后可「走格子/看路径」逐步查看 dist 与最短路。</p>
+            </article>
+            <article class="card">
+              <h3>词汇表</h3>
+              <p>pointer、栈/堆、数组退化、launch.json、bash 路径等术语可查；大点击区域与等宽代码字体便于阅读。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>7 天学习路线</h2>
+            <p>课程地图与 `app/src/main/assets/curriculum/map.json` 及 Kotlin 课文一致；每天含微课、测验与实验。</p>
+          </header>
+          <div class="roadmap">
+            <article class="card day-card">
+              <div class="day-num">D1</div>
+              <div class="day-body">
+                <h3>环境、文件与 Hello World</h3>
+                <p class="day-sub">路径 · bash · VS Code · 第一次编译</p>
+                <p class="day-outcome">
+                  能分清路径与工作区，用终端做基本文件操作，在 VS Code 里新建 .c、用 gcc 编译运行，并看懂 launch.json 与断点调试。
+                </p>
+                <span class="day-lab">实验：输出 Hello, Ada</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D2</div>
+              <div class="day-body">
+                <h3>类型、变量与 I/O</h3>
+                <p class="day-sub">静态类型 · printf/scanf · 没有自动回收</p>
+                <p class="day-outcome">
+                  能声明 int/double/char，用 printf/scanf 读写，理解溢出与栈上变量生命周期。
+                </p>
+                <span class="day-lab">实验：摄氏 ↔ 华氏</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D3</div>
+              <div class="day-body">
+                <h3>控制流与函数</h3>
+                <p class="day-sub">if/for/while · 原型 · 传值</p>
+                <p class="day-outcome">
+                  能写带原型的函数，理解 C 传值；知道为什么 swap 必须用指针（为 Day 4 铺路）。
+                </p>
+                <span class="day-lab">实验：写一个 is_prime</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D4</div>
+              <div class="day-body">
+                <h3>数组、字符串、指针</h3>
+                <p class="day-sub">连续内存 · 地址 · '\0'</p>
+                <p class="day-outcome">
+                  能画指针图，正确用数组与 '\0' 字符串，避开越界和数组退化陷阱。
+                </p>
+                <span class="day-lab">实验：原地反转字符串</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D5</div>
+              <div class="day-body">
+                <h3>结构体、堆内存、文件</h3>
+                <p class="day-sub">struct · malloc/free · fopen</p>
+                <p class="day-outcome">
+                  能定义 struct、在堆上分配邻接表节点、正确 free，并做基础文件读写。
+                </p>
+                <span class="day-lab">实验：结构体数组求最高分</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D6</div>
+              <div class="day-body">
+                <h3>算法热身：排序与 BFS</h3>
+                <p class="day-sub">选择排序 · 邻接表 · 网格/图 BFS</p>
+                <p class="day-outcome">
+                  理解选择排序、用数组模拟邻接表，并完成 BFS（队列 + dist[]）。
+                </p>
+                <span class="day-lab">实验：补全 BFS 松弛</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D7</div>
+              <div class="day-body">
+                <h3>大作业：Dijkstra 最短路</h3>
+                <p class="day-sub">正权图 · 邻接表 · O(V²) 教学实现</p>
+                <p class="day-outcome">
+                  独立补全松弛循环，能解释与 BFS 的差别，并在 VS Code 里编译运行测试。
+                </p>
+                <span class="day-lab">大作业：补全 Dijkstra 松弛</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="screenshots">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>界面示意</h2>
+            <p>仓库未包含应用截图；以下为风格化占位，便于了解主要界面类型，并非真实截屏。</p>
+          </header>
+          <div class="screenshot-grid">
+            <figure class="placeholder-shot">
+              <div class="label">本周课程 · 占位</div>
+              <div class="placeholder-art">
+                <div class="bar w90"></div>
+                <div class="bar w75"></div>
+                <div class="bar w55"></div>
+                <div class="code-block">Day 1 ✓ · Day 2 … · 43%</div>
+              </div>
+            </figure>
+            <figure class="placeholder-shot">
+              <div class="label">VS Code 录像 · 占位</div>
+              <div class="placeholder-art">
+                <div class="bar w75"></div>
+                <div class="code-block">// gcc hello.c -o hello<br />printf("Hello");</div>
+                <div class="bar w90"></div>
+              </div>
+            </figure>
+            <figure class="placeholder-shot">
+              <div class="label">实验评测 · 占位</div>
+              <div class="placeholder-art">
+                <div class="code-block">通过 2/3 组 · 部分得分</div>
+                <div class="bar w55"></div>
+                <div class="bar w75"></div>
+              </div>
+            </figure>
+          </div>
+          <p class="placeholder-note">应用图标沿用启动器设计（青绿 + 「C」+ 第 7 天标记）。</p>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>常见问题</h2>
+          </header>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>如何安装 APK？</h3>
+              <p>
+                在
+                <a href="https://github.com/gnatecheng/C-week/releases/latest" rel="noopener noreferrer"
+                  >GitHub Releases</a
+                >
+                下载最新 APK。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面显示「C一周通」。
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>系统要求是什么？</h3>
+              <p>
+                最低 Android 8.0（API 26，对应 minSdk 26），目标 SDK 35。建议使用较新系统以获得更好的 Media3 视频播放与 Material 3 体验。
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>需要联网吗？</h3>
+              <p>
+                不需要。课文、`assets/vscode_demos/*.mp4` 与实验数据均打包在 APK 内；进度、错题本等保存在本机 DataStore，无后端。
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>实验会在手机上编译 C 吗？</h3>
+              <p>
+                不会。应用使用离线模拟评测（多组用例 + 规则检查 + 中文错因提示），部分通过会显示分数，全部通过才记实验完成。
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>和电脑上的 VS Code 怎么配合？</h3>
+              <p>
+                可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开本仓库对照
+                <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考
+                <code>day7_dijkstra.c</code>，期望输出示例见 README。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap inner">
+        <p>© C一周通（C Week）· 开源课程应用</p>
+        <p>
+          <a href="https://github.com/gnatecheng/C-week" rel="noopener noreferrer">github.com/gnatecheng/C-week</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
