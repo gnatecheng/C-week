@@ -28,8 +28,10 @@ jobs:
       - name: Install Android SDK packages
         run: |
           echo "ANDROID_HOME=${ANDROID_HOME}"
-          yes | sdkmanager --licenses >/dev/null
-          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+          SDKM="$(ls -d "${ANDROID_HOME}"/cmdline-tools/*/bin/sdkmanager | sort -V | tail -n 1)"
+          echo "sdkmanager=${SDKM}"
+          yes | "${SDKM}" --licenses >/dev/null || true
+          "${SDKM}" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Read versionName
         id: version
