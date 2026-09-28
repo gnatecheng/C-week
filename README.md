@@ -6,6 +6,11 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 品牌名：**C一周通**（英文 C Week）  
 教学 IDE 演示是 **真实 VS Code 屏幕录像**（H.264，打包进 APK），用 Media3 播放，清单按时间轴跟随画面。示意图仅作无录像时的后备。
 
+## 主页 Homepage
+
+静态介绍页（功能、7 天路线、下载链接）：**https://c-week.pages.dev**  
+源码在仓库 [`site/`](site/) 目录，由 GitHub Actions 部署到 Cloudflare Pages 项目 `c-week`。
+
 ---
 
 ## 功能 Features
