@@ -1,0 +1,70 @@
+name: Release APK
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Read versionName
+        id: version
+        run: |
+          VERSION_NAME=$(grep -m1 'versionName = "' app/build.gradle.kts | sed 's/.*versionName = "\([^"]*\)".*/\1/')
+          echo "name=${VERSION_NAME}" >> "$GITHUB_OUTPUT"
+          echo "versionName=${VERSION_NAME}"
+
+      - name: Build debug APK
+        run: ./gradlew :app:assembleDebug --no-daemon
+
+      - name: Prepare release asset
+        run: |
+          VERSION_NAME="${{ steps.version.outputs.name }}"
+          APK_NAME="C一周通-${VERSION_NAME}.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk "${APK_NAME}"
+          echo "APK_NAME=${APK_NAME}" >> "$GITHUB_ENV"
+          ls -la "${APK_NAME}"
+
+      - name: Write release notes
+        run: |
+          {
+            echo "## 更新 Highlights"
+            echo
+            sed -n '/^## 功能 Features$/,/^---$/p' README.md | sed '1d;$d'
+            echo
+            echo "---"
+            echo
+            echo "调试包 \`assembleDebug\`，applicationId \`com.py2c.week.debug\`。"
+          } > release_body.md
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: C一周通 ${{ steps.version.outputs.name }}
+          body_path: release_body.md
+          files: ${{ env.APK_NAME }}
+          fail_on_unmatched_files: true
