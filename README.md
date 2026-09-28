@@ -11,6 +11,8 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 静态介绍页「Etai 应用集」（C一周通的功能、7 天路线、下载链接，以及另外两款应用的介绍）：**https://etai.chengyitang.workers.dev**  
 源码在仓库 [`site/`](site/) 目录，推送到 `main` 后自动部署到 Cloudflare Worker `etai`（原名 `c-week`）。
 
+主页应用截图位于 `site/assets/screens/`（WebP，约 540px 宽），来自各应用调试版 APK 的真实 Compose 界面；在无法使用 Android 模拟器 adb 截屏时，用 Roborazzi + Robolectric 在临时构建中录制（不提交到 Android 模块）。
+
 主页收录的应用：
 
 | 应用 | 简介 | 仓库 |
