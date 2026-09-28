@@ -8,10 +8,13 @@
       name="description"
       content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（本地优先的个人记账，版本 1.2.0）、班级事务记录（出勤、缴费、分摊、清单，版本 1.4.0）。"
     />
-    <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/assets/favicon.svg?v=2" />
-    <link rel="stylesheet" href="/css/style.css?v=3" />
-    <script src="/js/nav.js?v=3" defer></script>
+    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
+    <link rel="manifest" href="/site.webmanifest?v=1" />
+    <meta name="theme-color" content="#0f766e" />
+    <link rel="stylesheet" href="/css/style.css?v=4" />
+    <script src="/js/nav.js?v=4" defer></script>
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
@@ -21,7 +24,7 @@
       content="三款离线可用的 Kotlin + Jetpack Compose Android 应用：7 天学会 C 的 C一周通、本地记账的轻记账、单班事务管理的班级事务记录。"
     />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:image" content="https://etai.chengyitang.workers.dev/assets/favicon.svg?v=2" />
+    <meta property="og:image" content="https://etai.chengyitang.workers.dev/assets/icon-512.png?v=1" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Etai 应用集 — C一周通 · 轻记账 · 班级事务记录" />
@@ -29,7 +32,7 @@
       name="twitter:description"
       content="C一周通：7 天用 C 写出 Dijkstra；轻记账：本地优先的个人记账；班级事务记录：出勤、缴费、分摊、清单。"
     />
-    <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/favicon.svg?v=2" />
+    <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/icon-512.png?v=1" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -37,7 +40,7 @@
     <header class="site-header">
       <div class="wrap inner">
         <a class="brand" href="/">
-          <img src="/assets/favicon.svg?v=2" width="36" height="36" alt="" />
+          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
           <span>Etai 应用集</span>
         </a>
         <nav class="nav" aria-label="页面章节">
@@ -90,23 +93,76 @@
               需要 Android 8.0 及以上（minSdk 26）· 应用内模拟评测，无需手机安装 gcc
             </p>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="phone-frame">
-              <div class="phone-notch"><span></span></div>
-              <div class="phone-screen">
-                <div class="mock-card">
-                  <strong>本周课程 · Day 1–7</strong>
-                  <div class="mock-progress"><i></i></div>
-                </div>
-                <div class="mock-card">
-                  <strong>学习日历 · 连续打卡</strong>
-                  <div class="mock-progress"><i class="p71"></i></div>
-                </div>
-                <div class="mock-card">
-                  <strong>VS Code 实机录像</strong>
-                  <div class="mock-progress"><i class="p100"></i></div>
-                </div>
-              </div>
+          <div class="hero-visual screenshot-wrap">
+            <div class="screenshot-gallery" role="region" aria-label="C一周通应用截图">
+              <ul class="screenshot-gallery-track">
+                <li class="screenshot-slide">
+                  <figure class="screenshot-figure">
+                    <div class="phone-frame screenshot-phone">
+                      <div class="phone-notch"><span></span></div>
+                      <div class="phone-screen">
+                        <img src="/assets/screens/cweek/01-home.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通本周课程首页，7 天路线与总体进度" />
+                      </div>
+                    </div>
+                    <figcaption class="screenshot-caption">本周课程首页 · 7 天路线与进度</figcaption>
+                  </figure>
+                </li>
+                <li class="screenshot-slide">
+                  <figure class="screenshot-figure">
+                    <div class="phone-frame screenshot-phone">
+                      <div class="phone-notch"><span></span></div>
+                      <div class="phone-screen">
+                        <img src="/assets/screens/cweek/02-day1.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通第 1 天详情，微课、实验与测验入口" />
+                      </div>
+                    </div>
+                    <figcaption class="screenshot-caption">第 1 天详情 · 微课 / 实验 / 测验</figcaption>
+                  </figure>
+                </li>
+                <li class="screenshot-slide">
+                  <figure class="screenshot-figure">
+                    <div class="phone-frame screenshot-phone">
+                      <div class="phone-notch"><span></span></div>
+                      <div class="phone-screen">
+                        <img src="/assets/screens/cweek/03-lesson.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通课文阅读界面，含代码示例与 VS Code 演示入口" />
+                      </div>
+                    </div>
+                    <figcaption class="screenshot-caption">课文阅读 · 代码与 VS Code 演示</figcaption>
+                  </figure>
+                </li>
+                <li class="screenshot-slide">
+                  <figure class="screenshot-figure">
+                    <div class="phone-frame screenshot-phone">
+                      <div class="phone-notch"><span></span></div>
+                      <div class="phone-screen">
+                        <img src="/assets/screens/cweek/04-quiz.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通今日测验界面，提交后记入学习进度" />
+                      </div>
+                    </div>
+                    <figcaption class="screenshot-caption">今日测验 · 提交后记入进度</figcaption>
+                  </figure>
+                </li>
+                <li class="screenshot-slide">
+                  <figure class="screenshot-figure">
+                    <div class="phone-frame screenshot-phone">
+                      <div class="phone-notch"><span></span></div>
+                      <div class="phone-screen">
+                        <img src="/assets/screens/cweek/05-labs.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通代码实验列表，离线模拟评测" />
+                      </div>
+                    </div>
+                    <figcaption class="screenshot-caption">代码实验 · 离线模拟评测</figcaption>
+                  </figure>
+                </li>
+                <li class="screenshot-slide">
+                  <figure class="screenshot-figure">
+                    <div class="phone-frame screenshot-phone">
+                      <div class="phone-notch"><span></span></div>
+                      <div class="phone-screen">
+                        <img src="/assets/screens/cweek/06-report.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通学习报告，连续打卡与测验正确率" />
+                      </div>
+                    </div>
+                    <figcaption class="screenshot-caption">学习报告 · 打卡与正确率</figcaption>
+                  </figure>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -255,37 +311,46 @@
       <section id="screenshots" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
-            <h2>界面示意</h2>
-            <p>仓库未包含应用截图；以下为风格化占位，便于了解主要界面类型，并非真实截屏。</p>
+            <h2>应用截图</h2>
+            <p>以下截屏来自调试版 APK 的真实 Jetpack Compose 界面（与手机端一致的主要屏幕）。</p>
           </header>
-          <div class="screenshot-grid">
-            <figure class="placeholder-shot">
-              <div class="label">本周课程 · 占位</div>
-              <div class="placeholder-art">
-                <div class="bar w90"></div>
-                <div class="bar w75"></div>
-                <div class="bar w55"></div>
-                <div class="code-block">Day 1 ✓ · Day 2 … · 43%</div>
-              </div>
-            </figure>
-            <figure class="placeholder-shot">
-              <div class="label">VS Code 录像 · 占位</div>
-              <div class="placeholder-art">
-                <div class="bar w75"></div>
-                <div class="code-block">// gcc hello.c -o hello<br />printf("Hello");</div>
-                <div class="bar w90"></div>
-              </div>
-            </figure>
-            <figure class="placeholder-shot">
-              <div class="label">实验评测 · 占位</div>
-              <div class="placeholder-art">
-                <div class="code-block">通过 2/3 组 · 部分得分</div>
-                <div class="bar w55"></div>
-                <div class="bar w75"></div>
-              </div>
-            </figure>
+          <div class="screenshot-gallery" role="region" aria-label="C一周通全部截图">
+            <ul class="screenshot-gallery-track">
+              <li class="screenshot-slide">
+                <figure class="screenshot-figure">
+                  <div class="phone-frame screenshot-phone">
+                    <div class="phone-notch"><span></span></div>
+                    <div class="phone-screen">
+                      <img src="/assets/screens/cweek/01-home.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通本周课程首页" />
+                    </div>
+                  </div>
+                  <figcaption class="screenshot-caption">本周课程首页</figcaption>
+                </figure>
+              </li>
+              <li class="screenshot-slide">
+                <figure class="screenshot-figure">
+                  <div class="phone-frame screenshot-phone">
+                    <div class="phone-notch"><span></span></div>
+                    <div class="phone-screen">
+                      <img src="/assets/screens/cweek/03-lesson.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通课文与 VS Code 演示" />
+                    </div>
+                  </div>
+                  <figcaption class="screenshot-caption">课文 · VS Code 演示入口</figcaption>
+                </figure>
+              </li>
+              <li class="screenshot-slide">
+                <figure class="screenshot-figure">
+                  <div class="phone-frame screenshot-phone">
+                    <div class="phone-notch"><span></span></div>
+                    <div class="phone-screen">
+                      <img src="/assets/screens/cweek/05-labs.webp?v=1" width="540" height="1171" loading="lazy" alt="C一周通代码实验与评测" />
+                    </div>
+                  </div>
+                  <figcaption class="screenshot-caption">实验 · 多组用例评测</figcaption>
+                </figure>
+              </li>
+            </ul>
           </div>
-          <p class="placeholder-note">应用图标沿用启动器设计（青绿 + 「C」+ 第 7 天标记）。</p>
         </div>
       </section>
 
@@ -365,25 +430,66 @@
                 需要 Android 8.0 及以上（API 26）· 仓库暂无 Release 安装包，可用 <code>./gradlew :app:assembleRelease</code> 自行构建（演示签名仅供自行安装）
               </p>
             </div>
-            <div class="hero-visual" aria-hidden="true">
-              <div class="phone-frame">
-                <div class="phone-notch"><span></span></div>
-                <div class="phone-screen">
-                  <div class="mock-card">
-                    <strong>本月收入 · 支出 · 结余</strong>
-                    <div class="mock-progress"><i class="p62"></i></div>
-                  </div>
-                  <div class="mock-card">
-                    <strong>预算 · 达到 80% 警告</strong>
-                    <div class="mock-progress"><i class="p80"></i></div>
-                  </div>
-                  <div class="mock-card">
-                    <strong>分类饼图 · 近 12 个月趋势</strong>
-                    <div class="mock-progress"><i class="p45"></i></div>
-                  </div>
-                </div>
+            <div class="hero-visual screenshot-wrap">
+              <div class="screenshot-gallery" role="region" aria-label="轻记账应用截图">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/01-home.webp?v=1" width="540" height="1171" loading="lazy" alt="轻记账首页，本月收支结余与预算概览" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">首页 · 本月收支与预算</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/02-entries.webp?v=1" width="540" height="1171" loading="lazy" alt="轻记账流水明细，搜索与筛选" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">明细 · 流水与筛选</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/03-stats.webp?v=1" width="540" height="1171" loading="lazy" alt="轻记账统计页，分类饼图与趋势" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">统计 · 饼图与 12 个月趋势</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/04-budget.webp?v=1" width="540" height="1171" loading="lazy" alt="轻记账预算页，进度与超支提醒" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">预算 · 80% 警告与超支</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/05-mine.webp?v=1" width="540" height="1171" loading="lazy" alt="轻记账我的页面，账户分类与设置" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">我的 · 账户、分类与设置</figcaption>
+                    </figure>
+                  </li>
+                </ul>
               </div>
-              <p class="visual-note">界面示意，非真实截屏</p>
             </div>
           </div>
 
@@ -470,25 +576,55 @@
                 需要 Android 8.0 及以上（API 26）· 仓库暂无 Release 安装包，可用 <code>./gradlew assembleDebug</code> 构建调试包后侧载
               </p>
             </div>
-            <div class="hero-visual" aria-hidden="true">
-              <div class="phone-frame">
-                <div class="phone-notch"><span></span></div>
-                <div class="phone-screen">
-                  <div class="mock-card">
-                    <strong>出勤 · 连续点名</strong>
-                    <div class="mock-progress"><i class="p88"></i></div>
-                  </div>
-                  <div class="mock-card">
-                    <strong>缴费 · 仅未完成</strong>
-                    <div class="mock-progress"><i class="p57"></i></div>
-                  </div>
-                  <div class="mock-card">
-                    <strong>班费账本 · 收支与余额</strong>
-                    <div class="mock-progress"><i class="p70"></i></div>
-                  </div>
-                </div>
+            <div class="hero-visual screenshot-wrap">
+              <div class="screenshot-gallery" role="region" aria-label="班级事务记录应用截图">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/01-home.webp?v=1" width="540" height="1171" loading="lazy" alt="班级事务记录首页，班级与事务列表" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">首页 · 班级与事务列表</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/02-ledger.webp?v=1" width="540" height="1171" loading="lazy" alt="班级事务记录班费账本，收支流水与余额" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">班费账本 · 收支与余额</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/03-members.webp?v=1" width="540" height="1171" loading="lazy" alt="班级事务记录成员名单管理" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">成员 · 名单与学号</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/04-wizard.webp?v=1" width="540" height="1171" loading="lazy" alt="班级事务记录新建事务向导" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">新建事务 · 出勤 / 缴费 / 分摊</figcaption>
+                    </figure>
+                  </li>
+                </ul>
               </div>
-              <p class="visual-note">界面示意，非真实截屏</p>
             </div>
           </div>
 
