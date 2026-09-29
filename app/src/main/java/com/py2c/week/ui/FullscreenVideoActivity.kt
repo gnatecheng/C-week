@@ -1,7 +1,7 @@
 package com.py2c.week.ui
 
-import android.content.Context
 import android.content.Intent
+import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
@@ -24,13 +24,20 @@ import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
 import com.py2c.week.Py2CApplication
 import com.py2c.week.R
+import com.py2c.week.data.UserPreferencesStore
 import com.py2c.week.data.VideoDemo
+import com.py2c.week.util.withAppLocale
 
 /**
  * Dedicated landscape activity that owns the window. The PlayerView is MATCH_PARENT
  * on the Activity content view — not a Compose Dialog inside the lesson column.
  */
 class FullscreenVideoActivity : ComponentActivity() {
+
+    override fun attachBaseContext(newBase: Context) {
+        val locale = UserPreferencesStore.resolvedLocaleBlocking(newBase)
+        super.attachBaseContext(newBase.withAppLocale(locale))
+    }
 
     private var player: ExoPlayer? = null
     private var playerView: PlayerView? = null

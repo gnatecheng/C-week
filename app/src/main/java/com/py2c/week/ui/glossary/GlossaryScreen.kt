@@ -30,21 +30,25 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.py2c.week.data.GlossaryTerm
+import com.py2c.week.ui.strings.LocalAppLocale
+import com.py2c.week.ui.strings.rememberStrings
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GlossaryScreen(terms: List<GlossaryTerm>, onOpen: (String) -> Unit) {
-    var cat by remember { mutableStateOf("全部") }
-    val cats = remember(terms) { listOf("全部") + terms.map { it.category }.distinct() }
-    val filtered = if (cat == "全部") terms else terms.filter { it.category == cat }
+    val strings = rememberStrings()
+    val locale = LocalAppLocale.current
+    var cat by remember(locale) { mutableStateOf(strings.glossaryAll) }
+    val cats = remember(terms, strings) { listOf(strings.glossaryAll) + terms.map { it.category }.distinct() }
+    val filtered = if (cat == strings.glossaryAll) terms else terms.filter { it.category == cat }
     Column(
         Modifier
             .fillMaxSize()
             .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Text("C 词汇表", style = MaterialTheme.typography.headlineMedium)
-        Text("指针、栈堆、工具链等词。每条先给生活类比，再写精确含义。", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(strings.glossaryTitle, style = MaterialTheme.typography.headlineMedium)
+        Text(strings.glossaryIntro, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Row(
             Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -71,13 +75,14 @@ fun GlossaryScreen(terms: List<GlossaryTerm>, onOpen: (String) -> Unit) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TermScreen(term: GlossaryTerm, onBack: () -> Unit) {
+    val strings = rememberStrings()
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(term.termC) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )

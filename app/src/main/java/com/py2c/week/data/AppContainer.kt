@@ -4,7 +4,9 @@ import android.content.Context
 import com.py2c.week.data.curriculum.buildCurriculum
 
 class AppContainer(context: Context) {
+    private val appContext = context.applicationContext
     val curriculum: WeekCurriculum = buildCurriculum()
-    val progressStore = ProgressStore(context.applicationContext)
-    val videos: Map<String, VideoDemo> = VideoCatalog(context.applicationContext).byId
+    val progressStore = ProgressStore(appContext)
+    val userPreferencesStore = UserPreferencesStore(appContext)
+    val videos: Map<String, VideoDemo> = VideoCatalog(appContext).byId
 }

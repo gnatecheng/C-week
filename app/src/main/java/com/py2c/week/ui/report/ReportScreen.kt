@@ -30,6 +30,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.py2c.week.data.LearningReport
 import com.py2c.week.data.WeekCurriculum
+import com.py2c.week.ui.strings.rememberStrings
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,15 +39,17 @@ fun ReportScreen(
     report: LearningReport,
     onBack: () -> Unit,
 ) {
+    val strings = rememberStrings()
     val context = LocalContext.current
-    val shareBody = report.shareText(curriculum.brand)
+    val brand = strings.brandName
+    val shareBody = report.shareText(brand, strings)
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("学习报告") },
+                title = { Text(strings.reportTitle) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )
@@ -60,11 +63,11 @@ fun ReportScreen(
                 .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            Text(curriculum.brand, style = MaterialTheme.typography.headlineSmall)
+            Text(brand, style = MaterialTheme.typography.headlineSmall)
             Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("连续打卡 ${report.streak} 天", style = MaterialTheme.typography.titleLarge)
-                    Text("累计 ${report.checkinDays} 天有学习记录 · 总体进度 ${report.overallPercent}%")
+                    Text(strings.reportStreak(report.streak), style = MaterialTheme.typography.titleLarge)
+                    Text(strings.reportCheckins(report.checkinDays, report.overallPercent))
                     LinearProgressIndicator(
                         progress = { report.overallPercent / 100f },
                         modifier = Modifier.fillMaxWidth(),
@@ -73,31 +76,33 @@ fun ReportScreen(
             }
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
                 StatChip(
-                    title = "测验正确率",
+                    title = strings.reportQuizAccuracy,
                     value = if (report.quizAsked == 0) "—" else "${report.quizAccuracyPercent}%",
-                    subtitle = if (report.quizAsked == 0) "还没交卷" else "${report.quizCorrect}/${report.quizAsked}",
+                    subtitle = if (report.quizAsked == 0) strings.reportQuizNotTaken
+                    else strings.reportQuizSubtitle(report.quizCorrect, report.quizAsked),
                     modifier = Modifier.weight(1f),
                 )
                 StatChip(
-                    title = "实验通过",
+                    title = strings.reportLabsPassed,
                     value = "${report.labsPassed}/${report.labsTotal}",
-                    subtitle = "待订正 ${report.openWrongs} 题",
+                    subtitle = strings.reportOpenWrongs(report.openWrongs),
                     modifier = Modifier.weight(1f),
                 )
             }
-            Text("分天完成度", style = MaterialTheme.typography.titleMedium)
+            Text(strings.reportDayBreakdown, style = MaterialTheme.typography.titleMedium)
             report.days.forEach { day ->
                 Card(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text("第 ${day.dayId} 天 · ${day.title}", style = MaterialTheme.typography.titleMedium)
+                        Text(strings.reportDayLine(day.dayId, day.title), style = MaterialTheme.typography.titleMedium)
                         LinearProgressIndicator(
                             progress = { day.percent / 100f },
                             modifier = Modifier.fillMaxWidth(),
                         )
+                        val quizPart = day.quizScore?.let { strings.reportQuizScore(it, day.quizTotal) }
+                            ?: strings.reportQuizNotSubmitted
+                        val labPart = if (day.labDone) strings.reportLabDone else strings.reportLabNotDone
                         Text(
-                            "${day.percent}%（${day.done}/${day.total}） · " +
-                                (day.quizScore?.let { "测验 $it/${day.quizTotal}" } ?: "测验未交") +
-                                " · " + if (day.labDone) "实验已过" else "实验未过",
+                            strings.reportDayDetail(day.percent, day.done, day.total, quizPart, labPart),
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
@@ -107,20 +112,20 @@ fun ReportScreen(
                 onClick = {
                     val intent = Intent(Intent.ACTION_SEND).apply {
                         type = "text/plain"
-                        putExtra(Intent.EXTRA_SUBJECT, "${curriculum.brand}学习报告")
+                        putExtra(Intent.EXTRA_SUBJECT, strings.reportShareSubject(brand))
                         putExtra(Intent.EXTRA_TEXT, shareBody)
                     }
-                    context.startActivity(Intent.createChooser(intent, "分享学习报告"))
+                    context.startActivity(Intent.createChooser(intent, strings.reportShareChooser))
                 },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(52.dp),
             ) {
                 Icon(Icons.Outlined.Share, contentDescription = null)
-                Text("  分享报告", style = MaterialTheme.typography.titleMedium)
+                Text(strings.reportShare, style = MaterialTheme.typography.titleMedium)
             }
             Text(
-                "会打开系统分享面板，可发到微信、邮件或其他应用。内容只含本机进度，不含账号。",
+                strings.reportShareHint,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

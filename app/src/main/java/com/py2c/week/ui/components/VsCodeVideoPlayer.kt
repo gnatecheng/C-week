@@ -46,6 +46,7 @@ import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
 import com.py2c.week.data.VideoDemo
 import com.py2c.week.ui.FullscreenVideoActivity
+import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.delay
 
 internal val DefaultLessonSpeed = 0.75f
@@ -57,6 +58,7 @@ fun VsCodeVideoPlayer(
     demo: VideoDemo,
     modifier: Modifier = Modifier,
 ) {
+    val strings = rememberStrings()
     val context = LocalContext.current
     val player = remember(demo.file) {
         ExoPlayer.Builder(context).build().apply {
@@ -138,7 +140,7 @@ fun VsCodeVideoPlayer(
                         this.player = player
                         setShowBuffering(PlayerView.SHOW_BUFFERING_WHEN_PLAYING)
                         setFullscreenButtonClickListener { _ -> enterFullscreen() }
-                        contentDescription = "VS Code 实机演示：${demo.title}"
+                        contentDescription = strings.vscodeDemoContentDescription(demo.title)
                     }
                 },
                 update = { view ->
@@ -166,7 +168,7 @@ fun VsCodeVideoPlayer(
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Text(
-                "语速（默认 0.75×，便于看清操作）",
+                strings.vscodeSpeedLabel,
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
             )
@@ -186,7 +188,7 @@ fun VsCodeVideoPlayer(
             }
         }
         Text(
-            "操作清单随进度高亮（第 ${active + 1} / ${demo.captions.size} 步）",
+            strings.vscodeStepProgress(active + 1, demo.captions.size),
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -210,7 +212,7 @@ fun VsCodeVideoPlayer(
                 IconCheck(done = passed || on, active = on)
                 Column(Modifier.weight(1f)) {
                     Text(
-                        if (on) "正在讲解 · ${formatClock(cap.atMs)}" else formatClock(cap.atMs),
+                        if (on) "${strings.vscodeExplainingNow}${formatClock(cap.atMs)}" else formatClock(cap.atMs),
                         style = MaterialTheme.typography.labelSmall,
                         color = if (on) MaterialTheme.colorScheme.primary
                         else MaterialTheme.colorScheme.onSurfaceVariant,

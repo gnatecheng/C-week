@@ -11,6 +11,11 @@ fun QuizQuestion.verdict(selectedIndex: Int): String {
     return if (ok) "判断：正确" else "判断：错误"
 }
 
+fun QuizQuestion.verdict(selectedIndex: Int, strings: com.py2c.week.ui.strings.AppStrings): String {
+    val ok = selectedIndex == correctIndex
+    return if (ok) strings.quizVerdictCorrect else strings.quizVerdictWrong
+}
+
 /** Short Chinese category stored with a wrong-book entry. */
 fun QuizQuestion.hintCategory(): String = HINT_CATEGORIES[id] ?: "概念"
 

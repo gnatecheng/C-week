@@ -28,16 +28,12 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.unit.dp
+import com.py2c.week.ui.strings.rememberStrings
 
 @Composable
 fun MemoryViz(variant: String, modifier: Modifier = Modifier) {
-    val caption = when (variant) {
-        "pointer_basic" -> "动画：p 里存的是 x 的地址。解引用 *p 就是顺着箭头改 x。"
-        "array_decay" -> "数组 a[3] 在函数参数里变成指向 a[0] 的指针。"
-        "cstring" -> "\"hi\" 实际是 h i \\\\0 三格。少了最后一格，%s 就会越界。"
-        "heap" -> "栈上的 p 指向堆上的 int。free 后箭头必须作废。"
-        else -> "内存示意"
-    }
+    val strings = rememberStrings()
+    val caption = strings.memoryVizCaption(variant)
     val t by rememberInfiniteTransition(label = "mv").animateFloat(
         initialValue = 0f,
         targetValue = 1f,
@@ -61,9 +57,9 @@ fun MemoryViz(variant: String, modifier: Modifier = Modifier) {
         }
         Text(caption, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            LegendDot(Color(0xFF5EEAD4), "变量格子")
-            LegendDot(Color(0xFFFBBF24), "指针 / 地址")
-            LegendDot(Color(0xFF93C5FD), "数据")
+            LegendDot(Color(0xFF5EEAD4), strings.memoryVizLegendVar)
+            LegendDot(Color(0xFFFBBF24), strings.memoryVizLegendPtr)
+            LegendDot(Color(0xFF93C5FD), strings.memoryVizLegendData)
         }
     }
 }

@@ -16,12 +16,14 @@ import androidx.compose.material.icons.outlined.AutoStories
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Insights
 import androidx.compose.material.icons.outlined.RadioButtonUnchecked
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -46,6 +48,7 @@ import com.py2c.week.data.completedCount
 import com.py2c.week.data.completedCourseDayIds
 import com.py2c.week.data.itemCount
 import com.py2c.week.ui.navigation.LocalContainer
+import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.launch
 
 @Composable
@@ -55,8 +58,10 @@ fun HomeScreen(
     onOpenDay: (Int) -> Unit,
     onOpenWrongBook: () -> Unit = {},
     onOpenReport: () -> Unit = {},
+    onOpenSettings: () -> Unit = {},
     onReset: () -> Unit,
 ) {
+    val strings = rememberStrings()
     val percent = progress.overallPercent(curriculum)
     val store = LocalContainer.current.progressStore
     val scope = rememberCoroutineScope()
@@ -73,22 +78,30 @@ fun HomeScreen(
             .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        Text(curriculum.brand, style = MaterialTheme.typography.displaySmall)
-        Text(curriculum.brandEn, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.primary)
-        Text(curriculum.tagline, style = MaterialTheme.typography.bodyLarge)
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.Top,
+        ) {
+            Column(Modifier.weight(1f)) {
+                Text(strings.brandName, style = MaterialTheme.typography.displaySmall)
+                Text(strings.brandSubtitle, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.primary)
+            }
+            IconButton(onClick = onOpenSettings) {
+                Icon(Icons.Outlined.Settings, contentDescription = strings.settingsTitle)
+            }
+        }
+        Text(strings.tagline, style = MaterialTheme.typography.bodyLarge)
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text("一周进度  $percent%", style = MaterialTheme.typography.titleLarge)
+                Text(strings.homeProgressPercent(percent), style = MaterialTheme.typography.titleLarge)
                 LinearProgressIndicator(
                     progress = { percent / 100f },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .semantics { contentDescription = "总体完成 $percent 百分之" },
+                        .semantics { contentDescription = strings.overallProgressDescription(percent) },
                 )
-                Text(
-                    "课文用生活场景打比方（门牌号、食谱、储物柜），再落到精确的 C。每天微课 + 实验 + 测验。真正的 gcc 在电脑 VS Code 里跑，手机上是讲解与模拟评测。",
-                    style = MaterialTheme.typography.bodyMedium,
-                )
+                Text(strings.homeProgressBlurb, style = MaterialTheme.typography.bodyMedium)
             }
         }
         WeekCheckInCard(
@@ -106,10 +119,9 @@ fun HomeScreen(
             ) {
                 Icon(Icons.Outlined.AutoStories, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
                 Column(Modifier.weight(1f)) {
-                    Text("错题本", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+                    Text(strings.homeWrongBookTitle, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
                     Text(
-                        if (openWrongs == 0) "测验和实验的错题会按天列在这里，点进去重练。"
-                        else "待订正 $openWrongs 题 · 点按按天重练，做对即标记已订正",
+                        strings.homeWrongBookBody(openWrongs),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -124,9 +136,9 @@ fun HomeScreen(
             ) {
                 Icon(Icons.Outlined.Insights, contentDescription = null, tint = MaterialTheme.colorScheme.secondary)
                 Column(Modifier.weight(1f)) {
-                    Text("学习报告", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+                    Text(strings.homeReportTitle, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
                     Text(
-                        "连续打卡 ${progress.streak} 天 · 总体 $percent% · 可系统分享",
+                        strings.homeReportBody(progress.streak, percent),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -137,7 +149,7 @@ fun HomeScreen(
             DayCard(day, progress, onOpen = { onOpenDay(day.id) })
         }
         FilledTonalButton(onClick = { confirmReset = true }, modifier = Modifier.height(48.dp)) {
-            Text("清除本地进度")
+            Text(strings.homeClearProgress)
         }
         Spacer(Modifier.height(12.dp))
     }
@@ -145,16 +157,16 @@ fun HomeScreen(
     if (confirmReset) {
         AlertDialog(
             onDismissRequest = { confirmReset = false },
-            title = { Text("清除进度？") },
-            text = { Text("课程内容仍在，只删除本机 DataStore 里的完成记录。") },
+            title = { Text(strings.homeClearProgressTitle) },
+            text = { Text(strings.homeClearProgressMessage) },
             confirmButton = {
                 TextButton(onClick = {
                     confirmReset = false
                     scope.launch { store.resetAll() }
                     onReset()
-                }) { Text("清除") }
+                }) { Text(strings.clear) }
             },
-            dismissButton = { TextButton(onClick = { confirmReset = false }) { Text("取消") } },
+            dismissButton = { TextButton(onClick = { confirmReset = false }) { Text(strings.cancel) } },
         )
     }
 }
@@ -162,6 +174,7 @@ fun HomeScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DayCard(day: CourseDay, progress: ProgressSnapshot, onOpen: () -> Unit) {
+    val strings = rememberStrings()
     val done = day.completedCount(progress)
     val total = day.itemCount()
     val complete = done == total
@@ -169,7 +182,7 @@ private fun DayCard(day: CourseDay, progress: ProgressSnapshot, onOpen: () -> Un
         onClick = onOpen,
         modifier = Modifier
             .fillMaxWidth()
-            .semantics { contentDescription = "第${day.id}天 ${day.title}" },
+            .semantics { contentDescription = strings.homeDayContentDescription(day.id, day.title) },
     ) {
         Row(
             Modifier.padding(16.dp),
@@ -178,17 +191,17 @@ private fun DayCard(day: CourseDay, progress: ProgressSnapshot, onOpen: () -> Un
         ) {
             Icon(
                 if (complete) Icons.Outlined.CheckCircle else Icons.Outlined.RadioButtonUnchecked,
-                contentDescription = if (complete) "已完成" else "未完成",
+                contentDescription = if (complete) strings.complete else strings.incomplete,
                 tint = if (complete) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
                 modifier = Modifier.size(32.dp),
             )
             Column(Modifier.weight(1f)) {
-                Text("第 ${day.id} 天 · ${day.minutes} 分钟", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                Text(strings.homeDayMeta(day.id, day.minutes), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
                 Text(day.title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
                 Text(day.subtitle, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Spacer(Modifier.height(6.dp))
                 LinearProgressIndicator(progress = { done / total.toFloat() }, modifier = Modifier.fillMaxWidth())
-                Text("$done / $total 项", style = MaterialTheme.typography.labelLarge)
+                Text(strings.homeDayProgress(done, total), style = MaterialTheme.typography.labelLarge)
             }
         }
     }

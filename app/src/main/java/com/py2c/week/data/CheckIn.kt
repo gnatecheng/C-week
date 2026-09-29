@@ -38,6 +38,11 @@ fun thisCalendarWeek(): List<LocalDate> {
 fun LocalDate.shortWeekdayZh(): String =
     dayOfWeek.getDisplayName(TextStyle.NARROW, Locale.CHINA)
 
+fun LocalDate.shortWeekday(locale: AppLocale): String = when (locale) {
+    AppLocale.ZH -> dayOfWeek.getDisplayName(TextStyle.NARROW, Locale.CHINA)
+    AppLocale.EN -> dayOfWeek.getDisplayName(TextStyle.NARROW, Locale.ENGLISH)
+}
+
 fun CourseDay.isFullyComplete(progress: ProgressSnapshot): Boolean =
     completedCount(progress) == itemCount()
 

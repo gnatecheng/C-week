@@ -41,6 +41,7 @@ import com.py2c.week.ui.components.CodePane
 import com.py2c.week.ui.components.MemoryViz
 import com.py2c.week.ui.components.VsCodeVideoPlayer
 import com.py2c.week.ui.components.VsCodeWalkthrough
+import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,6 +56,7 @@ fun LessonScreen(
     onOpenDemo: (String) -> Unit,
     onMarkDone: suspend () -> Unit,
 ) {
+    val strings = rememberStrings()
     val scope = rememberCoroutineScope()
     Scaffold(
         topBar = {
@@ -62,7 +64,7 @@ fun LessonScreen(
                 title = { Text(lesson.title) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )
@@ -76,7 +78,7 @@ fun LessonScreen(
                 .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            Text("第 ${day.id} 天 · ${lesson.minutes} 分钟", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+            Text(strings.lessonDayMeta(day.id, lesson.minutes), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
             lesson.blocks.forEach { block ->
                 when (block) {
                     is ContentBlock.Heading -> Text(block.text, style = MaterialTheme.typography.headlineSmall)
@@ -97,9 +99,9 @@ fun LessonScreen(
                         if (video != null) {
                             VsCodeVideoPlayer(video)
                         } else if (schematic != null) {
-                            Text("实机录像未打包，暂时使用示意图。", style = MaterialTheme.typography.bodySmall)
+                            Text(strings.lessonVideoMissing, style = MaterialTheme.typography.bodySmall)
                             VsCodeWalkthrough(schematic)
-                            TextButton(onClick = { onOpenDemo(block.demoId) }) { Text("查看示意图") }
+                            TextButton(onClick = { onOpenDemo(block.demoId) }) { Text(strings.lessonViewSchematic) }
                         }
                     }
                     is ContentBlock.MemoryViz -> MemoryViz(block.variant)
@@ -112,7 +114,7 @@ fun LessonScreen(
                     .height(52.dp),
                 enabled = true,
             ) {
-                Text(if (completed) "已标记学完，返回" else "学完了，记入进度")
+                Text(if (completed) strings.lessonMarkDoneReturn else strings.lessonMarkDone)
             }
         }
     }
@@ -125,13 +127,14 @@ fun DemoScreen(
     video: VideoDemo?,
     onBack: () -> Unit,
 ) {
+    val strings = rememberStrings()
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("VS Code 实机演示") },
+                title = { Text(strings.demoScreenTitle) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )

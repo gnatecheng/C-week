@@ -51,6 +51,7 @@ import com.py2c.week.data.ProgressStore
 import com.py2c.week.data.WeekCurriculum
 import com.py2c.week.data.evaluateLab
 import com.py2c.week.ui.components.CodePane
+import com.py2c.week.ui.strings.rememberStrings
 import com.py2c.week.ui.theme.CodeBgDark
 import kotlinx.coroutines.launch
 
@@ -61,6 +62,7 @@ fun LabListScreen(
     progress: ProgressSnapshot,
     onOpen: (String) -> Unit,
 ) {
+    val strings = rememberStrings()
     Column(
         Modifier
             .fillMaxSize()
@@ -68,9 +70,9 @@ fun LabListScreen(
             .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Text("代码实验", style = MaterialTheme.typography.headlineMedium)
+        Text(strings.labsListTitle, style = MaterialTheme.typography.headlineMedium)
         Text(
-            "每题有多组离线用例：会显示通过组数和部分得分，并按类别给出中文错因（缺头文件、差一、指针、公式、TODO 空壳等）。未通过会记入错题本。真实编译请在电脑 VS Code 使用 gcc/clang。",
+            strings.labsListIntro,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -80,11 +82,11 @@ fun LabListScreen(
                 Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     Icon(
                         if (done) Icons.Outlined.CheckCircle else Icons.Outlined.Terminal,
-                        contentDescription = if (done) "已通过" else "未通过",
+                        contentDescription = if (done) strings.passed else strings.notPassed,
                         tint = if (done) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                     Column(Modifier.weight(1f)) {
-                        Text("第 ${day.id} 天${if (day.lab.isCapstone) " · 大作业" else ""}", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                        Text(strings.labsListDay(day.id, day.lab.isCapstone), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
                         Text(day.lab.title, style = MaterialTheme.typography.titleMedium)
                         Text(day.lab.brief, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
@@ -103,6 +105,7 @@ fun LabScreen(
     store: ProgressStore,
     onBack: () -> Unit,
 ) {
+    val strings = rememberStrings()
     var code by remember(lab.id) { mutableStateOf(lab.starterCode) }
     var result by remember { mutableStateOf<LabEvaluation?>(null) }
     var showSolution by remember { mutableStateOf(progress.revealedSolutions.contains(lab.id)) }
@@ -113,10 +116,10 @@ fun LabScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(if (lab.isCapstone) "大作业" else "实验") },
+                title = { Text(if (lab.isCapstone) strings.labCapstoneTitle else strings.labTitle) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )
@@ -130,33 +133,33 @@ fun LabScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            Text("第 ${day.id} 天", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+            Text(strings.labDayLabel(day.id), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
             Text(lab.title, style = MaterialTheme.typography.headlineSmall)
             Text(lab.brief, style = MaterialTheme.typography.bodyLarge)
             Text(lab.task, style = MaterialTheme.typography.bodyMedium)
             Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
                 Text(
-                    "真实编译在电脑：gcc ${if (lab.isCapstone) "dijkstra.c -o dijkstra" else "lab.c -o lab"} -Wall。下面是教学模拟器。",
+                    strings.labCompileHint(lab.isCapstone),
                     modifier = Modifier.padding(12.dp),
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
             if (lab.testCases.isNotEmpty()) {
-                Text("测试用例（共 ${lab.testCases.size} 组，不只对照一条黄金输出）", style = MaterialTheme.typography.titleMedium)
+                Text(strings.labTestCasesHeader(lab.testCases.size), style = MaterialTheme.typography.titleMedium)
                 lab.testCases.forEach { tc ->
                     Card(Modifier.fillMaxWidth()) {
                         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             Text(tc.name, style = MaterialTheme.typography.titleSmall)
                             Text(tc.inputDesc, style = MaterialTheme.typography.bodyMedium)
                             if (tc.input.isNotBlank()) {
-                                Text("模拟输入：${tc.input}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodySmall)
+                                Text("${strings.labSimulatedInput}${tc.input}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodySmall)
                             }
-                            Text("期望：${tc.expected}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodyMedium)
+                            Text("${strings.labExpected}${tc.expected}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodyMedium)
                         }
                     }
                 }
             }
-            Text("编辑器", style = MaterialTheme.typography.titleMedium)
+            Text(strings.labEditor, style = MaterialTheme.typography.titleMedium)
             Card(colors = CardDefaults.cardColors(containerColor = CodeBgDark), modifier = Modifier.fillMaxWidth()) {
                 BasicTextField(
                     value = code,
@@ -195,11 +198,11 @@ fun LabScreen(
                     modifier = Modifier
                         .weight(1f)
                         .height(48.dp),
-                ) { Text("模拟运行 / 检查") }
+                ) { Text(strings.labRunCheck) }
                 OutlinedButton(
                     onClick = { code = lab.starterCode; result = null },
                     modifier = Modifier.height(48.dp),
-                ) { Text("重置") }
+                ) { Text(strings.reset) }
             }
             result?.let { eval ->
                 SimulatedResultCard(eval)
@@ -207,9 +210,9 @@ fun LabScreen(
             if (lab.isCapstone) {
                 DijkstraBoard(unlocked = result?.passed == true || progress.completedLabs.contains(lab.id))
             }
-            Text("提示（尝试 $attempts 次）", style = MaterialTheme.typography.titleMedium)
+            Text(strings.labHintsTitle(attempts), style = MaterialTheme.typography.titleMedium)
             lab.hints.forEach { Text("• $it", style = MaterialTheme.typography.bodyMedium) }
-            Text("期望输出", style = MaterialTheme.typography.titleMedium)
+            Text(strings.labExpectedOutput, style = MaterialTheme.typography.titleMedium)
             CodePane("output", lab.expectedOutput.trimEnd() + "\n", "golden")
             FilledTonalButton(
                 onClick = {
@@ -224,13 +227,15 @@ fun LabScreen(
                     .height(48.dp),
             ) {
                 Text(
-                    if (showSolution) "参考答案已展开"
-                    else if (canReveal) "揭晓参考答案"
-                    else "再试 ${lab.attemptsBeforeReveal - attempts} 次后可看答案",
+                    when {
+                        showSolution -> strings.labSolutionShown
+                        canReveal -> strings.labRevealSolution
+                        else -> strings.labRevealAfterAttempts(lab.attemptsBeforeReveal - attempts)
+                    },
                 )
             }
             if (showSolution) {
-                CodePane("c", lab.solutionCode, "参考实现")
+                CodePane("c", lab.solutionCode, strings.labReferenceSolution)
             }
         }
     }
@@ -238,6 +243,7 @@ fun LabScreen(
 
 @Composable
 private fun SimulatedResultCard(eval: LabEvaluation) {
+    val strings = rememberStrings()
     val container = when {
         eval.passed -> MaterialTheme.colorScheme.primaryContainer
         eval.hasPartialCredit -> MaterialTheme.colorScheme.tertiaryContainer
@@ -247,35 +253,32 @@ private fun SimulatedResultCard(eval: LabEvaluation) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
                 when {
-                    eval.passed -> "模拟运行通过 · 100%"
-                    eval.hasPartialCredit -> "部分通过 · 得分 ${eval.scorePercent}%"
-                    else -> "模拟运行未通过 · 得分 ${eval.scorePercent}%"
+                    eval.passed -> strings.labSimPassed()
+                    eval.hasPartialCredit -> strings.labSimPartial(eval.scorePercent)
+                    else -> strings.labSimFailed(eval.scorePercent)
                 },
                 style = MaterialTheme.typography.titleMedium,
             )
             if (eval.totalCases > 0) {
-                Text("用例 ${eval.passedCases} / ${eval.totalCases}")
+                Text(strings.labCasesProgress(eval.passedCases, eval.totalCases))
                 LinearProgressIndicator(
                     progress = { eval.passedCases / eval.totalCases.coerceAtLeast(1).toFloat() },
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
             if (eval.totalChecks > 0) {
-                Text("结构检查 ${eval.passedChecks} / ${eval.totalChecks}")
+                Text(strings.labChecksProgress(eval.passedChecks, eval.totalChecks))
                 LinearProgressIndicator(
                     progress = { eval.passedChecks / eval.totalChecks.coerceAtLeast(1).toFloat() },
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
             eval.simulatedOutput?.let {
-                Text("模拟 stdout:\n$it", fontFamily = FontFamily.Monospace)
+                Text("${strings.labSimStdout}\n$it", fontFamily = FontFamily.Monospace)
             }
             if (!eval.passed) {
                 Text(
-                    if (eval.hasPartialCredit)
-                        "有的用例过了、有的没过，按组数给部分分。未通过的会记入错题本；全部通过才算完成实验。"
-                    else
-                        "对照多组用例失败。下面按类别标出错因（缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 搞混等）。",
+                    if (eval.hasPartialCredit) strings.labPartialHint else strings.labFailHint,
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
@@ -283,23 +286,26 @@ private fun SimulatedResultCard(eval: LabEvaluation) {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Icon(
                         if (outcome.passed) Icons.Outlined.CheckCircle else Icons.Outlined.ErrorOutline,
-                        contentDescription = if (outcome.passed) "通过" else "未通过",
+                        contentDescription = if (outcome.passed) strings.passed else strings.notPassed,
                         tint = if (outcome.passed) MaterialTheme.colorScheme.primary
                         else MaterialTheme.colorScheme.error,
                     )
                     Column(Modifier.weight(1f)) {
                         Text(
-                            if (outcome.passed) "用例「${outcome.name}」通过"
-                            else "用例「${outcome.name}」未通过",
+                            if (outcome.passed) strings.labCasePassed(outcome.name)
+                            else strings.labCaseFailed(outcome.name),
                             style = MaterialTheme.typography.bodyMedium,
                         )
                         if (!outcome.passed) {
                             Text(
-                                "期望 ${outcome.expected.trim()} · 模拟 ${outcome.actual?.trim() ?: "（无输出）"}",
+                                strings.labCaseCompare(
+                                    outcome.expected.trim(),
+                                    outcome.actual?.trim() ?: strings.labNoOutput,
+                                ),
                                 fontFamily = FontFamily.Monospace,
                                 style = MaterialTheme.typography.bodySmall,
                             )
-                            outcome.hint?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
+                            outcome.hint?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
                         }
                     }
                 }
@@ -308,12 +314,13 @@ private fun SimulatedResultCard(eval: LabEvaluation) {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Icon(
                         if (outcome.passed) Icons.Outlined.CheckCircle else Icons.Outlined.ErrorOutline,
-                        contentDescription = if (outcome.passed) "通过" else "未通过",
+                        contentDescription = if (outcome.passed) strings.passed else strings.notPassed,
                         tint = if (outcome.passed) MaterialTheme.colorScheme.primary
                         else MaterialTheme.colorScheme.error,
                     )
                     Text(
-                        if (outcome.passed) "检查 ${outcome.id} 通过" else "检查 ${outcome.id}：${outcome.failHint}",
+                        if (outcome.passed) strings.labCheckPassed(outcome.id)
+                        else strings.labCheckFailed(outcome.id, outcome.failHint),
                         style = MaterialTheme.typography.bodyMedium,
                     )
                 }
@@ -327,12 +334,13 @@ private fun SimulatedResultCard(eval: LabEvaluation) {
 
 @Composable
 private fun HintCard(hint: GradeHint) {
+    val strings = rememberStrings()
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text("错因 · ${hint.title}", style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.error)
+            Text(strings.labGradeHintTitle(hint.title), style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.error)
             Text(hint.detail, style = MaterialTheme.typography.bodyMedium)
         }
     }
