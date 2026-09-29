@@ -155,7 +155,8 @@ a:hover {
   font-size: 0.82rem;
   line-height: 1.35;
   color: var(--muted);
-  max-width: 28rem;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .brand img {
