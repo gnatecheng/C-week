@@ -55,9 +55,9 @@ base64 -w0 release.keystore   # macOS/Linux；写入 GitHub Secret ANDROID_KEYST
 
 | 应用 | 简介 | 仓库 |
 | --- | --- | --- |
-| C一周通 | 7 天学会 C，从 Hello World 到 Dijkstra（本仓库） | [gnatecheng/C-week](https://github.com/gnatecheng/C-week) |
-| 轻记账 | 本地优先的个人记账（Room 本地存储，无需登录） | [gnatecheng/qingjizhang](https://github.com/gnatecheng/qingjizhang) |
-| 班级事务记录 | 单班出勤、缴费、费用分摊、清单 | [gnatecheng/class-activity-record](https://github.com/gnatecheng/class-activity-record) |
+| C一周通 | 7 天学会 C，从 Hello World 到 Dijkstra（本仓库） | [gnatecheng/c-week](https://github.com/gnatecheng/c-week) |
+| 轻记账 | 本地优先的个人记账（Room 本地存储，无需登录） | [gnatecheng/easy-ledger](https://github.com/gnatecheng/easy-ledger) |
+| 班级事务记录 | 单班出勤、缴费、费用分摊、清单 | [gnatecheng/group-matters](https://github.com/gnatecheng/group-matters) |
 
 ---
 

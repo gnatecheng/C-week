@@ -3,9 +3,9 @@
   "use strict";
 
   var REPOS = {
-    cweek: "gnatecheng/C-week",
-    qingjizhang: "gnatecheng/qingjizhang",
-    "class-record": "gnatecheng/class-activity-record",
+    cweek: "gnatecheng/c-week",
+    qingjizhang: "gnatecheng/easy-ledger",
+    "class-record": "gnatecheng/group-matters",
   };
 
   /** @param {string} tag e.g. v1.4.0 or v20260928 */

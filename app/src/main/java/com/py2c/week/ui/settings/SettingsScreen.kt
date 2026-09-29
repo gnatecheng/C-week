@@ -41,7 +41,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-private const val REPO_URL = "https://github.com/gnatecheng/C-week"
+private const val REPO_URL = "https://github.com/gnatecheng/c-week"
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

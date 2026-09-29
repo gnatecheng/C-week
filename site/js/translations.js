@@ -117,7 +117,7 @@ window.ETAI_TRANSLATIONS = {
     "faq.lead": "安装、系统要求与离线使用 — 适用于本页三款应用。",
     "faq.install.title": "如何安装 APK？",
     "faq.install.body":
-      "在各自仓库的 GitHub Releases 下载最新 APK 并安装：<a href=\"https://github.com/gnatecheng/C-week/releases/latest\" rel=\"noopener noreferrer\">C一周通</a>、<a href=\"https://github.com/gnatecheng/qingjizhang/releases/latest\" rel=\"noopener noreferrer\">轻记账</a>、<a href=\"https://github.com/gnatecheng/class-activity-record/releases/latest\" rel=\"noopener noreferrer\">多人事务</a>。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面分别显示「C一周通」「轻记账」「多人事务」。",
+      "在各自仓库的 GitHub Releases 下载最新 APK 并安装：<a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">C一周通</a>、<a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">轻记账</a>、<a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">多人事务</a>。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面分别显示「C一周通」「轻记账」「多人事务」。",
     "faq.requirements.title": "系统要求是什么？",
     "faq.requirements.body":
       "三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。",
@@ -129,7 +129,7 @@ window.ETAI_TRANSLATIONS = {
       "不会。C一周通使用离线模拟评测（多组用例 + 规则检查 + 错因提示），部分通过会显示分数，全部通过才记实验完成；手机端无需安装 gcc。",
     "faq.vscode.title": "C一周通和电脑上的 VS Code 怎么配合？",
     "faq.vscode.body":
-      "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href=\"https://github.com/gnatecheng/C-week\" rel=\"noopener noreferrer\">C-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。",
+      "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。",
     "qjz.hero.title": "轻记账",
     "qjz.hero.lead":
       "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
@@ -238,9 +238,9 @@ window.ETAI_TRANSLATIONS = {
     "class.foot":
       "首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。",
     "footer.copyright": "© Etai 应用集 · C一周通 / 轻记账 / 多人事务 · 开源 Android 应用",
-    "footer.linkCweek": "C-week",
-    "footer.linkQjz": "qingjizhang",
-    "footer.linkClass": "class-activity-record",
+    "footer.linkCweek": "c-week",
+    "footer.linkQjz": "easy-ledger",
+    "footer.linkClass": "group-matters",
     "notfound.metaTitle": "页面未找到 · Etai 应用集",
     "notfound.title": "404",
     "notfound.lead": "找不到该页面。返回首页了解 C一周通、轻记账与多人事务。",
@@ -385,7 +385,7 @@ window.ETAI_TRANSLATIONS = {
     "faq.lead": "Install, requirements, and offline use — for all three apps on this page.",
     "faq.install.title": "How do I install the APK?",
     "faq.install.body":
-      "Download the latest APK from each app’s GitHub Releases and install: <a href=\"https://github.com/gnatecheng/C-week/releases/latest\" rel=\"noopener noreferrer\">C Week</a>, <a href=\"https://github.com/gnatecheng/qingjizhang/releases/latest\" rel=\"noopener noreferrer\">Easy Ledger</a>, and <a href=\"https://github.com/gnatecheng/class-activity-record/releases/latest\" rel=\"noopener noreferrer\">Group Matters</a>. Android may ask you to allow installs from unknown sources (varies by OEM). Launcher names are “C Week”, “Easy Ledger”, and “Group Matters”.",
+      "Download the latest APK from each app’s GitHub Releases and install: <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">C Week</a>, <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">Easy Ledger</a>, and <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">Group Matters</a>. Android may ask you to allow installs from unknown sources (varies by OEM). Launcher names are “C Week”, “Easy Ledger”, and “Group Matters”.",
     "faq.requirements.title": "What are the system requirements?",
     "faq.requirements.body":
       "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.",
@@ -397,7 +397,7 @@ window.ETAI_TRANSLATIONS = {
       "No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone.",
     "faq.vscode.title": "How does C Week work with VS Code on a computer?",
     "faq.vscode.body":
-      "Install VS Code and gcc on PC/Mac/Linux, open the <a href=\"https://github.com/gnatecheng/C-week\" rel=\"noopener noreferrer\">C-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.",
+      "Install VS Code and gcc on PC/Mac/Linux, open the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.",
     "qjz.hero.title": "Easy Ledger",
     "qjz.hero.lead":
       "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
@@ -514,9 +514,9 @@ window.ETAI_TRANSLATIONS = {
       "Search activities by title on home; filter in progress / archived; quick title templates for roll call, class fund, dorm splits; Material 3 dark theme follows system or fixed light/dark. Stack: Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM.",
     "footer.copyright":
       "© Etai Apps · C Week / Easy Ledger / Group Matters · Open-source Android apps",
-    "footer.linkCweek": "C-week",
-    "footer.linkQjz": "qingjizhang",
-    "footer.linkClass": "class-activity-record",
+    "footer.linkCweek": "c-week",
+    "footer.linkQjz": "easy-ledger",
+    "footer.linkClass": "group-matters",
     "notfound.metaTitle": "Page not found · Etai Apps",
     "notfound.title": "404",
     "notfound.lead":
