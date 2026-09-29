@@ -36,7 +36,7 @@ object StringsZh : AppStrings {
     override val themeDark = "深色"
 
     override val aboutVersion = "版本"
-    override val aboutLastUpdate = "构建时间（UTC）"
+    override val aboutLastUpdate = "构建时间（本地时区）"
     override val aboutSource = "源码仓库"
     override val aboutOpenRepo = "在浏览器中打开 GitHub"
     override val aboutDescription = "C一周通：7 天 C 语言入门，含微课、离线实验模拟与测验。"

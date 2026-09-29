@@ -260,7 +260,7 @@ internal fun day1En(): CourseDay = CourseDay(
                 Heading("launch.json: tell the debugger how to start"),
                 Code(
                     "json",
-                    "{\n  \"version\": \"0.2.0\",\n  \"configurations\": [\n    {\n      \"name\": \"调试 hello\",\n      \"type\": \"cppdbg\",\n      \"request\": \"launch\",\n      \"program\": \"\${workspaceFolder}/hello\",\n      \"args\": [],\n      \"cwd\": \"\${workspaceFolder}\",\n      \"stopAtEntry\": false,\n      \"miDebuggerPath\": \"gdb\",\n      \"preLaunchTask\": \"C: gcc build hello\"\n    }\n  ]\n}",
+                    "{\n  \"version\": \"0.2.0\",\n  \"configurations\": [\n    {\n      \"name\": \"Debug hello\",\n      \"type\": \"cppdbg\",\n      \"request\": \"launch\",\n      \"program\": \"\${workspaceFolder}/hello\",\n      \"args\": [],\n      \"cwd\": \"\${workspaceFolder}\",\n      \"stopAtEntry\": false,\n      \"miDebuggerPath\": \"gdb\",\n      \"preLaunchTask\": \"C: gcc build hello\"\n    }\n  ]\n}",
                     "On Windows MinGW use the full path to gdb.exe; on macOS lldb is common while type is often still cppdbg.",
                 ),
                 Bullets(
@@ -319,7 +319,7 @@ internal fun day1En(): CourseDay = CourseDay(
                 Heading("Practice on a loop once"),
                 Code(
                     "c",
-                    "int main(void) {\n    int s = 0;\n    for (int i = 1; i <= 3; i++) {\n        s += i;   /* 在这一行打断点 */\n    }\n    printf(\"%d\\n\", s);\n    return 0;\n}",
+                    "int main(void) {\n    int s = 0;\n    for (int i = 1; i <= 3; i++) {\n        s += i;   /* breakpoint on this line */\n    }\n    printf(\"%d\\n\", s);\n    return 0;\n}",
                     "Each stop, watch i and s: first 1 and 1, then 2 and 3, then 3 and 6—faster than guessing loop bounds.",
                 ),
                 Callout(

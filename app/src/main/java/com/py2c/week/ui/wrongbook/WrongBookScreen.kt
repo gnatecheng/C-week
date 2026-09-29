@@ -33,7 +33,9 @@ import com.py2c.week.data.WeekCurriculum
 import com.py2c.week.data.WrongItem
 import com.py2c.week.data.WrongSource
 import com.py2c.week.data.groupedByDay
+import com.py2c.week.ui.strings.LocalAppLocale
 import com.py2c.week.ui.strings.rememberStrings
+import com.py2c.week.data.toView
 
 @Composable
 fun WrongBookScreen(
@@ -44,6 +46,7 @@ fun WrongBookScreen(
     onOpenReport: () -> Unit,
 ) {
     val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val open = progress.wrongItems.filter { !it.resolved }
     val done = progress.wrongItems.filter { it.resolved }
     var showResolved by remember { mutableStateOf(false) }
@@ -93,7 +96,7 @@ fun WrongBookScreen(
                 val title = curriculum.days.find { it.id == dayId }?.title.orEmpty()
                 Text(strings.wrongBookDayHeader(dayId, title), style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
                 items.forEach { item ->
-                    WrongCard(item, onRedoQuiz, onRedoLab)
+                    WrongCard(item, curriculum, onRedoQuiz, onRedoLab)
                 }
             }
         }
@@ -106,7 +109,7 @@ fun WrongBookScreen(
                 done.groupedByDay().forEach { (dayId, items) ->
                     Text(strings.wrongBookDayResolved(dayId), style = MaterialTheme.typography.titleSmall)
                     items.forEach { item ->
-                        WrongCard(item, onRedoQuiz, onRedoLab)
+                        WrongCard(item, curriculum, onRedoQuiz, onRedoLab)
                     }
                 }
             }
@@ -117,10 +120,13 @@ fun WrongBookScreen(
 @Composable
 private fun WrongCard(
     item: WrongItem,
+    curriculum: WeekCurriculum,
     onRedoQuiz: (dayId: Int, questionId: String) -> Unit,
     onRedoLab: (labId: String) -> Unit,
 ) {
     val strings = rememberStrings()
+    val locale = LocalAppLocale.current
+    val view = item.toView(curriculum, locale)
     val container = if (item.resolved) MaterialTheme.colorScheme.surfaceVariant
     else MaterialTheme.colorScheme.errorContainer
     Card(
@@ -146,14 +152,14 @@ private fun WrongCard(
             )
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(
-                    "${strings.wrongSourceLabel(item.source)} · ${item.hintCategory}" +
+                    "${strings.wrongSourceLabel(item.source)} · ${view.hintCategory}" +
                         if (item.resolved) strings.wrongResolvedSuffix else "",
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.primary,
                 )
-                Text(item.prompt, style = MaterialTheme.typography.titleMedium)
-                Text("${strings.wrongYourAnswer}${item.userAnswer}", style = MaterialTheme.typography.bodySmall)
-                Text("${strings.wrongCorrectAnswer}${item.correctAnswer}", style = MaterialTheme.typography.bodySmall)
+                Text(view.prompt, style = MaterialTheme.typography.titleMedium)
+                Text("${strings.wrongYourAnswer}${view.userAnswer}", style = MaterialTheme.typography.bodySmall)
+                Text("${strings.wrongCorrectAnswer}${view.correctAnswer}", style = MaterialTheme.typography.bodySmall)
                 Text(
                     if (item.source == WrongSource.QUIZ) strings.wrongRedoQuiz else strings.wrongRedoLab,
                     style = MaterialTheme.typography.labelLarge,

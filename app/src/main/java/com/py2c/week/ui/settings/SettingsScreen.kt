@@ -37,7 +37,7 @@ import com.py2c.week.ui.strings.languagePreferenceLabel
 import com.py2c.week.ui.strings.themePreferenceLabel
 import kotlinx.coroutines.launch
 import java.time.Instant
-import java.time.ZoneOffset
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -161,10 +161,12 @@ private fun <T> PreferenceChipRow(
 @Composable
 private fun rememberBuildTimeLabel(): String {
     val raw = BuildConfig.BUILD_TIME_UTC
+    val zone = ZoneId.systemDefault()
     return runCatching {
         val instant = Instant.parse(raw)
-        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.US)
-            .withZone(ZoneOffset.UTC)
+        val formatted = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm z", Locale.getDefault())
+            .withZone(zone)
             .format(instant)
+        formatted
     }.getOrElse { raw }
 }

@@ -156,6 +156,7 @@ class ProgressStore(private val context: Context) {
                             hintCategory = q.hintCategory(locale),
                             resolved = false,
                             updatedAtMs = now,
+                            userChoiceIndex = selected,
                         ),
                     )
                 }
@@ -176,21 +177,8 @@ class ProgressStore(private val context: Context) {
                 }
             } else {
                 current.removeAll { it.key == key }
-                val summary = buildString {
-                    if (eval.totalCases > 0) append("用例 ${eval.passedCases}/${eval.totalCases}")
-                    if (eval.totalChecks > 0) {
-                        if (isNotEmpty()) append(" · ")
-                        append("检查 ${eval.passedChecks}/${eval.totalChecks}")
-                    }
-                    if (eval.scorePercent > 0) {
-                        if (isNotEmpty()) append(" · ")
-                        append("得分 ${eval.scorePercent}%")
-                    }
-                    eval.failedHints.firstOrNull()?.let {
-                        if (isNotEmpty()) append(" · ")
-                        append(it)
-                    }
-                }.take(400).ifBlank { "模拟评测未通过" }
+                val hintKind = eval.gradeHints.firstOrNull()?.kind
+                val summary = buildLabSummary(eval, hintKind)
                 current.add(
                     WrongItem(
                         source = WrongSource.LAB,
@@ -199,7 +187,7 @@ class ProgressStore(private val context: Context) {
                         prompt = lab.title,
                         userAnswer = summary,
                         correctAnswer = lab.expectedOutput.trim(),
-                        hintCategory = eval.gradeHints.firstOrNull()?.title ?: "实验未通过",
+                        hintCategory = hintKind?.name ?: "LAB_FAIL",
                         resolved = false,
                         updatedAtMs = now,
                     ),

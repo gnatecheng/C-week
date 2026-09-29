@@ -9,5 +9,3 @@ fun WeekCurriculum.forLocale(locale: AppLocale): WeekCurriculum {
 
 fun CourseDay.forLocale(locale: AppLocale): CourseDay =
     if (locale == AppLocale.ZH) this else buildCurriculum(locale).days.first { it.id == id }
-
-fun LocalizedString.forLocale(locale: AppLocale): String = resolve(locale)
