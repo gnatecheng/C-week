@@ -23,7 +23,7 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 
 ### Cloudflare Web Analytics
 
-在 [`site/index.html`](site/index.html) 底部将占位符 **`REPLACE_WITH_CF_WEB_ANALYTICS_TOKEN`** 替换为 Cloudflare 控制台 **Analytics → Web Analytics → Add site** 生成的 token。CSP 已在 [`site/_headers`](site/_headers) 中允许 `static.cloudflareinsights.com` 与 `cloudflareinsights.com`。
+站点已启用 Cloudflare Web Analytics（beacon 在 [`site/index.html`](site/index.html)）。CSP 在 [`site/_headers`](site/_headers) 中允许 `static.cloudflareinsights.com` 与 `cloudflareinsights.com`。
 
 ### Release 签名与 GitHub Secrets
 
