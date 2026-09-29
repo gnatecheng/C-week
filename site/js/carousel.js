@@ -1,4 +1,4 @@
-/* Etai 应用集: fixed-size screenshot carousel with autoplay, arrows, dots and swipe */
+/* Etai 应用集: fixed-size screenshot carousel — autoplay, arrows, dots, swipe, i18n */
 (function () {
   "use strict";
 
@@ -7,10 +7,30 @@
 
   var reduceMotion =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var INTERVAL = 3500;
+  var INTERVAL = 4000;
   var RESUME_AFTER = 8000;
+  var instances = [];
 
-  Array.prototype.forEach.call(galleries, function (gallery, gi) {
+  function getLang() {
+    var l = (document.documentElement.lang || "zh-CN").toLowerCase();
+    return l.indexOf("en") === 0 ? "en" : "zh";
+  }
+
+  function tr(key, lang, vars) {
+    var T = window.ETAI_TRANSLATIONS;
+    var bag = T && T[lang];
+    var s = (bag && bag["carousel." + key]) || (T && T.zh && T.zh["carousel." + key]) || "";
+    if (!vars) return s;
+    return s.replace(/\{(\w+)\}/g, function (_, k) {
+      return vars[k] != null ? String(vars[k]) : "";
+    });
+  }
+
+  function galleryLabel(gallery) {
+    return gallery.getAttribute("aria-label") || tr("fallbackLabel", getLang()) || "";
+  }
+
+  Array.prototype.forEach.call(galleries, function (gallery) {
     var track = gallery.querySelector(".screenshot-gallery-track");
     if (!track) return;
     var slides = Array.prototype.slice.call(track.querySelectorAll(".screenshot-slide"));
@@ -27,35 +47,69 @@
     gallery.classList.add("is-carousel");
     gallery.setAttribute("aria-roledescription", "carousel");
 
-    var label = gallery.getAttribute("aria-label") || "截图";
-    slides.forEach(function (s, i) {
-      s.setAttribute("role", "group");
-      s.setAttribute("aria-roledescription", "slide");
-      s.setAttribute("aria-label", i + 1 + " / " + slides.length);
-    });
+    var prev = null;
+    var next = null;
+    var dots = [];
+    var dotsWrap = null;
 
-    if (slides.length < 2) return;
+    function updateSlideAria() {
+      var lang = getLang();
+      var label = galleryLabel(gallery);
+      var total = slides.length;
+      slides.forEach(function (s, i) {
+        s.setAttribute(
+          "aria-label",
+          tr("slideAria", lang, { n: i + 1, total: total, gallery: label })
+        );
+      });
+    }
 
-    function makeBtn(cls, text, aria) {
+    function updateControlsI18n() {
+      var lang = getLang();
+      var label = galleryLabel(gallery);
+      if (prev) {
+        prev.setAttribute("aria-label", tr("prevAria", lang, { gallery: label }));
+      }
+      if (next) {
+        next.setAttribute("aria-label", tr("nextAria", lang, { gallery: label }));
+      }
+      dots.forEach(function (d, i) {
+        d.setAttribute(
+          "aria-label",
+          tr("dotAria", lang, { n: i + 1, total: slides.length, gallery: label })
+        );
+      });
+      updateSlideAria();
+    }
+
+    updateSlideAria();
+
+    if (slides.length < 2) {
+      instances.push({ updateI18n: updateControlsI18n });
+      return;
+    }
+
+    function makeBtn(cls, text, ariaKey) {
       var b = document.createElement("button");
       b.type = "button";
       b.className = "shot-carousel-btn " + cls;
-      b.setAttribute("aria-label", aria);
       b.textContent = text;
+      b.setAttribute("aria-label", tr(ariaKey, getLang(), { gallery: galleryLabel(gallery) }));
       return b;
     }
-    var prev = makeBtn("is-prev", "\u2039", "上一张" + label);
-    var next = makeBtn("is-next", "\u203A", "下一张" + label);
+    prev = makeBtn("is-prev", "\u2039", "prevAria");
+    next = makeBtn("is-next", "\u203A", "nextAria");
     stage.appendChild(prev);
     stage.appendChild(next);
 
-    var dotsWrap = document.createElement("div");
+    dotsWrap = document.createElement("div");
     dotsWrap.className = "shot-carousel-dots";
-    var dots = slides.map(function (s, i) {
+    dotsWrap.setAttribute("role", "tablist");
+    dots = slides.map(function (s, i) {
       var d = document.createElement("button");
       d.type = "button";
       d.className = "shot-carousel-dot";
-      d.setAttribute("aria-label", "第 " + (i + 1) + " 张");
+      d.setAttribute("role", "tab");
       d.addEventListener("click", function () {
         go(i, true);
       });
@@ -76,8 +130,13 @@
       dots.forEach(function (d, k) {
         var on = k === i;
         d.classList.toggle("is-active", on);
-        if (on) d.setAttribute("aria-current", "true");
-        else d.removeAttribute("aria-current");
+        if (on) {
+          d.setAttribute("aria-current", "true");
+          d.setAttribute("aria-selected", "true");
+        } else {
+          d.removeAttribute("aria-current");
+          d.setAttribute("aria-selected", "false");
+        }
       });
     }
 
@@ -87,7 +146,7 @@
       programmatic = Date.now();
       gallery.scrollTo({
         left: current * gallery.clientWidth,
-        behavior: reduceMotion ? "auto" : "smooth"
+        behavior: reduceMotion ? "auto" : "smooth",
       });
       setDots(current);
       if (byUser) pauseForUser();
@@ -158,7 +217,8 @@
       hovering = true;
       stop();
     });
-    root.addEventListener("focusout", function () {
+    root.addEventListener("focusout", function (e) {
+      if (root.contains(e.relatedTarget)) return;
       hovering = false;
       start();
     });
@@ -184,7 +244,7 @@
           if (visible) start();
           else stop();
         },
-        { threshold: 0.4 }
+        { threshold: 0.35 }
       ).observe(root);
     } else {
       visible = true;
@@ -192,5 +252,12 @@
     }
 
     setDots(0);
+    instances.push({ updateI18n: updateControlsI18n });
+  });
+
+  document.addEventListener("etai:langchange", function () {
+    instances.forEach(function (inst) {
+      inst.updateI18n();
+    });
   });
 })();
