@@ -2,7 +2,7 @@ window.ETAI_TRANSLATIONS = {
   zh: {
     "meta.title": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
     "meta.description":
-      "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（个人记账，版本 1.2.0）、多人事务（出勤、缴费、分摊、清单，版本 1.4.0）。",
+      "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.5.0）、轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）。",
     "meta.ogTitle": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
     "meta.ogDescription":
       "三款离线可用的 Kotlin + Jetpack Compose Android 应用：7 天学会 C 的 C一周通、本地记账的轻记账、单班事务管理的多人事务。",
@@ -13,20 +13,13 @@ window.ETAI_TRANSLATIONS = {
     "meta.updatedLabel": "更新",
     "skipLink": "跳到主要内容",
     "brand": "Etai 应用集",
+    "header.tagline": "三款离线可用、数据只存本机的 Android 应用",
     "navSectionsLabel": "页面章节",
     "nav.cweek": "C一周通",
     "nav.roadmap": "7 天路线",
     "nav.qingjizhang": "轻记账",
     "nav.classRecord": "多人事务",
     "nav.faq": "常见问题",
-    "appsStrip.lead": "Etai 应用集：三款离线可用、数据只存本机的 Android 应用",
-    "appsStrip.listLabel": "应用列表",
-    "appsStrip.cweek": "C一周通",
-    "appsStrip.qingjizhang": "轻记账",
-    "appsStrip.classRecord": "多人事务",
-    "cweek.badgeKind": "C Week",
-    "cweek.badgeOffline": "离线优先",
-    "cweek.hero.badge": "C Week · 版本 1.4.0 · 离线优先",
     "cweek.hero.title": "C一周通",
     "cweek.hero.lead":
       "7 天把编程初学者带到能用 <strong>C 写出 Dijkstra 最短路</strong>（正确使用数组、指针与内存）。课文含<strong>真实 VS Code 屏幕录像</strong>（H.264，打包进 APK），Kotlin + Jetpack Compose，全程可离线学习。",
@@ -138,9 +131,6 @@ window.ETAI_TRANSLATIONS = {
     "cweek.faq.vscode.title": "和电脑上的 VS Code 怎么配合？",
     "cweek.faq.vscode.body":
       "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开本仓库对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见 README。",
-    "qjz.badgeKind": "记账本",
-    "qjz.badgeLocal": "本地优先",
-    "qjz.hero.badge": "记账本 · 版本 1.2.0 · 本地优先",
     "qjz.hero.title": "轻记账",
     "qjz.hero.lead":
       "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
@@ -194,9 +184,6 @@ window.ETAI_TRANSLATIONS = {
     "qjz.features.receipt.body": "记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。",
     "qjz.foot":
       "另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。",
-    "class.badgeKind": "多人事务",
-    "class.badgeLang": "简体中文",
-    "class.hero.badge": "多人事务 · 版本 1.4.0 · 简体中文",
     "class.hero.title": "多人事务",
     "class.hero.lead":
       "单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
@@ -251,11 +238,6 @@ window.ETAI_TRANSLATIONS = {
     "class.features.widget.body": "显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。",
     "class.foot":
       "首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。",
-    "sideNavLabel": "应用快速导航",
-    "sideNav.cweek": "C一周通",
-    "sideNav.qingjizhang": "轻记账",
-    "sideNav.classRecord": "多人事务",
-    "sideNav.top": "回到顶部",
     "footer.copyright": "© Etai 应用集 · C一周通 / 轻记账 / 多人事务 · 开源 Android 应用",
     "footer.linkCweek": "C-week",
     "footer.linkQjz": "qingjizhang",
@@ -280,7 +262,7 @@ window.ETAI_TRANSLATIONS = {
   en: {
     "meta.title": "Etai Apps — C Week · Easy Ledger · Group Matters",
     "meta.description":
-      "Etai Apps features three offline-first Android apps that keep data on your device: C Week (learn C in 7 days, v1.4.0), Easy Ledger (local personal finance, v1.2.0), and Group Matters (attendance, fees, splits, checklists, v1.4.0).",
+      "Etai Apps features three offline-first Android apps that keep data on your device: C Week (learn C in 7 days, v1.5.0), Easy Ledger (local personal finance, v1.3.1), and Group Matters (attendance, fees, splits, checklists, v1.5.0).",
     "meta.ogTitle": "Etai Apps — C Week · Easy Ledger · Group Matters",
     "meta.ogDescription":
       "Three offline Kotlin + Jetpack Compose Android apps: C Week to learn C in a week, Easy Ledger for local bookkeeping, and Group Matters for single-class administration.",
@@ -291,21 +273,13 @@ window.ETAI_TRANSLATIONS = {
     "meta.updatedLabel": "Updated",
     "skipLink": "Skip to main content",
     "brand": "Etai Apps",
+    "header.tagline": "Three offline Android apps that keep data on your device",
     "navSectionsLabel": "Page sections",
     "nav.cweek": "C Week",
     "nav.roadmap": "7-day path",
     "nav.qingjizhang": "Easy Ledger",
     "nav.classRecord": "Group Matters",
     "nav.faq": "FAQ",
-    "appsStrip.lead":
-      "Etai Apps: three offline Android apps—your data stays on your device",
-    "appsStrip.listLabel": "Apps",
-    "appsStrip.cweek": "C Week",
-    "appsStrip.qingjizhang": "Easy Ledger",
-    "appsStrip.classRecord": "Group Matters",
-    "cweek.badgeKind": "C Week",
-    "cweek.badgeOffline": "Offline-first",
-    "cweek.hero.badge": "C Week · Version 1.4.0 · Offline-first",
     "cweek.hero.title": "C Week",
     "cweek.hero.lead":
       "In 7 days, take beginners from zero to writing <strong>Dijkstra shortest paths in C</strong> (arrays, pointers, and memory done right). Lessons include <strong>real VS Code screen recordings</strong> (H.264, bundled in the APK), Kotlin + Jetpack Compose, fully offline.",
@@ -427,9 +401,6 @@ window.ETAI_TRANSLATIONS = {
     "cweek.faq.vscode.title": "How does this work with VS Code on a computer?",
     "cweek.faq.vscode.body":
       "Install VS Code and gcc on PC/Mac/Linux, open this repo, and follow along with the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in the README.",
-    "qjz.badgeKind": "Ledger",
-    "qjz.badgeLocal": "Local-first",
-    "qjz.hero.badge": "Ledger · Version 1.2.0 · Local-first",
     "qjz.hero.title": "Easy Ledger",
     "qjz.hero.lead":
       "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
@@ -487,9 +458,6 @@ window.ETAI_TRANSLATIONS = {
       "Attach a camera shot or gallery image when logging; photos stay on device with thumbnail, replace, and delete.",
     "qjz.foot":
       "Dark mode toggle under Me / Settings; first launch seeds sample entries—clear or restore under Me → Reminder settings. Stack: Kotlin, Jetpack Compose, Material 3, Room, Navigation Compose.",
-    "class.badgeKind": "Group Matters",
-    "class.badgeLang": "Simplified Chinese UI",
-    "class.hero.badge": "Group Matters · Version 1.4.0 · Simplified Chinese UI",
     "class.hero.title": "Group Matters",
     "class.hero.lead":
       "Single-class Android admin: <strong>attendance, fees, cost splits, checklists</strong>. Data stays on device (Room), <strong>no login or network required</strong>.",
@@ -547,11 +515,6 @@ window.ETAI_TRANSLATIONS = {
       "Shows incomplete counts for recent in-progress activities (total when several); tap opens the app.",
     "class.foot":
       "Search activities by title on home; filter in progress / archived; quick title templates for roll call, class fund, dorm splits; Material 3 dark theme follows system or fixed light/dark. Stack: Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM.",
-    "sideNavLabel": "Quick app navigation",
-    "sideNav.cweek": "C Week",
-    "sideNav.qingjizhang": "Easy Ledger",
-    "sideNav.classRecord": "Group Matters",
-    "sideNav.top": "Back to top",
     "footer.copyright":
       "© Etai Apps · C Week / Easy Ledger / Group Matters · Open-source Android apps",
     "footer.linkCweek": "C-week",

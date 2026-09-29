@@ -7,7 +7,7 @@
     <meta
       name="description"
       data-i18n-content="meta.description"
-      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（个人记账，版本 1.2.0）、多人事务（出勤、缴费、分摊、清单，版本 1.4.0）。"
+      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.5.0）、轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）。"
     />
     <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
@@ -15,7 +15,7 @@
     <link rel="manifest" href="/site.webmanifest?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=2"></script>
-    <link rel="stylesheet" href="/css/style.css?v=8" />
+    <link rel="stylesheet" href="/css/style.css?v=9" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
@@ -42,51 +42,46 @@
     <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要内容</a>
 
     <header class="site-header">
-      <div class="wrap inner">
-        <a class="brand" href="/">
-          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
-          <span data-i18n="brand">Etai 应用集</span>
-        </a>
-        <nav class="nav" data-i18n-aria="navSectionsLabel" aria-label="页面章节">
-          <a href="#cweek" data-i18n="nav.cweek">C一周通</a>
-          <a href="#roadmap" data-i18n="nav.roadmap">7 天路线</a>
-          <a href="#qingjizhang" data-i18n="nav.qingjizhang">轻记账</a>
-          <a href="#class-record" data-i18n="nav.classRecord">多人事务</a>
-          <a href="#faq" data-i18n="nav.faq">常见问题</a>
-        </nav>
-        <div class="header-tools">
-          <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
-            <button type="button" id="lang-zh" aria-pressed="true">中文</button>
-            <button type="button" id="lang-en" aria-pressed="false">English</button>
+      <div class="wrap header-shell">
+        <div class="header-top">
+          <div class="brand-block">
+            <a class="brand" href="/">
+              <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+              <span data-i18n="brand">Etai 应用集</span>
+            </a>
+            <p class="brand-tagline" data-i18n="header.tagline">三款离线可用、数据只存本机的 Android 应用</p>
           </div>
-          <button type="button" id="theme-toggle" aria-label="Theme">
-            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </button>
+          <div class="header-tools">
+            <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
+              <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+              <button type="button" id="lang-en" aria-pressed="false">English</button>
+            </div>
+            <button type="button" id="theme-toggle" aria-label="Theme">
+              <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+              <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </button>
+          </div>
         </div>
+        <nav class="header-nav" data-i18n-aria="navSectionsLabel" aria-label="页面章节">
+          <div class="header-nav-inner">
+            <a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="nav.cweek">C一周通</span></a>
+            <a class="nav-link" href="#roadmap" data-i18n="nav.roadmap">7 天路线</a>
+            <a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span><span data-i18n="nav.qingjizhang">轻记账</span></a>
+            <a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span><span data-i18n="nav.classRecord">多人事务</span></a>
+            <a class="nav-link" href="#faq" data-i18n="nav.faq">常见问题</a>
+          </div>
+        </nav>
       </div>
     </header>
 
     <main id="main">
-      <div class="apps-strip">
-        <div class="wrap apps-strip-inner">
-          <p data-i18n="appsStrip.lead">Etai 应用集：三款离线可用、数据只存本机的 Android 应用</p>
-          <ul class="app-chips" data-i18n-aria="appsStrip.listLabel" aria-label="应用列表">
-            <li><a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="appsStrip.cweek">C一周通</span></a></li>
-            <li><a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span><span data-i18n="appsStrip.qingjizhang">轻记账</span></a></li>
-            <li><a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span><span data-i18n="appsStrip.classRecord">多人事务</span></a></li>
-          </ul>
-        </div>
-      </div>
 
       <section id="cweek" class="hero" data-group="cweek">
         <div class="wrap hero-grid">
           <div>
             <span class="hero-badge" data-app-meta="cweek">
-              <span data-i18n="cweek.badgeKind">C Week</span><span class="sep" aria-hidden="true"> · </span>
-              <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.4.0</span></span><span class="sep" aria-hidden="true"> · </span>
-              <span data-i18n="cweek.badgeOffline">离线优先</span>
+              <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.5.0</span></span>
               <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
             </span>
             <h1 data-i18n="cweek.hero.title">C一周通</h1>
@@ -376,9 +371,7 @@
           <div class="project-grid">
             <div>
               <span class="hero-badge project-badge" data-app-meta="qingjizhang">
-                <span data-i18n="qjz.badgeKind">记账本</span><span class="sep" aria-hidden="true"> · </span>
-                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.2.0</span></span><span class="sep" aria-hidden="true"> · </span>
-                <span data-i18n="qjz.badgeLocal">本地优先</span>
+                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.3.1</span></span>
                 <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
               </span>
               <h2 id="qjz-title" class="project-title" data-i18n="qjz.hero.title">轻记账</h2>
@@ -529,9 +522,7 @@
           <div class="project-grid">
             <div>
               <span class="hero-badge project-badge" data-app-meta="class-record">
-                <span data-i18n="class.badgeKind">多人事务</span><span class="sep" aria-hidden="true"> · </span>
-                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.4.0</span></span><span class="sep" aria-hidden="true"> · </span>
-                <span data-i18n="class.badgeLang">简体中文</span>
+                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.5.0</span></span>
                 <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
               </span>
               <h2 id="class-title" class="project-title" data-i18n="class.hero.title">多人事务</h2>
@@ -678,31 +669,6 @@
       </section>
     </main>
 
-    <nav class="side-nav" data-i18n-aria="sideNavLabel" aria-label="应用快速导航">
-      <ul>
-        <li>
-          <a class="side-link link-cweek is-active" href="#cweek" data-target="cweek" aria-current="true">
-            <span class="side-badge" aria-hidden="true">C</span><span class="side-label" data-i18n="sideNav.cweek">C一周通</span>
-          </a>
-        </li>
-        <li>
-          <a class="side-link link-qjz" href="#qingjizhang" data-target="qingjizhang">
-            <span class="side-badge" aria-hidden="true">账</span><span class="side-label" data-i18n="sideNav.qingjizhang">轻记账</span>
-          </a>
-        </li>
-        <li>
-          <a class="side-link link-class" href="#class-record" data-target="class-record">
-            <span class="side-badge" aria-hidden="true">班</span><span class="side-label" data-i18n="sideNav.classRecord">多人事务</span>
-          </a>
-        </li>
-        <li>
-          <a class="side-link link-top" href="#top">
-            <span class="side-badge" aria-hidden="true">↑</span><span class="side-label" data-i18n="sideNav.top">回到顶部</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
     <footer class="site-footer">
       <div class="wrap inner">
         <p data-i18n="footer.copyright">© Etai 应用集 · C一周通 / 轻记账 / 多人事务 · 开源 Android 应用</p>
@@ -713,12 +679,11 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=5" defer></script>
+    <script src="/js/translations.js?v=6" defer></script>
     <script src="/js/site.js?v=5" defer></script>
     <script src="/js/screens-lang.js?v=7" defer></script>
-    <script src="/js/nav.js?v=5" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
-    <script src="/js/github-meta.js?v=3" defer></script>
+    <script src="/js/github-meta.js?v=4" defer></script>
     <!-- Cloudflare Web Analytics (public site token) -->
     <script
       defer

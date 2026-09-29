@@ -39,10 +39,17 @@
       var v = data.tag_name.replace(/^v/i, "");
       verEl.textContent = v;
     }
+    var wrap = root.querySelector(".app-meta-date-wrap");
     if (data && data.published_at && dateEl) {
-      dateEl.textContent = formatDate(data.published_at, lang);
-      var wrap = root.querySelector(".app-meta-date-wrap");
-      if (wrap) wrap.hidden = false;
+      var formatted = formatDate(data.published_at, lang);
+      if (formatted) {
+        dateEl.textContent = formatted;
+        if (wrap) wrap.hidden = false;
+      } else if (wrap) {
+        wrap.hidden = true;
+      }
+    } else if (wrap) {
+      wrap.hidden = true;
     }
   }
 
