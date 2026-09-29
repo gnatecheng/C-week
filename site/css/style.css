@@ -982,3 +982,134 @@ code {
     display: none;
   }
 }
+
+/* ---------- fixed-size screenshot carousel ---------- */
+
+.shot-carousel {
+  --shot-w: 260px;
+  width: var(--shot-w);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.shot-carousel-stage {
+  position: relative;
+}
+
+.screenshot-gallery.is-carousel {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 0;
+  border-radius: 24px;
+}
+
+.screenshot-gallery.is-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.screenshot-gallery.is-carousel:focus-visible {
+  outline: 2px solid var(--accent, var(--teal));
+  outline-offset: 4px;
+}
+
+.screenshot-gallery.is-carousel .screenshot-gallery-track,
+#screenshots .screenshot-gallery.is-carousel .screenshot-gallery-track {
+  width: auto;
+  gap: 0;
+  padding: 0;
+}
+
+.screenshot-gallery.is-carousel .screenshot-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.screenshot-gallery.is-carousel .screenshot-caption {
+  min-height: 2.3em;
+}
+
+.shot-carousel-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--outline);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--accent, var(--teal));
+  font-size: 1.6rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  padding: 0 0 3px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 2;
+}
+
+.shot-carousel-btn:hover {
+  background: var(--surface);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.shot-carousel-btn:focus-visible {
+  outline: 2px solid var(--accent, var(--teal));
+  outline-offset: 2px;
+}
+
+.shot-carousel-btn.is-prev {
+  left: -52px;
+}
+
+.shot-carousel-btn.is-next {
+  right: -52px;
+}
+
+.shot-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.shot-carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--outline);
+  cursor: pointer;
+  transition: width 0.25s, background 0.25s;
+}
+
+.shot-carousel-dot.is-active {
+  width: 22px;
+  background: var(--accent, var(--teal));
+}
+
+@media (max-width: 480px) {
+  .shot-carousel {
+    --shot-w: 230px;
+  }
+  .shot-carousel-btn.is-prev {
+    left: -44px;
+  }
+  .shot-carousel-btn.is-next {
+    right: -44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .shot-carousel-btn.is-prev {
+    left: 4px;
+  }
+  .shot-carousel-btn.is-next {
+    right: 4px;
+  }
+}
