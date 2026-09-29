@@ -19,8 +19,6 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 - 安全头与缓存规则：[`site/_headers`](site/_headers)（Workers 静态资源会读取）。
 - **不要**再使用已删除的 GitHub Actions「Deploy site to Cloudflare Pages」工作流；该流程指向不存在的 Pages 项目且依赖未配置的 Secrets。
 
-旧域名 **`c-week.chengyitang.workers.dev`** 需单独部署重定向 Worker，见 [`workers/c-week/README.md`](workers/c-week/README.md)。
-
 ### Cloudflare Web Analytics
 
 站点已启用 Cloudflare Web Analytics（beacon 在 [`site/index.html`](site/index.html)）。CSP 在 [`site/_headers`](site/_headers) 中允许 `static.cloudflareinsights.com` 与 `cloudflareinsights.com`。
