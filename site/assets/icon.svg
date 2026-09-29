@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Etai ???">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="88" y="120" width="136" height="208" rx="32" fill="#ffffff"/>
+  <rect x="288" y="120" width="136" height="92" rx="28" fill="#f59e0b"/>
+  <rect x="288" y="236" width="136" height="92" rx="28" fill="#38bdf8"/>
+  <path fill="#0f766e" d="M128 188c18-22 44-34 72-34 38 0 66 26 66 64s-28 64-66 64c-28 0-54-12-72-34l28-24c12 14 28 22 44 22 22 0 36-14 36-38s-14-38-36-38c-16 0-32 8-44 22z"/>
+  <circle cx="356" cy="166" r="14" fill="#0b1416"/>
+  <circle cx="340" cy="186" r="10" fill="#0b1416"/>
+  <circle cx="372" cy="186" r="10" fill="#0b1416"/>
+  <rect x="318" y="262" width="76" height="12" rx="6" fill="#0b1416"/>
+  <rect x="318" y="286" width="52" height="12" rx="6" fill="#0b1416"/>
+</svg>

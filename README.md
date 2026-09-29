@@ -49,6 +49,8 @@ base64 -w0 release.keystore   # macOS/Linux；写入 GitHub Secret ANDROID_KEYST
 
 **Release 标签规范**：仅使用 `v1.4.0` 这类 semver 标签；不要用日期标签（如 `v20260928`）以免出现重复 Release。
 
+主页应用截图位于 `site/assets/screens/`（WebP，约 540px 宽），来自各应用调试版 APK 的真实 Compose 界面；在无法使用 Android 模拟器 adb 截屏时，用 Roborazzi + Robolectric 在临时构建中录制（不提交到 Android 模块）。
+
 主页收录的应用：
 
 | 应用 | 简介 | 仓库 |
