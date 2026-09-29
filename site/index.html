@@ -7,7 +7,7 @@
     <meta
       name="description"
       data-i18n-content="meta.description"
-      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（本地优先的个人记账，版本 1.2.0）、班级事务记录（出勤、缴费、分摊、清单，版本 1.4.0）。"
+      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（个人记账，版本 1.2.0）、班级事务记录（出勤、缴费、分摊、清单，版本 1.4.0）。"
     />
     <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
@@ -34,7 +34,7 @@
     <meta name="twitter:title" content="Etai 应用集 — C一周通 · 轻记账 · 班级事务记录" />
     <meta
       name="twitter:description"
-      content="C一周通：7 天用 C 写出 Dijkstra；轻记账：本地优先的个人记账；班级事务记录：出勤、缴费、分摊、清单。"
+      content="C一周通：7 天用 C 写出 Dijkstra；轻记账：个人记账；班级事务记录：出勤、缴费、分摊、清单。"
     />
     <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/og-image.png" />
   </head>
@@ -330,52 +330,6 @@
         </div>
       </section>
 
-      <section id="screenshots" data-group="cweek">
-        <div class="wrap">
-          <header class="section-head">
-            <h2 data-i18n="cweek.screenshots.title">应用截图</h2>
-            <p data-i18n="cweek.screenshots.lead">以下截屏来自调试版 APK 的真实 Jetpack Compose 界面（与手机端一致的主要屏幕）。</p>
-          </header>
-          <div class="screenshot-gallery" role="region" data-i18n-aria="cweek.screenshots.gallery.ariaLabel" aria-label="C一周通全部截图">
-            <ul class="screenshot-gallery-track">
-              <li class="screenshot-slide">
-                <figure class="screenshot-figure">
-                  <div class="phone-frame screenshot-phone">
-                    <div class="phone-notch"><span></span></div>
-                    <div class="phone-screen">
-                      <img src="/assets/screens/cweek/01-home.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.screenshots.s01.alt" alt="C一周通本周课程首页" />
-                    </div>
-                  </div>
-                  <figcaption class="screenshot-caption" data-i18n="cweek.screenshots.s01.caption">本周课程首页</figcaption>
-                </figure>
-              </li>
-              <li class="screenshot-slide">
-                <figure class="screenshot-figure">
-                  <div class="phone-frame screenshot-phone">
-                    <div class="phone-notch"><span></span></div>
-                    <div class="phone-screen">
-                      <img src="/assets/screens/cweek/03-lesson.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.screenshots.s02.alt" alt="C一周通课文与 VS Code 演示" />
-                    </div>
-                  </div>
-                  <figcaption class="screenshot-caption" data-i18n="cweek.screenshots.s02.caption">课文 · VS Code 演示入口</figcaption>
-                </figure>
-              </li>
-              <li class="screenshot-slide">
-                <figure class="screenshot-figure">
-                  <div class="phone-frame screenshot-phone">
-                    <div class="phone-notch"><span></span></div>
-                    <div class="phone-screen">
-                      <img src="/assets/screens/cweek/05-labs.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.screenshots.s03.alt" alt="C一周通代码实验与评测" />
-                    </div>
-                  </div>
-                  <figcaption class="screenshot-caption" data-i18n="cweek.screenshots.s03.caption">实验 · 多组用例评测</figcaption>
-                </figure>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <section id="faq" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
@@ -429,7 +383,7 @@
               </span>
               <h2 id="qjz-title" class="project-title" data-i18n="qjz.hero.title">轻记账</h2>
               <p class="lead" data-i18n-html="qjz.hero.lead">
-                本地优先的个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
+                个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
               </p>
               <div class="hero-actions">
                 <a
@@ -759,10 +713,11 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=1" defer></script>
-    <script src="/js/site.js?v=1" defer></script>
+    <script src="/js/translations.js?v=2" defer></script>
+    <script src="/js/site.js?v=2" defer></script>
     <script src="/js/nav.js?v=5" defer></script>
-    <script src="/js/github-meta.js?v=1" defer></script>
+    <script src="/js/carousel.js?v=1" defer></script>
+    <script src="/js/github-meta.js?v=2" defer></script>
     <!-- Cloudflare Web Analytics (public site token) -->
     <script
       defer

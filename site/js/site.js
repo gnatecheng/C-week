@@ -106,6 +106,7 @@
 
     syncLangControl(lang);
     syncThemeControl(localStorage.getItem(THEME_KEY) || "system");
+    syncManifestLink(lang);
 
     document.dispatchEvent(new CustomEvent("etai:langchange", { detail: { lang: lang } }));
   }
@@ -113,6 +114,13 @@
   function setLang(lang) {
     localStorage.setItem(LANG_KEY, lang);
     applyI18n(lang);
+  }
+
+  function syncManifestLink(lang) {
+    var link = document.querySelector('link[rel="manifest"]');
+    if (!link) return;
+    link.href =
+      lang === "en" ? "/site.webmanifest.en.json?v=1" : "/site.webmanifest?v=1";
   }
 
   function syncLangControl(lang) {

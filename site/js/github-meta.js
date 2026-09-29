@@ -1,4 +1,4 @@
-/* Fetch latest GitHub release version & date for app badges (graceful fallback). */
+/* Fetch GitHub release version & date — prefer semver tags, ignore date-like tags. */
 (function () {
   "use strict";
 
@@ -7,6 +7,14 @@
     qingjizhang: "gnatecheng/qingjizhang",
     "class-record": "gnatecheng/class-activity-record",
   };
+
+  /** @param {string} tag e.g. v1.4.0 or v20260928 */
+  function isSemverReleaseTag(tag) {
+    if (!tag || typeof tag !== "string") return false;
+    var body = tag.replace(/^v/i, "").trim();
+    if (/^20\d{6}$/.test(body) || /^\d{8}$/.test(body)) return false;
+    return /^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$/.test(body);
+  }
 
   function formatDate(iso, lang) {
     if (!iso) return "";
@@ -38,18 +46,31 @@
     }
   }
 
-  function fetchRepo(fullName) {
-    return fetch("https://api.github.com/repos/" + fullName + "/releases/latest", {
-      headers: { Accept: "application/vnd.github+json" },
-    }).then(function (res) {
+  function pickSemverRelease(list) {
+    if (!Array.isArray(list)) return null;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] && isSemverReleaseTag(list[i].tag_name)) return list[i];
+    }
+    return null;
+  }
+
+  function fetchSemverRelease(fullName) {
+    return fetch(
+      "https://api.github.com/repos/" + fullName + "/releases?per_page=30",
+      { headers: { Accept: "application/vnd.github+json" } }
+    ).then(function (res) {
       if (!res.ok) throw new Error("github " + res.status);
       return res.json();
+    }).then(function (list) {
+      var picked = pickSemverRelease(list);
+      if (!picked) throw new Error("no semver release");
+      return picked;
     });
   }
 
   function refreshAll(lang) {
     Object.keys(REPOS).forEach(function (group) {
-      fetchRepo(REPOS[group])
+      fetchSemverRelease(REPOS[group])
         .then(function (data) {
           applyMeta(group, data, lang);
         })

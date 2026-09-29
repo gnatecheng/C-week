@@ -17,3 +17,7 @@
 /site.webmanifest
   Content-Type: application/manifest+json
   Cache-Control: public, max-age=86400
+
+/site.webmanifest.en.json
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=86400
