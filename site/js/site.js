@@ -120,7 +120,7 @@
     var link = document.querySelector('link[rel="manifest"]');
     if (!link) return;
     link.href =
-      lang === "en" ? "/site.webmanifest.en.json?v=1" : "/site.webmanifest?v=1";
+      lang === "en" ? "/site.webmanifest.en.json?v=2" : "/site.webmanifest?v=2";
   }
 
   function syncLangControl(lang) {

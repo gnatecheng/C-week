@@ -3,26 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Etai 应用集 — C一周通 · 轻记账 · 班级事务记录</title>
+    <title>Etai 应用集 — C一周通 · 轻记账 · 多人事务</title>
     <meta
       name="description"
       data-i18n-content="meta.description"
-      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（个人记账，版本 1.2.0）、班级事务记录（出勤、缴费、分摊、清单，版本 1.4.0）。"
+      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（个人记账，版本 1.2.0）、多人事务（出勤、缴费、分摊、清单，版本 1.4.0）。"
     />
     <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
-    <link rel="manifest" href="/site.webmanifest?v=1" />
+    <link rel="manifest" href="/site.webmanifest?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=2"></script>
     <link rel="stylesheet" href="/css/style.css?v=7" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
-    <meta property="og:title" content="Etai 应用集 — C一周通 · 轻记账 · 班级事务记录" />
+    <meta property="og:title" content="Etai 应用集 — C一周通 · 轻记账 · 多人事务" />
     <meta
       property="og:description"
-      content="三款离线可用的 Kotlin + Jetpack Compose Android 应用：7 天学会 C 的 C一周通、本地记账的轻记账、单班事务管理的班级事务记录。"
+      content="三款离线可用的 Kotlin + Jetpack Compose Android 应用：7 天学会 C 的 C一周通、本地记账的轻记账、单班事务管理的多人事务。"
     />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:image" content="https://etai.chengyitang.workers.dev/assets/og-image.png" />
@@ -31,10 +31,10 @@
     <meta property="og:image:type" content="image/png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Etai 应用集 — C一周通 · 轻记账 · 班级事务记录" />
+    <meta name="twitter:title" content="Etai 应用集 — C一周通 · 轻记账 · 多人事务" />
     <meta
       name="twitter:description"
-      content="C一周通：7 天用 C 写出 Dijkstra；轻记账：个人记账；班级事务记录：出勤、缴费、分摊、清单。"
+      content="C一周通：7 天用 C 写出 Dijkstra；轻记账：个人记账；多人事务：出勤、缴费、分摊、清单。"
     />
     <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/og-image.png" />
   </head>
@@ -51,7 +51,7 @@
           <a href="#cweek" data-i18n="nav.cweek">C一周通</a>
           <a href="#roadmap" data-i18n="nav.roadmap">7 天路线</a>
           <a href="#qingjizhang" data-i18n="nav.qingjizhang">轻记账</a>
-          <a href="#class-record" data-i18n="nav.classRecord">班级事务记录</a>
+          <a href="#class-record" data-i18n="nav.classRecord">多人事务</a>
           <a href="#faq" data-i18n="nav.faq">常见问题</a>
         </nav>
         <div class="header-tools">
@@ -75,7 +75,7 @@
           <ul class="app-chips" data-i18n-aria="appsStrip.listLabel" aria-label="应用列表">
             <li><a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="appsStrip.cweek">C一周通</span></a></li>
             <li><a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span><span data-i18n="appsStrip.qingjizhang">轻记账</span></a></li>
-            <li><a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span><span data-i18n="appsStrip.classRecord">班级事务记录</span></a></li>
+            <li><a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span><span data-i18n="appsStrip.classRecord">多人事务</span></a></li>
           </ul>
         </div>
       </div>
@@ -334,7 +334,7 @@
         <div class="wrap">
           <header class="section-head">
             <h2 data-i18n="cweek.faq.title">常见问题</h2>
-            <p data-i18n="cweek.faq.lead">以下问答针对 C一周通；轻记账与班级事务记录的安装方式见各自介绍。</p>
+            <p data-i18n="cweek.faq.lead">以下问答针对 C一周通；轻记账与多人事务的安装方式见各自介绍。</p>
           </header>
           <div class="faq-list">
             <article class="faq-item">
@@ -534,7 +534,7 @@
                 <span data-i18n="class.badgeLang">简体中文</span>
                 <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
               </span>
-              <h2 id="class-title" class="project-title" data-i18n="class.hero.title">班级事务记录</h2>
+              <h2 id="class-title" class="project-title" data-i18n="class.hero.title">多人事务</h2>
               <p class="lead" data-i18n-html="class.hero.lead">
                 单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
               </p>
@@ -561,14 +561,14 @@
               </p>
             </div>
             <div class="hero-visual screenshot-wrap">
-              <div class="screenshot-gallery" role="region" data-i18n-aria="class.hero.gallery.ariaLabel" aria-label="班级事务记录应用截图">
+              <div class="screenshot-gallery" role="region" data-i18n-aria="class.hero.gallery.ariaLabel" aria-label="多人事务应用截图">
                 <ul class="screenshot-gallery-track">
                   <li class="screenshot-slide">
                     <figure class="screenshot-figure">
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/01-home.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s01.alt" alt="班级事务记录首页，班级与事务列表" />
+                          <img src="/assets/screens/class-record/01-home.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s01.alt" alt="多人事务首页，班级与事务列表" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s01.caption">首页 · 班级与事务列表</figcaption>
@@ -579,7 +579,7 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/02-attendance.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s02.alt" alt="班级事务记录出勤点名，已到与请假状态" />
+                          <img src="/assets/screens/class-record/02-attendance.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s02.alt" alt="多人事务出勤点名，已到与请假状态" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s02.caption">出勤点名 · 连续到课进度</figcaption>
@@ -590,7 +590,7 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/03-payment.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s03.alt" alt="班级事务记录缴费事务，仅未完成筛选" />
+                          <img src="/assets/screens/class-record/03-payment.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s03.alt" alt="多人事务缴费事务，仅未完成筛选" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s03.caption">缴费 · 未完成提醒与应缴</figcaption>
@@ -601,7 +601,7 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/04-ledger.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s04.alt" alt="班级事务记录班费账本，收支流水与余额" />
+                          <img src="/assets/screens/class-record/04-ledger.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s04.alt" alt="多人事务班费账本，收支流水与余额" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s04.caption">班费账本 · 收支与余额</figcaption>
@@ -612,7 +612,7 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/05-members.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s05.alt" alt="班级事务记录成员名单管理" />
+                          <img src="/assets/screens/class-record/05-members.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s05.alt" alt="多人事务成员名单管理" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s05.caption">成员 · 12 人名单与学号</figcaption>
@@ -692,7 +692,7 @@
         </li>
         <li>
           <a class="side-link link-class" href="#class-record" data-target="class-record">
-            <span class="side-badge" aria-hidden="true">班</span><span class="side-label" data-i18n="sideNav.classRecord">班级事务记录</span>
+            <span class="side-badge" aria-hidden="true">班</span><span class="side-label" data-i18n="sideNav.classRecord">多人事务</span>
           </a>
         </li>
         <li>
@@ -705,7 +705,7 @@
 
     <footer class="site-footer">
       <div class="wrap inner">
-        <p data-i18n="footer.copyright">© Etai 应用集 · C一周通 / 轻记账 / 班级事务记录 · 开源 Android 应用</p>
+        <p data-i18n="footer.copyright">© Etai 应用集 · C一周通 / 轻记账 / 多人事务 · 开源 Android 应用</p>
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/C-week" rel="noopener noreferrer">C-week</a>
           <a href="https://github.com/gnatecheng/qingjizhang" rel="noopener noreferrer">qingjizhang</a>
@@ -713,8 +713,8 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=4" defer></script>
-    <script src="/js/site.js?v=3" defer></script>
+    <script src="/js/translations.js?v=5" defer></script>
+    <script src="/js/site.js?v=4" defer></script>
     <script src="/js/nav.js?v=5" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=3" defer></script>
