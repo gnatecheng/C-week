@@ -5,10 +5,10 @@ window.ETAI_TRANSLATIONS = {
       "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.5.0）、轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）。",
     "meta.ogTitle": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
     "meta.ogDescription":
-      "三款离线可用的 Kotlin + Jetpack Compose Android 应用：7 天学会 C 的 C一周通、本地记账的轻记账、单班事务管理的多人事务。",
+      "三款离线 Android 应用：C一周通 v1.5.0、轻记账 v1.3.1、多人事务 v1.5.0。",
     "meta.twitterTitle": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
     "meta.twitterDescription":
-      "C一周通：7 天用 C 写出 Dijkstra；轻记账：本地优先的个人记账；多人事务：出勤、缴费、分摊、清单。",
+      "C一周通 v1.5.0 · 轻记账 v1.3.1 · 多人事务 v1.5.0 — 离线可用，数据只存本机。",
     "meta.versionLabel": "版本",
     "meta.updatedLabel": "更新",
     "skipLink": "跳到主要内容",
@@ -264,10 +264,10 @@ window.ETAI_TRANSLATIONS = {
       "Etai Apps features three offline-first Android apps that keep data on your device: C Week (learn C in 7 days, v1.5.0), Easy Ledger (local personal finance, v1.3.1), and Group Matters (attendance, fees, splits, checklists, v1.5.0).",
     "meta.ogTitle": "Etai Apps — C Week · Easy Ledger · Group Matters",
     "meta.ogDescription":
-      "Three offline Kotlin + Jetpack Compose Android apps: C Week to learn C in a week, Easy Ledger for local bookkeeping, and Group Matters for single-class administration.",
+      "Three offline Android apps: C Week v1.5.0, Easy Ledger v1.3.1, Group Matters v1.5.0.",
     "meta.twitterTitle": "Etai Apps — C Week · Easy Ledger · Group Matters",
     "meta.twitterDescription":
-      "C Week: learn C and implement Dijkstra in 7 days; Easy Ledger: local-first personal finance; Group Matters: attendance, payments, splits, and checklists.",
+      "C Week v1.5.0 · Easy Ledger v1.3.1 · Group Matters v1.5.0 — offline-first, data on your device.",
     "meta.versionLabel": "Version",
     "meta.updatedLabel": "Updated",
     "skipLink": "Skip to main content",

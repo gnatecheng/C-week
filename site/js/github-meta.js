@@ -5,7 +5,7 @@
   var REPOS = {
     cweek: "gnatecheng/c-week",
     qingjizhang: "gnatecheng/easy-ledger",
-    "class-record": "gnatecheng/group-matters",
+    "group-matters": "gnatecheng/group-matters",
   };
 
   /** @param {string} tag e.g. v1.4.0 or v20260928 */

@@ -100,13 +100,6 @@
     var titleKey = document.body.getAttribute("data-page-title-key") || "meta.title";
     document.title = t(titleKey, lang);
 
-    var desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      var dk = desc.getAttribute("data-i18n-content") || "meta.description";
-      var dv = t(dk, lang);
-      if (dv) desc.setAttribute("content", dv);
-    }
-
     syncLangControl(lang);
     syncThemeControl(localStorage.getItem(THEME_KEY) || "system");
     syncManifestLink(lang);
@@ -160,11 +153,23 @@
     }
   }
 
+  function normalizeLegacyHash() {
+    if (location.hash !== "#class-record") return;
+    var section = document.getElementById("group-matters");
+    if (!section) return;
+    section.scrollIntoView({ behavior: "auto", block: "start" });
+    if (history.replaceState) {
+      history.replaceState(null, "", location.pathname + location.search + "#group-matters");
+    }
+  }
+
   function init() {
     var lang = getLang();
     applyI18n(lang);
     applyTheme(localStorage.getItem(THEME_KEY) || "system");
     initControls();
+    normalizeLegacyHash();
+    window.addEventListener("hashchange", normalizeLegacyHash);
   }
 
   if (document.readyState === "loading") {
