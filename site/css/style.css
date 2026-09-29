@@ -159,6 +159,10 @@ a:hover {
   white-space: nowrap;
 }
 
+.brand-tagline-short {
+  display: none;
+}
+
 .brand img {
   width: 36px;
   height: 36px;
@@ -188,9 +192,22 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  .brand-block {
+    max-width: calc(100vw - 2rem - 8.25rem);
+    min-width: 0;
+  }
+
   .brand-tagline {
     margin-left: 0;
     padding-left: calc(36px + 0.65rem);
+  }
+
+  html[lang^="en"] .brand-tagline-full {
+    display: none;
+  }
+
+  html[lang^="en"] .brand-tagline-short {
+    display: inline;
   }
 
   .header-nav-inner {
