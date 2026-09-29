@@ -33,6 +33,9 @@ import com.py2c.week.data.WeekCurriculum
 import com.py2c.week.data.WrongItem
 import com.py2c.week.data.WrongSource
 import com.py2c.week.data.groupedByDay
+import com.py2c.week.ui.strings.LocalAppLocale
+import com.py2c.week.ui.strings.rememberStrings
+import com.py2c.week.data.toView
 
 @Composable
 fun WrongBookScreen(
@@ -42,6 +45,8 @@ fun WrongBookScreen(
     onRedoLab: (labId: String) -> Unit,
     onOpenReport: () -> Unit,
 ) {
+    val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val open = progress.wrongItems.filter { !it.resolved }
     val done = progress.wrongItems.filter { it.resolved }
     var showResolved by remember { mutableStateOf(false) }
@@ -53,9 +58,9 @@ fun WrongBookScreen(
             .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Text("错题本", style = MaterialTheme.typography.headlineMedium)
+        Text(strings.wrongBookTitle, style = MaterialTheme.typography.headlineMedium)
         Text(
-            "测验答错、实验未通过都会记在这里。按天查看，点进去重练；全部做对即标记已订正。",
+            strings.wrongBookIntro,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -67,8 +72,8 @@ fun WrongBookScreen(
             ) {
                 Icon(Icons.Outlined.AutoStories, contentDescription = null)
                 Column(Modifier.weight(1f)) {
-                    Text("待订正 ${open.size} 题", style = MaterialTheme.typography.titleLarge)
-                    Text("已订正 ${done.size} 题", style = MaterialTheme.typography.bodyMedium)
+                    Text(strings.wrongBookOpenCount(open.size), style = MaterialTheme.typography.titleLarge)
+                    Text(strings.wrongBookResolvedCount(done.size), style = MaterialTheme.typography.bodyMedium)
                 }
             }
         }
@@ -77,37 +82,34 @@ fun WrongBookScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp),
-        ) { Text("打开学习报告") }
+        ) { Text(strings.wrongBookOpenReport) }
 
         if (open.isEmpty()) {
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text("暂无待订正", style = MaterialTheme.typography.titleMedium)
-                    Text(
-                        "去做测验或实验。答错的题目会按第几天列在这里，方便回炉。",
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
+                    Text(strings.wrongBookEmptyTitle, style = MaterialTheme.typography.titleMedium)
+                    Text(strings.wrongBookEmptyBody, style = MaterialTheme.typography.bodyMedium)
                 }
             }
         } else {
             open.groupedByDay().forEach { (dayId, items) ->
                 val title = curriculum.days.find { it.id == dayId }?.title.orEmpty()
-                Text("第 $dayId 天 · $title", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
+                Text(strings.wrongBookDayHeader(dayId, title), style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
                 items.forEach { item ->
-                    WrongCard(item, onRedoQuiz, onRedoLab)
+                    WrongCard(item, curriculum, onRedoQuiz, onRedoLab)
                 }
             }
         }
 
         if (done.isNotEmpty()) {
             FilledTonalButton(onClick = { showResolved = !showResolved }) {
-                Text(if (showResolved) "收起已订正" else "查看已订正（${done.size}）")
+                Text(if (showResolved) strings.wrongBookHideResolved else strings.wrongBookShowResolved(done.size))
             }
             if (showResolved) {
                 done.groupedByDay().forEach { (dayId, items) ->
-                    Text("第 $dayId 天 · 已订正", style = MaterialTheme.typography.titleSmall)
+                    Text(strings.wrongBookDayResolved(dayId), style = MaterialTheme.typography.titleSmall)
                     items.forEach { item ->
-                        WrongCard(item, onRedoQuiz, onRedoLab)
+                        WrongCard(item, curriculum, onRedoQuiz, onRedoLab)
                     }
                 }
             }
@@ -118,9 +120,13 @@ fun WrongBookScreen(
 @Composable
 private fun WrongCard(
     item: WrongItem,
+    curriculum: WeekCurriculum,
     onRedoQuiz: (dayId: Int, questionId: String) -> Unit,
     onRedoLab: (labId: String) -> Unit,
 ) {
+    val strings = rememberStrings()
+    val locale = LocalAppLocale.current
+    val view = item.toView(curriculum, locale)
     val container = if (item.resolved) MaterialTheme.colorScheme.surfaceVariant
     else MaterialTheme.colorScheme.errorContainer
     Card(
@@ -142,19 +148,20 @@ private fun WrongCard(
                     item.source == WrongSource.LAB -> Icons.Outlined.Terminal
                     else -> Icons.Outlined.Quiz
                 },
-                contentDescription = item.sourceLabel,
+                contentDescription = strings.wrongSourceLabel(item.source),
             )
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(
-                    "${item.sourceLabel} · ${item.hintCategory}" + if (item.resolved) " · 已订正" else "",
+                    "${strings.wrongSourceLabel(item.source)} · ${view.hintCategory}" +
+                        if (item.resolved) strings.wrongResolvedSuffix else "",
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.primary,
                 )
-                Text(item.prompt, style = MaterialTheme.typography.titleMedium)
-                Text("你的作答：${item.userAnswer}", style = MaterialTheme.typography.bodySmall)
-                Text("正确：${item.correctAnswer}", style = MaterialTheme.typography.bodySmall)
+                Text(view.prompt, style = MaterialTheme.typography.titleMedium)
+                Text("${strings.wrongYourAnswer}${view.userAnswer}", style = MaterialTheme.typography.bodySmall)
+                Text("${strings.wrongCorrectAnswer}${view.correctAnswer}", style = MaterialTheme.typography.bodySmall)
                 Text(
-                    if (item.source == WrongSource.QUIZ) "点按重练这一题" else "点按回实验重跑模拟评测",
+                    if (item.source == WrongSource.QUIZ) strings.wrongRedoQuiz else strings.wrongRedoLab,
                     style = MaterialTheme.typography.labelLarge,
                 )
             }

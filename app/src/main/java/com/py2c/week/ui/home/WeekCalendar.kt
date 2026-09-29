@@ -34,9 +34,11 @@ import com.py2c.week.data.ProgressSnapshot
 import com.py2c.week.data.WeekCurriculum
 import com.py2c.week.data.isFullyComplete
 import com.py2c.week.data.nextOpenDay
-import com.py2c.week.data.shortWeekdayZh
+import com.py2c.week.data.shortWeekday
 import com.py2c.week.data.thisCalendarWeek
 import com.py2c.week.data.todayIso
+import com.py2c.week.ui.strings.LocalAppLocale
+import com.py2c.week.ui.strings.rememberStrings
 import java.time.LocalDate
 
 @Composable
@@ -46,27 +48,26 @@ fun WeekCheckInCard(
     onOpenDay: (Int) -> Unit,
     onCheckInToday: () -> Unit,
 ) {
+    val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val lit = progress.checkedCourseDays + curriculum.days.filter { it.isFullyComplete(progress) }.map { it.id }
     val litCount = curriculum.days.count { it.id in lit }
     val streak = progress.streak
     val todayChecked = progress.checkinDates.contains(todayIso())
     val next = progress.nextOpenDay(curriculum)
     val nudge = when {
-        litCount >= 7 -> "七关全亮，本周毕业。可以把 Dijkstra 再在电脑 gcc 里跑一遍。"
-        next != null -> "一关一天：下一关是第 ${next.id} 天「${next.title}」。点亮 7 格就毕业。"
-        else -> "把剩下的实验和测验做完，整周格子就会亮满。"
+        litCount >= 7 -> strings.calendarNudgeAllDone()
+        next != null -> strings.calendarNudgeNext(next.id, next.title)
+        else -> strings.calendarNudgeFinish
     }
 
     Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Icon(Icons.Outlined.LocalFireDepartment, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                Text("学习日历", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+                Text(strings.calendarTitle, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
             }
-            Text(
-                "连续打卡 $streak 天 · 已点亮 $litCount / 7 关",
-                style = MaterialTheme.typography.titleMedium,
-            )
+            Text(strings.calendarStreak(streak, litCount), style = MaterialTheme.typography.titleMedium)
             Text(nudge, style = MaterialTheme.typography.bodyMedium)
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -82,8 +83,8 @@ fun WeekCheckInCard(
                     )
                 }
             }
-            Text("本周日历（按真实日期）", style = MaterialTheme.typography.labelLarge)
-            CalendarStrip(checkinDates = progress.checkinDates)
+            Text(strings.calendarWeekLabel, style = MaterialTheme.typography.labelLarge)
+            CalendarStrip(checkinDates = progress.checkinDates, locale = locale)
             Button(
                 onClick = onCheckInToday,
                 enabled = !todayChecked,
@@ -91,11 +92,10 @@ fun WeekCheckInCard(
                     .fillMaxWidth()
                     .height(48.dp),
             ) {
-                Text(if (todayChecked) "今日已打卡" else "今日打卡")
+                Text(if (todayChecked) strings.calendarCheckedInToday else strings.calendarCheckInToday)
             }
             Text(
-                if (todayChecked) "今天的格子已经盖章。做完一关课文/实验/测验也会自动记入连续天数。"
-                else "点一下给今天盖章；完成任意课文、实验或测验也会自动打卡。",
+                if (todayChecked) strings.calendarCheckInHintChecked else strings.calendarCheckInHintUnchecked,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
             )
@@ -110,6 +110,7 @@ private fun CourseDayCell(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
+    val strings = rememberStrings()
     val scheme = MaterialTheme.colorScheme
     val bg = if (done) scheme.primary else scheme.surface
     val fg = if (done) scheme.onPrimary else scheme.onSurface
@@ -120,16 +121,18 @@ private fun CourseDayCell(
             .border(1.dp, if (done) scheme.primary else scheme.outline, RoundedCornerShape(12.dp))
             .clickable(onClick = onClick)
             .padding(vertical = 10.dp, horizontal = 2.dp)
-            .semantics { contentDescription = if (done) "第${dayId}天已完成" else "第${dayId}天未完成" },
+            .semantics {
+                contentDescription = if (done) strings.calendarDayDone(dayId) else strings.calendarDayNotDone(dayId)
+            },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text("D$dayId", color = fg, style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
-        Text(if (done) "亮" else "关", color = fg, style = MaterialTheme.typography.labelSmall)
+        Text(if (done) strings.calendarCellOn else strings.calendarCellOff, color = fg, style = MaterialTheme.typography.labelSmall)
     }
 }
 
 @Composable
-private fun CalendarStrip(checkinDates: Set<String>) {
+private fun CalendarStrip(checkinDates: Set<String>, locale: com.py2c.week.data.AppLocale) {
     val week = thisCalendarWeek()
     val today = LocalDate.now()
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -151,7 +154,7 @@ private fun CalendarStrip(checkinDates: Set<String>) {
                     .padding(vertical = 8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(date.shortWeekdayZh(), style = MaterialTheme.typography.labelSmall, textAlign = TextAlign.Center)
+                Text(date.shortWeekday(locale), style = MaterialTheme.typography.labelSmall, textAlign = TextAlign.Center)
                 Box(
                     modifier = Modifier
                         .size(28.dp)

@@ -48,10 +48,12 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun Py2CTheme(content: @Composable () -> Unit) {
-    val dark = isSystemInDarkTheme()
+fun Py2CTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit,
+) {
     MaterialTheme(
-        colorScheme = if (dark) DarkColors else LightColors,
+        colorScheme = if (darkTheme) DarkColors else LightColors,
         typography = AppTypography,
         content = content,
     )

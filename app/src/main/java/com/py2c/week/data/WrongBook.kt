@@ -13,6 +13,8 @@ data class WrongItem(
     val hintCategory: String,
     val resolved: Boolean = false,
     val updatedAtMs: Long = 0L,
+    /** Quiz only: selected choice index for locale-safe display. */
+    val userChoiceIndex: Int = -1,
 ) {
     val key: String get() = "${source.name}:$questionId"
 
@@ -33,6 +35,7 @@ fun WrongItem.serialize(): String = listOf(
     hintCategory.wrongField(),
     if (resolved) "1" else "0",
     updatedAtMs.toString(),
+    userChoiceIndex.toString(),
 ).joinToString(FS)
 
 fun parseWrongItem(raw: String): WrongItem? {
@@ -40,6 +43,7 @@ fun parseWrongItem(raw: String): WrongItem? {
     if (p.size < 9) return null
     val source = WrongSource.entries.find { it.name == p[0] } ?: return null
     val dayId = p[1].toIntOrNull() ?: return null
+    val choiceIndex = if (p.size >= 10) p[9].toIntOrNull() ?: -1 else -1
     return WrongItem(
         source = source,
         dayId = dayId,
@@ -50,6 +54,7 @@ fun parseWrongItem(raw: String): WrongItem? {
         hintCategory = p[6],
         resolved = p[7] == "1",
         updatedAtMs = p[8].toLongOrNull() ?: 0L,
+        userChoiceIndex = choiceIndex,
     )
 }
 

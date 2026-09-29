@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.py2c.week.data.AppContainer
 import com.py2c.week.data.ProgressSnapshot
 import com.py2c.week.data.ProgressStore
-import com.py2c.week.data.WeekCurriculum
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -14,7 +13,6 @@ import kotlinx.coroutines.launch
 
 /** Shared progress + curriculum for Compose screens. */
 class ProgressViewModel(
-    val curriculum: WeekCurriculum,
     private val store: ProgressStore,
 ) : ViewModel() {
     val progress: StateFlow<ProgressSnapshot> = store.progress.stateIn(
@@ -38,7 +36,7 @@ class ProgressViewModel(
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    return ProgressViewModel(container.curriculum, container.progressStore) as T
+                    return ProgressViewModel(container.progressStore) as T
                 }
             }
     }

@@ -43,6 +43,30 @@ data class LearningReport(
         appendLine()
         appendLine("离线自学，手机上模拟评测；真正的 gcc 请在电脑 VS Code 里跑。")
     }
+
+    fun shareText(brand: String, strings: com.py2c.week.ui.strings.AppStrings): String = buildString {
+        appendLine(strings.reportShareSubject(brand))
+        appendLine("${strings.reportStreak(streak)} (${checkinDays} days with activity)")
+        appendLine("Overall: $overallPercent%")
+        appendLine("${strings.reportLabsPassed}: $labsPassed / $labsTotal")
+        appendLine(
+            if (quizAsked == 0) "${strings.reportQuizAccuracy}: ${strings.reportQuizNotTaken}"
+            else "${strings.reportQuizAccuracy}: $quizAccuracyPercent% ($quizCorrect / $quizAsked)",
+        )
+        appendLine("${strings.reportOpenWrongs(openWrongs)}")
+        appendLine()
+        appendLine(strings.reportDayBreakdown)
+        days.forEach { d ->
+            val quiz = d.quizScore?.let { strings.reportQuizScore(it, d.quizTotal) }
+                ?: strings.reportQuizNotSubmitted
+            val lab = if (d.labDone) strings.reportLabDone else strings.reportLabNotDone
+            appendLine(
+                "  Day ${d.dayId} ${d.title}  ${strings.reportDayDetail(d.percent, d.done, d.total, quiz, lab)}",
+            )
+        }
+        appendLine()
+        appendLine("Offline study with simulated grading on phone; run real gcc in VS Code on desktop.")
+    }
 }
 
 fun ProgressSnapshot.learningReport(curriculum: WeekCurriculum): LearningReport {

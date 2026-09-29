@@ -42,6 +42,9 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.py2c.week.data.AppLocale
+import com.py2c.week.ui.strings.LocalAppLocale
+import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.delay
 
 private const val INF = 1_000_000_000
@@ -89,23 +92,40 @@ private val FRAMES: List<DijkstraFrame> = listOf(
     DijkstraFrame("最后确定点 3。最短路 0→2→1→3，距离 0 2 1 3。", listOf(0, 2, 1, 3), setOf(0, 1, 2, 3), 3, null),
 )
 
+private val FRAMES_EN: List<DijkstraFrame> = listOf(
+    DijkstraFrame("Before settling the source: only vertex 0 has dist 0; others are INF.", listOf(0, INF, INF, INF), emptySet(), null, null),
+    DijkstraFrame("Pick unsettled vertex 0 (smallest dist), ready to relax outgoing edges.", listOf(0, INF, INF, INF), emptySet(), 0, null),
+    DijkstraFrame("Relax 0→1 weight 4: dist[1] goes from INF to 4.", listOf(0, 4, INF, INF), setOf(0), 0, 0 to 1),
+    DijkstraFrame("Relax 0→2 weight 1: dist[2] becomes 1. Vertex 0 is settled.", listOf(0, 4, 1, INF), setOf(0), 0, 0 to 2),
+    DijkstraFrame("Next round picks 2 (closer than 1 at dist 4).", listOf(0, 4, 1, INF), setOf(0), 2, null),
+    DijkstraFrame("Relax 2→1: 1+1=2 beats the direct edge 4; dist[1]=2.", listOf(0, 2, 1, INF), setOf(0, 2), 2, 2 to 1),
+    DijkstraFrame("Relax 2→3: 1+5=6, dist[3]=6. Vertex 2 settled.", listOf(0, 2, 1, 6), setOf(0, 2), 2, 2 to 3),
+    DijkstraFrame("Pick vertex 1 (dist 2, better than 3 at 6).", listOf(0, 2, 1, 6), setOf(0, 2), 1, null),
+    DijkstraFrame("Relax 1→3: 2+1=3 beats 6; dist[3]=3.", listOf(0, 2, 1, 3), setOf(0, 2, 1), 1, 1 to 3),
+    DijkstraFrame("Finally settle 3. Shortest path 0→2→1→3; distances 0 2 1 3.", listOf(0, 2, 1, 3), setOf(0, 1, 2, 3), 3, null),
+)
+
 @Composable
 fun DijkstraBoard(
     unlocked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    var step by remember { mutableIntStateOf(if (unlocked) FRAMES.lastIndex else 0) }
+    val locale = LocalAppLocale.current
+    val frames = if (locale == AppLocale.EN) FRAMES_EN else FRAMES
+    var step by remember(unlocked, locale) { mutableIntStateOf(if (unlocked) frames.lastIndex else 0) }
     var playing by remember { mutableStateOf(false) }
-    val frame = FRAMES[step.coerceIn(0, FRAMES.lastIndex)]
+    val strings = rememberStrings()
+    val frame = frames[step.coerceIn(0, frames.lastIndex)]
+    val distLabels = frame.dist.map { if (it >= INF) "INF" else it.toString() }
 
-    LaunchedEffect(unlocked) {
-        step = if (unlocked) FRAMES.lastIndex else 0
+    LaunchedEffect(unlocked, locale) {
+        step = if (unlocked) frames.lastIndex else 0
         playing = false
     }
 
-    LaunchedEffect(playing, step, unlocked) {
+    LaunchedEffect(playing, step, unlocked, locale) {
         if (!playing || !unlocked) return@LaunchedEffect
-        if (step >= FRAMES.lastIndex) {
+        if (step >= frames.lastIndex) {
             playing = false
             return@LaunchedEffect
         }
@@ -118,25 +138,21 @@ fun DijkstraBoard(
         colors = CardDefaults.cardColors(containerColor = Color(0xFF0F172A)),
     ) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            Text("走格子 / 看路径", color = Color(0xFF5EEAD4), style = MaterialTheme.typography.titleMedium)
+            Text(strings.dijkstraBoardTitle, color = Color(0xFF5EEAD4), style = MaterialTheme.typography.titleMedium)
             Text(
-                if (unlocked) {
-                    "通过检查后可以逐步看 Dijkstra 怎样把距离钉死。高亮边是当前松弛，青边是最终最短路。"
-                } else {
-                    "补全松弛并通过检查后，这里会播放 0→2→1→3 怎么把 dist 从 INF 写成 0 2 1 3。"
-                },
+                if (unlocked) strings.dijkstraBoardUnlocked else strings.dijkstraBoardLocked,
                 color = Color(0xFFCBD5E1),
                 style = MaterialTheme.typography.bodyMedium,
             )
-            GraphCanvas(frame = frame, showFinalPath = unlocked && step == FRAMES.lastIndex)
+            GraphCanvas(frame = frame, showFinalPath = unlocked && step == frames.lastIndex)
             PathTiles(frame = frame, unlocked = unlocked)
             Text(
-                "步骤 ${step + 1}/${FRAMES.size}　${frame.caption}",
+                strings.dijkstraStep(step + 1, frames.size, frame.caption),
                 color = Color(0xFFFDE68A),
                 style = MaterialTheme.typography.bodyMedium,
             )
             Text(
-                "dist = ${frame.dist.joinToString(" ") { if (it >= INF) "INF" else it.toString() }}",
+                strings.dijkstraDistLine(distLabels),
                 color = Color(0xFFE2E8F0),
                 fontFamily = FontFamily.Monospace,
                 style = MaterialTheme.typography.bodyMedium,
@@ -147,38 +163,38 @@ fun DijkstraBoard(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 IconButton(onClick = { playing = false; step = (step - 1).coerceAtLeast(0) }, enabled = unlocked) {
-                    Icon(Icons.Outlined.SkipPrevious, contentDescription = "上一步", tint = Color.White)
+                    Icon(Icons.Outlined.SkipPrevious, contentDescription = strings.dijkstraPrevStep, tint = Color.White)
                 }
                 IconButton(
                     onClick = {
                         if (!unlocked) return@IconButton
-                        if (step >= FRAMES.lastIndex) step = 0
+                        if (step >= frames.lastIndex) step = 0
                         playing = !playing
                     },
                     enabled = unlocked,
                 ) {
                     Icon(
                         if (playing) Icons.Outlined.Pause else Icons.Outlined.PlayArrow,
-                        contentDescription = if (playing) "暂停" else "播放",
+                        contentDescription = if (playing) strings.dijkstraPause else strings.dijkstraPlay,
                         tint = Color.White,
                     )
                 }
                 IconButton(
-                    onClick = { playing = false; step = (step + 1).coerceAtMost(FRAMES.lastIndex) },
+                    onClick = { playing = false; step = (step + 1).coerceAtMost(frames.lastIndex) },
                     enabled = unlocked,
                 ) {
-                    Icon(Icons.Outlined.SkipNext, contentDescription = "下一步", tint = Color.White)
+                    Icon(Icons.Outlined.SkipNext, contentDescription = strings.dijkstraNextStep, tint = Color.White)
                 }
                 IconButton(
                     onClick = { playing = false; step = 0 },
                     enabled = unlocked,
                 ) {
-                    Icon(Icons.Outlined.Replay, contentDescription = "从头", tint = Color.White)
+                    Icon(Icons.Outlined.Replay, contentDescription = strings.dijkstraReplay, tint = Color.White)
                 }
             }
             if (!unlocked) {
                 FilledTonalButton(onClick = {}, enabled = false, modifier = Modifier.fillMaxWidth()) {
-                    Text("先通过模拟检查，再解锁走格子")
+                    Text(strings.dijkstraUnlockHint)
                 }
             }
         }
@@ -187,6 +203,7 @@ fun DijkstraBoard(
 
 @Composable
 private fun PathTiles(frame: DijkstraFrame, unlocked: Boolean) {
+    val strings = rememberStrings()
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
         PATH_ORDER.forEachIndexed { idx, node ->
             val d = frame.dist[node]
@@ -207,7 +224,7 @@ private fun PathTiles(frame: DijkstraFrame, unlocked: Boolean) {
                 contentAlignment = Alignment.Center,
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("格 $node", color = Color.White, style = MaterialTheme.typography.labelSmall)
+                    Text(strings.dijkstraCellLabel(node), color = Color.White, style = MaterialTheme.typography.labelSmall)
                     Text(
                         if (!unlocked && idx > 0 && d >= INF) "？" else if (d >= INF) "INF" else d.toString(),
                         color = Color.White,

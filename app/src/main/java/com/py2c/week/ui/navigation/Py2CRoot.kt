@@ -31,6 +31,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.py2c.week.data.AppContainer
+import com.py2c.week.data.UserPreferences
 import com.py2c.week.data.completedCourseDayIds
 import com.py2c.week.data.learningReport
 import com.py2c.week.ui.ProgressViewModel
@@ -44,32 +45,38 @@ import com.py2c.week.ui.lesson.DemoScreen
 import com.py2c.week.ui.lesson.LessonScreen
 import com.py2c.week.ui.quiz.QuizScreen
 import com.py2c.week.ui.report.ReportScreen
+import com.py2c.week.ui.settings.SettingsScreen
+import com.py2c.week.ui.strings.LocalAppLocale
+import com.py2c.week.ui.strings.LocalStrings
+import com.py2c.week.ui.strings.rememberStrings
 import com.py2c.week.ui.wrongbook.WrongBookScreen
 
 val LocalContainer = compositionLocalOf<AppContainer> {
-    error("AppContainer 未提供")
+    error("AppContainer not provided")
 }
 
 private data class TopTab(val route: String, val label: String, val icon: ImageVector)
 
 @Composable
-fun Py2CRoot(container: AppContainer) {
+fun Py2CRoot(container: AppContainer, userPreferences: UserPreferences) {
+    val strings = rememberStrings()
     CompositionLocalProvider(LocalContainer provides container) {
         val nav = rememberNavController()
         val vm: ProgressViewModel = viewModel(factory = ProgressViewModel.factory(container))
         val progress by vm.progress.collectAsState()
-        val curriculum = container.curriculum
+        val locale = LocalAppLocale.current
+        val curriculum = remember(locale) { container.curriculumFor(locale) }
         LaunchedEffect(progress) {
             container.progressStore.syncCompletedCourseDays(progress.completedCourseDayIds(curriculum))
         }
         val back by nav.currentBackStackEntryAsState()
         val route = back?.destination?.route
-        val tabs = remember {
+        val tabs = remember(strings) {
             listOf(
-                TopTab("home", "本周课程", Icons.Outlined.Home),
-                TopTab("labs", "代码实验", Icons.Outlined.Terminal),
-                TopTab("wrongs", "错题本", Icons.Outlined.AutoStories),
-                TopTab("glossary", "词汇表", Icons.AutoMirrored.Outlined.MenuBook),
+                TopTab("home", strings.navHome, Icons.Outlined.Home),
+                TopTab("labs", strings.navLabs, Icons.Outlined.Terminal),
+                TopTab("wrongs", strings.navWrongs, Icons.Outlined.AutoStories),
+                TopTab("glossary", strings.navGlossary, Icons.AutoMirrored.Outlined.MenuBook),
             )
         }
         val showBar = route in setOf("home", "labs", "glossary", "wrongs")
@@ -119,7 +126,16 @@ fun Py2CRoot(container: AppContainer) {
                         onOpenDay = { nav.navigate("day/$it") },
                         onOpenWrongBook = { nav.navigate("wrongs") },
                         onOpenReport = { nav.navigate("report") },
+                        onOpenSettings = { nav.navigate("settings") },
                         onReset = { /* handled inside */ },
+                    )
+                }
+                composable("settings") {
+                    SettingsScreen(
+                        strings = strings,
+                        preferences = userPreferences,
+                        store = container.userPreferencesStore,
+                        onBack = { nav.popBackStack() },
                     )
                 }
                 composable("labs") {
@@ -208,7 +224,7 @@ fun Py2CRoot(container: AppContainer) {
                         onBack = { nav.popBackStack() },
                         onSubmit = { score, answers ->
                             if (!redo) container.progressStore.markQuiz(id, score)
-                            container.progressStore.recordQuizResults(day, answers)
+                            container.progressStore.recordQuizResults(day, answers, locale)
                         },
                     )
                 }

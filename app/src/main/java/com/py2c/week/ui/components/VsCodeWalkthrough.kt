@@ -68,6 +68,7 @@ import com.py2c.week.data.PointerTarget
 import com.py2c.week.data.VsActivity
 import com.py2c.week.data.VsCodeDemo
 import com.py2c.week.data.VsCodeStep
+import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
@@ -85,6 +86,7 @@ fun VsCodeWalkthrough(
     modifier: Modifier = Modifier,
     compact: Boolean = false,
 ) {
+    val strings = rememberStrings()
     var index by remember(demo.id) { mutableIntStateOf(0) }
     var playing by remember(demo.id) { mutableStateOf(true) }
     val step = demo.steps[index.coerceIn(0, demo.steps.lastIndex)]
@@ -114,7 +116,7 @@ fun VsCodeWalkthrough(
             modifier = Modifier.fillMaxWidth(),
         )
         Text(
-            "步骤 ${index + 1} / ${demo.steps.size}",
+            strings.walkthroughStepLabel(index + 1, demo.steps.size),
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -129,11 +131,11 @@ fun VsCodeWalkthrough(
                     playing = false
                     index = (index - 1).coerceAtLeast(0)
                 },
-            ) { Icon(Icons.Outlined.SkipPrevious, contentDescription = "上一步") }
+            ) { Icon(Icons.Outlined.SkipPrevious, contentDescription = strings.dijkstraPrevStep) }
             FilledTonalButton(onClick = { playing = !playing }) {
                 Icon(if (playing) Icons.Outlined.Pause else Icons.Filled.PlayArrow, contentDescription = null)
                 Spacer(Modifier.width(8.dp))
-                Text(if (playing) "暂停" else "播放")
+                Text(if (playing) strings.dijkstraPause else strings.dijkstraPlay)
             }
             IconButton(
                 onClick = {
@@ -144,13 +146,14 @@ fun VsCodeWalkthrough(
                         playing = false
                     }
                 },
-            ) { Icon(Icons.Outlined.SkipNext, contentDescription = "下一步") }
+            ) { Icon(Icons.Outlined.SkipNext, contentDescription = strings.dijkstraNextStep) }
         }
     }
 }
 
 @Composable
 private fun FakeVsCode(step: VsCodeStep) {
+    val strings = rememberStrings()
     val pulse by rememberInfiniteTransition(label = "pulse").animateFloat(
         initialValue = 0.35f,
         targetValue = 1f,
@@ -193,7 +196,7 @@ private fun FakeVsCode(step: VsCodeStep) {
         ) {
             Icon(
                 Icons.Outlined.AdsClick,
-                contentDescription = "当前点击/焦点",
+                contentDescription = strings.walkthroughFocus,
                 tint = Color(0xFFFFD54F),
                 modifier = Modifier.fillMaxSize(),
             )
@@ -279,6 +282,7 @@ private fun ActIcon(icon: ImageVector, on: Boolean) {
 
 @Composable
 private fun ExplorerPane(step: VsCodeStep) {
+    val strings = rememberStrings()
     Column(
         Modifier
             .width(120.dp)
@@ -288,7 +292,7 @@ private fun ExplorerPane(step: VsCodeStep) {
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Text("EXPLORER", color = VsDim, fontSize = 10.sp, fontWeight = FontWeight.Bold)
-        Text("+ 新建文件", color = if (step.pointer == PointerTarget.EXPLORER_NEW) Color.White else VsDim, fontSize = 11.sp)
+        Text(strings.walkthroughNewFile, color = if (step.pointer == PointerTarget.EXPLORER_NEW) Color.White else VsDim, fontSize = 11.sp)
         step.explorerFiles.forEach { name ->
             val sel = name == step.selectedFile
             Text(

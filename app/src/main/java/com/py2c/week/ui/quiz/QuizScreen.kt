@@ -40,6 +40,8 @@ import com.py2c.week.data.QuizQuestion
 import com.py2c.week.data.hintCategory
 import com.py2c.week.data.verdict
 import com.py2c.week.data.wrongReason
+import com.py2c.week.ui.strings.LocalAppLocale
+import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,6 +55,8 @@ fun QuizScreen(
     onBack: () -> Unit,
     onSubmit: suspend (score: Int, answers: Map<String, Int>) -> Unit,
 ) {
+    val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val answers = remember { mutableStateMapOf<String, Int>() }
     var submitted by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
@@ -62,10 +66,15 @@ fun QuizScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(if (redoMode) "错题重练 · 第 ${day.id} 天" else "第 ${day.id} 天测验") },
+                title = {
+                    Text(
+                        if (redoMode) strings.quizRedoTitle(day.id)
+                        else "${strings.dayTitle(day.id)} ${strings.quizTitle}",
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )
@@ -81,12 +90,12 @@ fun QuizScreen(
         ) {
             if (redoMode) {
                 Text(
-                    "只重练错题本里的题目。全部选对会标记为已订正。",
+                    strings.quizRedoIntro,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             } else if (alreadyDone && lastScore != null && !submitted) {
-                Text("上次得分 $lastScore / ${day.quiz.size}。可以重做，新分数会覆盖。", style = MaterialTheme.typography.bodyMedium)
+                Text(strings.quizLastScore(lastScore, day.quiz.size), style = MaterialTheme.typography.bodyMedium)
             }
             if (submitted) {
                 Card(
@@ -97,13 +106,13 @@ fun QuizScreen(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text("答对 $score / ${questions.size}", style = MaterialTheme.typography.titleLarge)
+                        Text(strings.quizScoreLine(score, questions.size), style = MaterialTheme.typography.titleLarge)
                         Text(
                             when {
-                                allCorrect && redoMode -> "全部正确，已从待订正列表清掉（仍可在「已订正」里看到）。"
-                                allCorrect -> "全部正确。错因栏不会出现——你已经选对了。"
-                                redoMode -> "还有错题。选对的会立刻标记已订正，错的会留在错题本。"
-                                else -> "错题已记入错题本。可到「错题本」按天重练；下面仍有「判断 / 你选了 / 错因 / 正确」。"
+                                allCorrect && redoMode -> strings.quizResultAllCorrectRedo
+                                allCorrect -> strings.quizResultAllCorrect
+                                redoMode -> strings.quizResultPartialRedo
+                                else -> strings.quizResultPartial
                             },
                             style = MaterialTheme.typography.bodyMedium,
                         )
@@ -130,9 +139,9 @@ fun QuizScreen(
                     .height(52.dp),
             ) {
                 Text(
-                    if (submitted) "已提交 · $score / ${questions.size}"
-                    else if (redoMode) "提交重练"
-                    else "提交测验",
+                    if (submitted) strings.quizSubmittedScore(score, questions.size)
+                    else if (redoMode) strings.quizSubmitRedo
+                    else strings.quizSubmit,
                 )
             }
             if (submitted) {
@@ -144,7 +153,7 @@ fun QuizScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp),
-                ) { Text(if (redoMode) "再练一次" else "再测一次") }
+                ) { Text(if (redoMode) strings.quizRetryRedo else strings.quizRetry) }
             }
         }
     }
@@ -158,6 +167,8 @@ private fun QuestionCard(
     submitted: Boolean,
     onSelect: (Int) -> Unit,
 ) {
+    val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val ok = selected == question.correctIndex
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -203,12 +214,19 @@ private fun QuestionCard(
                 val container = if (ok) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer
                 Card(colors = CardDefaults.cardColors(containerColor = container), modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(question.verdict(selected), style = MaterialTheme.typography.titleSmall)
+                        Text(question.verdict(selected, strings), style = MaterialTheme.typography.titleSmall)
                         if (!ok) {
-                            Text("类别：${question.hintCategory()}", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.error)
-                            Text("你选了：${question.choices[selected]}", style = MaterialTheme.typography.bodyMedium)
-                            Text("错因：${question.wrongReason(selected)}", style = MaterialTheme.typography.bodyMedium)
-                            Text("正确：${question.choices[question.correctIndex]}", style = MaterialTheme.typography.bodyMedium)
+                            Text(
+                                "${strings.quizCategory}${question.hintCategory(locale)}",
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.error,
+                            )
+                            Text("${strings.quizYouChose}${question.choices[selected]}", style = MaterialTheme.typography.bodyMedium)
+                            Text("${strings.quizWrongReason}${question.wrongReason(selected, locale)}", style = MaterialTheme.typography.bodyMedium)
+                            Text(
+                                "${strings.quizCorrect}${question.choices[question.correctIndex]}",
+                                style = MaterialTheme.typography.bodyMedium,
+                            )
                         } else {
                             Text(question.explanation, style = MaterialTheme.typography.bodyMedium)
                         }

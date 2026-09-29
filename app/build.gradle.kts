@@ -1,3 +1,5 @@
+import java.time.Instant
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -15,6 +17,7 @@ android {
         versionCode = 6
         versionName = "1.4.0"
         vectorDrawables.useSupportLibrary = true
+        buildConfigField("String", "BUILD_TIME_UTC", "\"${Instant.now()}\"")
     }
 
     signingConfigs {
@@ -64,6 +67,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     androidResources {

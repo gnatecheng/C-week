@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.py2c.week.data.CourseDay
 import com.py2c.week.data.ProgressSnapshot
 import com.py2c.week.data.isFullyComplete
+import com.py2c.week.ui.strings.rememberStrings
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,13 +42,14 @@ fun DayScreen(
     onQuiz: () -> Unit,
     onLab: () -> Unit,
 ) {
+    val strings = rememberStrings()
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("第 ${day.id} 天") },
+                title = { Text(strings.dayTitle(day.id)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = strings.back)
                     }
                 },
             )
@@ -63,7 +65,7 @@ fun DayScreen(
         ) {
             Text(day.title, style = MaterialTheme.typography.headlineSmall)
             Text(day.outcome, style = MaterialTheme.typography.bodyLarge)
-            Text("今日重点：${day.todayFocus}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(strings.dayTodayFocus(day.todayFocus), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             val dayDone = day.isFullyComplete(progress)
             Card(
                 colors = CardDefaults.cardColors(
@@ -74,8 +76,8 @@ fun DayScreen(
             ) {
                 Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text(
-                        if (dayDone) "本关已点亮，计入学习日历第 ${day.id} 天"
-                        else "一关一天：做完下面全部微课、实验和测验，首页日历会点亮 D${day.id}",
+                        if (dayDone) strings.dayCompleteBanner(day.id)
+                        else strings.dayIncompleteBanner(day.id),
                         style = MaterialTheme.typography.titleSmall,
                     )
                     if (!dayDone) {
@@ -83,13 +85,13 @@ fun DayScreen(
                         val labDone = if (progress.completedLabs.contains(day.lab.id)) 1 else 0
                         val quizDone = if (progress.completedQuizzes.contains(day.id)) 1 else 0
                         Text(
-                            "进度 $lessonsDone/${day.lessons.size} 课 · $labDone/1 实验 · $quizDone/1 测验",
+                            strings.dayProgressDetail(lessonsDone, day.lessons.size, labDone, quizDone),
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
                 }
             }
-            Text("微课", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
+            Text(strings.dayLessons, style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
             day.lessons.forEachIndexed { i, lesson ->
                 val done = progress.completedLessons.contains(lesson.id)
                 Card(onClick = { onLesson(lesson.id) }, modifier = Modifier.fillMaxWidth()) {
@@ -99,13 +101,13 @@ fun DayScreen(
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         if (done) {
-                            Icon(Icons.Outlined.CheckCircle, contentDescription = "已学完", tint = MaterialTheme.colorScheme.primary)
+                            Icon(Icons.Outlined.CheckCircle, contentDescription = strings.lessonDone, tint = MaterialTheme.colorScheme.primary)
                         } else {
                             Text("${i + 1}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
                         }
                         Column(Modifier.weight(1f)) {
                             Text(lesson.title, style = MaterialTheme.typography.titleMedium)
-                            Text("${lesson.minutes} 分钟 · ${lesson.summary}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(strings.lessonCardSubtitle(lesson.minutes, lesson.summary), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
                     }
                 }
@@ -114,11 +116,11 @@ fun DayScreen(
                 Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     Icon(Icons.Outlined.Terminal, contentDescription = null, tint = MaterialTheme.colorScheme.secondary)
                     Column {
-                        Text(if (day.lab.isCapstone) "大作业实验" else "今日实验", style = MaterialTheme.typography.labelLarge)
+                        Text(if (day.lab.isCapstone) strings.dayCapstoneLab else strings.dayTodayLab, style = MaterialTheme.typography.labelLarge)
                         Text(day.lab.title, style = MaterialTheme.typography.titleMedium)
                     }
                     if (progress.completedLabs.contains(day.lab.id)) {
-                        Icon(Icons.Outlined.CheckCircle, contentDescription = "实验已通过", tint = MaterialTheme.colorScheme.primary)
+                        Icon(Icons.Outlined.CheckCircle, contentDescription = strings.labPassed, tint = MaterialTheme.colorScheme.primary)
                     }
                 }
             }
@@ -126,12 +128,12 @@ fun DayScreen(
                 Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     Icon(Icons.Outlined.Quiz, contentDescription = null)
                     Column(Modifier.weight(1f)) {
-                        Text("今日测验 · ${day.quiz.size} 题", style = MaterialTheme.typography.labelLarge)
+                        Text(strings.dayQuizLabel(day.quiz.size), style = MaterialTheme.typography.labelLarge)
                         Text(
                             if (progress.completedQuizzes.contains(day.id)) {
-                                "已提交，得分 ${progress.quizScores[day.id] ?: 0}/${day.quiz.size}"
+                                strings.dayQuizSubmitted(progress.quizScores[day.id] ?: 0, day.quiz.size)
                             } else {
-                                "提交后记入进度"
+                                strings.dayQuizPending
                             },
                             style = MaterialTheme.typography.titleMedium,
                         )
