@@ -25,6 +25,7 @@
     "Microsoft YaHei", sans-serif;
   --mono: ui-monospace, "Cascadia Code", "Source Han Sans SC", "SF Mono", Menlo,
     Consolas, monospace;
+  --shot-stage-bg: color-mix(in srgb, var(--bg) 55%, var(--surface));
 }
 
 html.theme-dark {
@@ -43,6 +44,7 @@ html.theme-dark {
   --qjz-bright: #fbbf24;
   --class: #7dd3fc;
   --class-bright: #38bdf8;
+  --shot-stage-bg: color-mix(in srgb, var(--surface) 72%, var(--bg));
 }
 
 *,
@@ -1076,6 +1078,7 @@ html.theme-dark .side-nav ul {
 
 .hero-badge .sep {
   opacity: 0.65;
+}
 
 html.theme-dark .shot-carousel-btn {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
@@ -1084,7 +1087,9 @@ html.theme-dark .shot-carousel-btn {
 /* ---------- fixed-size screenshot carousel ---------- */
 
 .shot-carousel {
-  --shot-w: 260px;
+  --shot-w: min(260px, 78vw);
+  --shot-screen-h: calc(var(--shot-w) * 1171 / 540);
+  --shot-caption-min: 2.75rem;
   width: var(--shot-w);
   max-width: 100%;
   margin-inline: auto;
@@ -1092,6 +1097,41 @@ html.theme-dark .shot-carousel-btn {
 
 .shot-carousel-stage {
   position: relative;
+  min-height: calc(var(--shot-notch-h, 22px) + var(--shot-screen-h) + 6px);
+}
+
+.shot-carousel .phone-frame {
+  width: 100%;
+  max-width: var(--shot-w);
+  margin-inline: auto;
+}
+
+.shot-carousel .phone-screen {
+  height: var(--shot-screen-h);
+  min-height: var(--shot-screen-h);
+  max-height: var(--shot-screen-h);
+  aspect-ratio: auto;
+  background: var(--shot-stage-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shot-carousel .phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0 0 18px 18px;
+}
+
+.shot-carousel .screenshot-caption {
+  min-height: var(--shot-caption-min);
+  max-height: var(--shot-caption-min);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .screenshot-gallery.is-carousel {
@@ -1100,6 +1140,7 @@ html.theme-dark .shot-carousel-btn {
   scrollbar-width: none;
   padding-bottom: 0;
   border-radius: 24px;
+  touch-action: pan-y pinch-zoom;
 }
 
 .screenshot-gallery.is-carousel::-webkit-scrollbar {
@@ -1126,7 +1167,8 @@ html.theme-dark .shot-carousel-btn {
 }
 
 .screenshot-gallery.is-carousel .screenshot-caption {
-  min-height: 2.3em;
+  min-height: var(--shot-caption-min, 2.75rem);
+  max-height: var(--shot-caption-min, 2.75rem);
 }
 
 .shot-carousel-btn {
@@ -1193,7 +1235,7 @@ html.theme-dark .shot-carousel-btn {
 
 @media (max-width: 480px) {
   .shot-carousel {
-    --shot-w: 230px;
+    --shot-w: min(230px, 84vw);
   }
   .shot-carousel-btn.is-prev {
     left: -44px;
