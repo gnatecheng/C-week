@@ -1,6 +1,6 @@
 {
   "available": {
-    "cweek": ["zh/light"],
+    "cweek": ["zh/light", "zh/dark", "en/light", "en/dark"],
     "qingjizhang": ["zh/light", "zh/dark", "en/light", "en/dark"],
     "class-record": ["zh/light"]
   },
