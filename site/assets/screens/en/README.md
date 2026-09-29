@@ -1,9 +1,10 @@
-# English homepage screenshots
+# English screenshots
 
-When the site language is English, carousels load WebP files from this tree, mirroring `../<app>/<file>.webp`:
+Use canonical paths (from site root):
 
-- `cweek/` — 01-home, 02-day1, 03-lesson, 04-quiz, 05-labs, 06-report
-- `qingjizhang/` — 01-home … 05-mine
-- `class-record/` — 01-home … 05-members
+```text
+/assets/screens/en/light/{app}/…
+/assets/screens/en/dark/{app}/…
+```
 
-Capture from English-locale debug builds (same screens and demo data as the Chinese shots). If a file is missing, the site falls back to the Chinese image under `../`.
+On disk: `site/assets/screens/en/light/cweek/01-home.webp`, etc. Same filenames as the Chinese sets. See [`../README.md`](../README.md).

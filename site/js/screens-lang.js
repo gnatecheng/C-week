@@ -1,14 +1,18 @@
-/* Swap homepage app screenshots by site language (zh default, en under /assets/screens/en/). */
+/* Homepage carousels: lang × theme screenshot sets with chained fallback (CSP-safe). */
 (function () {
   "use strict";
 
   var SCREEN_ROOT = "/assets/screens/";
-  var EN_PREFIX = "/assets/screens/en/";
-  var IMG_VER = "3";
+  var LEGACY_EN = "/assets/screens/en/";
+  var IMG_VER = "4";
 
   function getLang() {
     var l = (document.documentElement.lang || "zh-CN").toLowerCase();
     return l.indexOf("en") === 0 ? "en" : "zh";
+  }
+
+  function getTheme() {
+    return document.documentElement.classList.contains("theme-dark") ? "dark" : "light";
   }
 
   function stripQuery(url) {
@@ -19,13 +23,36 @@
     return path + "?v=" + IMG_VER;
   }
 
-  function isAppScreenshot(path) {
-    return path.indexOf(SCREEN_ROOT) === 0 && path.indexOf(EN_PREFIX) !== 0;
+  /** @returns {string|null} e.g. cweek/01-home.webp */
+  function parseRelativePath(path) {
+    if (!path || path.indexOf(SCREEN_ROOT) !== 0) return null;
+    var rest = path.slice(SCREEN_ROOT.length);
+    var m = rest.match(/^(zh|en)\/(light|dark)\/(.+)$/);
+    if (m) return m[3];
+    if (rest.indexOf("en/") === 0) return rest.slice(3);
+    return rest;
   }
 
-  function enPathFromZh(zhPath) {
-    if (!isAppScreenshot(zhPath)) return null;
-    return EN_PREFIX + zhPath.slice(SCREEN_ROOT.length);
+  function buildCandidates(lang, theme, rel) {
+    var other = theme === "dark" ? "light" : "dark";
+    var list = [
+      SCREEN_ROOT + lang + "/" + theme + "/" + rel,
+      SCREEN_ROOT + lang + "/" + other + "/" + rel,
+    ];
+    if (lang !== "zh") {
+      list.push(SCREEN_ROOT + "zh/" + theme + "/" + rel);
+    }
+    list.push(SCREEN_ROOT + "zh/light/" + rel);
+    list.push(SCREEN_ROOT + rel);
+    if (lang === "en") {
+      list.push(LEGACY_EN + rel);
+    }
+    var seen = {};
+    return list.filter(function (p) {
+      if (seen[p]) return false;
+      seen[p] = true;
+      return true;
+    });
   }
 
   function collectImages() {
@@ -34,42 +61,41 @@
     );
   }
 
-  function ensureZhStored(img) {
-    if (!img.dataset.srcZh) {
-      var src = stripQuery(img.getAttribute("src") || "");
-      if (src.indexOf(EN_PREFIX) === 0) {
-        img.dataset.srcZh = SCREEN_ROOT + src.slice(EN_PREFIX.length);
-      } else {
-        img.dataset.srcZh = src;
-      }
+  function ensureRelative(img) {
+    if (!img.dataset.screenshotRel) {
+      img.dataset.screenshotRel = parseRelativePath(stripQuery(img.getAttribute("src") || "")) || "";
     }
-    return img.dataset.srcZh;
+    return img.dataset.screenshotRel;
   }
 
-  function applyScreenshotLang(lang) {
-    collectImages().forEach(function (img) {
-      var zh = ensureZhStored(img);
-      var desired = lang === "en" ? enPathFromZh(zh) || zh : zh;
-
+  function loadWithFallback(img, candidates) {
+    var idx = 0;
+    function tryNext() {
+      if (idx >= candidates.length) return;
+      var next = candidates[idx++];
       img.onerror = function () {
-        var current = stripQuery(img.src);
-        if (current !== zh) {
-          img.onerror = null;
-          img.src = withVersion(zh);
-        }
+        tryNext();
       };
+      img.src = withVersion(next);
+    }
+    tryNext();
+  }
 
-      img.src = withVersion(desired);
+  function applyScreenshots() {
+    var lang = getLang();
+    var theme = getTheme();
+    collectImages().forEach(function (img) {
+      var rel = ensureRelative(img);
+      if (!rel) return;
+      loadWithFallback(img, buildCandidates(lang, theme, rel));
     });
   }
 
-  document.addEventListener("etai:langchange", function (e) {
-    var lang = (e.detail && e.detail.lang) || getLang();
-    applyScreenshotLang(lang);
-  });
+  document.addEventListener("etai:langchange", applyScreenshots);
+  document.addEventListener("etai:themechange", applyScreenshots);
 
   function boot() {
-    applyScreenshotLang(getLang());
+    applyScreenshots();
   }
 
   if (document.readyState === "loading") {
@@ -78,5 +104,6 @@
     boot();
   }
 
-  window.ETAI_applyScreenshotLang = applyScreenshotLang;
+  window.ETAI_applyScreenshots = applyScreenshots;
+  window.ETAI_screenshotCandidates = buildCandidates;
 })();

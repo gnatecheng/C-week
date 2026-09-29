@@ -33,6 +33,9 @@
     document.documentElement.classList.toggle("theme-light", !dark);
     var metaTheme = document.querySelector('meta[name="theme-color"]');
     if (metaTheme) metaTheme.setAttribute("content", dark ? "#152125" : "#0f766e");
+    document.dispatchEvent(
+      new CustomEvent("etai:themechange", { detail: { mode: mode, dark: dark } })
+    );
   }
 
   function cycleTheme() {
@@ -149,7 +152,10 @@
     if (window.matchMedia) {
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
         var mode = localStorage.getItem(THEME_KEY) || "system";
-        if (mode === "system") applyTheme("system");
+        if (mode === "system") {
+          applyTheme("system");
+          syncThemeControl("system");
+        }
       });
     }
   }
