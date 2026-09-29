@@ -5,7 +5,7 @@ import com.py2c.week.data.WrongSource
 @Suppress("TooManyFunctions")
 object StringsEn : AppStrings {
     override val brandName = "C Week"
-    override val brandSubtitle = "C一周通"
+    override val brandSubtitle = "Learn C in one week"
     override val tagline = "Seven days from zero to implementing Dijkstra in C"
 
     override val navHome = "This week"

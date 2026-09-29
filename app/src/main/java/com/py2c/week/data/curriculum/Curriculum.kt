@@ -16,7 +16,7 @@ fun buildCurriculumZh(): WeekCurriculum = WeekCurriculum(
 
 fun buildCurriculumEn(): WeekCurriculum = WeekCurriculum(
     brand = "C Week",
-    brandEn = "C一周通",
+    brandEn = "Learn C in one week",
     tagline = "Seven days from zero to implementing Dijkstra in C",
     days = listOf(day1En(), day2En(), day3En(), day4En(), day5En(), day6En(), day7En()),
     glossary = glossaryTermsEn(),
