@@ -6,6 +6,7 @@
     <title>Etai 应用集 — C一周通 · 轻记账 · 班级事务记录</title>
     <meta
       name="description"
+      data-i18n-content="meta.description"
       content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.4.0）、轻记账（个人记账，版本 1.2.0）、班级事务记录（出勤、缴费、分摊、清单，版本 1.4.0）。"
     />
     <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
@@ -13,9 +14,8 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
     <link rel="manifest" href="/site.webmanifest?v=1" />
     <meta name="theme-color" content="#0f766e" />
+    <script src="/js/init-theme.js?v=1"></script>
     <link rel="stylesheet" href="/css/style.css?v=5" />
-    <script src="/js/nav.js?v=4" defer></script>
-    <script src="/js/carousel.js?v=1" defer></script>
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
@@ -38,33 +38,44 @@
     />
     <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/og-image.png" />
   </head>
-  <body>
-    <a class="skip-link" href="#main">跳到主要内容</a>
+  <body data-page-title-key="meta.title">
+    <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要内容</a>
 
     <header class="site-header">
       <div class="wrap inner">
         <a class="brand" href="/">
           <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
-          <span>Etai 应用集</span>
+          <span data-i18n="brand">Etai 应用集</span>
         </a>
-        <nav class="nav" aria-label="页面章节">
-          <a href="#cweek">C一周通</a>
-          <a href="#roadmap">7 天路线</a>
-          <a href="#qingjizhang">轻记账</a>
-          <a href="#class-record">班级事务记录</a>
-          <a href="#faq">常见问题</a>
+        <nav class="nav" data-i18n-aria="navSectionsLabel" aria-label="页面章节">
+          <a href="#cweek" data-i18n="nav.cweek">C一周通</a>
+          <a href="#roadmap" data-i18n="nav.roadmap">7 天路线</a>
+          <a href="#qingjizhang" data-i18n="nav.qingjizhang">轻记账</a>
+          <a href="#class-record" data-i18n="nav.classRecord">班级事务记录</a>
+          <a href="#faq" data-i18n="nav.faq">常见问题</a>
         </nav>
+        <div class="header-tools">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
+            <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+            <button type="button" id="lang-en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="Theme">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
       </div>
     </header>
 
     <main id="main">
       <div class="apps-strip">
         <div class="wrap apps-strip-inner">
-          <p>Etai 应用集：三款离线可用、数据只存本机的 Android 应用</p>
-          <ul class="app-chips" aria-label="应用列表">
-            <li><a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span>C一周通</a></li>
-            <li><a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span>轻记账</a></li>
-            <li><a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span>班级事务记录</a></li>
+          <p data-i18n="appsStrip.lead">Etai 应用集：三款离线可用、数据只存本机的 Android 应用</p>
+          <ul class="app-chips" data-i18n-aria="appsStrip.listLabel" aria-label="应用列表">
+            <li><a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="appsStrip.cweek">C一周通</span></a></li>
+            <li><a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span><span data-i18n="appsStrip.qingjizhang">轻记账</span></a></li>
+            <li><a class="app-chip chip-class" href="#class-record"><span class="chip-badge" aria-hidden="true">班</span><span data-i18n="appsStrip.classRecord">班级事务记录</span></a></li>
           </ul>
         </div>
       </div>
@@ -72,9 +83,14 @@
       <section id="cweek" class="hero" data-group="cweek">
         <div class="wrap hero-grid">
           <div>
-            <span class="hero-badge">C Week · 版本 1.4.0</span>
-            <h1>C一周通</h1>
-            <p class="lead">
+            <span class="hero-badge" data-app-meta="cweek">
+              <span data-i18n="cweek.badgeKind">C Week</span><span class="sep" aria-hidden="true"> · </span>
+              <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.4.0</span></span><span class="sep" aria-hidden="true"> · </span>
+              <span data-i18n="cweek.badgeOffline">离线优先</span>
+              <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
+            </span>
+            <h1 data-i18n="cweek.hero.title">C一周通</h1>
+            <p class="lead" data-i18n-html="cweek.hero.lead">
               7 天把编程初学者带到能用 <strong>C 写出 Dijkstra 最短路</strong>（正确使用数组、指针与内存）。课文含<strong>真实 VS Code 屏幕录像</strong>（H.264，打包进 APK），Kotlin + Jetpack Compose，全程可离线学习。
             </p>
             <div class="hero-actions">
@@ -82,6 +98,7 @@
                 class="btn btn-primary"
                 href="https://github.com/gnatecheng/C-week/releases/latest"
                 rel="noopener noreferrer"
+                data-i18n="cweek.hero.downloadApk"
               >
                 下载最新 APK
               </a>
@@ -89,26 +106,27 @@
                 class="btn btn-secondary"
                 href="https://github.com/gnatecheng/C-week"
                 rel="noopener noreferrer"
+                data-i18n="cweek.hero.viewGithub"
               >
                 查看 GitHub 源码
               </a>
             </div>
-            <p class="hero-meta">
+            <p class="hero-meta" data-i18n="cweek.hero.meta">
               需要 Android 8.0 及以上（minSdk 26）· 应用内模拟评测，无需手机安装 gcc
             </p>
           </div>
           <div class="hero-visual screenshot-wrap">
-            <div class="screenshot-gallery" role="region" aria-label="C一周通应用截图">
+            <div class="screenshot-gallery" role="region" data-i18n-aria="cweek.hero.gallery.ariaLabel" aria-label="C一周通应用截图">
               <ul class="screenshot-gallery-track">
                 <li class="screenshot-slide">
                   <figure class="screenshot-figure">
                     <div class="phone-frame screenshot-phone">
                       <div class="phone-notch"><span></span></div>
                       <div class="phone-screen">
-                        <img src="/assets/screens/cweek/01-home.webp?v=2" width="540" height="1171" loading="lazy" alt="C一周通本周课程首页，7 天路线与总体进度" />
+                        <img src="/assets/screens/cweek/01-home.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.hero.gallery.s01.alt" alt="C一周通本周课程首页，7 天路线与总体进度" />
                       </div>
                     </div>
-                    <figcaption class="screenshot-caption">本周课程首页 · 7 天路线与进度</figcaption>
+                    <figcaption class="screenshot-caption" data-i18n="cweek.hero.gallery.s01.caption">本周课程首页 · 7 天路线与进度</figcaption>
                   </figure>
                 </li>
                 <li class="screenshot-slide">
@@ -116,10 +134,10 @@
                     <div class="phone-frame screenshot-phone">
                       <div class="phone-notch"><span></span></div>
                       <div class="phone-screen">
-                        <img src="/assets/screens/cweek/02-day1.webp?v=2" width="540" height="1171" loading="lazy" alt="C一周通第 1 天详情，微课、实验与测验入口" />
+                        <img src="/assets/screens/cweek/02-day1.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.hero.gallery.s02.alt" alt="C一周通第 1 天详情，微课、实验与测验入口" />
                       </div>
                     </div>
-                    <figcaption class="screenshot-caption">第 1 天详情 · 微课 / 实验 / 测验</figcaption>
+                    <figcaption class="screenshot-caption" data-i18n="cweek.hero.gallery.s02.caption">第 1 天详情 · 微课 / 实验 / 测验</figcaption>
                   </figure>
                 </li>
                 <li class="screenshot-slide">
@@ -127,10 +145,10 @@
                     <div class="phone-frame screenshot-phone">
                       <div class="phone-notch"><span></span></div>
                       <div class="phone-screen">
-                        <img src="/assets/screens/cweek/03-lesson.webp?v=2" width="540" height="1171" loading="lazy" alt="C一周通课文阅读界面，含代码示例与 VS Code 演示入口" />
+                        <img src="/assets/screens/cweek/03-lesson.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.hero.gallery.s03.alt" alt="C一周通课文阅读界面，含代码示例与 VS Code 演示入口" />
                       </div>
                     </div>
-                    <figcaption class="screenshot-caption">课文阅读 · 代码与 VS Code 演示</figcaption>
+                    <figcaption class="screenshot-caption" data-i18n="cweek.hero.gallery.s03.caption">课文阅读 · 代码与 VS Code 演示</figcaption>
                   </figure>
                 </li>
                 <li class="screenshot-slide">
@@ -138,10 +156,10 @@
                     <div class="phone-frame screenshot-phone">
                       <div class="phone-notch"><span></span></div>
                       <div class="phone-screen">
-                        <img src="/assets/screens/cweek/04-quiz.webp?v=3" width="540" height="1171" loading="lazy" alt="C一周通第 1 天测验，单选题作答与自动判分错因提示" />
+                        <img src="/assets/screens/cweek/04-quiz.webp?v=3" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.hero.gallery.s04.alt" alt="C一周通第 1 天测验，单选题作答与自动判分错因提示" />
                       </div>
                     </div>
-                    <figcaption class="screenshot-caption">今日测验 · 选项、判分与错因</figcaption>
+                    <figcaption class="screenshot-caption" data-i18n="cweek.hero.gallery.s04.caption">今日测验 · 选项、判分与错因</figcaption>
                   </figure>
                 </li>
                 <li class="screenshot-slide">
@@ -149,10 +167,10 @@
                     <div class="phone-frame screenshot-phone">
                       <div class="phone-notch"><span></span></div>
                       <div class="phone-screen">
-                        <img src="/assets/screens/cweek/05-labs.webp?v=2" width="540" height="1171" loading="lazy" alt="C一周通代码实验列表，离线模拟评测" />
+                        <img src="/assets/screens/cweek/05-labs.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.hero.gallery.s05.alt" alt="C一周通代码实验列表，离线模拟评测" />
                       </div>
                     </div>
-                    <figcaption class="screenshot-caption">代码实验 · 离线模拟评测</figcaption>
+                    <figcaption class="screenshot-caption" data-i18n="cweek.hero.gallery.s05.caption">代码实验 · 离线模拟评测</figcaption>
                   </figure>
                 </li>
                 <li class="screenshot-slide">
@@ -160,10 +178,10 @@
                     <div class="phone-frame screenshot-phone">
                       <div class="phone-notch"><span></span></div>
                       <div class="phone-screen">
-                        <img src="/assets/screens/cweek/06-report.webp?v=2" width="540" height="1171" loading="lazy" alt="C一周通学习报告，连续打卡与测验正确率" />
+                        <img src="/assets/screens/cweek/06-report.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="cweek.hero.gallery.s06.alt" alt="C一周通学习报告，连续打卡与测验正确率" />
                       </div>
                     </div>
-                    <figcaption class="screenshot-caption">学习报告 · 打卡与正确率</figcaption>
+                    <figcaption class="screenshot-caption" data-i18n="cweek.hero.gallery.s06.caption">学习报告 · 打卡与正确率</figcaption>
                   </figure>
                 </li>
               </ul>
@@ -175,50 +193,50 @@
       <section id="features" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
-            <h2>功能亮点</h2>
-            <p>与 APK 内一致的能力说明，无后端、课文与演示视频均打包在应用内。</p>
+            <h2 data-i18n="cweek.features.title">功能亮点</h2>
+            <p data-i18n="cweek.features.lead">与 APK 内一致的能力说明，无后端、课文与演示视频均打包在应用内。</p>
           </header>
           <div class="feature-grid">
             <article class="card">
-              <span class="tag">计划</span>
-              <h3>本周计划与进度</h3>
-              <p>Day 1–7 卡片、勾选与总体百分比；进度由 DataStore 持久化，跟随系统深色/浅色。</p>
+              <span class="tag" data-i18n="cweek.features.plan.tag">计划</span>
+              <h3 data-i18n="cweek.features.plan.title">本周计划与进度</h3>
+              <p data-i18n="cweek.features.plan.body">Day 1–7 卡片、勾选与总体百分比；进度由 DataStore 持久化，跟随系统深色/浅色。</p>
             </article>
             <article class="card">
-              <span class="tag">1.3.0</span>
-              <h3>学习日历 / 打卡</h3>
-              <p>一关一天点亮 D1–D7，本周日期条与连续打卡天数；完成课文、实验或测验自动盖章。</p>
+              <span class="tag" data-i18n="cweek.features.streak.tag">1.3.0</span>
+              <h3 data-i18n="cweek.features.streak.title">学习日历 / 打卡</h3>
+              <p data-i18n="cweek.features.streak.body">一关一天点亮 D1–D7，本周日期条与连续打卡天数；完成课文、实验或测验自动盖章。</p>
             </article>
             <article class="card">
-              <span class="tag">1.4.0</span>
-              <h3>错题本 + 重练</h3>
-              <p>测验答错、实验未通过会记录天数、题号、作答与错因类别；按天列表，做对即标记已订正。</p>
+              <span class="tag" data-i18n="cweek.features.wrongbook.tag">1.4.0</span>
+              <h3 data-i18n="cweek.features.wrongbook.title">错题本 + 重练</h3>
+              <p data-i18n="cweek.features.wrongbook.body">测验答错、实验未通过会记录天数、题号、作答与错因类别；按天列表，做对即标记已订正。</p>
             </article>
             <article class="card">
-              <span class="tag">1.4.0</span>
-              <h3>实验多组用例</h3>
-              <p>离线模拟评测对照多组输入/输出，显示通过组数与部分得分，并给出更具体的中文错因。</p>
+              <span class="tag" data-i18n="cweek.features.multicase.tag">1.4.0</span>
+              <h3 data-i18n="cweek.features.multicase.title">实验多组用例</h3>
+              <p data-i18n="cweek.features.multicase.body">离线模拟评测对照多组输入/输出，显示通过组数与部分得分，并给出更具体的中文错因。</p>
             </article>
             <article class="card">
-              <span class="tag">1.4.0</span>
-              <h3>学习报告</h3>
-              <p>连续打卡、分天完成度、测验正确率，可通过系统分享面板发送。</p>
+              <span class="tag" data-i18n="cweek.features.report.tag">1.4.0</span>
+              <h3 data-i18n="cweek.features.report.title">学习报告</h3>
+              <p data-i18n="cweek.features.report.body">连续打卡、分天完成度、测验正确率，可通过系统分享面板发送。</p>
             </article>
             <article class="card">
-              <h3>课文 · 测验 · 录像</h3>
-              <p>中文讲解（含生活类比）、测验、VS Code 实机录像；第 1 天含路径/文件管理与逐条 bash（pwd/ls/cd 等及速查表）。</p>
+              <h3 data-i18n="cweek.features.lessons.title">课文 · 测验 · 录像</h3>
+              <p data-i18n="cweek.features.lessons.body">中文讲解（含生活类比）、测验、VS Code 实机录像；第 1 天含路径/文件管理与逐条 bash（pwd/ls/cd 等及速查表）。</p>
             </article>
             <article class="card">
-              <h3>代码实验</h3>
-              <p>应用内编辑 C 片段；模拟运行对照多组用例。错因覆盖缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 混淆等。</p>
+              <h3 data-i18n="cweek.features.labs.title">代码实验</h3>
+              <p data-i18n="cweek.features.labs.body">应用内编辑 C 片段；模拟运行对照多组用例。错因覆盖缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 混淆等。</p>
             </article>
             <article class="card">
-              <h3>Day 7 大作业</h3>
-              <p>邻接表 + O(V²) Dijkstra 填空；多组测试用例；通过后可「走格子/看路径」逐步查看 dist 与最短路。</p>
+              <h3 data-i18n="cweek.features.day7.title">Day 7 大作业</h3>
+              <p data-i18n="cweek.features.day7.body">邻接表 + O(V²) Dijkstra 填空；多组测试用例；通过后可「走格子/看路径」逐步查看 dist 与最短路。</p>
             </article>
             <article class="card">
-              <h3>词汇表</h3>
-              <p>pointer、栈/堆、数组退化、launch.json、bash 路径等术语可查；大点击区域与等宽代码字体便于阅读。</p>
+              <h3 data-i18n="cweek.features.glossary.title">词汇表</h3>
+              <p data-i18n="cweek.features.glossary.body">pointer、栈/堆、数组退化、launch.json、bash 路径等术语可查；大点击区域与等宽代码字体便于阅读。</p>
             </article>
           </div>
         </div>
@@ -227,85 +245,85 @@
       <section id="roadmap" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
-            <h2>7 天学习路线</h2>
-            <p>课程地图与 `app/src/main/assets/curriculum/map.json` 及 Kotlin 课文一致；每天含微课、测验与实验。</p>
+            <h2 data-i18n="roadmap.title">7 天学习路线</h2>
+            <p data-i18n="roadmap.lead">课程地图与 `app/src/main/assets/curriculum/map.json` 及 Kotlin 课文一致；每天含微课、测验与实验。</p>
           </header>
           <div class="roadmap">
             <article class="card day-card">
               <div class="day-num">D1</div>
               <div class="day-body">
-                <h3>环境、文件与 Hello World</h3>
-                <p class="day-sub">路径 · bash · VS Code · 第一次编译</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d1.title">环境、文件与 Hello World</h3>
+                <p class="day-sub" data-i18n="roadmap.d1.sub">路径 · bash · VS Code · 第一次编译</p>
+                <p class="day-outcome" data-i18n="roadmap.d1.outcome">
                   能分清路径与工作区，用终端做基本文件操作，在 VS Code 里新建 .c、用 gcc 编译运行，并看懂 launch.json 与断点调试。
                 </p>
-                <span class="day-lab">实验：输出 Hello, Ada</span>
+                <span class="day-lab" data-i18n="roadmap.d1.lab">实验：输出 Hello, Ada</span>
               </div>
             </article>
             <article class="card day-card">
               <div class="day-num">D2</div>
               <div class="day-body">
-                <h3>类型、变量与 I/O</h3>
-                <p class="day-sub">静态类型 · printf/scanf · 没有自动回收</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d2.title">类型、变量与 I/O</h3>
+                <p class="day-sub" data-i18n="roadmap.d2.sub">静态类型 · printf/scanf · 没有自动回收</p>
+                <p class="day-outcome" data-i18n="roadmap.d2.outcome">
                   能声明 int/double/char，用 printf/scanf 读写，理解溢出与栈上变量生命周期。
                 </p>
-                <span class="day-lab">实验：摄氏 ↔ 华氏</span>
+                <span class="day-lab" data-i18n="roadmap.d2.lab">实验：摄氏 ↔ 华氏</span>
               </div>
             </article>
             <article class="card day-card">
               <div class="day-num">D3</div>
               <div class="day-body">
-                <h3>控制流与函数</h3>
-                <p class="day-sub">if/for/while · 原型 · 传值</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d3.title">控制流与函数</h3>
+                <p class="day-sub" data-i18n="roadmap.d3.sub">if/for/while · 原型 · 传值</p>
+                <p class="day-outcome" data-i18n="roadmap.d3.outcome">
                   能写带原型的函数，理解 C 传值；知道为什么 swap 必须用指针（为 Day 4 铺路）。
                 </p>
-                <span class="day-lab">实验：写一个 is_prime</span>
+                <span class="day-lab" data-i18n="roadmap.d3.lab">实验：写一个 is_prime</span>
               </div>
             </article>
             <article class="card day-card">
               <div class="day-num">D4</div>
               <div class="day-body">
-                <h3>数组、字符串、指针</h3>
-                <p class="day-sub">连续内存 · 地址 · '\0'</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d4.title">数组、字符串、指针</h3>
+                <p class="day-sub" data-i18n="roadmap.d4.sub">连续内存 · 地址 · '\0'</p>
+                <p class="day-outcome" data-i18n="roadmap.d4.outcome">
                   能画指针图，正确用数组与 '\0' 字符串，避开越界和数组退化陷阱。
                 </p>
-                <span class="day-lab">实验：原地反转字符串</span>
+                <span class="day-lab" data-i18n="roadmap.d4.lab">实验：原地反转字符串</span>
               </div>
             </article>
             <article class="card day-card">
               <div class="day-num">D5</div>
               <div class="day-body">
-                <h3>结构体、堆内存、文件</h3>
-                <p class="day-sub">struct · malloc/free · fopen</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d5.title">结构体、堆内存、文件</h3>
+                <p class="day-sub" data-i18n="roadmap.d5.sub">struct · malloc/free · fopen</p>
+                <p class="day-outcome" data-i18n="roadmap.d5.outcome">
                   能定义 struct、在堆上分配邻接表节点、正确 free，并做基础文件读写。
                 </p>
-                <span class="day-lab">实验：结构体数组求最高分</span>
+                <span class="day-lab" data-i18n="roadmap.d5.lab">实验：结构体数组求最高分</span>
               </div>
             </article>
             <article class="card day-card">
               <div class="day-num">D6</div>
               <div class="day-body">
-                <h3>算法热身：排序与 BFS</h3>
-                <p class="day-sub">选择排序 · 邻接表 · 网格/图 BFS</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d6.title">算法热身：排序与 BFS</h3>
+                <p class="day-sub" data-i18n="roadmap.d6.sub">选择排序 · 邻接表 · 网格/图 BFS</p>
+                <p class="day-outcome" data-i18n="roadmap.d6.outcome">
                   理解选择排序、用数组模拟邻接表，并完成 BFS（队列 + dist[]）。
                 </p>
-                <span class="day-lab">实验：补全 BFS 松弛</span>
+                <span class="day-lab" data-i18n="roadmap.d6.lab">实验：补全 BFS 松弛</span>
               </div>
             </article>
             <article class="card day-card">
               <div class="day-num">D7</div>
               <div class="day-body">
-                <h3>大作业：Dijkstra 最短路</h3>
-                <p class="day-sub">正权图 · 邻接表 · O(V²) 教学实现</p>
-                <p class="day-outcome">
+                <h3 data-i18n="roadmap.d7.title">大作业：Dijkstra 最短路</h3>
+                <p class="day-sub" data-i18n="roadmap.d7.sub">正权图 · 邻接表 · O(V²) 教学实现</p>
+                <p class="day-outcome" data-i18n="roadmap.d7.outcome">
                   独立补全松弛循环，能解释与 BFS 的差别，并在 VS Code 里编译运行测试。
                 </p>
-                <span class="day-lab">大作业：补全 Dijkstra 松弛</span>
+                <span class="day-lab" data-i18n="roadmap.d7.lab">大作业：补全 Dijkstra 松弛</span>
               </div>
             </article>
           </div>
@@ -315,44 +333,38 @@
       <section id="faq" data-group="cweek">
         <div class="wrap">
           <header class="section-head">
-            <h2>常见问题</h2>
-            <p>以下问答针对 C一周通；轻记账与班级事务记录的安装方式见各自介绍。</p>
+            <h2 data-i18n="cweek.faq.title">常见问题</h2>
+            <p data-i18n="cweek.faq.lead">以下问答针对 C一周通；轻记账与班级事务记录的安装方式见各自介绍。</p>
           </header>
           <div class="faq-list">
             <article class="faq-item">
-              <h3>如何安装 APK？</h3>
-              <p>
-                在
-                <a href="https://github.com/gnatecheng/C-week/releases/latest" rel="noopener noreferrer"
-                  >GitHub Releases</a
-                >
-                下载最新 APK。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面显示「C一周通」。
+              <h3 data-i18n="cweek.faq.install.title">如何安装 APK？</h3>
+              <p data-i18n-html="cweek.faq.install.body">
+                在 <a href="https://github.com/gnatecheng/C-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面显示「C一周通」。
               </p>
             </article>
             <article class="faq-item">
-              <h3>系统要求是什么？</h3>
-              <p>
+              <h3 data-i18n="cweek.faq.requirements.title">系统要求是什么？</h3>
+              <p data-i18n="cweek.faq.requirements.body">
                 最低 Android 8.0（API 26，对应 minSdk 26），目标 SDK 35。建议使用较新系统以获得更好的 Media3 视频播放与 Material 3 体验。
               </p>
             </article>
             <article class="faq-item">
-              <h3>需要联网吗？</h3>
-              <p>
+              <h3 data-i18n="cweek.faq.offline.title">需要联网吗？</h3>
+              <p data-i18n="cweek.faq.offline.body">
                 不需要。课文、`assets/vscode_demos/*.mp4` 与实验数据均打包在 APK 内；进度、错题本等保存在本机 DataStore，无后端。
               </p>
             </article>
             <article class="faq-item">
-              <h3>实验会在手机上编译 C 吗？</h3>
-              <p>
+              <h3 data-i18n="cweek.faq.compile.title">实验会在手机上编译 C 吗？</h3>
+              <p data-i18n="cweek.faq.compile.body">
                 不会。应用使用离线模拟评测（多组用例 + 规则检查 + 中文错因提示），部分通过会显示分数，全部通过才记实验完成。
               </p>
             </article>
             <article class="faq-item">
-              <h3>和电脑上的 VS Code 怎么配合？</h3>
-              <p>
-                可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开本仓库对照
-                <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考
-                <code>day7_dijkstra.c</code>，期望输出示例见 README。
+              <h3 data-i18n="cweek.faq.vscode.title">和电脑上的 VS Code 怎么配合？</h3>
+              <p data-i18n-html="cweek.faq.vscode.body">
+                可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开本仓库对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见 README。
               </p>
             </article>
           </div>
@@ -363,9 +375,14 @@
         <div class="wrap">
           <div class="project-grid">
             <div>
-              <span class="hero-badge project-badge">记账本 · 版本 1.2.0</span>
-              <h2 id="qjz-title" class="project-title">轻记账</h2>
-              <p class="lead">
+              <span class="hero-badge project-badge" data-app-meta="qingjizhang">
+                <span data-i18n="qjz.badgeKind">记账本</span><span class="sep" aria-hidden="true"> · </span>
+                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.2.0</span></span><span class="sep" aria-hidden="true"> · </span>
+                <span data-i18n="qjz.badgeLocal">本地优先</span>
+                <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
+              </span>
+              <h2 id="qjz-title" class="project-title" data-i18n="qjz.hero.title">轻记账</h2>
+              <p class="lead" data-i18n-html="qjz.hero.lead">
                 个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
               </p>
               <div class="hero-actions">
@@ -373,6 +390,7 @@
                   class="btn btn-primary"
                   href="https://github.com/gnatecheng/qingjizhang/releases/latest"
                   rel="noopener noreferrer"
+                  data-i18n="qjz.hero.downloadApk"
                 >
                   下载最新 APK
                 </a>
@@ -380,26 +398,27 @@
                   class="btn btn-secondary"
                   href="https://github.com/gnatecheng/qingjizhang"
                   rel="noopener noreferrer"
+                  data-i18n="qjz.hero.viewGithub"
                 >
                   查看 GitHub 源码
                 </a>
               </div>
-              <p class="hero-meta">
+              <p class="hero-meta" data-i18n="qjz.hero.meta">
                 需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
               </p>
             </div>
             <div class="hero-visual screenshot-wrap">
-              <div class="screenshot-gallery" role="region" aria-label="轻记账应用截图">
+              <div class="screenshot-gallery" role="region" data-i18n-aria="qjz.hero.gallery.ariaLabel" aria-label="轻记账应用截图">
                 <ul class="screenshot-gallery-track">
                   <li class="screenshot-slide">
                     <figure class="screenshot-figure">
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/01-home.webp?v=2" width="540" height="1171" loading="lazy" alt="轻记账首页，本月收支结余与预算概览" />
+                          <img src="/assets/screens/qingjizhang/01-home.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s01.alt" alt="轻记账首页，本月收支结余与预算概览" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">首页 · 本月收支与预算</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s01.caption">首页 · 本月收支与预算</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -407,10 +426,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/02-entries.webp?v=2" width="540" height="1171" loading="lazy" alt="轻记账流水明细，搜索与筛选" />
+                          <img src="/assets/screens/qingjizhang/02-entries.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s02.alt" alt="轻记账流水明细，搜索与筛选" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">明细 · 流水与筛选</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s02.caption">明细 · 流水与筛选</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -418,10 +437,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/03-stats.webp?v=2" width="540" height="1171" loading="lazy" alt="轻记账统计页，分类饼图与趋势" />
+                          <img src="/assets/screens/qingjizhang/03-stats.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s03.alt" alt="轻记账统计页，分类饼图与趋势" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">统计 · 饼图与 12 个月趋势</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s03.caption">统计 · 饼图与 12 个月趋势</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -429,10 +448,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/04-budget.webp?v=2" width="540" height="1171" loading="lazy" alt="轻记账预算页，进度与超支提醒" />
+                          <img src="/assets/screens/qingjizhang/04-budget.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s04.alt" alt="轻记账预算页，进度与超支提醒" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">预算 · 80% 警告与超支</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s04.caption">预算 · 80% 警告与超支</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -440,10 +459,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/05-mine.webp?v=2" width="540" height="1171" loading="lazy" alt="轻记账我的页面，账户分类与设置" />
+                          <img src="/assets/screens/qingjizhang/05-mine.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s05.alt" alt="轻记账我的页面，账户分类与设置" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">我的 · 账户、分类与设置</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s05.caption">我的 · 账户、分类与设置</figcaption>
                     </figure>
                   </li>
                 </ul>
@@ -451,55 +470,55 @@
             </div>
           </div>
 
-          <h3 class="project-subhead">主要功能</h3>
+          <h3 class="project-subhead" data-i18n="qjz.featuresHeading">主要功能</h3>
           <div class="feature-grid">
             <article class="card">
-              <span class="tag">流水</span>
-              <h3>记一笔 · 搜索筛选</h3>
-              <p>金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
+              <span class="tag" data-i18n="qjz.features.entry.tag">流水</span>
+              <h3 data-i18n="qjz.features.entry.title">记一笔 · 搜索筛选</h3>
+              <p data-i18n="qjz.features.entry.body">金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
             </article>
             <article class="card">
-              <span class="tag">转账</span>
-              <h3>账户之间互转</h3>
-              <p>转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
+              <span class="tag" data-i18n="qjz.features.transfer.tag">转账</span>
+              <h3 data-i18n="qjz.features.transfer.title">账户之间互转</h3>
+              <p data-i18n="qjz.features.transfer.body">转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
             </article>
             <article class="card">
-              <span class="tag">分类 · 账户</span>
-              <h3>分类与账户</h3>
-              <p>支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
+              <span class="tag" data-i18n="qjz.features.categories.tag">分类 · 账户</span>
+              <h3 data-i18n="qjz.features.categories.title">分类与账户</h3>
+              <p data-i18n="qjz.features.categories.body">支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
             </article>
             <article class="card">
-              <span class="tag">统计</span>
-              <h3>月度统计与趋势</h3>
-              <p>月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
+              <span class="tag" data-i18n="qjz.features.stats.tag">统计</span>
+              <h3 data-i18n="qjz.features.stats.title">月度统计与趋势</h3>
+              <p data-i18n="qjz.features.stats.body">月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
             </article>
             <article class="card">
-              <span class="tag">预算</span>
-              <h3>预算与提醒</h3>
-              <p>每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
+              <span class="tag" data-i18n="qjz.features.budget.tag">预算</span>
+              <h3 data-i18n="qjz.features.budget.title">预算与提醒</h3>
+              <p data-i18n="qjz.features.budget.body">每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
             </article>
             <article class="card">
-              <span class="tag">备份</span>
-              <h3>导入导出</h3>
-              <p>导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
+              <span class="tag" data-i18n="qjz.features.backup.tag">备份</span>
+              <h3 data-i18n="qjz.features.backup.title">导入导出</h3>
+              <p data-i18n="qjz.features.backup.body">导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
             </article>
             <article class="card">
-              <span class="tag">自动</span>
-              <h3>周期记账</h3>
-              <p>每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
+              <span class="tag" data-i18n="qjz.features.recurring.tag">自动</span>
+              <h3 data-i18n="qjz.features.recurring.title">周期记账</h3>
+              <p data-i18n="qjz.features.recurring.body">每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
             </article>
             <article class="card">
-              <span class="tag">小组件</span>
-              <h3>桌面小组件</h3>
-              <p>显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
+              <span class="tag" data-i18n="qjz.features.widget.tag">小组件</span>
+              <h3 data-i18n="qjz.features.widget.title">桌面小组件</h3>
+              <p data-i18n="qjz.features.widget.body">显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
             </article>
             <article class="card">
-              <span class="tag">隐私</span>
-              <h3>收据拍照</h3>
-              <p>记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
+              <span class="tag" data-i18n="qjz.features.receipt.tag">隐私</span>
+              <h3 data-i18n="qjz.features.receipt.title">收据拍照</h3>
+              <p data-i18n="qjz.features.receipt.body">记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
             </article>
           </div>
-          <p class="project-foot">
+          <p class="project-foot" data-i18n="qjz.foot">
             另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。
           </p>
         </div>
@@ -509,9 +528,14 @@
         <div class="wrap">
           <div class="project-grid">
             <div>
-              <span class="hero-badge project-badge">多人事务 · 版本 1.4.0</span>
-              <h2 id="class-title" class="project-title">班级事务记录</h2>
-              <p class="lead">
+              <span class="hero-badge project-badge" data-app-meta="class-record">
+                <span data-i18n="class.badgeKind">多人事务</span><span class="sep" aria-hidden="true"> · </span>
+                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.4.0</span></span><span class="sep" aria-hidden="true"> · </span>
+                <span data-i18n="class.badgeLang">简体中文</span>
+                <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
+              </span>
+              <h2 id="class-title" class="project-title" data-i18n="class.hero.title">班级事务记录</h2>
+              <p class="lead" data-i18n-html="class.hero.lead">
                 单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
               </p>
               <div class="hero-actions">
@@ -519,6 +543,7 @@
                   class="btn btn-primary"
                   href="https://github.com/gnatecheng/class-activity-record/releases/latest"
                   rel="noopener noreferrer"
+                  data-i18n="class.hero.downloadApk"
                 >
                   下载最新 APK
                 </a>
@@ -526,26 +551,27 @@
                   class="btn btn-secondary"
                   href="https://github.com/gnatecheng/class-activity-record"
                   rel="noopener noreferrer"
+                  data-i18n="class.hero.viewGithub"
                 >
                   查看 GitHub 源码
                 </a>
               </div>
-              <p class="hero-meta">
+              <p class="hero-meta" data-i18n="class.hero.meta">
                 需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
               </p>
             </div>
             <div class="hero-visual screenshot-wrap">
-              <div class="screenshot-gallery" role="region" aria-label="班级事务记录应用截图">
+              <div class="screenshot-gallery" role="region" data-i18n-aria="class.hero.gallery.ariaLabel" aria-label="班级事务记录应用截图">
                 <ul class="screenshot-gallery-track">
                   <li class="screenshot-slide">
                     <figure class="screenshot-figure">
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/01-home.webp?v=2" width="540" height="1171" loading="lazy" alt="班级事务记录首页，班级与事务列表" />
+                          <img src="/assets/screens/class-record/01-home.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s01.alt" alt="班级事务记录首页，班级与事务列表" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">首页 · 班级与事务列表</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s01.caption">首页 · 班级与事务列表</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -553,10 +579,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/02-attendance.webp?v=2" width="540" height="1171" loading="lazy" alt="班级事务记录出勤点名，已到与请假状态" />
+                          <img src="/assets/screens/class-record/02-attendance.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s02.alt" alt="班级事务记录出勤点名，已到与请假状态" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">出勤点名 · 连续到课进度</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s02.caption">出勤点名 · 连续到课进度</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -564,10 +590,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/03-payment.webp?v=2" width="540" height="1171" loading="lazy" alt="班级事务记录缴费事务，仅未完成筛选" />
+                          <img src="/assets/screens/class-record/03-payment.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s03.alt" alt="班级事务记录缴费事务，仅未完成筛选" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">缴费 · 未完成提醒与应缴</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s03.caption">缴费 · 未完成提醒与应缴</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -575,10 +601,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/04-ledger.webp?v=2" width="540" height="1171" loading="lazy" alt="班级事务记录班费账本，收支流水与余额" />
+                          <img src="/assets/screens/class-record/04-ledger.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s04.alt" alt="班级事务记录班费账本，收支流水与余额" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">班费账本 · 收支与余额</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s04.caption">班费账本 · 收支与余额</figcaption>
                     </figure>
                   </li>
                   <li class="screenshot-slide">
@@ -586,10 +612,10 @@
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="/assets/screens/class-record/05-members.webp?v=2" width="540" height="1171" loading="lazy" alt="班级事务记录成员名单管理" />
+                          <img src="/assets/screens/class-record/05-members.webp?v=2" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s05.alt" alt="班级事务记录成员名单管理" />
                         </div>
                       </div>
-                      <figcaption class="screenshot-caption">成员 · 12 人名单与学号</figcaption>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s05.caption">成员 · 12 人名单与学号</figcaption>
                     </figure>
                   </li>
                 </ul>
@@ -597,81 +623,81 @@
             </div>
           </div>
 
-          <h3 class="project-subhead">主要功能</h3>
+          <h3 class="project-subhead" data-i18n="class.featuresHeading">主要功能</h3>
           <div class="feature-grid">
             <article class="card">
-              <span class="tag">成员</span>
-              <h3>成员与名单</h3>
-              <p>成员增删改、软归档（学号、备注可选）；批量粘贴导入，支持学号在前、Tab 粘贴，重名/同学号会提示；可恢复已归档成员并保留历史事务。</p>
+              <span class="tag" data-i18n="class.features.members.tag">成员</span>
+              <h3 data-i18n="class.features.members.title">成员与名单</h3>
+              <p data-i18n="class.features.members.body">成员增删改、软归档（学号、备注可选）；批量粘贴导入，支持学号在前、Tab 粘贴，重名/同学号会提示；可恢复已归档成员并保留历史事务。</p>
             </article>
             <article class="card">
-              <span class="tag">团体</span>
-              <h3>班内小团体</h3>
-              <p>多选成员组成团体，一人可属于多个团体；事务范围可选全班或某个小团体（空团体不能作为事务范围）。</p>
+              <span class="tag" data-i18n="class.features.groups.tag">团体</span>
+              <h3 data-i18n="class.features.groups.title">班内小团体</h3>
+              <p data-i18n="class.features.groups.body">多选成员组成团体，一人可属于多个团体；事务范围可选全班或某个小团体（空团体不能作为事务范围）。</p>
             </article>
             <article class="card">
-              <span class="tag">事务</span>
-              <h3>四种事务</h3>
-              <p>出勤 / 缴费 / 分摊 / 清单；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。</p>
+              <span class="tag" data-i18n="class.features.activities.tag">事务</span>
+              <h3 data-i18n="class.features.activities.title">四种事务</h3>
+              <p data-i18n="class.features.activities.body">出勤 / 缴费 / 分摊 / 清单；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。</p>
             </article>
             <article class="card">
-              <span class="tag">分摊</span>
-              <h3>灵活分摊</h3>
-              <p>金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除同学、按权重或固定金额分摊。</p>
+              <span class="tag" data-i18n="class.features.split.tag">分摊</span>
+              <h3 data-i18n="class.features.split.title">灵活分摊</h3>
+              <p data-i18n="class.features.split.body">金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除同学、按权重或固定金额分摊。</p>
             </article>
             <article class="card">
-              <span class="tag">进度</span>
-              <h3>进度与点名</h3>
-              <p>事务详情默认「仅未完成」，点按更新状态；缴费/分摊可编辑金额；出勤事务支持连续点名；名单按学号排序（可关）。</p>
+              <span class="tag" data-i18n="class.features.progress.tag">进度</span>
+              <h3 data-i18n="class.features.progress.title">进度与点名</h3>
+              <p data-i18n="class.features.progress.body">事务详情默认「仅未完成」，点按更新状态；缴费/分摊可编辑金额；出勤事务支持连续点名；名单按学号排序（可关）。</p>
             </article>
             <article class="card">
-              <span class="tag">催缴</span>
-              <h3>摘要与催缴文案</h3>
-              <p>复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。</p>
+              <span class="tag" data-i18n="class.features.reminders.tag">催缴</span>
+              <h3 data-i18n="class.features.reminders.title">摘要与催缴文案</h3>
+              <p data-i18n="class.features.reminders.body">复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。</p>
             </article>
             <article class="card">
-              <span class="tag">班费</span>
-              <h3>班费账本</h3>
-              <p>收入/支出流水与余额；缴费事务可将已收合计记入班费；缴费/分摊可附加备注与图片凭证。</p>
+              <span class="tag" data-i18n="class.features.ledger.tag">班费</span>
+              <h3 data-i18n="class.features.ledger.title">班费账本</h3>
+              <p data-i18n="class.features.ledger.body">收入/支出流水与余额；缴费事务可将已收合计记入班费；缴费/分摊可附加备注与图片凭证。</p>
             </article>
             <article class="card">
-              <span class="tag">备份</span>
-              <h3>备份与导出</h3>
-              <p>数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。</p>
+              <span class="tag" data-i18n="class.features.backup.tag">备份</span>
+              <h3 data-i18n="class.features.backup.title">备份与导出</h3>
+              <p data-i18n="class.features.backup.body">数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。</p>
             </article>
             <article class="card">
-              <span class="tag">小组件</span>
-              <h3>未完成人数小组件</h3>
-              <p>显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。</p>
+              <span class="tag" data-i18n="class.features.widget.tag">小组件</span>
+              <h3 data-i18n="class.features.widget.title">未完成人数小组件</h3>
+              <p data-i18n="class.features.widget.body">显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。</p>
             </article>
           </div>
-          <p class="project-foot">
+          <p class="project-foot" data-i18n="class.foot">
             首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。
           </p>
         </div>
       </section>
     </main>
 
-    <nav class="side-nav" aria-label="应用快速导航">
+    <nav class="side-nav" data-i18n-aria="sideNavLabel" aria-label="应用快速导航">
       <ul>
         <li>
           <a class="side-link link-cweek is-active" href="#cweek" data-target="cweek" aria-current="true">
-            <span class="side-badge" aria-hidden="true">C</span><span class="side-label">C一周通</span>
+            <span class="side-badge" aria-hidden="true">C</span><span class="side-label" data-i18n="sideNav.cweek">C一周通</span>
           </a>
         </li>
         <li>
           <a class="side-link link-qjz" href="#qingjizhang" data-target="qingjizhang">
-            <span class="side-badge" aria-hidden="true">账</span><span class="side-label">轻记账</span>
+            <span class="side-badge" aria-hidden="true">账</span><span class="side-label" data-i18n="sideNav.qingjizhang">轻记账</span>
           </a>
         </li>
         <li>
           <a class="side-link link-class" href="#class-record" data-target="class-record">
-            <span class="side-badge" aria-hidden="true">班</span><span class="side-label">班级事务记录</span>
+            <span class="side-badge" aria-hidden="true">班</span><span class="side-label" data-i18n="sideNav.classRecord">班级事务记录</span>
           </a>
         </li>
         <li>
           <a class="side-link link-top" href="#top">
-            <span class="side-badge" aria-hidden="true">↑</span><span class="side-label">回到顶部</span>
+            <span class="side-badge" aria-hidden="true">↑</span><span class="side-label" data-i18n="sideNav.top">回到顶部</span>
           </a>
         </li>
       </ul>
@@ -679,7 +705,7 @@
 
     <footer class="site-footer">
       <div class="wrap inner">
-        <p>© Etai 应用集 · C一周通 / 轻记账 / 班级事务记录 · 开源 Android 应用</p>
+        <p data-i18n="footer.copyright">© Etai 应用集 · C一周通 / 轻记账 / 班级事务记录 · 开源 Android 应用</p>
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/C-week" rel="noopener noreferrer">C-week</a>
           <a href="https://github.com/gnatecheng/qingjizhang" rel="noopener noreferrer">qingjizhang</a>
@@ -687,6 +713,11 @@
         </p>
       </div>
     </footer>
+    <script src="/js/translations.js?v=2" defer></script>
+    <script src="/js/site.js?v=2" defer></script>
+    <script src="/js/nav.js?v=5" defer></script>
+    <script src="/js/carousel.js?v=1" defer></script>
+    <script src="/js/github-meta.js?v=2" defer></script>
     <!-- Cloudflare Web Analytics (public site token) -->
     <script
       defer

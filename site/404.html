@@ -10,15 +10,29 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
     <link rel="manifest" href="/site.webmanifest?v=1" />
     <meta name="theme-color" content="#0f766e" />
-    <link rel="stylesheet" href="/css/style.css?v=4" />
+    <script src="/js/init-theme.js?v=1"></script>
+    <link rel="stylesheet" href="/css/style.css?v=5" />
   </head>
-  <body>
+  <body data-page-title-key="notfound.metaTitle">
     <main class="hero">
       <div class="wrap notfound">
-        <h1>404</h1>
-        <p class="lead">找不到该页面。返回首页了解 C一周通、轻记账与班级事务记录。</p>
-        <a class="btn btn-primary" href="/">回到首页</a>
+        <div class="header-tools notfound-prefs">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
+            <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+            <button type="button" id="lang-en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="Theme">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
+        <h1 data-i18n="notfound.title">404</h1>
+        <p class="lead" data-i18n="notfound.lead">找不到该页面。返回首页了解 C一周通、轻记账与班级事务记录。</p>
+        <a class="btn btn-primary" href="/" data-i18n="notfound.home">回到首页</a>
       </div>
     </main>
+    <script src="/js/translations.js?v=2" defer></script>
+    <script src="/js/site.js?v=2" defer></script>
   </body>
 </html>
