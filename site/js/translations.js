@@ -129,7 +129,7 @@ window.ETAI_TRANSLATIONS = {
       "不会。C一周通使用离线模拟评测（多组用例 + 规则检查 + 错因提示），部分通过会显示分数，全部通过才记实验完成；手机端无需安装 gcc。",
     "faq.vscode.title": "C一周通和电脑上的 VS Code 怎么配合？",
     "faq.vscode.body":
-      "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。",
+      "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。",
     "qjz.hero.title": "轻记账",
     "qjz.hero.lead":
       "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
@@ -397,7 +397,7 @@ window.ETAI_TRANSLATIONS = {
       "No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone.",
     "faq.vscode.title": "How does C Week work with VS Code on a computer?",
     "faq.vscode.body":
-      "Install VS Code and gcc on PC/Mac/Linux, open the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.",
+      "Install VS Code and gcc on PC/Mac/Linux, open the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.",
     "qjz.hero.title": "Easy Ledger",
     "qjz.hero.lead":
       "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
