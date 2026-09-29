@@ -16,7 +16,6 @@ window.ETAI_TRANSLATIONS = {
     "header.tagline": "三款离线可用、数据只存本机的 Android 应用",
     "navSectionsLabel": "页面章节",
     "nav.cweek": "C一周通",
-    "nav.roadmap": "7 天路线",
     "nav.qingjizhang": "轻记账",
     "nav.classRecord": "多人事务",
     "nav.faq": "常见问题",
