@@ -275,7 +275,6 @@ window.ETAI_TRANSLATIONS = {
     "header.tagline": "Three offline Android apps that keep data on your device",
     "navSectionsLabel": "Page sections",
     "nav.cweek": "C Week",
-    "nav.roadmap": "7-day path",
     "nav.qingjizhang": "Easy Ledger",
     "nav.classRecord": "Group Matters",
     "nav.faq": "FAQ",
