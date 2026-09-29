@@ -81,9 +81,19 @@ class WrongBookTest {
             hintCategory = "指针",
             resolved = false,
             updatedAtMs = 42L,
+            userChoiceIndex = 2,
         )
         val parsed = parseWrongItem(item.serialize())
         assertEquals(item, parsed)
+    }
+
+    @Test
+    fun legacyNineFieldRowStillParses() {
+        val legacy = listOf(
+            "QUIZ", "1", "d1-q1", "prompt", "ans", "ok", "cat", "0", "99",
+        ).joinToString("\u001e")
+        val parsed = parseWrongItem(legacy)
+        assertEquals(-1, parsed?.userChoiceIndex)
     }
 
     @Test
