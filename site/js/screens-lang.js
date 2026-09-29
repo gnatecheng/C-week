@@ -3,8 +3,8 @@
   "use strict";
 
   var SCREEN_ROOT = "/assets/screens/";
-  var MANIFEST_URL = "/assets/screens/manifest.json?v=3";
-  var IMG_VER = "7";
+  var MANIFEST_URL = "/assets/screens/manifest.json?v=4";
+  var IMG_VER = "8";
 
   var manifest = null;
   var manifestReady = null;
