@@ -1,0 +1,8 @@
+{
+  "available": {
+    "cweek": ["zh/light"],
+    "qingjizhang": ["zh/light"],
+    "class-record": ["zh/light"]
+  },
+  "legacyZhLight": true
+}

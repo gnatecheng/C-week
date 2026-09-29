@@ -16,7 +16,7 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 **唯一自动部署路径**：Cloudflare **Workers Builds**（Git 集成），在每次推送到 `main` 时根据仓库根目录的 [`wrangler.jsonc`](wrangler.jsonc) 部署 Worker 名称 **`etai`**，静态资源目录为 [`site/`](site/)，404 由 [`site/404.html`](site/404.html) 提供（`not_found_handling: 404-page`）。
 
 - 本地预览：`npx wrangler dev`（根目录）或任意静态服务器指向 `site/`。
-- 安全头与缓存规则：[`site/_headers`](site/_headers)（Workers 静态资源会读取）。
+- 安全头与缓存规则：[`site/_headers`](site/_headers)（Workers 静态资源会读取）。`/css/*` 与 `/js/*` 缓存 7 天且 `immutable`；**修改任一 CSS/JS 文件后，必须在 [`site/index.html`](site/index.html) 与 [`site/404.html`](site/404.html) 里把对应 `?v=` 查询参数加 1**，否则回访用户会继续用旧脚本/样式。
 - **不要**再使用已删除的 GitHub Actions「Deploy site to Cloudflare Pages」工作流；该流程指向不存在的 Pages 项目且依赖未配置的 Secrets。
 
 ### Cloudflare Web Analytics
@@ -49,7 +49,7 @@ base64 -w0 release.keystore   # macOS/Linux；写入 GitHub Secret ANDROID_KEYST
 
 **Release 标签规范**：仅使用 `v1.4.0` 这类 semver 标签；不要用日期标签（如 `v20260928`）以免出现重复 Release。
 
-主页应用截图位于 `site/assets/screens/`（WebP，约 540px 宽），来自各应用调试版 APK 的真实 Compose 界面；在无法使用 Android 模拟器 adb 截屏时，用 Roborazzi + Robolectric 在临时构建中录制（不提交到 Android 模块）。
+主页应用截图位于 `site/assets/screens/`（WebP，约 540px 宽），来自各应用调试版 APK 的真实 Compose 界面。首页按 **语言 × 主题** 加载 `/assets/screens/{zh|en}/{light|dark}/{app}/…`（缺则按 README 回退链）；旧路径 `screens/{app}/` 视为中文浅色。在无法使用 Android 模拟器 adb 截屏时，用 Roborazzi + Robolectric 在临时构建中录制（不提交到 Android 模块）。
 
 主页收录的应用：
 
