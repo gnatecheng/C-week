@@ -8,6 +8,7 @@
 /assets/*
   Cache-Control: public, max-age=604800, immutable
 
+# Long-lived cache for CSS/JS: bump ?v= on every href/src in index.html & 404.html when that file changes.
 /css/*
   Cache-Control: public, max-age=604800, immutable
 

@@ -16,7 +16,7 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 **唯一自动部署路径**：Cloudflare **Workers Builds**（Git 集成），在每次推送到 `main` 时根据仓库根目录的 [`wrangler.jsonc`](wrangler.jsonc) 部署 Worker 名称 **`etai`**，静态资源目录为 [`site/`](site/)，404 由 [`site/404.html`](site/404.html) 提供（`not_found_handling: 404-page`）。
 
 - 本地预览：`npx wrangler dev`（根目录）或任意静态服务器指向 `site/`。
-- 安全头与缓存规则：[`site/_headers`](site/_headers)（Workers 静态资源会读取）。
+- 安全头与缓存规则：[`site/_headers`](site/_headers)（Workers 静态资源会读取）。`/css/*` 与 `/js/*` 缓存 7 天且 `immutable`；**修改任一 CSS/JS 文件后，必须在 [`site/index.html`](site/index.html) 与 [`site/404.html`](site/404.html) 里把对应 `?v=` 查询参数加 1**，否则回访用户会继续用旧脚本/样式。
 - **不要**再使用已删除的 GitHub Actions「Deploy site to Cloudflare Pages」工作流；该流程指向不存在的 Pages 项目且依赖未配置的 Secrets。
 
 ### Cloudflare Web Analytics
