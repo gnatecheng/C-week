@@ -3,9 +3,9 @@
   "use strict";
 
   var REPOS = {
-    cweek: "gnatecheng/C-week",
-    qingjizhang: "gnatecheng/qingjizhang",
-    "class-record": "gnatecheng/class-activity-record",
+    cweek: "gnatecheng/c-week",
+    qingjizhang: "gnatecheng/easy-ledger",
+    "class-record": "gnatecheng/group-matters",
   };
 
   /** @param {string} tag e.g. v1.4.0 or v20260928 */
@@ -39,10 +39,17 @@
       var v = data.tag_name.replace(/^v/i, "");
       verEl.textContent = v;
     }
+    var wrap = root.querySelector(".app-meta-date-wrap");
     if (data && data.published_at && dateEl) {
-      dateEl.textContent = formatDate(data.published_at, lang);
-      var wrap = root.querySelector(".app-meta-date-wrap");
-      if (wrap) wrap.hidden = false;
+      var formatted = formatDate(data.published_at, lang);
+      if (formatted) {
+        dateEl.textContent = formatted;
+        if (wrap) wrap.hidden = false;
+      } else if (wrap) {
+        wrap.hidden = true;
+      }
+    } else if (wrap) {
+      wrap.hidden = true;
     }
   }
 
