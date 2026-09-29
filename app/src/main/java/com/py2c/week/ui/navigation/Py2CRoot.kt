@@ -46,7 +46,6 @@ import com.py2c.week.ui.lesson.LessonScreen
 import com.py2c.week.ui.quiz.QuizScreen
 import com.py2c.week.ui.report.ReportScreen
 import com.py2c.week.ui.settings.SettingsScreen
-import com.py2c.week.data.UserPreferencesStore
 import com.py2c.week.ui.strings.LocalAppLocale
 import com.py2c.week.ui.strings.LocalStrings
 import com.py2c.week.ui.strings.rememberStrings
