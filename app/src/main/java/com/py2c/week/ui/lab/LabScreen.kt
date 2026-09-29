@@ -51,6 +51,7 @@ import com.py2c.week.data.ProgressStore
 import com.py2c.week.data.WeekCurriculum
 import com.py2c.week.data.evaluateLab
 import com.py2c.week.ui.components.CodePane
+import com.py2c.week.ui.strings.LocalAppLocale
 import com.py2c.week.ui.strings.rememberStrings
 import com.py2c.week.ui.theme.CodeBgDark
 import kotlinx.coroutines.launch
@@ -106,6 +107,7 @@ fun LabScreen(
     onBack: () -> Unit,
 ) {
     val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     var code by remember(lab.id) { mutableStateOf(lab.starterCode) }
     var result by remember { mutableStateOf<LabEvaluation?>(null) }
     var showSolution by remember { mutableStateOf(progress.revealedSolutions.contains(lab.id)) }
@@ -180,7 +182,7 @@ fun LabScreen(
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(
                     onClick = {
-                        val eval = evaluateLab(code, lab)
+                        val eval = evaluateLab(code, lab, locale)
                         result = eval
                         scope.launch {
                             store.bumpLabAttempt(lab.id)

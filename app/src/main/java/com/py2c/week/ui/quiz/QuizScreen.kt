@@ -40,6 +40,7 @@ import com.py2c.week.data.QuizQuestion
 import com.py2c.week.data.hintCategory
 import com.py2c.week.data.verdict
 import com.py2c.week.data.wrongReason
+import com.py2c.week.ui.strings.LocalAppLocale
 import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.launch
 
@@ -55,6 +56,7 @@ fun QuizScreen(
     onSubmit: suspend (score: Int, answers: Map<String, Int>) -> Unit,
 ) {
     val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val answers = remember { mutableStateMapOf<String, Int>() }
     var submitted by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
@@ -166,6 +168,7 @@ private fun QuestionCard(
     onSelect: (Int) -> Unit,
 ) {
     val strings = rememberStrings()
+    val locale = LocalAppLocale.current
     val ok = selected == question.correctIndex
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -214,12 +217,12 @@ private fun QuestionCard(
                         Text(question.verdict(selected, strings), style = MaterialTheme.typography.titleSmall)
                         if (!ok) {
                             Text(
-                                "${strings.quizCategory}${question.hintCategory()}",
+                                "${strings.quizCategory}${question.hintCategory(locale)}",
                                 style = MaterialTheme.typography.labelLarge,
                                 color = MaterialTheme.colorScheme.error,
                             )
                             Text("${strings.quizYouChose}${question.choices[selected]}", style = MaterialTheme.typography.bodyMedium)
-                            Text("${strings.quizWrongReason}${question.wrongReason(selected)}", style = MaterialTheme.typography.bodyMedium)
+                            Text("${strings.quizWrongReason}${question.wrongReason(selected, locale)}", style = MaterialTheme.typography.bodyMedium)
                             Text(
                                 "${strings.quizCorrect}${question.choices[question.correctIndex]}",
                                 style = MaterialTheme.typography.bodyMedium,

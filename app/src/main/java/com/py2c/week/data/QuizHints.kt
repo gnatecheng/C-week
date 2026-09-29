@@ -1,14 +1,24 @@
 package com.py2c.week.data
 
 /** Per-question Chinese 错因, used when the selected choice is wrong. */
-fun QuizQuestion.wrongReason(selectedIndex: Int): String {
+fun QuizQuestion.wrongReason(selectedIndex: Int): String = wrongReason(selectedIndex, AppLocale.ZH)
+
+fun QuizQuestion.wrongReason(selectedIndex: Int, locale: AppLocale): String {
     if (selectedIndex == correctIndex) return explanation
-    return WRONG_REASONS[id] ?: explanation
+    return when (locale) {
+        AppLocale.EN -> WRONG_REASONS_EN[id] ?: explanation
+        AppLocale.ZH -> WRONG_REASONS[id] ?: explanation
+    }
 }
 
-fun QuizQuestion.verdict(selectedIndex: Int): String {
+fun QuizQuestion.verdict(selectedIndex: Int): String = verdict(selectedIndex, AppLocale.ZH)
+
+fun QuizQuestion.verdict(selectedIndex: Int, locale: AppLocale): String {
     val ok = selectedIndex == correctIndex
-    return if (ok) "判断：正确" else "判断：错误"
+    return when (locale) {
+        AppLocale.EN -> if (ok) "Verdict: correct" else "Verdict: incorrect"
+        AppLocale.ZH -> if (ok) "判断：正确" else "判断：错误"
+    }
 }
 
 fun QuizQuestion.verdict(selectedIndex: Int, strings: com.py2c.week.ui.strings.AppStrings): String {
@@ -16,8 +26,13 @@ fun QuizQuestion.verdict(selectedIndex: Int, strings: com.py2c.week.ui.strings.A
     return if (ok) strings.quizVerdictCorrect else strings.quizVerdictWrong
 }
 
-/** Short Chinese category stored with a wrong-book entry. */
-fun QuizQuestion.hintCategory(): String = HINT_CATEGORIES[id] ?: "概念"
+/** Short category stored with a wrong-book entry. */
+fun QuizQuestion.hintCategory(): String = hintCategory(AppLocale.ZH)
+
+fun QuizQuestion.hintCategory(locale: AppLocale): String = when (locale) {
+    AppLocale.EN -> HINT_CATEGORIES_EN[id] ?: "Concept"
+    AppLocale.ZH -> HINT_CATEGORIES[id] ?: "概念"
+}
 
 private val WRONG_REASONS: Map<String, String> = mapOf(
     "d1-q1" to "code / cat / chmod 都不编译。要把 .c 变成可执行文件，本课用 gcc hello.c -o hello。",

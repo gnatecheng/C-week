@@ -46,6 +46,8 @@ import com.py2c.week.ui.lesson.LessonScreen
 import com.py2c.week.ui.quiz.QuizScreen
 import com.py2c.week.ui.report.ReportScreen
 import com.py2c.week.ui.settings.SettingsScreen
+import com.py2c.week.data.UserPreferencesStore
+import com.py2c.week.ui.strings.LocalAppLocale
 import com.py2c.week.ui.strings.LocalStrings
 import com.py2c.week.ui.strings.rememberStrings
 import com.py2c.week.ui.wrongbook.WrongBookScreen
@@ -63,7 +65,8 @@ fun Py2CRoot(container: AppContainer, userPreferences: UserPreferences) {
         val nav = rememberNavController()
         val vm: ProgressViewModel = viewModel(factory = ProgressViewModel.factory(container))
         val progress by vm.progress.collectAsState()
-        val curriculum = container.curriculum
+        val locale = LocalAppLocale.current
+        val curriculum = remember(locale) { container.curriculumFor(locale) }
         LaunchedEffect(progress) {
             container.progressStore.syncCompletedCourseDays(progress.completedCourseDayIds(curriculum))
         }
@@ -222,7 +225,7 @@ fun Py2CRoot(container: AppContainer, userPreferences: UserPreferences) {
                         onBack = { nav.popBackStack() },
                         onSubmit = { score, answers ->
                             if (!redo) container.progressStore.markQuiz(id, score)
-                            container.progressStore.recordQuizResults(day, answers)
+                            container.progressStore.recordQuizResults(day, answers, locale)
                         },
                     )
                 }

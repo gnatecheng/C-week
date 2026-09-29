@@ -131,7 +131,7 @@ class ProgressStore(private val context: Context) {
         }
     }
 
-    suspend fun recordQuizResults(day: CourseDay, answers: Map<String, Int>) {
+    suspend fun recordQuizResults(day: CourseDay, answers: Map<String, Int>, locale: AppLocale = AppLocale.ZH) {
         val now = System.currentTimeMillis()
         context.progressDataStore.edit { prefs ->
             val current = prefs[wrongItemsKey].orEmpty().mapNotNull(::parseWrongItem).toMutableList()
@@ -153,7 +153,7 @@ class ProgressStore(private val context: Context) {
                             prompt = q.prompt,
                             userAnswer = q.choices.getOrElse(selected) { selected.toString() },
                             correctAnswer = q.choices.getOrElse(q.correctIndex) { "" },
-                            hintCategory = q.hintCategory(),
+                            hintCategory = q.hintCategory(locale),
                             resolved = false,
                             updatedAtMs = now,
                         ),

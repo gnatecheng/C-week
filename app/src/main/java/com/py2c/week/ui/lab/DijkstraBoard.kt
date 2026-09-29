@@ -42,6 +42,8 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.py2c.week.data.AppLocale
+import com.py2c.week.ui.strings.LocalAppLocale
 import com.py2c.week.ui.strings.rememberStrings
 import kotlinx.coroutines.delay
 
@@ -90,25 +92,40 @@ private val FRAMES: List<DijkstraFrame> = listOf(
     DijkstraFrame("最后确定点 3。最短路 0→2→1→3，距离 0 2 1 3。", listOf(0, 2, 1, 3), setOf(0, 1, 2, 3), 3, null),
 )
 
+private val FRAMES_EN: List<DijkstraFrame> = listOf(
+    DijkstraFrame("Before settling the source: only vertex 0 has dist 0; others are INF.", listOf(0, INF, INF, INF), emptySet(), null, null),
+    DijkstraFrame("Pick unsettled vertex 0 (smallest dist), ready to relax outgoing edges.", listOf(0, INF, INF, INF), emptySet(), 0, null),
+    DijkstraFrame("Relax 0→1 weight 4: dist[1] goes from INF to 4.", listOf(0, 4, INF, INF), setOf(0), 0, 0 to 1),
+    DijkstraFrame("Relax 0→2 weight 1: dist[2] becomes 1. Vertex 0 is settled.", listOf(0, 4, 1, INF), setOf(0), 0, 0 to 2),
+    DijkstraFrame("Next round picks 2 (closer than 1 at dist 4).", listOf(0, 4, 1, INF), setOf(0), 2, null),
+    DijkstraFrame("Relax 2→1: 1+1=2 beats the direct edge 4; dist[1]=2.", listOf(0, 2, 1, INF), setOf(0, 2), 2, 2 to 1),
+    DijkstraFrame("Relax 2→3: 1+5=6, dist[3]=6. Vertex 2 settled.", listOf(0, 2, 1, 6), setOf(0, 2), 2, 2 to 3),
+    DijkstraFrame("Pick vertex 1 (dist 2, better than 3 at 6).", listOf(0, 2, 1, 6), setOf(0, 2), 1, null),
+    DijkstraFrame("Relax 1→3: 2+1=3 beats 6; dist[3]=3.", listOf(0, 2, 1, 3), setOf(0, 2, 1), 1, 1 to 3),
+    DijkstraFrame("Finally settle 3. Shortest path 0→2→1→3; distances 0 2 1 3.", listOf(0, 2, 1, 3), setOf(0, 1, 2, 3), 3, null),
+)
+
 @Composable
 fun DijkstraBoard(
     unlocked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    var step by remember { mutableIntStateOf(if (unlocked) FRAMES.lastIndex else 0) }
+    val locale = LocalAppLocale.current
+    val frames = if (locale == AppLocale.EN) FRAMES_EN else FRAMES
+    var step by remember(unlocked, locale) { mutableIntStateOf(if (unlocked) frames.lastIndex else 0) }
     var playing by remember { mutableStateOf(false) }
     val strings = rememberStrings()
-    val frame = FRAMES[step.coerceIn(0, FRAMES.lastIndex)]
+    val frame = frames[step.coerceIn(0, frames.lastIndex)]
     val distLabels = frame.dist.map { if (it >= INF) "INF" else it.toString() }
 
-    LaunchedEffect(unlocked) {
-        step = if (unlocked) FRAMES.lastIndex else 0
+    LaunchedEffect(unlocked, locale) {
+        step = if (unlocked) frames.lastIndex else 0
         playing = false
     }
 
-    LaunchedEffect(playing, step, unlocked) {
+    LaunchedEffect(playing, step, unlocked, locale) {
         if (!playing || !unlocked) return@LaunchedEffect
-        if (step >= FRAMES.lastIndex) {
+        if (step >= frames.lastIndex) {
             playing = false
             return@LaunchedEffect
         }
@@ -127,10 +144,10 @@ fun DijkstraBoard(
                 color = Color(0xFFCBD5E1),
                 style = MaterialTheme.typography.bodyMedium,
             )
-            GraphCanvas(frame = frame, showFinalPath = unlocked && step == FRAMES.lastIndex)
+            GraphCanvas(frame = frame, showFinalPath = unlocked && step == frames.lastIndex)
             PathTiles(frame = frame, unlocked = unlocked)
             Text(
-                strings.dijkstraStep(step + 1, FRAMES.size, frame.caption),
+                strings.dijkstraStep(step + 1, frames.size, frame.caption),
                 color = Color(0xFFFDE68A),
                 style = MaterialTheme.typography.bodyMedium,
             )
@@ -151,7 +168,7 @@ fun DijkstraBoard(
                 IconButton(
                     onClick = {
                         if (!unlocked) return@IconButton
-                        if (step >= FRAMES.lastIndex) step = 0
+                        if (step >= frames.lastIndex) step = 0
                         playing = !playing
                     },
                     enabled = unlocked,
@@ -163,7 +180,7 @@ fun DijkstraBoard(
                     )
                 }
                 IconButton(
-                    onClick = { playing = false; step = (step + 1).coerceAtMost(FRAMES.lastIndex) },
+                    onClick = { playing = false; step = (step + 1).coerceAtMost(frames.lastIndex) },
                     enabled = unlocked,
                 ) {
                     Icon(Icons.Outlined.SkipNext, contentDescription = strings.dijkstraNextStep, tint = Color.White)
