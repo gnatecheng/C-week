@@ -9,7 +9,45 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 ## 主页 Homepage
 
 静态介绍页「Etai 应用集」（C一周通的功能、7 天路线、下载链接，以及另外两款应用的介绍）：**https://etai.chengyitang.workers.dev**  
-源码在仓库 [`site/`](site/) 目录，推送到 `main` 后自动部署到 Cloudflare Worker `etai`（原名 `c-week`）。
+源码在仓库 [`site/`](site/) 目录。
+
+### 站点部署（Cloudflare Worker `etai`）
+
+**唯一自动部署路径**：Cloudflare **Workers Builds**（Git 集成），在每次推送到 `main` 时根据仓库根目录的 [`wrangler.jsonc`](wrangler.jsonc) 部署 Worker 名称 **`etai`**，静态资源目录为 [`site/`](site/)，404 由 [`site/404.html`](site/404.html) 提供（`not_found_handling: 404-page`）。
+
+- 本地预览：`npx wrangler dev`（根目录）或任意静态服务器指向 `site/`。
+- 安全头与缓存规则：[`site/_headers`](site/_headers)（Workers 静态资源会读取）。
+- **不要**再使用已删除的 GitHub Actions「Deploy site to Cloudflare Pages」工作流；该流程指向不存在的 Pages 项目且依赖未配置的 Secrets。
+
+### Cloudflare Web Analytics
+
+站点已启用 Cloudflare Web Analytics（beacon 在 [`site/index.html`](site/index.html)）。CSP 在 [`site/_headers`](site/_headers) 中允许 `static.cloudflareinsights.com` 与 `cloudflareinsights.com`。
+
+### Release 签名与 GitHub Secrets
+
+GitHub Actions [`.github/workflows/release-apk.yml`](.github/workflows/release-apk.yml) 在推送 **semver 标签** `vX.Y.Z`（须与 `app/build.gradle.kts` 的 `versionName` 一致）时构建 **signed release APK**。若缺少下列 Secrets，工作流会 **失败并明确报错**，不会静默发布 debug 包。
+
+| Secret | 说明 |
+| --- | --- |
+| `ANDROID_KEYSTORE_BASE64` | 发布 keystore 文件的 Base64（见下方生成命令） |
+| `ANDROID_KEYSTORE_PASSWORD` | keystore 密码 |
+| `ANDROID_KEY_ALIAS` | 密钥别名 |
+| `ANDROID_KEY_PASSWORD` | （可选）密钥密码；省略则使用 store 密码 |
+
+**生成 keystore（仅在本机执行，勿提交仓库）：**
+
+```bash
+keytool -genkeypair -v \
+  -keystore release.keystore \
+  -alias c-week-release \
+  -keyalg RSA -keysize 2048 -validity 10000 \
+  -storetype PKCS12
+base64 -w0 release.keystore   # macOS/Linux；写入 GitHub Secret ANDROID_KEYSTORE_BASE64
+```
+
+本地 release 构建（可选）：将 `release.keystore` 放在仓库根目录并设置环境变量 `ANDROID_KEYSTORE_FILE`、`ANDROID_KEYSTORE_PASSWORD`、`ANDROID_KEY_ALIAS`（及可选的 `ANDROID_KEY_PASSWORD`），然后 `./gradlew :app:assembleRelease`。**切勿**将 keystore 或密码提交到 Git。
+
+**Release 标签规范**：仅使用 `v1.4.0` 这类 semver 标签；不要用日期标签（如 `v20260928`）以免出现重复 Release。
 
 主页应用截图位于 `site/assets/screens/`（WebP，约 540px 宽），来自各应用调试版 APK 的真实 Compose 界面；在无法使用 Android 模拟器 adb 截屏时，用 Roborazzi + Robolectric 在临时构建中录制（不提交到 Android 模块）。
 
