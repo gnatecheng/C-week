@@ -207,3 +207,7 @@ gcc dijkstra.c -o dijkstra -Wall
 ```
 
 参考实现见 `app/src/main/assets/labs/day7_dijkstra.c`。
+
+## 许可证
+
+MIT，详见 [LICENSE](LICENSE)。
