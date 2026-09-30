@@ -36,7 +36,7 @@ export function buildJsonLd(lang, t) {
             alternateName: "轻记账",
             url: base + "#qingjizhang",
             category: "FinanceApplication",
-            description: "Private local budgeting in Room (SQLite)—no sign-up or cloud sync.",
+            description: "Private budgeting that stays on your phone—no sign-up or cloud sync.",
             downloadUrl: "https://github.com/gnatecheng/easy-ledger/releases/latest",
           },
           {
@@ -64,7 +64,7 @@ export function buildJsonLd(lang, t) {
             alternateName: "Easy Ledger",
             url: base + "#qingjizhang",
             category: "FinanceApplication",
-            description: "无需注册的本地记账，数据保存在 Room（SQLite），无账号与云同步。",
+            description: "无需注册的本地记账，数据只存在你的手机里，不用注册账号，也不上传云端。",
             downloadUrl: "https://github.com/gnatecheng/easy-ledger/releases/latest",
           },
           {

@@ -151,7 +151,7 @@ window.ETAI_TRANSLATIONS = {
       "可在电脑上安装 VS Code 与 C 语言编译环境，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C一周通开源仓库</a> 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。",
     "qjz.hero.title": "轻记账",
     "qjz.hero.lead":
-      "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
+      "个人记账 Android 应用。数据<strong>只存在你的手机里</strong>，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
     "qjz.hero.downloadApk": "下载最新 APK",
     "qjz.hero.viewGithub": "查看源码",
     "qjz.hero.gallery.ariaLabel": "轻记账应用截图",
@@ -203,7 +203,7 @@ window.ETAI_TRANSLATIONS = {
       "支持浅色 / 深色 / 跟随系统主题（我的 → 设置）。首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。",
     "class.hero.title": "团团记",
     "class.hero.lead":
-      "面向任意小团体的 Android 事务记录应用：<strong>出勤、缴费、费用分摊、清单</strong>（社团、宿舍、小组等）。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
+      "面向任意小团体的 Android 事务记录应用：<strong>出勤、缴费、费用分摊、清单</strong>（社团、宿舍、小组等）。数据只存在你的手机里，<strong>无需登录或联网</strong>。",
     "class.hero.downloadApk": "下载最新 APK",
     "class.hero.viewGithub": "查看源码",
     "class.hero.gallery.ariaLabel": "团团记应用截图",
@@ -341,10 +341,10 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.changelog.130.1": "学习日历 / 打卡：D1–D7 按天点亮，完成课文 / 实验 / 测验自动盖章。",
     "app.easyLedger.headerTagline": "离线记账，数据只存本机",
     "app.easyLedger.tagline":
-      "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
+      "无需注册的个人记账 Android 应用，流水和预算只存在你的手机里，不用注册账号，也不上传云端。",
     "app.easyLedger.meta.title": "轻记账｜离线记账 Android App",
     "app.easyLedger.meta.description":
-      "轻记账：免费开源离线 Android 记账应用，Room 本地存储，预算与分类统计，无需登录。下载 APK。",
+      "轻记账：免费开源离线 Android 记账应用，数据只存本机，预算与分类统计，无需登录。下载 APK。",
     "app.easyLedger.meta.ogTitle": "轻记账 — 离线记账 Android App",
     "app.easyLedger.meta.ogDescription": "个人记账数据只存本机，无账号、无云同步。GitHub 开源 APK。",
     "app.easyLedger.highlight.1": "流水明细、搜索与筛选，支持拍照记账",
@@ -572,7 +572,7 @@ window.ETAI_TRANSLATIONS = {
       "Install VS Code and a C toolchain on your computer and follow along via the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.",
     "qjz.hero.title": "Easy Ledger",
     "qjz.hero.lead":
-      "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
+      "A personal finance Android app. Data <strong>stays on your phone</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
     "qjz.hero.downloadApk": "Download latest APK",
     "qjz.hero.viewGithub": "View source",
     "qjz.hero.gallery.ariaLabel": "Easy Ledger app screenshots",
@@ -627,7 +627,7 @@ window.ETAI_TRANSLATIONS = {
       "Light, dark, or system theme under Me → Settings. First launch adds sample entries—clear or restore under Me → Reminder settings.",
     "class.hero.title": "Group Matters",
     "class.hero.lead":
-      "Offline Android app for any small group—<strong>attendance, fee collection, cost splits, checklists</strong> (club, dorm, team, and more). Data stays on device (Room), <strong>no account or network required</strong>.",
+      "Offline Android app for any small group—<strong>attendance, fee collection, cost splits, checklists</strong> (club, dorm, team, and more). Data stays on your phone, <strong>no account or network required</strong>.",
     "class.hero.downloadApk": "Download latest APK",
     "class.hero.viewGithub": "View source",
     "class.hero.gallery.ariaLabel": "Group Matters app screenshots",
@@ -769,10 +769,10 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.changelog.130.1": "Study calendar / check-in: stamp D1–D7 when lesson, lab, or quiz completes.",
     "app.easyLedger.headerTagline": "Offline budgeting on device",
     "app.easyLedger.tagline":
-      "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
+      "Private budgeting on Android—entries and budgets stay on your phone, with no sign-up or cloud sync.",
     "app.easyLedger.meta.title": "Easy Ledger — Offline budgeting Android app",
     "app.easyLedger.meta.description":
-      "Easy Ledger: free open-source offline Android budgeting app, local Room storage, budgets and category stats, no login.",
+      "Easy Ledger: free open-source offline Android budgeting app, data stays on device, budgets and category stats, no login.",
     "app.easyLedger.meta.ogTitle": "Easy Ledger — Offline budgeting Android app",
     "app.easyLedger.meta.ogDescription": "Your ledger stays on device—no account, no cloud sync. Open-source APK on GitHub.",
     "app.easyLedger.highlight.1": "Entry list with search and filters; optional photo receipts",
