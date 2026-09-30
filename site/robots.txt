@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://etai.chengyitang.workers.dev/sitemap.xml
+Sitemap: https://etais.dev/sitemap.xml
