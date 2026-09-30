@@ -8,13 +8,21 @@ import { fileURLToPath } from "node:url";
 import { APP_PAGES, GITHUB_ICON_PATH } from "./site-app-config.mjs";
 import { loadTranslations, t } from "./static-i18n.mjs";
 import { buildAppPageJsonLd } from "./site-seo-jsonld.mjs";
+import {
+  renderAllScreens,
+  renderChangelog,
+  renderFeatureGrid,
+  renderFaqList,
+  renderProseSection,
+  renderRoadmap,
+} from "./app-page-sections.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 25;
-const TRANSLATIONS_V = 27;
+const CSS_V = 26;
+const TRANSLATIONS_V = 29;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
-function escAttr(s) {
+function escAttrLocal(s) {
   return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 }
 
@@ -48,43 +56,18 @@ function renderGallery(app, dict) {
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="${legacyBase}${file}?v=${ver}" width="540" height="1171" loading="lazy" alt="${escAttr(t(dict, altKey))}" />
+                          <img src="${legacyBase}${file}?v=${ver}" width="540" height="1171" loading="lazy" alt="${escAttrLocal(t(dict, altKey))}" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption">${t(dict, capKey)}</figcaption>
                     </figure>
                   </li>`);
   }
-  return `              <div class="screenshot-gallery" role="region" aria-label="${escAttr(t(dict, app.keys.galleryAria))}">
+  return `              <div class="screenshot-gallery" role="region" aria-label="${escAttrLocal(t(dict, app.keys.galleryAria))}">
                 <ul class="screenshot-gallery-track">
 ${slides.join("\n")}
                 </ul>
               </div>`;
-}
-
-function renderFaq(app, dict) {
-  return app.faqKeys
-    .map(([titleKey, bodyKey]) => {
-      const body = t(dict, bodyKey);
-      const title = t(dict, titleKey);
-      return `            <article class="faq-item">
-              <h3>${title}</h3>
-              <p>${body}</p>
-            </article>`;
-    })
-    .join("\n");
-}
-
-function renderHighlights(app, dict) {
-  const items = app.highlightKeys.map((key) => `            <li>${t(dict, key)}</li>`).join("\n");
-  return `      <section id="highlights" class="project" aria-labelledby="highlights-title">
-        <div class="wrap">
-          <h2 id="highlights-title" class="project-subhead">${t(dict, "appPage.highlightsTitle")}</h2>
-          <ul class="app-highlights">
-${items}
-          </ul>
-        </div>
-      </section>`;
 }
 
 function renderNavChip(slug, isEn, dict, activeSlug) {
@@ -106,7 +89,7 @@ function renderSiteHeader(isEn, dict, activeSlug) {
       <div class="wrap header-shell">
         <div class="brand-block">
           <a class="brand" href="${homeHref}">
-            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="${escAttr(t(dict, "meta.brandIconAlt"))}" />
+            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="${escAttrLocal(t(dict, "meta.brandIconAlt"))}" />
             <span>${t(dict, "brand")}</span>
           </a>
           <p class="brand-tagline">
@@ -114,7 +97,7 @@ function renderSiteHeader(isEn, dict, activeSlug) {
             <span class="brand-tagline-short">${t(dict, "header.taglineShort")}</span>
           </p>
         </div>
-        <nav class="header-nav" aria-label="${escAttr(t(dict, "navSectionsLabel"))}">
+        <nav class="header-nav" aria-label="${escAttrLocal(t(dict, "navSectionsLabel"))}">
           <div class="header-nav-inner">
             ${renderNavChip("easy-ledger", isEn, dict, activeSlug)}
             ${renderNavChip("group-matters", isEn, dict, activeSlug)}
@@ -123,11 +106,11 @@ function renderSiteHeader(isEn, dict, activeSlug) {
           </div>
         </nav>
         <div class="header-tools">
-          <div class="site-prefs" id="lang-switch" role="group" aria-label="${escAttr(t(dict, "prefs.langLabel"))}">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="${escAttrLocal(t(dict, "prefs.langLabel"))}">
             <button type="button" id="lang-zh" aria-pressed="${isEn ? "false" : "true"}">${t(dict, "prefs.langZh")}</button>
             <button type="button" id="lang-en" aria-pressed="${isEn ? "true" : "false"}">${t(dict, "prefs.langEn")}</button>
           </div>
-          <button type="button" id="theme-toggle" aria-label="${escAttr(t(dict, "prefs.themeLabel"))}">
+          <button type="button" id="theme-toggle" aria-label="${escAttrLocal(t(dict, "prefs.themeLabel"))}">
             <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
             <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -148,7 +131,7 @@ function renderDownloadPanel(app, dict) {
                     src="${app.iconSrc}"
                     width="44"
                     height="44"
-                    alt="${escAttr(name)}"
+                    alt="${escAttrLocal(name)}"
                     decoding="async"
                   />
                   <div>
@@ -179,7 +162,7 @@ function renderDownloadPanel(app, dict) {
                   <div class="download-panel__scan">
                     <figure class="download-panel__qr">
                       <div class="download-panel__qr-frame">
-                        <img src="${app.qrSrc}" width="120" height="120" alt="${escAttr(t(dict, app.qrAltKey))}" decoding="async" />
+                        <img src="${app.qrSrc}" width="120" height="120" alt="${escAttrLocal(t(dict, app.qrAltKey))}" decoding="async" />
                       </div>
                       <figcaption>${t(dict, "download.qrCaption")}</figcaption>
                     </figure>
@@ -246,28 +229,40 @@ function renderPage(app, lang, dict, T) {
   const gridClose = app.gridClass === "hero-grid" ? `        </div>` : `          </div>
         </div>`;
 
+  const ver = IMG_VER[app.legacyScreenDir] || "10";
+  app.slideFile = (i) => slideFile(i, app.screenDir);
+
+  const sections = [
+    renderFeatureGrid(dict, t, app.featureCards, app.footKey),
+    app.showRoadmap ? renderRoadmap(dict, t) : "",
+    renderAllScreens(app, dict, t, isEn, ver),
+    renderProseSection("privacy", "appPage.section.privacy", app.privacyBodyKey, dict, t),
+    renderProseSection("requirements", "appPage.section.requirements", app.requirementsBodyKey, dict, t),
+    renderChangelog(app, dict, t),
+  ].filter(Boolean);
+
   return `<!DOCTYPE html>
 <html lang="${htmlLang}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${escAttr(metaTitle)}</title>
-    <meta name="description" content="${escAttr(metaDesc)}" />
+    <title>${escAttrLocal(metaTitle)}</title>
+    <meta name="description" content="${escAttrLocal(metaDesc)}" />
     <link rel="alternate" hreflang="zh-CN" href="${zhPath}" />
     <link rel="alternate" hreflang="en" href="${enPath}" />
     <link rel="alternate" hreflang="x-default" href="${zhPath}" />
     <link rel="canonical" href="${canonical}" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="${isEn ? "/site.webmanifest.en.json?v=2" : "/site.webmanifest?v=3"}" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
     <link rel="stylesheet" href="/css/style.css?v=${CSS_V}" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="${escAttr(t(dict, "meta.siteName"))}" />
+    <meta property="og:site_name" content="${escAttrLocal(t(dict, "meta.siteName"))}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:title" content="${escAttr(ogTitle)}" />
-    <meta property="og:description" content="${escAttr(ogDesc)}" />
+    <meta property="og:title" content="${escAttrLocal(ogTitle)}" />
+    <meta property="og:description" content="${escAttrLocal(ogDesc)}" />
     <meta property="og:locale" content="${isEn ? "en_US" : "zh_CN"}" />
     <meta property="og:locale:alternate" content="${isEn ? "zh_CN" : "en_US"}" />
     <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
@@ -275,8 +270,8 @@ function renderPage(app, lang, dict, T) {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escAttr(ogTitle)}" />
-    <meta name="twitter:description" content="${escAttr(ogDesc)}" />
+    <meta name="twitter:title" content="${escAttrLocal(ogTitle)}" />
+    <meta name="twitter:description" content="${escAttrLocal(ogDesc)}" />
     <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
     <script type="application/ld+json" id="structured-data">
 ${jsonLd}
@@ -298,14 +293,14 @@ ${renderGallery(app, dict)}
           </div>
 ${gridClose}
       </section>
-${renderHighlights(app, dict)}
+${sections.join("\n")}
       <section id="faq" data-group="faq">
         <div class="wrap">
           <header class="section-head">
             <h2>${t(dict, "appPage.faqTitle")}</h2>
           </header>
           <div class="faq-list">
-${renderFaq(app, dict)}
+${renderFaqList(app, dict, t)}
           </div>
         </div>
       </section>

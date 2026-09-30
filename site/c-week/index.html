@@ -10,11 +10,11 @@
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/c-week/" />
     <link rel="canonical" href="https://etais.dev/c-week/" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest?v=3" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=25" />
+    <link rel="stylesheet" href="/css/style.css?v=26" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai 应用集" />
     <meta property="og:url" content="https://etais.dev/c-week/" />
@@ -64,10 +64,18 @@
         },
         {
           "@type": "Question",
+          "name": "安装提示（Android 版本、未知来源、覆盖安装）",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "三款应用均需 Android 8.0 及以上 。请从各应用 GitHub Releases 下载 正式签名版 APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。 轻记账与团团记 若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。"
+          }
+        },
+        {
+          "@type": "Question",
           "name": "系统要求是什么？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "最低 Android 8.0（API 26）；内含 H.264 教学视频，较新系统通常播放更稳定。"
+            "text": "Android 8.0 及以上；内含打包教学视频。当前正式版 v1.5.0，安装包约 15.6 MB（以 GitHub Releases 为准）。"
           }
         },
         {
@@ -75,7 +83,7 @@
           "name": "需要联网吗？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "课文、演示视频与实验数据打包在 APK 内；学习进度等存在 DataStore，日常学习不需要联网。"
+            "text": "课文、演示视频与实验内容都打包在安装包内；学习进度保存在本机，日常学习不需要联网。"
           }
         },
         {
@@ -91,7 +99,7 @@
           "name": "C一周通和电脑上的 VS Code 怎么配合？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 c-week 仓库，对照 app/src/main/assets/labs/ 中的 .c 文件跟做；Day 7 参考 day7_dijkstra.c ，期望输出示例见该仓库 README。"
+            "text": "可在电脑上安装 VS Code 与 C 语言编译环境，打开 C一周通开源仓库 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。"
           }
         }
       ]
@@ -194,7 +202,7 @@
                 rel="noopener noreferrer"
               >
                 <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 <span>查看源码</span>
               </a>
@@ -273,15 +281,242 @@
           </div>
         </div>
       </section>
-      <section id="highlights" class="project" aria-labelledby="highlights-title">
+      <section id="features" class="project app-page-block" aria-labelledby="features-title">
         <div class="wrap">
-          <h2 id="highlights-title" class="project-subhead">功能亮点</h2>
-          <ul class="app-highlights">
-            <li>7 天路线：Hello World → 指针与数组 → Dijkstra 最短路</li>
-            <li>课文内嵌 VS Code 屏幕录像（H.264，打包进 APK）</li>
-            <li>离线模拟评测实验与测验，错因提示</li>
-            <li>学习进度与打卡报告，可配合 PC 上 VS Code + gcc 跟做</li>
-          </ul>
+          <h2 id="features-title" class="project-subhead">完整功能</h2>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">计划</span>
+              
+              <h3>本周计划与进度</h3>
+              <p>Day 1–7 卡片、勾选与总体百分比；学习进度保存在本机，界面跟随系统深色/浅色。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.3.0</span>
+              
+              <h3>学习日历 / 打卡</h3>
+              <p>一关一天点亮 D1–D7，本周日期条与连续打卡天数；完成课文、实验或测验自动盖章。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              
+              <h3>错题本 + 重练</h3>
+              <p>测验答错、实验未通过会记录天数、题号、作答与错因类别；按天列表，做对即标记已订正。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              
+              <h3>实验多组用例</h3>
+              <p>离线模拟评测对照多组输入/输出，显示通过组数与部分得分，并给出更具体的中文错因。</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              
+              <h3>学习报告</h3>
+              <p>连续打卡、分天完成度、测验正确率，可通过系统分享面板发送。</p>
+            </article>
+            <article class="card">
+              
+              <h3>课文 · 测验 · 录像</h3>
+              <p>中文讲解（含生活类比）、测验、VS Code 实机录像；第 1 天含路径/文件管理与逐条 bash（pwd/ls/cd 等及速查表）。</p>
+            </article>
+            <article class="card">
+              
+              <h3>代码实验</h3>
+              <p>应用内编辑 C 片段；模拟运行对照多组用例。错因覆盖缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 混淆等。</p>
+            </article>
+            <article class="card">
+              
+              <h3>Day 7 大作业</h3>
+              <p>邻接表 + O(V²) Dijkstra 填空；多组测试用例；通过后可「走格子/看路径」逐步查看 dist 与最短路。</p>
+            </article>
+            <article class="card">
+              
+              <h3>词汇表</h3>
+              <p>pointer、栈/堆、数组退化、launch.json、bash 路径等术语可查；大点击区域与等宽代码字体便于阅读。</p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+      <section id="roadmap" class="app-page-block" aria-labelledby="roadmap-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="roadmap-title">7 天学习路线</h2>
+            <p>7 天路线与应用内课程一致；每天含微课、测验与实验。</p>
+          </header>
+          <div class="roadmap">
+            <article class="card day-card">
+              <div class="day-num">D1</div>
+              <div class="day-body">
+                <h3>环境、文件与 Hello World</h3>
+                <p class="day-sub">路径 · bash · VS Code · 第一次编译</p>
+                <p class="day-outcome">能分清路径与工作区，用终端做基本文件操作，在 VS Code 里新建 .c、用 gcc 编译运行，并看懂 launch.json 与断点调试。</p>
+                <span class="day-lab">实验：输出 Hello, Ada</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D2</div>
+              <div class="day-body">
+                <h3>类型、变量与 I/O</h3>
+                <p class="day-sub">静态类型 · printf/scanf · 没有自动回收</p>
+                <p class="day-outcome">能声明 int/double/char，用 printf/scanf 读写，理解溢出与栈上变量生命周期。</p>
+                <span class="day-lab">实验：摄氏 ↔ 华氏</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D3</div>
+              <div class="day-body">
+                <h3>控制流与函数</h3>
+                <p class="day-sub">if/for/while · 原型 · 传值</p>
+                <p class="day-outcome">能写带原型的函数，理解 C 传值；知道为什么 swap 必须用指针（为 Day 4 铺路）。</p>
+                <span class="day-lab">实验：写一个 is_prime</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D4</div>
+              <div class="day-body">
+                <h3>数组、字符串、指针</h3>
+                <p class="day-sub">连续内存 · 地址 · '\0'</p>
+                <p class="day-outcome">能画指针图，正确用数组与 '\0' 字符串，避开越界和数组退化陷阱。</p>
+                <span class="day-lab">实验：原地反转字符串</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D5</div>
+              <div class="day-body">
+                <h3>结构体、堆内存、文件</h3>
+                <p class="day-sub">struct · malloc/free · fopen</p>
+                <p class="day-outcome">能定义 struct、在堆上分配邻接表节点、正确 free，并做基础文件读写。</p>
+                <span class="day-lab">实验：结构体数组求最高分</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D6</div>
+              <div class="day-body">
+                <h3>算法热身：排序与 BFS</h3>
+                <p class="day-sub">选择排序 · 邻接表 · 网格/图 BFS</p>
+                <p class="day-outcome">理解选择排序、用数组模拟邻接表，并完成 BFS（队列 + dist[]）。</p>
+                <span class="day-lab">实验：补全 BFS 松弛</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D7</div>
+              <div class="day-body">
+                <h3>大作业：Dijkstra 最短路</h3>
+                <p class="day-sub">正权图 · 邻接表 · O(V²) 教学实现</p>
+                <p class="day-outcome">独立补全松弛循环，能解释与 BFS 的差别，并在 VS Code 里编译运行测试。</p>
+                <span class="day-lab">大作业：补全 Dijkstra 松弛</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="screenshots-title">全部截图</h2>
+            <p>以下为中文界面浅色主题截图（与首页轮播相同画面；切换系统深色主题时首页轮播会自动选用深色截图集）。</p>
+          </header>
+          <div class="app-screens-grid">
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/cweek/01-home.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通本周课程首页，7 天路线与总体进度" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">本周课程首页 · 7 天路线与进度</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/cweek/02-day1.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通第 1 天详情，微课、实验与测验入口" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">第 1 天详情 · 微课 / 实验 / 测验</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/cweek/03-lesson.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通课文阅读界面，含代码示例与 VS Code 演示入口" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">课文阅读 · 代码与 VS Code 演示</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/cweek/04-quiz.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通第 1 天测验，单选题作答与自动判分错因提示" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">今日测验 · 选项、判分与错因</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/cweek/05-labs.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通代码实验列表，离线模拟评测" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">代码实验 · 离线模拟评测</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/cweek/06-report.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通学习报告，连续打卡与测验正确率" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">学习报告 · 打卡与正确率</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title" class="project-subhead">隐私与权限</h2>
+          <div class="app-prose"><p>课文、VS Code 演示视频、实验与测验内容都打包在安装包内；学习进度、打卡与错题记录保存在本机。</p><p>应用未声明联网权限，日常学习不需要联网。手机不会编译 C 代码，实验采用离线模拟判分。</p><p>本介绍网站 etais.dev 使用 Cloudflare Web Analytics 统计访问（与应用 APK 无关）。</p></div>
+        </div>
+      </section>
+      <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
+        <div class="wrap">
+          <h2 id="requirements-title" class="project-subhead">系统要求</h2>
+          <div class="app-prose"><p>支持 Android 8.0 及以上。应用内含打包的教学视频，较新的手机系统通常播放更稳定。</p><p>当前版本：C一周通 v1.5.0，安装包约 15.6 MB（以 <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p></div>
+        </div>
+      </section>
+      <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="changelog-title">更新记录</h2>
+            <p>完整记录见 <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
+          </header>
+          <div class="changelog-list">
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.5.0" rel="noopener noreferrer">v1.5.0</a></h3>
+              <ul>
+<li>设置中可切换完整英文课程与界面（7 天课文、测验与实验）。</li>
+<li>支持浅色 / 深色 / 跟随系统主题；关于页可查看版本与开源链接。</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.4.0" rel="noopener noreferrer">v1.4.0</a></h3>
+              <ul>
+<li>错题本与重练；实验多组用例与部分得分。</li>
+<li>学习报告：连续打卡、分天完成度、测验正确率。</li>
+<li>学习日历 / 打卡（1.3.0 能力延续与增强）。</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.3.0" rel="noopener noreferrer">v1.3.0</a></h3>
+              <ul>
+<li>学习日历 / 打卡：D1–D7 按天点亮，完成课文 / 实验 / 测验自动盖章。</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
       <section id="faq" data-group="faq">
@@ -292,15 +527,19 @@
           <div class="faq-list">
             <article class="faq-item">
               <h3>如何安装 C一周通 APK？</h3>
-              <p>在 <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「C一周通」。</p>
+              <div class="faq-body">在 <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「C一周通」。</div>
+            </article>
+            <article class="faq-item">
+              <h3>安装提示（Android 版本、未知来源、覆盖安装）</h3>
+              <div class="faq-body">三款应用均需 <strong>Android 8.0 及以上</strong>。请从各应用 GitHub Releases 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。<strong>轻记账与团团记</strong>若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。</div>
             </article>
             <article class="faq-item">
               <h3>系统要求是什么？</h3>
-              <p>最低 Android 8.0（API 26）；内含 H.264 教学视频，较新系统通常播放更稳定。</p>
+              <p>Android 8.0 及以上；内含打包教学视频。当前正式版 v1.5.0，安装包约 15.6 MB（以 GitHub Releases 为准）。</p>
             </article>
             <article class="faq-item">
               <h3>需要联网吗？</h3>
-              <p>课文、演示视频与实验数据打包在 APK 内；学习进度等存在 DataStore，日常学习不需要联网。</p>
+              <p>课文、演示视频与实验内容都打包在安装包内；学习进度保存在本机，日常学习不需要联网。</p>
             </article>
             <article class="faq-item">
               <h3>C一周通会在手机上编译 C 吗？</h3>
@@ -308,7 +547,7 @@
             </article>
             <article class="faq-item">
               <h3>C一周通和电脑上的 VS Code 怎么配合？</h3>
-              <p>可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。</p>
+              <div class="faq-body">可在电脑上安装 VS Code 与 C 语言编译环境，打开 <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">C一周通开源仓库</a> 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。</div>
             </article>
           </div>
         </div>
@@ -320,23 +559,23 @@
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>c-week</span></a
           >
           <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>easy-ledger</span></a
           >
           <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>group-matters</span></a
           >
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=27" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

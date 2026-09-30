@@ -12,6 +12,7 @@
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
@@ -22,19 +23,19 @@
     <link rel="canonical" href="https://etais.dev/" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=25" />
+    <link rel="stylesheet" href="/css/style.css?v=26" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai 应用集" data-i18n-content="meta.siteName" />
     <meta property="og:url" content="https://etais.dev/" />
     <meta
       property="og:title"
-      data-i18n-content="meta.ogTitle"
+      data-i18n-content="Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记"
       content="Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记"
     />
     <meta
       property="og:description"
-      data-i18n-content="meta.ogDescription"
+      data-i18n-content="三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。"
       content="三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。"
     />
     <meta property="og:locale" content="zh_CN" />
@@ -48,12 +49,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      data-i18n-content="meta.twitterTitle"
+      data-i18n-content="Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记"
       content="Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记"
     />
     <meta
       name="twitter:description"
-      data-i18n-content="meta.twitterDescription"
+      data-i18n-content="三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。"
       content="三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。"
     />
     <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
@@ -134,7 +135,7 @@
           "name": "安装提示（Android 版本、未知来源、覆盖安装）",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "三款应用的 minSdk 均为 26 （Android 8.0）：轻记账（ easy-ledger ）、团团记（ group-matters ）、C一周通（ c-week ）的 app/build.gradle.kts 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。"
+            "text": "三款应用均需 Android 8.0 及以上 。请从各应用 GitHub Releases 下载 正式签名版 APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。 轻记账与团团记 若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。"
           }
         },
         {
@@ -142,7 +143,7 @@
           "name": "系统要求是什么？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。"
+            "text": "三款应用均支持 Android 8.0 及以上。C一周通内含打包的教学视频，较新的手机系统通常播放更稳定。"
           }
         },
         {
@@ -150,7 +151,7 @@
           "name": "需要联网吗？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "日常使用不需要联网，数据保存在本机：C一周通的课文、演示视频与实验数据打包在 APK 内，学习进度等存在 DataStore；轻记账的流水与设置在 Room（SQLite）中；团团记的团体与事务数据在 Room 中。均无登录或必需的后端服务。"
+            "text": "日常使用不需要联网，数据都保存在本机：C一周通的课文、演示视频与实验内容打包在安装包内；轻记账的流水与设置在本机；团团记的团体与事务数据在本机。均无登录或必需的后端服务。"
           }
         },
         {
@@ -166,7 +167,7 @@
           "name": "C一周通和电脑上的 VS Code 怎么配合？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 c-week 仓库，对照 app/src/main/assets/labs/ 中的 .c 文件跟做；Day 7 参考 day7_dijkstra.c ，期望输出示例见该仓库 README。"
+            "text": "可在电脑上安装 VS Code 与 C 语言编译环境，打开 C一周通开源仓库 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。"
           }
         }
       ]
@@ -291,7 +292,15 @@
                 </svg>
                 <span data-i18n="qjz.hero.viewGithub">查看源码</span>
               </a>
-              <p class="app-learn-more"><a href="/easy-ledger/" data-i18n="appPage.learnMore">了解更多</a></p>
+                            <ul class="app-home-teasers">
+                <li data-i18n="app.easyLedger.highlight.1">流水明细、搜索与筛选，支持拍照记账</li>
+                <li data-i18n="app.easyLedger.highlight.2">预算进度与超支提醒，分类统计与趋势</li>
+                <li data-i18n="app.easyLedger.highlight.3">多账户、分类与标签，深色模式</li>
+                <li data-i18n="app.easyLedger.highlight.4">数据备份 / 恢复（zip），导出 CSV</li>
+              </ul>
+              <p class="app-learn-more">
+                <a class="btn btn-secondary btn-learn-more" href="/easy-ledger/" data-i18n="appPage.learnMore">了解更多</a>
+              </p>
             </div>
             <div class="hero-visual screenshot-wrap">
               <div class="screenshot-gallery" role="region" data-i18n-aria="qjz.hero.gallery.ariaLabel" aria-label="轻记账应用截图">
@@ -355,58 +364,6 @@
               </div>
             </div>
           </div>
-
-          <h3 class="project-subhead" data-i18n="qjz.featuresHeading">主要功能</h3>
-          <div class="feature-grid">
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.entry.tag">流水</span>
-              <h3 data-i18n="qjz.features.entry.title">记一笔 · 搜索筛选</h3>
-              <p data-i18n="qjz.features.entry.body">金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.transfer.tag">转账</span>
-              <h3 data-i18n="qjz.features.transfer.title">账户之间互转</h3>
-              <p data-i18n="qjz.features.transfer.body">转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.categories.tag">分类 · 账户</span>
-              <h3 data-i18n="qjz.features.categories.title">分类与账户</h3>
-              <p data-i18n="qjz.features.categories.body">支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.stats.tag">统计</span>
-              <h3 data-i18n="qjz.features.stats.title">月度统计与趋势</h3>
-              <p data-i18n="qjz.features.stats.body">月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.budget.tag">预算</span>
-              <h3 data-i18n="qjz.features.budget.title">预算与提醒</h3>
-              <p data-i18n="qjz.features.budget.body">每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.backup.tag">备份</span>
-              <h3 data-i18n="qjz.features.backup.title">导入导出</h3>
-              <p data-i18n="qjz.features.backup.body">导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.recurring.tag">自动</span>
-              <h3 data-i18n="qjz.features.recurring.title">周期记账</h3>
-              <p data-i18n="qjz.features.recurring.body">每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.widget.tag">小组件</span>
-              <h3 data-i18n="qjz.features.widget.title">桌面小组件</h3>
-              <p data-i18n="qjz.features.widget.body">显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.receipt.tag">隐私</span>
-              <h3 data-i18n="qjz.features.receipt.title">收据拍照</h3>
-              <p data-i18n="qjz.features.receipt.body">记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
-            </article>
-          </div>
-          <p class="project-foot" data-i18n="qjz.foot">
-            另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。
-          </p>
         </div>
       </section>
 
@@ -480,7 +437,15 @@
                 </svg>
                 <span data-i18n="class.hero.viewGithub">查看源码</span>
               </a>
-              <p class="app-learn-more"><a href="/group-matters/" data-i18n="appPage.learnMore">了解更多</a></p>
+                            <ul class="app-home-teasers">
+                <li data-i18n="app.groupMatters.highlight.1">催缴文案一键复制，微信群可读格式</li>
+                <li data-i18n="app.groupMatters.highlight.2">分摊支持排除成员、按权重或固定金额；金额按分存储，余数补给前 N 人</li>
+                <li data-i18n="app.groupMatters.highlight.3">团费账本，支持凭证图片与 CSV 导出</li>
+                <li data-i18n="app.groupMatters.highlight.4">一人可属于多个小组；创建事务时名单快照</li>
+              </ul>
+              <p class="app-learn-more">
+                <a class="btn btn-secondary btn-learn-more" href="/group-matters/" data-i18n="appPage.learnMore">了解更多</a>
+              </p>
             </div>
             <div class="hero-visual screenshot-wrap">
               <div class="screenshot-gallery" role="region" data-i18n-aria="class.hero.gallery.ariaLabel" aria-label="团团记应用截图">
@@ -544,58 +509,6 @@
               </div>
             </div>
           </div>
-
-          <h3 class="project-subhead" data-i18n="class.featuresHeading">主要功能</h3>
-          <div class="feature-grid">
-            <article class="card">
-              <span class="tag" data-i18n="class.features.members.tag">成员</span>
-              <h3 data-i18n="class.features.members.title">成员与名单</h3>
-              <p data-i18n="class.features.members.body">成员增删改、软归档（编号、备注可选）；批量粘贴导入，支持编号在前、Tab 粘贴，重名/同编号会提示；可恢复已归档成员并保留历史事务。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.groups.tag">团体</span>
-              <h3 data-i18n="class.features.groups.title">团内小团体</h3>
-              <p data-i18n="class.features.groups.body">多选成员组成小团体，一人可属于多个小团体；事务范围可选全团或某个小团体（空团体不能作为事务范围）。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.activities.tag">事务</span>
-              <h3 data-i18n="class.features.activities.title">四种事务</h3>
-              <p data-i18n="class.features.activities.body">出勤 / 缴费 / 分摊 / 清单；范围可选全团或某个小团体；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.split.tag">分摊</span>
-              <h3 data-i18n="class.features.split.title">灵活分摊</h3>
-              <p data-i18n="class.features.split.body">金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除成员、按权重或固定金额分摊。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.progress.tag">进度</span>
-              <h3 data-i18n="class.features.progress.title">进度与点名</h3>
-              <p data-i18n="class.features.progress.body">事务详情默认「仅未完成」，点按更新状态；缴费/分摊可编辑金额；出勤事务支持连续点名；名单按编号排序（可关）。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.reminders.tag">催缴</span>
-              <h3 data-i18n="class.features.reminders.title">摘要与催缴文案</h3>
-              <p data-i18n="class.features.reminders.body">复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.ledger.tag">团费</span>
-              <h3 data-i18n="class.features.ledger.title">团费账本</h3>
-              <p data-i18n="class.features.ledger.body">收入/支出流水与余额；缴费事务可将已收合计记入团费；缴费/分摊可附加备注与图片凭证。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.backup.tag">备份</span>
-              <h3 data-i18n="class.features.backup.title">备份与导出</h3>
-              <p data-i18n="class.features.backup.body">数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.widget.tag">小组件</span>
-              <h3 data-i18n="class.features.widget.title">未完成人数小组件</h3>
-              <p data-i18n="class.features.widget.body">显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。</p>
-            </article>
-          </div>
-          <p class="project-foot" data-i18n="class.foot">
-            首页可按标题搜索事务、筛选进行中 / 已归档；新建事务与再开一期提供点名、团费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。
-          </p>
         </div>
       </section>
 
@@ -667,7 +580,15 @@
               </svg>
               <span data-i18n="cweek.hero.viewGithub">查看源码</span>
             </a>
-            <p class="app-learn-more"><a href="/c-week/" data-i18n="appPage.learnMore">了解更多</a></p>
+                          <ul class="app-home-teasers">
+                <li data-i18n="app.cWeek.highlight.1">7 天路线：Hello World → 指针与数组 → Dijkstra 最短路</li>
+                <li data-i18n="app.cWeek.highlight.2">课文内嵌 VS Code 屏幕录像（H.264，打包进 APK）</li>
+                <li data-i18n="app.cWeek.highlight.3">离线模拟评测实验与测验，错因提示</li>
+                <li data-i18n="app.cWeek.highlight.4">学习进度与打卡报告，可配合 PC 上 VS Code + gcc 跟做</li>
+              </ul>
+              <p class="app-learn-more">
+                <a class="btn btn-secondary btn-learn-more" href="/c-week/" data-i18n="appPage.learnMore">了解更多</a>
+              </p>
           </div>
           <div class="hero-visual screenshot-wrap">
             <div class="screenshot-gallery" role="region" data-i18n-aria="cweek.hero.gallery.ariaLabel" aria-label="C一周通应用截图">
@@ -744,146 +665,6 @@
         </div>
       </section>
 
-      <section id="features" data-group="cweek">
-        <div class="wrap">
-          <header class="section-head">
-            <h2 data-i18n="cweek.features.title">功能亮点</h2>
-            <p data-i18n="cweek.features.lead">与 APK 内一致的能力说明，无后端、课文与演示视频均打包在应用内。</p>
-          </header>
-          <div class="feature-grid">
-            <article class="card">
-              <span class="tag" data-i18n="cweek.features.plan.tag">计划</span>
-              <h3 data-i18n="cweek.features.plan.title">本周计划与进度</h3>
-              <p data-i18n="cweek.features.plan.body">Day 1–7 卡片、勾选与总体百分比；进度由 DataStore 持久化，跟随系统深色/浅色。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="cweek.features.streak.tag">1.3.0</span>
-              <h3 data-i18n="cweek.features.streak.title">学习日历 / 打卡</h3>
-              <p data-i18n="cweek.features.streak.body">一关一天点亮 D1–D7，本周日期条与连续打卡天数；完成课文、实验或测验自动盖章。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="cweek.features.wrongbook.tag">1.4.0</span>
-              <h3 data-i18n="cweek.features.wrongbook.title">错题本 + 重练</h3>
-              <p data-i18n="cweek.features.wrongbook.body">测验答错、实验未通过会记录天数、题号、作答与错因类别；按天列表，做对即标记已订正。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="cweek.features.multicase.tag">1.4.0</span>
-              <h3 data-i18n="cweek.features.multicase.title">实验多组用例</h3>
-              <p data-i18n="cweek.features.multicase.body">离线模拟评测对照多组输入/输出，显示通过组数与部分得分，并给出更具体的中文错因。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="cweek.features.report.tag">1.4.0</span>
-              <h3 data-i18n="cweek.features.report.title">学习报告</h3>
-              <p data-i18n="cweek.features.report.body">连续打卡、分天完成度、测验正确率，可通过系统分享面板发送。</p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="cweek.features.lessons.title">课文 · 测验 · 录像</h3>
-              <p data-i18n="cweek.features.lessons.body">中文讲解（含生活类比）、测验、VS Code 实机录像；第 1 天含路径/文件管理与逐条 bash（pwd/ls/cd 等及速查表）。</p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="cweek.features.labs.title">代码实验</h3>
-              <p data-i18n="cweek.features.labs.body">应用内编辑 C 片段；模拟运行对照多组用例。错因覆盖缺头文件、差一、指针、公式、TODO 空壳、BFS/Dijkstra 混淆等。</p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="cweek.features.day7.title">Day 7 大作业</h3>
-              <p data-i18n="cweek.features.day7.body">邻接表 + O(V²) Dijkstra 填空；多组测试用例；通过后可「走格子/看路径」逐步查看 dist 与最短路。</p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="cweek.features.glossary.title">词汇表</h3>
-              <p data-i18n="cweek.features.glossary.body">pointer、栈/堆、数组退化、launch.json、bash 路径等术语可查；大点击区域与等宽代码字体便于阅读。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="roadmap" data-group="cweek">
-        <div class="wrap">
-          <header class="section-head">
-            <h2 data-i18n="roadmap.title">7 天学习路线</h2>
-            <p data-i18n="roadmap.lead">课程地图与 `app/src/main/assets/curriculum/map.json` 及 Kotlin 课文一致；每天含微课、测验与实验。</p>
-          </header>
-          <div class="roadmap">
-            <article class="card day-card">
-              <div class="day-num">D1</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d1.title">环境、文件与 Hello World</h3>
-                <p class="day-sub" data-i18n="roadmap.d1.sub">路径 · bash · VS Code · 第一次编译</p>
-                <p class="day-outcome" data-i18n="roadmap.d1.outcome">
-                  能分清路径与工作区，用终端做基本文件操作，在 VS Code 里新建 .c、用 gcc 编译运行，并看懂 launch.json 与断点调试。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d1.lab">实验：输出 Hello, Ada</span>
-              </div>
-            </article>
-            <article class="card day-card">
-              <div class="day-num">D2</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d2.title">类型、变量与 I/O</h3>
-                <p class="day-sub" data-i18n="roadmap.d2.sub">静态类型 · printf/scanf · 没有自动回收</p>
-                <p class="day-outcome" data-i18n="roadmap.d2.outcome">
-                  能声明 int/double/char，用 printf/scanf 读写，理解溢出与栈上变量生命周期。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d2.lab">实验：摄氏 ↔ 华氏</span>
-              </div>
-            </article>
-            <article class="card day-card">
-              <div class="day-num">D3</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d3.title">控制流与函数</h3>
-                <p class="day-sub" data-i18n="roadmap.d3.sub">if/for/while · 原型 · 传值</p>
-                <p class="day-outcome" data-i18n="roadmap.d3.outcome">
-                  能写带原型的函数，理解 C 传值；知道为什么 swap 必须用指针（为 Day 4 铺路）。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d3.lab">实验：写一个 is_prime</span>
-              </div>
-            </article>
-            <article class="card day-card">
-              <div class="day-num">D4</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d4.title">数组、字符串、指针</h3>
-                <p class="day-sub" data-i18n="roadmap.d4.sub">连续内存 · 地址 · '\0'</p>
-                <p class="day-outcome" data-i18n="roadmap.d4.outcome">
-                  能画指针图，正确用数组与 '\0' 字符串，避开越界和数组退化陷阱。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d4.lab">实验：原地反转字符串</span>
-              </div>
-            </article>
-            <article class="card day-card">
-              <div class="day-num">D5</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d5.title">结构体、堆内存、文件</h3>
-                <p class="day-sub" data-i18n="roadmap.d5.sub">struct · malloc/free · fopen</p>
-                <p class="day-outcome" data-i18n="roadmap.d5.outcome">
-                  能定义 struct、在堆上分配邻接表节点、正确 free，并做基础文件读写。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d5.lab">实验：结构体数组求最高分</span>
-              </div>
-            </article>
-            <article class="card day-card">
-              <div class="day-num">D6</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d6.title">算法热身：排序与 BFS</h3>
-                <p class="day-sub" data-i18n="roadmap.d6.sub">选择排序 · 邻接表 · 网格/图 BFS</p>
-                <p class="day-outcome" data-i18n="roadmap.d6.outcome">
-                  理解选择排序、用数组模拟邻接表，并完成 BFS（队列 + dist[]）。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d6.lab">实验：补全 BFS 松弛</span>
-              </div>
-            </article>
-            <article class="card day-card">
-              <div class="day-num">D7</div>
-              <div class="day-body">
-                <h3 data-i18n="roadmap.d7.title">大作业：Dijkstra 最短路</h3>
-                <p class="day-sub" data-i18n="roadmap.d7.sub">正权图 · 邻接表 · O(V²) 教学实现</p>
-                <p class="day-outcome" data-i18n="roadmap.d7.outcome">
-                  独立补全松弛循环，能解释与 BFS 的差别，并在 VS Code 里编译运行测试。
-                </p>
-                <span class="day-lab" data-i18n="roadmap.d7.lab">大作业：补全 Dijkstra 松弛</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
 <section id="faq" data-group="faq">
         <div class="wrap">
           <header class="section-head">
@@ -897,15 +678,15 @@
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.installTips.title">安装提示（Android 版本、未知来源、覆盖安装）</h3>
-              <p data-i18n-html="faq.installTips.body">三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：轻记账（<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>）、团团记（<a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>）、C一周通（<a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。</p>
+              <p data-i18n-html="faq.installTips.body">三款应用均需 <strong>Android 8.0 及以上</strong>。请从各应用 GitHub Releases 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。<strong>轻记账与团团记</strong>若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。</p>
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.requirements.title">系统要求是什么？</h3>
-              <p data-i18n="faq.requirements.body">三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。</p>
+              <p data-i18n="faq.requirements.body">三款应用均支持 Android 8.0 及以上。C一周通内含打包的教学视频，较新的手机系统通常播放更稳定。</p>
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.offline.title">需要联网吗？</h3>
-              <p data-i18n="faq.offline.body">日常使用不需要联网，数据保存在本机：C一周通的课文、演示视频与实验数据打包在 APK 内，学习进度等存在 DataStore；轻记账的流水与设置在 Room（SQLite）中；团团记的团体与事务数据在 Room 中。均无登录或必需的后端服务。</p>
+              <p data-i18n="faq.offline.body">日常使用不需要联网，数据都保存在本机：C一周通的课文、演示视频与实验内容打包在安装包内；轻记账的流水与设置在本机；团团记的团体与事务数据在本机。均无登录或必需的后端服务。</p>
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.compile.title">C一周通会在手机上编译 C 吗？</h3>
@@ -913,7 +694,7 @@
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.vscode.title">C一周通和电脑上的 VS Code 怎么配合？</h3>
-              <p data-i18n-html="faq.vscode.body">可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。</p>
+              <p data-i18n-html="faq.vscode.body">可在电脑上安装 VS Code 与 C 语言编译环境，打开 <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">C一周通开源仓库</a> 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。</p>
             </article>
           </div>
         </div>
@@ -949,7 +730,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=27" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

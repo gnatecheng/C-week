@@ -117,8 +117,8 @@ async function main() {
   html = applyStaticI18n(html, en);
 
   html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=3");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=25");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=27");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=26");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=28");
   html = html.replace(/\/assets\/qr\/[^"?]+\.svg\?v=\d+/g, (m) => m.replace(/\?v=\d+/, "?v=3"));
   html = html.replace(/\/assets\/icon\.svg\?v=\d+/g, "/assets/icon.svg?v=2");
   html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");

@@ -10,11 +10,11 @@
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/group-matters/" />
     <link rel="canonical" href="https://etais.dev/en/group-matters/" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=25" />
+    <link rel="stylesheet" href="/css/style.css?v=26" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai Apps" />
     <meta property="og:url" content="https://etais.dev/en/group-matters/" />
@@ -64,10 +64,26 @@
         },
         {
           "@type": "Question",
+          "name": "Install tips (Android version, unknown sources, upgrades)",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the system requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Do I need the internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use."
+            "text": "Group and activity data stay on your phone; the app does not request the Internet permission—no login or backend for daily use."
           }
         },
         {
@@ -187,7 +203,7 @@
                 rel="noopener noreferrer"
               >
                 <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 <span>View source</span>
               </a>
@@ -256,17 +272,171 @@
           </div>
         </div>
       </section>
-      <section id="highlights" class="project" aria-labelledby="highlights-title">
+      <section id="features" class="project app-page-block" aria-labelledby="features-title">
         <div class="wrap">
-          <h2 id="highlights-title" class="project-subhead">Highlights</h2>
-          <ul class="app-highlights">
-            <li>Copy summary / reminder text in WeChat-friendly format</li>
-            <li>Splits: exclude members, weights, or fixed amounts; cents storage with remainder to first N people</li>
-            <li>Group fund ledger with photo receipts and CSV export</li>
-            <li>Sub-groups; member snapshot when an activity is created</li>
-            <li>Data stays on phone; APK has no network permission; members need not install the app</li>
-            <li>Home-screen widget, zip backup, Chinese & English UI</li>
-          </ul>
+          <h2 id="features-title" class="project-subhead">Full features</h2>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">Members</span>
+              
+              <h3>Members and roster</h3>
+              <p>Add/edit/archive members (optional member ID and notes); bulk paste import with ID-first Tab columns, warnings on duplicate names/IDs; restore archived members while keeping history.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Groups</span>
+              
+              <h3>Sub-groups</h3>
+              <p>Multi-select members into sub-groups; one person can join several; activity scope is the whole group or a sub-group (empty groups cannot be selected).</p>
+            </article>
+            <article class="card">
+              <span class="tag">Activities</span>
+              
+              <h3>Four activity types</h3>
+              <p>Attendance / payment / split / checklist; scope is whole group or a sub-group; member snapshot at creation—later roster changes do not alter history; “Start another round” re-snapshots the current roster.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Split</span>
+              
+              <h3>Flexible splits</h3>
+              <p>Amounts stored in cents, shown as ¥ in the English UI; remainder to first N people; exclude members, weight-based or fixed-amount splits.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Progress</span>
+              
+              <h3>Progress and roll call</h3>
+              <p>Activity detail defaults to incomplete-only; tap to update status; edit amounts on payments/splits; continuous roll call for attendance; sort roster by member ID (optional).</p>
+            </article>
+            <article class="card">
+              <span class="tag">Reminders</span>
+              
+              <h3>Summaries and reminder text</h3>
+              <p>Copy summary / reminder text in WeChat-friendly format (one person per line with amounts); share or copy incomplete lists and CSV from details.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Fund</span>
+              
+              <h3>Group fund ledger</h3>
+              <p>Income/expense ledger and balance; payment activities can post collected totals to the group fund; notes and photo receipts on payments/splits.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Backup</span>
+              
+              <h3>Backup and export</h3>
+              <p>Backup/restore data (zip, includes payment receipt images); export members, activity progress, and ledger CSV.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Widget</span>
+              
+              <h3>Incomplete-count widget</h3>
+              <p>Shows incomplete counts for recent in-progress activities (total when several); tap opens the app.</p>
+            </article>
+          </div>
+          <p class="project-foot">Search activities by title on home; filter in progress / archived; quick title templates for roll call, group fund, and splits when creating activities or starting another round; theme follows system or fixed light/dark in Settings.</p>
+        </div>
+      </section>
+      <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="screenshots-title">All screenshots</h2>
+            <p>English UI, light theme (same slides as the homepage carousel; dark sets load when your theme is dark).</p>
+          </header>
+          <div class="app-screens-grid">
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/class-record/01-home.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters home for the Weekend Badminton Club group" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Home · Weekend Badminton Club</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/class-record/02-attendance.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters Saturday activity roll call with present and absent status" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Saturday activity · Check-in progress</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/class-record/03-payment.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters autumn outing payment with incomplete-only filter" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Autumn outing · Outstanding payments</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/class-record/04-ledger.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters group fund ledger with balance and entries" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Group fund · Balance and entries</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/class-record/05-members.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters group member roster" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Group members · Roster and IDs</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title" class="project-subhead">Privacy & permissions</h2>
+          <div class="app-prose"><p>Groups, members, and activities stay on your phone—no account and no cloud server.</p><p>Backup files are zip archives and can include payment receipt photos; they leave the phone only when you export or restore.</p><p>The app does not request the Internet permission—everyday use is offline. Usually only the organizer installs the app; members do not need it.</p></div>
+        </div>
+      </section>
+      <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
+        <div class="wrap">
+          <h2 id="requirements-title" class="project-subhead">System requirements</h2>
+          <div class="app-prose"><p>Android 8.0 or newer.</p><p>Current release: Group Matters v1.5.2, about 13.1 MB (see <a href="https://github.com/gnatecheng/group-matters/releases" rel="noopener noreferrer">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p><p>If you installed a test build or an APK signed with an older key, uninstall it before installing this release, or Android may report a signature conflict. Uninstalling clears app data—use in-app zip backup first.</p></div>
+        </div>
+      </section>
+      <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="changelog-title">Release history</h2>
+            <p>Full history on <a href="https://github.com/gnatecheng/group-matters/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
+          </header>
+          <div class="changelog-list">
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/group-matters/releases/tag/v1.5.2" rel="noopener noreferrer">v1.5.2</a></h3>
+              <ul>
+<li>Chinese app name updated to the current Tuántuánjì branding (see release notes).</li>
+<li>Unified group fund wording in English UI.</li>
+<li>New launcher icon for easier recognition on the home screen.</li>
+<li>Demo sample uses a generic club-style group; wording is more neutral.</li>
+<li>First signed release on GitHub Releases—uninstall older test or differently signed builds before installing.</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/group-matters/releases/tag/v1.5.1" rel="noopener noreferrer">v1.5.1</a></h3>
+              <ul>
+<li>Full English copy rewrite.</li>
+<li>Fix in-app language switching on Android 13/14.</li>
+<li>Demo group loads in the current UI language (empty DB only).</li>
+<li>English UI shows amounts with ¥.</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/group-matters/releases/tag/v1.5.0" rel="noopener noreferrer">v1.5.0</a></h3>
+              <ul>
+<li>Renamed to Group Matters.</li>
+<li>Settings: Chinese / English.</li>
+<li>Dark theme: system or fixed light/dark.</li>
+<li>Settings About page (version, update date, GitHub).</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
       <section id="faq" data-group="faq">
@@ -277,11 +447,19 @@
           <div class="faq-list">
             <article class="faq-item">
               <h3>How do I install Group Matters?</h3>
-              <p>Download the latest APK from <a href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Launcher name: “Group Matters” (团团记).</p>
+              <div class="faq-body">Download the latest APK from <a href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Launcher name: “Group Matters” (团团记).</div>
+            </article>
+            <article class="faq-item">
+              <h3>Install tips (Android version, unknown sources, upgrades)</h3>
+              <div class="faq-body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
+            </article>
+            <article class="faq-item">
+              <h3>What are the system requirements?</h3>
+              <p>All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably.</p>
             </article>
             <article class="faq-item">
               <h3>Do I need the internet?</h3>
-              <p>Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use.</p>
+              <p>Group and activity data stay on your phone; the app does not request the Internet permission—no login or backend for daily use.</p>
             </article>
             <article class="faq-item">
               <h3>Who needs to install the app?</h3>
@@ -301,23 +479,23 @@
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>c-week</span></a
           >
           <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>easy-ledger</span></a
           >
           <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>group-matters</span></a
           >
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=27" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

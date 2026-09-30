@@ -10,11 +10,11 @@
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/c-week/" />
     <link rel="canonical" href="https://etais.dev/en/c-week/" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=25" />
+    <link rel="stylesheet" href="/css/style.css?v=26" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai Apps" />
     <meta property="og:url" content="https://etais.dev/en/c-week/" />
@@ -64,10 +64,18 @@
         },
         {
           "@type": "Question",
+          "name": "Install tips (Android version, unknown sources, upgrades)",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What are the system requirements?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices."
+            "text": "Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.0, about 15.6 MB (see GitHub Releases)."
           }
         },
         {
@@ -75,7 +83,7 @@
           "name": "Do I need the internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline."
+            "text": "Lessons, demo videos, and lab content ship in the install package; progress stays on your phone—learning works offline."
           }
         },
         {
@@ -91,7 +99,7 @@
           "name": "How does C Week work with VS Code on a computer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Install VS Code and gcc on PC/Mac/Linux, open the c-week repo, and follow the .c files under app/src/main/assets/labs/ ; for Day 7 see day7_dijkstra.c and expected output in that repo’s README."
+            "text": "Install VS Code and a C toolchain on your computer and follow along via the C Week open-source repo (Day 7 capstone and examples). The in-app About screen also links to the repo."
           }
         }
       ]
@@ -194,7 +202,7 @@
                 rel="noopener noreferrer"
               >
                 <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 <span>View source</span>
               </a>
@@ -273,15 +281,242 @@
           </div>
         </div>
       </section>
-      <section id="highlights" class="project" aria-labelledby="highlights-title">
+      <section id="features" class="project app-page-block" aria-labelledby="features-title">
         <div class="wrap">
-          <h2 id="highlights-title" class="project-subhead">Highlights</h2>
-          <ul class="app-highlights">
-            <li>Seven-day path: Hello World → pointers & arrays → Dijkstra shortest path</li>
-            <li>Lessons include bundled VS Code screen recordings (H.264 in the APK)</li>
-            <li>Offline simulated lab grading and quizzes with wrong-answer hints</li>
-            <li>Progress and streak report; pair with VS Code + gcc on a computer</li>
-          </ul>
+          <h2 id="features-title" class="project-subhead">Full features</h2>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">Plan</span>
+              
+              <h3>Weekly plan and progress</h3>
+              <p>Day 1–7 cards, checkmarks, and overall percentage; progress stays on your phone; UI follows system light/dark theme.</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.3.0</span>
+              
+              <h3>Learning calendar / check-ins</h3>
+              <p>Light up D1–D7 one day at a time, weekly date strip and streak count; completing a lesson, lab, or quiz stamps the day automatically.</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              
+              <h3>Wrong-answer book + retry</h3>
+              <p>Failed quizzes and labs record day, question, answers, and error category; listed by day and marked corrected when you get them right.</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              
+              <h3>Multi-case lab grading</h3>
+              <p>Offline simulated tests against multiple I/O pairs, show passed cases and partial scores, with clearer feedback.</p>
+            </article>
+            <article class="card">
+              <span class="tag">1.4.0</span>
+              
+              <h3>Learning report</h3>
+              <p>Streaks, per-day completion, and quiz accuracy—share via the system share sheet.</p>
+            </article>
+            <article class="card">
+              
+              <h3>Lessons · Quizzes · Recordings</h3>
+              <p>Chinese explanations (with everyday analogies), quizzes, and real VS Code recordings; Day 1 covers paths/files and step-by-step bash (pwd/ls/cd and a cheat sheet).</p>
+            </article>
+            <article class="card">
+              
+              <h3>Coding labs</h3>
+              <p>Edit C snippets in-app; simulated runs against multiple cases. Feedback covers missing headers, off-by-one, pointers, formulas, TODO stubs, BFS/Dijkstra mix-ups, and more.</p>
+            </article>
+            <article class="card">
+              
+              <h3>Day 7 capstone</h3>
+              <p>Adjacency list + O(V²) Dijkstra fill-in; multiple test cases; after passing, step through dist and the shortest path on a grid.</p>
+            </article>
+            <article class="card">
+              
+              <h3>Glossary</h3>
+              <p>Look up pointer, stack/heap, array decay, launch.json, bash paths, and more; large tap targets and monospace code for reading comfort.</p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+      <section id="roadmap" class="app-page-block" aria-labelledby="roadmap-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="roadmap-title">7-day learning path</h2>
+            <p>The seven-day path matches the in-app curriculum; each day has a micro-lesson, quiz, and lab.</p>
+          </header>
+          <div class="roadmap">
+            <article class="card day-card">
+              <div class="day-num">D1</div>
+              <div class="day-body">
+                <h3>Environment, files, and Hello World</h3>
+                <p class="day-sub">Paths · bash · VS Code · first compile</p>
+                <p class="day-outcome">Tell paths from workspaces, use the terminal for basic file ops, create .c in VS Code, compile with gcc, and use launch.json and breakpoints.</p>
+                <span class="day-lab">Lab: print Hello, Ada</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D2</div>
+              <div class="day-body">
+                <h3>Types, variables, and I/O</h3>
+                <p class="day-sub">Static typing · printf/scanf · no automatic cleanup</p>
+                <p class="day-outcome">Declare int/double/char, read/write with printf/scanf, and understand overflow and stack variable lifetimes.</p>
+                <span class="day-lab">Lab: Celsius ↔ Fahrenheit</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D3</div>
+              <div class="day-body">
+                <h3>Control flow and functions</h3>
+                <p class="day-sub">if/for/while · prototypes · pass-by-value</p>
+                <p class="day-outcome">Write functions with prototypes, understand pass-by-value in C, and see why swap needs pointers (setup for Day 4).</p>
+                <span class="day-lab">Lab: write is_prime</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D4</div>
+              <div class="day-body">
+                <h3>Arrays, strings, pointers</h3>
+                <p class="day-sub">Contiguous memory · addresses · '\0'</p>
+                <p class="day-outcome">Draw pointer diagrams, use arrays and '\0' strings correctly, and avoid bounds and decay pitfalls.</p>
+                <span class="day-lab">Lab: reverse a string in place</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D5</div>
+              <div class="day-body">
+                <h3>Structs, heap memory, files</h3>
+                <p class="day-sub">struct · malloc/free · fopen</p>
+                <p class="day-outcome">Define structs, allocate adjacency nodes on the heap, free correctly, and do basic file I/O.</p>
+                <span class="day-lab">Lab: highest score in a struct array</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D6</div>
+              <div class="day-body">
+                <h3>Algorithms warm-up: sorting and BFS</h3>
+                <p class="day-sub">Selection sort · adjacency list · grid/graph BFS</p>
+                <p class="day-outcome">Understand selection sort, simulate an adjacency list with arrays, and complete BFS (queue + dist[]).</p>
+                <span class="day-lab">Lab: finish BFS relaxation</span>
+              </div>
+            </article>
+            <article class="card day-card">
+              <div class="day-num">D7</div>
+              <div class="day-body">
+                <h3>Capstone: Dijkstra shortest paths</h3>
+                <p class="day-sub">Non-negative weights · adjacency list · O(V²) teaching implementation</p>
+                <p class="day-outcome">Complete the relaxation loop on your own, explain how it differs from BFS, and compile/run tests in VS Code.</p>
+                <span class="day-lab">Capstone: complete Dijkstra relaxation</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="screenshots-title">All screenshots</h2>
+            <p>English UI, light theme (same slides as the homepage carousel; dark sets load when your theme is dark).</p>
+          </header>
+          <div class="app-screens-grid">
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/cweek/01-home.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week home screen with the 7-day path and overall progress" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Week home · 7-day path and progress</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/cweek/02-day1.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week Day 1 detail with micro-lesson, lab, and quiz entry points" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Day 1 · Micro-lesson / lab / quiz</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/cweek/03-lesson.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week lesson reader with code samples and VS Code demo entry" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Lessons · Code and VS Code demos</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/cweek/04-quiz.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week Day 1 quiz with multiple choice and auto-graded feedback" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Daily quiz · Options, scoring, and hints</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/cweek/05-labs.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week coding labs list with offline simulated grading" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Coding labs · Offline simulated tests</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/cweek/06-report.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week learning report with streak and quiz accuracy" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Learning report · Streaks and accuracy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title" class="project-subhead">Privacy & permissions</h2>
+          <div class="app-prose"><p>Lessons, VS Code screen recordings, labs, and quizzes ship inside the install package; progress, streaks, and wrong-answer notes stay on your phone.</p><p>The app does not request the Internet permission—everyday study works offline. The phone does not compile C code; labs use offline simulated grading.</p><p>This marketing site, etais.dev, uses Cloudflare Web Analytics (not part of the Android app).</p></div>
+        </div>
+      </section>
+      <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
+        <div class="wrap">
+          <h2 id="requirements-title" class="project-subhead">System requirements</h2>
+          <div class="app-prose"><p>Android 8.0 or newer. Bundled lesson videos usually play more reliably on newer phones.</p><p>Current release: C Week v1.5.0, about 15.6 MB (see <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p></div>
+        </div>
+      </section>
+      <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="changelog-title">Release history</h2>
+            <p>Full history on <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
+          </header>
+          <div class="changelog-list">
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.5.0" rel="noopener noreferrer">v1.5.0</a></h3>
+              <ul>
+<li>Full English curriculum and UI in Settings (7 days of lessons, quizzes, and labs).</li>
+<li>Light, dark, or system theme; About page shows version and open-source link.</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.4.0" rel="noopener noreferrer">v1.4.0</a></h3>
+              <ul>
+<li>Wrong-answer book with retry; multi-case labs with partial scores.</li>
+<li>Learning report: streak, per-day completion, quiz accuracy.</li>
+<li>Study calendar / check-in (extends 1.3.0 behavior).</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.3.0" rel="noopener noreferrer">v1.3.0</a></h3>
+              <ul>
+<li>Study calendar / check-in: stamp D1–D7 when lesson, lab, or quiz completes.</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
       <section id="faq" data-group="faq">
@@ -292,15 +527,19 @@
           <div class="faq-list">
             <article class="faq-item">
               <h3>How do I install C Week?</h3>
-              <p>Download the latest APK from <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Launcher name: “C Week” (C一周通).</p>
+              <div class="faq-body">Download the latest APK from <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Launcher name: “C Week” (C一周通).</div>
+            </article>
+            <article class="faq-item">
+              <h3>Install tips (Android version, unknown sources, upgrades)</h3>
+              <div class="faq-body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
             </article>
             <article class="faq-item">
               <h3>What are the system requirements?</h3>
-              <p>Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices.</p>
+              <p>Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.0, about 15.6 MB (see GitHub Releases).</p>
             </article>
             <article class="faq-item">
               <h3>Do I need the internet?</h3>
-              <p>Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline.</p>
+              <p>Lessons, demo videos, and lab content ship in the install package; progress stays on your phone—learning works offline.</p>
             </article>
             <article class="faq-item">
               <h3>Does C Week compile C on the phone?</h3>
@@ -308,7 +547,7 @@
             </article>
             <article class="faq-item">
               <h3>How does C Week work with VS Code on a computer?</h3>
-              <p>Install VS Code and gcc on PC/Mac/Linux, open the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.</p>
+              <div class="faq-body">Install VS Code and a C toolchain on your computer and follow along via the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.</div>
             </article>
           </div>
         </div>
@@ -320,23 +559,23 @@
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>c-week</span></a
           >
           <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>easy-ledger</span></a
           >
           <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>group-matters</span></a
           >
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=27" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
