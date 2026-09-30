@@ -1,14 +1,20 @@
 window.ETAI_TRANSLATIONS = {
   zh: {
-    "meta.title": "Etai 应用集 — 轻记账 · 多人事务 · C一周通",
+    "meta.title": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务",
     "meta.description":
-      "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：轻记账（个人记账，版本 1.3.1）、多人事务（任意小团体出勤、缴费、分摊、清单，版本 1.5.1）、C一周通（7 天学会 C，版本 1.5.0）。",
-    "meta.ogTitle": "轻记账 · 多人事务 · C一周通",
+      "三款免费、离线、开源的 Android 应用：C一周通（7 天从 Hello World 学到 Dijkstra，含 VS Code 实操录像）、轻记账（无需注册的本地记账）、多人事务（小团体点名、收费、费用分摊）。数据只存本机。",
+    "meta.pageH1": "Etai 应用集：三款离线、数据只存本机的 Android 应用",
+    "meta.siteName": "Etai 应用集",
+    "meta.ogTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务",
     "meta.ogDescription":
-      "三款离线 Android 应用：个人记账、小团体事务、C 语言入门，数据只存本机。",
-    "meta.twitterTitle": "轻记账 · 多人事务 · C一周通",
+      "三款免费、离线、开源 Android 应用：C一周通、轻记账、多人事务。数据只存本机。",
+    "meta.ogImageAlt": "Etai 应用集：C一周通、轻记账与多人事务三款离线 Android 应用",
+    "meta.twitterTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务",
     "meta.twitterDescription":
-      "三款离线 Android 应用：个人记账、小团体事务、C 语言入门，数据只存本机。",
+      "三款免费、离线、开源 Android 应用：C一周通、轻记账、多人事务。数据只存本机。",
+    "langHint.message": "此页面为中文版。",
+    "langHint.switch": "切换到 English",
+    "langHint.dismiss": "关闭",
     "meta.versionLabel": "版本",
     "meta.updatedLabel": "更新",
     "skipLink": "跳到主要内容",
@@ -265,15 +271,21 @@ window.ETAI_TRANSLATIONS = {
     "prefs.themeSystem": "跟随系统",
   },
   en: {
-    "meta.title": "Etai Apps — Easy Ledger · Group Matters · C Week",
+    "meta.title": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
     "meta.description":
-      "Etai Apps features three offline-first Android apps that keep data on your device: Easy Ledger (local personal finance, v1.3.1), Group Matters (attendance, fees, splits, checklists for any small group, v1.5.1), and C Week (learn C in 7 days, v1.5.0).",
-    "meta.ogTitle": "Easy Ledger · Group Matters · C Week",
+      "Three free, offline, open-source Android apps: C Week (Hello World to Dijkstra in 7 days with VS Code screen recordings), Easy Ledger (local budgeting without sign-up), Group Matters (small-group roll call, fees, and cost splits). Data stays on your device.",
+    "meta.pageH1": "Etai Apps: three offline Android apps — data stays on your device",
+    "meta.siteName": "Etai Apps",
+    "meta.ogTitle": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
     "meta.ogDescription":
-      "Three offline Android apps: personal ledger, group activities, and C learning—data stays on your device.",
-    "meta.twitterTitle": "Easy Ledger · Group Matters · C Week",
+      "Three free, offline, open-source Android apps: C Week, Easy Ledger, and Group Matters. Data stays on your device.",
+    "meta.ogImageAlt": "Etai Apps: C Week, Easy Ledger, and Group Matters offline Android apps",
+    "meta.twitterTitle": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
     "meta.twitterDescription":
-      "Three offline Android apps: personal ledger, group activities, and C learning—data stays on your device.",
+      "Three free, offline, open-source Android apps: C Week, Easy Ledger, and Group Matters. Data stays on your device.",
+    "langHint.message": "This page is in Chinese.",
+    "langHint.switch": "Switch to English",
+    "langHint.dismiss": "Dismiss",
     "meta.versionLabel": "Version",
     "meta.updatedLabel": "Updated",
     "skipLink": "Skip to main content",

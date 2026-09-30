@@ -13,7 +13,7 @@ A 7-day intensive Android course for beginners learning C, ending with Dijkstra 
 ## 主页 Homepage
 
 静态介绍页「Etai 应用集」（C一周通的功能、7 天路线、下载链接，以及另外两款应用的介绍）：**https://etais.dev**  
-源码在仓库 [`site/`](site/) 目录。首页支持 **中文 / English**（右上角切换，偏好保存在 `localStorage`）与 **浅色 / 深色 / 跟随系统** 主题；各应用版本号会尝试从 GitHub Releases 拉取（失败时保留页面内 fallback）。
+源码在仓库 [`site/`](site/) 目录。主页按 URL 分语言：**中文** `/`、**英文** `/en/`（修改 `site/index.html` 或 FAQ/SEO 文案后运行 `node scripts/build-en-index.mjs` 重新生成英文页）；语言切换在两者间跳转（保留 hash）。**浅色 / 深色 / 跟随系统** 主题使用 `localStorage`；各应用版本号会尝试从 GitHub Releases 拉取（失败时保留页面内 fallback）。
 
 ### 站点部署（Cloudflare Worker `etai`）
 

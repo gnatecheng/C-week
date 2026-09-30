@@ -333,11 +333,50 @@ html.theme-dark .btn-primary {
   margin-bottom: 1rem;
 }
 
-.hero h1 {
+.hero h1,
+.hero h2.hero-title {
   font-size: clamp(1.85rem, 5vw, 2.75rem);
   line-height: 1.2;
   margin: 0 0 0.75rem;
   letter-spacing: -0.02em;
+}
+
+.page-title {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--muted);
+  margin: 1.25rem 0 0.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+}
+
+.lang-hint {
+  background: color-mix(in srgb, var(--teal-bright) 14%, var(--surface));
+  border-bottom: 1px solid var(--outline);
+  font-size: 0.88rem;
+}
+
+.lang-hint-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+}
+
+.lang-hint a {
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.lang-hint-dismiss {
+  border: 1px solid var(--outline);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .hero .lead {
