@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://etai.chengyitang.workers.dev/" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=2"></script>
-    <link rel="stylesheet" href="/css/style.css?v=13" />
+    <link rel="stylesheet" href="/css/style.css?v=14" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
@@ -92,40 +92,57 @@
       <section id="cweek" class="hero" data-group="cweek">
         <div class="wrap hero-grid">
           <div>
-            <span class="hero-badge" data-app-meta="cweek">
-              <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.5.0</span></span>
-              <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
-            </span>
             <h1 data-i18n="cweek.hero.title">C一周通</h1>
             <p class="lead" data-i18n-html="cweek.hero.lead">
               7 天把编程初学者带到能用 <strong>C 写出 Dijkstra 最短路</strong>（正确使用数组、指针与内存）。课文含<strong>真实 VS Code 屏幕录像</strong>（H.264，打包进 APK），Kotlin + Jetpack Compose，全程可离线学习。
             </p>
-            <div class="hero-actions-block">
-              <div class="hero-actions">
-                <a
-                  class="btn btn-primary"
-                  href="https://github.com/gnatecheng/c-week/releases/latest"
-                  rel="noopener noreferrer"
-                  data-i18n="cweek.hero.downloadApk"
-                >
-                  下载最新 APK
-                </a>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/gnatecheng/c-week"
-                  rel="noopener noreferrer"
-                  data-i18n="cweek.hero.viewGithub"
-                >
-                  查看 GitHub 源码
-                </a>
-              </div>
-              <figure class="download-qr">
-                <div class="download-qr-frame">
-                  <img src="/assets/qr/c-week.svg?v=1" width="112" height="112" alt="" decoding="async" />
+            <div class="download-panel download-panel--cweek" data-app-meta="cweek">
+              <div class="download-panel__head">
+                <span class="download-panel__icon" aria-hidden="true">C</span>
+                <div>
+                  <p class="download-panel__name" data-i18n="cweek.hero.title">C一周通</p>
+                  <p class="download-panel__version">
+                    v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                    ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
+                    ><span data-i18n="download.apkLabel">APK</span>
+                  </p>
                 </div>
-                <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
-              </figure>
+              </div>
+              <div class="download-panel__body">
+                <div class="download-panel__primary">
+                  <a
+                    class="btn btn-primary"
+                    href="https://github.com/gnatecheng/c-week/releases/latest"
+                    rel="noopener noreferrer"
+                    data-i18n="cweek.hero.downloadApk"
+                  >
+                    下载最新 APK
+                  </a>
+                  <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
+                </div>
+                <div class="download-panel__scan">
+                  <div class="download-panel__divider" data-i18n="download.scanOr">或扫码</div>
+                  <figure class="download-panel__qr">
+                    <div class="download-panel__qr-frame">
+                      <img src="/assets/qr/c-week.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                    </div>
+                    <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                  </figure>
+                </div>
+              </div>
             </div>
+            <a
+              class="download-panel__source"
+              href="https://github.com/gnatecheng/c-week"
+              rel="noopener noreferrer"
+            >
+              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+              <span data-i18n="cweek.hero.viewGithub">查看 GitHub 源码</span>
+            </a>
             <p class="hero-meta" data-i18n="cweek.hero.meta">
               需要 Android 8.0 及以上（minSdk 26）· 应用内模拟评测，无需手机安装 gcc
             </p>
@@ -349,40 +366,57 @@
         <div class="wrap">
           <div class="project-grid">
             <div>
-              <span class="hero-badge project-badge" data-app-meta="qingjizhang">
-                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.3.1</span></span>
-                <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
-              </span>
               <h2 id="qjz-title" class="project-title" data-i18n="qjz.hero.title">轻记账</h2>
               <p class="lead" data-i18n-html="qjz.hero.lead">
                 个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
               </p>
-              <div class="hero-actions-block">
-                <div class="hero-actions">
-                  <a
-                    class="btn btn-primary"
-                    href="https://github.com/gnatecheng/easy-ledger/releases/latest"
-                    rel="noopener noreferrer"
-                    data-i18n="qjz.hero.downloadApk"
-                  >
-                    下载最新 APK
-                  </a>
-                  <a
-                    class="btn btn-secondary"
-                    href="https://github.com/gnatecheng/easy-ledger"
-                    rel="noopener noreferrer"
-                    data-i18n="qjz.hero.viewGithub"
-                  >
-                    查看 GitHub 源码
-                  </a>
-                </div>
-                <figure class="download-qr">
-                  <div class="download-qr-frame">
-                    <img src="/assets/qr/easy-ledger.svg?v=1" width="112" height="112" alt="" decoding="async" />
+              <div class="download-panel download-panel--qjz" data-app-meta="qingjizhang">
+                <div class="download-panel__head">
+                  <span class="download-panel__icon" aria-hidden="true">账</span>
+                  <div>
+                    <p class="download-panel__name" data-i18n="qjz.hero.title">轻记账</p>
+                    <p class="download-panel__version">
+                      v<span class="app-meta-version">1.3.1</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.apkLabel">APK</span>
+                    </p>
                   </div>
-                  <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
-                </figure>
+                </div>
+                <div class="download-panel__body">
+                  <div class="download-panel__primary">
+                    <a
+                      class="btn btn-primary"
+                      href="https://github.com/gnatecheng/easy-ledger/releases/latest"
+                      rel="noopener noreferrer"
+                      data-i18n="qjz.hero.downloadApk"
+                    >
+                      下载最新 APK
+                    </a>
+                    <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
+                  </div>
+                  <div class="download-panel__scan">
+                    <div class="download-panel__divider" data-i18n="download.scanOr">或扫码</div>
+                    <figure class="download-panel__qr">
+                      <div class="download-panel__qr-frame">
+                        <img src="/assets/qr/easy-ledger.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                      </div>
+                      <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
+              <a
+                class="download-panel__source"
+                href="https://github.com/gnatecheng/easy-ledger"
+                rel="noopener noreferrer"
+              >
+                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span data-i18n="qjz.hero.viewGithub">查看 GitHub 源码</span>
+              </a>
               <p class="hero-meta" data-i18n="qjz.hero.meta">
                 需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
               </p>
@@ -509,40 +543,57 @@
         <div class="wrap">
           <div class="project-grid">
             <div>
-              <span class="hero-badge project-badge" data-app-meta="group-matters">
-                <span><span data-i18n="meta.versionLabel">版本</span> <span class="app-meta-version">1.5.0</span></span>
-                <span class="app-meta-date-wrap" hidden><span class="sep" aria-hidden="true"> · </span><span data-i18n="meta.updatedLabel">更新</span> <span class="app-meta-updated"></span></span>
-              </span>
               <h2 id="class-title" class="project-title" data-i18n="class.hero.title">多人事务</h2>
               <p class="lead" data-i18n-html="class.hero.lead">
                 单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
               </p>
-              <div class="hero-actions-block">
-                <div class="hero-actions">
-                  <a
-                    class="btn btn-primary"
-                    href="https://github.com/gnatecheng/group-matters/releases/latest"
-                    rel="noopener noreferrer"
-                    data-i18n="class.hero.downloadApk"
-                  >
-                    下载最新 APK
-                  </a>
-                  <a
-                    class="btn btn-secondary"
-                    href="https://github.com/gnatecheng/group-matters"
-                    rel="noopener noreferrer"
-                    data-i18n="class.hero.viewGithub"
-                  >
-                    查看 GitHub 源码
-                  </a>
-                </div>
-                <figure class="download-qr">
-                  <div class="download-qr-frame">
-                    <img src="/assets/qr/group-matters.svg?v=1" width="112" height="112" alt="" decoding="async" />
+              <div class="download-panel download-panel--class" data-app-meta="group-matters">
+                <div class="download-panel__head">
+                  <span class="download-panel__icon" aria-hidden="true">多</span>
+                  <div>
+                    <p class="download-panel__name" data-i18n="class.hero.title">多人事务</p>
+                    <p class="download-panel__version">
+                      v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.apkLabel">APK</span>
+                    </p>
                   </div>
-                  <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
-                </figure>
+                </div>
+                <div class="download-panel__body">
+                  <div class="download-panel__primary">
+                    <a
+                      class="btn btn-primary"
+                      href="https://github.com/gnatecheng/group-matters/releases/latest"
+                      rel="noopener noreferrer"
+                      data-i18n="class.hero.downloadApk"
+                    >
+                      下载最新 APK
+                    </a>
+                    <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
+                  </div>
+                  <div class="download-panel__scan">
+                    <div class="download-panel__divider" data-i18n="download.scanOr">或扫码</div>
+                    <figure class="download-panel__qr">
+                      <div class="download-panel__qr-frame">
+                        <img src="/assets/qr/group-matters.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                      </div>
+                      <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
+              <a
+                class="download-panel__source"
+                href="https://github.com/gnatecheng/group-matters"
+                rel="noopener noreferrer"
+              >
+                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span data-i18n="class.hero.viewGithub">查看 GitHub 源码</span>
+              </a>
               <p class="hero-meta" data-i18n="class.hero.meta">
                 需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
               </p>
@@ -710,7 +761,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=15" defer></script>
+    <script src="/js/translations.js?v=16" defer></script>
     <script src="/js/site.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=7" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

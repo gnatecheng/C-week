@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import io
+import re
 from pathlib import Path
 
 import qrcode
@@ -10,6 +11,7 @@ from qrcode.image.svg import SvgPathImage
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "site" / "assets" / "qr"
+CANVAS = 200
 
 URLS: dict[str, str] = {
     "c-week.svg": "https://github.com/gnatecheng/c-week/releases/latest",
@@ -36,14 +38,20 @@ def make_svg(url: str) -> str:
     if start == -1 or end == -1:
         raise RuntimeError("unexpected QR SVG output")
     fragment = inner[start : end + len("</svg>")]
-    # White quiet zone for scanning on dark page backgrounds.
+    vb_match = re.search(r'viewBox="([^"]+)"', fragment)
+    path_match = re.search(r"<path[^>]+/>", fragment)
+    if not vb_match or not path_match:
+        raise RuntimeError("could not parse QR SVG path/viewBox")
+    view_box = vb_match.group(1)
+    path_el = path_match.group(0)
+    # Single canvas: white quiet zone + QR scaled to fill (no nested mm dimensions).
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-hidden="true">\n'
-        '  <rect width="200" height="200" fill="#ffffff"/>\n'
-        '  <g transform="translate(10,10) scale(0.9)">\n'
-        f"    {fragment.replace('<?xml version=\"1.0\" encoding=\"UTF-8\"?>', '').strip()}\n"
-        "  </g>\n"
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {CANVAS} {CANVAS}" role="img" aria-hidden="true">\n'
+        f'  <rect width="{CANVAS}" height="{CANVAS}" fill="#ffffff"/>\n'
+        f'  <svg x="0" y="0" width="{CANVAS}" height="{CANVAS}" viewBox="{view_box}" preserveAspectRatio="xMidYMid meet">\n'
+        f"    {path_el}\n"
+        "  </svg>\n"
         "</svg>\n"
     )
 

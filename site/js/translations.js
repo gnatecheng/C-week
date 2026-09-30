@@ -122,6 +122,10 @@ window.ETAI_TRANSLATIONS = {
     "faq.installTips.title": "安装提示（Android 版本、未知来源、覆盖安装）",
     "faq.installTips.body":
       "三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：C一周通（<a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>）、轻记账（<a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>）、多人事务（<a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/多人事务的备份文件、C一周通的进度如有导出途径）。",
+    "download.androidMin": "Android 8.0+",
+    "download.apkLabel": "APK",
+    "download.scanOr": "或扫码",
+    "download.releasesNote": "GitHub Releases · 免费开源",
     "download.qrCaption": "扫码下载",
     "faq.requirements.title": "系统要求是什么？",
     "faq.requirements.body":
@@ -395,6 +399,10 @@ window.ETAI_TRANSLATIONS = {
     "faq.installTips.title": "Install tips (Android version, unknown sources, upgrades)",
     "faq.installTips.body":
       "All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>, <a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>, <a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).",
+    "download.androidMin": "Android 8.0+",
+    "download.apkLabel": "APK",
+    "download.scanOr": "or scan",
+    "download.releasesNote": "GitHub Releases · free & open source",
     "download.qrCaption": "Scan to download",
     "faq.requirements.title": "What are the system requirements?",
     "faq.requirements.body":

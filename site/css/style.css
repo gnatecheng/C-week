@@ -347,55 +347,202 @@ html.theme-dark .btn-primary {
   max-width: 36em;
 }
 
-.hero-actions-block {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1.25rem;
-  margin-bottom: 1.25rem;
+/* ---------- integrated download panel (design D) ---------- */
+
+.download-panel {
+  --panel-accent: var(--teal);
+  --panel-accent-bright: var(--teal-bright);
+  margin: 0 0 0.85rem;
+  padding: 1.1rem 1.15rem;
+  border-radius: calc(var(--radius) + 2px);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, var(--panel-accent-bright), var(--panel-accent)) border-box;
+  box-shadow: var(--shadow);
+  max-width: 36rem;
 }
 
-.hero-actions-block .hero-actions {
-  margin-bottom: 0;
+.download-panel--qjz {
+  --panel-accent: #b45309;
+  --panel-accent-bright: var(--qjz-bright);
 }
 
-.hero-actions {
+.download-panel--class {
+  --panel-accent: #0369a1;
+  --panel-accent-bright: var(--class-bright);
+}
+
+.download-panel__head {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
-.download-qr {
+.download-panel__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.85rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(135deg, var(--panel-accent-bright), var(--panel-accent));
+  flex-shrink: 0;
+}
+
+.download-panel__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.download-panel__version {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.download-panel__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.download-panel__primary {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.download-panel__primary .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.download-panel__note {
+  margin: 0.45rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.download-panel__scan {
   display: none;
+  flex: 0 0 auto;
+  align-items: stretch;
+  gap: 0.65rem;
+}
+
+.download-panel__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding: 0 0.15rem;
+  border-left: 1px solid var(--outline);
+  border-right: 1px solid var(--outline);
+}
+
+.download-panel__qr {
   margin: 0;
   text-align: center;
 }
 
-.download-qr-frame {
+.download-panel__qr-frame {
   background: #ffffff;
-  padding: 8px;
+  padding: 6px;
   border-radius: 10px;
   border: 1px solid var(--outline);
   line-height: 0;
 }
 
-.download-qr-frame img {
+.download-panel__qr-frame img {
   display: block;
-  width: 112px;
-  height: 112px;
+  width: 120px;
+  height: 120px;
 }
 
-.download-qr figcaption {
-  font-size: 0.75rem;
+.download-panel__qr figcaption {
+  font-size: 0.72rem;
   color: var(--muted);
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
   line-height: 1.35;
 }
 
+.download-panel__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.download-panel__source:hover {
+  color: var(--teal);
+}
+
+.download-panel__source .icon-github {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
 @media (min-width: 641px) {
-  .download-qr {
+  .download-panel__body {
+    flex-wrap: nowrap;
+  }
+
+  .download-panel__scan {
+    display: flex;
+  }
+
+  .download-panel__primary .btn {
+    width: auto;
+    min-width: 11.5rem;
+  }
+
+  .download-panel__note {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .download-panel {
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    max-width: none;
+  }
+
+  .download-panel__head {
+    display: none;
+  }
+
+  .download-panel__body {
     display: block;
+  }
+
+  .download-panel__primary .btn {
+    width: 100%;
+  }
+
+  .download-panel__note {
+    display: none;
   }
 }
 
