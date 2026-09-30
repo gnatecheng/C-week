@@ -40,7 +40,7 @@ const browser = await chromium.launch({
 
 const decodeResults = [];
 
-async function shotFull(name, w, h, lang, theme) {
+async function fullPage(name, w, h, lang, theme) {
   const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 });
   await prep(page, lang, theme);
   await page.screenshot({ path: `${OUT}/${name}.png`, fullPage: true });
@@ -48,16 +48,24 @@ async function shotFull(name, w, h, lang, theme) {
   console.log("saved", name);
 }
 
-await shotFull("D-zh-light", 1280, 900, "zh", "light");
-await shotFull("D-en-dark", 1280, 900, "en", "dark");
-await shotFull("D-mobile-zh-light", 390, 844, "zh", "light");
+await fullPage("D-zh-light", 1280, 900, "zh", "light");
 
-const closePage = await browser.newPage({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1 });
-await prep(closePage, "zh", "light");
-const panel = closePage.locator("#cweek .download-panel--cweek");
-await panel.scrollIntoViewIfNeeded();
-await panel.screenshot({ path: `${OUT}/D-panel-closeup-cweek.png` });
-console.log("saved D-panel-closeup-cweek");
+const panels = [
+  ["D-panel-closeup-cweek-zh", "#cweek .download-panel--cweek", "zh", "light"],
+  ["D-panel-closeup-qjz-zh", "#qingjizhang .download-panel--qjz", "zh", "light"],
+  ["D-panel-closeup-gm-zh", "#group-matters .download-panel--class", "zh", "light"],
+  ["D-panel-closeup-cweek-en-dark", "#cweek .download-panel--cweek", "en", "dark"],
+];
+
+for (const [name, sel, lang, theme] of panels) {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1 });
+  await prep(page, lang, theme);
+  const panel = page.locator(sel);
+  await panel.scrollIntoViewIfNeeded();
+  await panel.screenshot({ path: `${OUT}/${name}.png` });
+  await page.close();
+  console.log("saved", name);
+}
 
 const decodePage = await browser.newPage({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1 });
 await prep(decodePage, "en", "dark");
@@ -72,13 +80,8 @@ for (let i = 0; i < count; i++) {
   console.log("decode", file, url || zbar.stderr);
 }
 await decodePage.close();
-await closePage.close();
 await browser.close();
 process.kill(-server.pid);
 
-await writeFile(
-  `${OUT}/D-qr-decode-results.json`,
-  JSON.stringify(decodeResults, null, 2) + "\n",
-  "utf-8"
-);
+await writeFile(`${OUT}/D-qr-decode-results.json`, JSON.stringify(decodeResults, null, 2) + "\n", "utf-8");
 console.log("done");
