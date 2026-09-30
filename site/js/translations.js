@@ -24,7 +24,7 @@ window.ETAI_TRANSLATIONS = {
     "cweek.hero.lead":
       "7 天把编程初学者带到能用 <strong>C 写出 Dijkstra 最短路</strong>（正确使用数组、指针与内存）。课文含<strong>真实 VS Code 屏幕录像</strong>（H.264，打包进 APK），Kotlin + Jetpack Compose，全程可离线学习。",
     "cweek.hero.downloadApk": "下载最新 APK",
-    "cweek.hero.viewGithub": "查看 GitHub 源码",
+    "cweek.hero.viewGithub": "查看源码",
     "cweek.hero.meta": "需要 Android 8.0 及以上（minSdk 26）· 应用内模拟评测，无需手机安装 gcc",
     "cweek.hero.gallery.ariaLabel": "C一周通应用截图",
     "cweek.hero.gallery.s01.alt": "C一周通本周课程首页，7 天路线与总体进度",
@@ -124,7 +124,7 @@ window.ETAI_TRANSLATIONS = {
       "三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：轻记账（<a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>）、多人事务（<a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>）、C一周通（<a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/多人事务的备份文件、C一周通的进度如有导出途径）。",
     "download.androidMin": "Android 8.0+",
     "download.apkLabel": "APK",
-    "download.scanOr": "或扫码",
+    "download.scanOr": "或",
     "download.releasesNote": "GitHub Releases · 免费开源",
     "download.qrCaption": "扫码下载",
     "faq.requirements.title": "系统要求是什么？",
@@ -143,7 +143,7 @@ window.ETAI_TRANSLATIONS = {
     "qjz.hero.lead":
       "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
     "qjz.hero.downloadApk": "下载最新 APK",
-    "qjz.hero.viewGithub": "查看 GitHub 源码",
+    "qjz.hero.viewGithub": "查看源码",
     "qjz.hero.meta": "需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装",
     "qjz.hero.gallery.ariaLabel": "轻记账应用截图",
     "qjz.hero.gallery.s01.alt": "轻记账首页，本月收支结余与预算概览",
@@ -196,7 +196,7 @@ window.ETAI_TRANSLATIONS = {
     "class.hero.lead":
       "单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
     "class.hero.downloadApk": "下载最新 APK",
-    "class.hero.viewGithub": "查看 GitHub 源码",
+    "class.hero.viewGithub": "查看源码",
     "class.hero.meta": "需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装",
     "class.hero.gallery.ariaLabel": "多人事务应用截图",
     "class.hero.gallery.s01.alt": "多人事务首页，班级与事务列表",
@@ -292,7 +292,7 @@ window.ETAI_TRANSLATIONS = {
     "cweek.hero.lead":
       "In 7 days, take beginners from zero to writing <strong>Dijkstra shortest paths in C</strong> (arrays, pointers, and memory done right). Lessons include <strong>real VS Code screen recordings</strong> (H.264, bundled in the APK), Kotlin + Jetpack Compose, fully offline.",
     "cweek.hero.downloadApk": "Download latest APK",
-    "cweek.hero.viewGithub": "View source on GitHub",
+    "cweek.hero.viewGithub": "View source",
     "cweek.hero.meta":
       "Requires Android 8.0+ (minSdk 26) · In-app simulated grading—no gcc on the phone",
     "cweek.hero.gallery.ariaLabel": "C Week app screenshots",
@@ -401,7 +401,7 @@ window.ETAI_TRANSLATIONS = {
       "All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>, <a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>, <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).",
     "download.androidMin": "Android 8.0+",
     "download.apkLabel": "APK",
-    "download.scanOr": "or scan",
+    "download.scanOr": "or",
     "download.releasesNote": "GitHub Releases · free & open source",
     "download.qrCaption": "Scan to download",
     "faq.requirements.title": "What are the system requirements?",
@@ -420,7 +420,7 @@ window.ETAI_TRANSLATIONS = {
     "qjz.hero.lead":
       "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
     "qjz.hero.downloadApk": "Download latest APK",
-    "qjz.hero.viewGithub": "View source on GitHub",
+    "qjz.hero.viewGithub": "View source",
     "qjz.hero.meta":
       "Requires Android 8.0+ (API 26) · Install after downloading the latest APK from GitHub Releases",
     "qjz.hero.gallery.ariaLabel": "Easy Ledger app screenshots",
@@ -477,7 +477,7 @@ window.ETAI_TRANSLATIONS = {
     "class.hero.lead":
       "Single-class Android admin: <strong>attendance, fees, cost splits, checklists</strong>. Data stays on device (Room), <strong>no login or network required</strong>.",
     "class.hero.downloadApk": "Download latest APK",
-    "class.hero.viewGithub": "View source on GitHub",
+    "class.hero.viewGithub": "View source",
     "class.hero.meta":
       "Requires Android 8.0+ (API 26) · Install after downloading the latest APK from GitHub Releases",
     "class.hero.gallery.ariaLabel": "Group Matters app screenshots",
