@@ -13,23 +13,25 @@
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
     <link rel="manifest" href="/site.webmanifest?v=2" />
+    <link rel="canonical" href="https://etai.chengyitang.workers.dev/" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=2"></script>
-    <link rel="stylesheet" href="/css/style.css?v=12" />
+    <link rel="stylesheet" href="/css/style.css?v=13" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etai.chengyitang.workers.dev/" />
     <meta
       property="og:title"
       data-i18n-content="meta.ogTitle"
-      content="Etai 应用集 — C一周通 · 轻记账 · 多人事务"
+      content="C一周通 · 轻记账 · 多人事务"
     />
     <meta
       property="og:description"
       data-i18n-content="meta.ogDescription"
-      content="三款离线 Android 应用：C一周通 v1.5.0、轻记账 v1.3.1、多人事务 v1.5.0。"
+      content="三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。"
     />
     <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:image" content="https://etai.chengyitang.workers.dev/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -39,12 +41,12 @@
     <meta
       name="twitter:title"
       data-i18n-content="meta.twitterTitle"
-      content="Etai 应用集 — C一周通 · 轻记账 · 多人事务"
+      content="C一周通 · 轻记账 · 多人事务"
     />
     <meta
       name="twitter:description"
       data-i18n-content="meta.twitterDescription"
-      content="C一周通 v1.5.0 · 轻记账 v1.3.1 · 多人事务 v1.5.0 — 离线可用，数据只存本机。"
+      content="三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。"
     />
     <meta name="twitter:image" content="https://etai.chengyitang.workers.dev/assets/og-image.png" />
   </head>
@@ -98,23 +100,31 @@
             <p class="lead" data-i18n-html="cweek.hero.lead">
               7 天把编程初学者带到能用 <strong>C 写出 Dijkstra 最短路</strong>（正确使用数组、指针与内存）。课文含<strong>真实 VS Code 屏幕录像</strong>（H.264，打包进 APK），Kotlin + Jetpack Compose，全程可离线学习。
             </p>
-            <div class="hero-actions">
-              <a
-                class="btn btn-primary"
-                href="https://github.com/gnatecheng/c-week/releases/latest"
-                rel="noopener noreferrer"
-                data-i18n="cweek.hero.downloadApk"
-              >
-                下载最新 APK
-              </a>
-              <a
-                class="btn btn-secondary"
-                href="https://github.com/gnatecheng/c-week"
-                rel="noopener noreferrer"
-                data-i18n="cweek.hero.viewGithub"
-              >
-                查看 GitHub 源码
-              </a>
+            <div class="hero-actions-block">
+              <div class="hero-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/gnatecheng/c-week/releases/latest"
+                  rel="noopener noreferrer"
+                  data-i18n="cweek.hero.downloadApk"
+                >
+                  下载最新 APK
+                </a>
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/gnatecheng/c-week"
+                  rel="noopener noreferrer"
+                  data-i18n="cweek.hero.viewGithub"
+                >
+                  查看 GitHub 源码
+                </a>
+              </div>
+              <figure class="download-qr">
+                <div class="download-qr-frame">
+                  <img src="/assets/qr/c-week.svg?v=1" width="112" height="112" alt="" decoding="async" />
+                </div>
+                <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+              </figure>
             </div>
             <p class="hero-meta" data-i18n="cweek.hero.meta">
               需要 Android 8.0 及以上（minSdk 26）· 应用内模拟评测，无需手机安装 gcc
@@ -347,23 +357,31 @@
               <p class="lead" data-i18n-html="qjz.hero.lead">
                 个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
               </p>
-              <div class="hero-actions">
-                <a
-                  class="btn btn-primary"
-                  href="https://github.com/gnatecheng/easy-ledger/releases/latest"
-                  rel="noopener noreferrer"
-                  data-i18n="qjz.hero.downloadApk"
-                >
-                  下载最新 APK
-                </a>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/gnatecheng/easy-ledger"
-                  rel="noopener noreferrer"
-                  data-i18n="qjz.hero.viewGithub"
-                >
-                  查看 GitHub 源码
-                </a>
+              <div class="hero-actions-block">
+                <div class="hero-actions">
+                  <a
+                    class="btn btn-primary"
+                    href="https://github.com/gnatecheng/easy-ledger/releases/latest"
+                    rel="noopener noreferrer"
+                    data-i18n="qjz.hero.downloadApk"
+                  >
+                    下载最新 APK
+                  </a>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://github.com/gnatecheng/easy-ledger"
+                    rel="noopener noreferrer"
+                    data-i18n="qjz.hero.viewGithub"
+                  >
+                    查看 GitHub 源码
+                  </a>
+                </div>
+                <figure class="download-qr">
+                  <div class="download-qr-frame">
+                    <img src="/assets/qr/easy-ledger.svg?v=1" width="112" height="112" alt="" decoding="async" />
+                  </div>
+                  <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                </figure>
               </div>
               <p class="hero-meta" data-i18n="qjz.hero.meta">
                 需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
@@ -499,23 +517,31 @@
               <p class="lead" data-i18n-html="class.hero.lead">
                 单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
               </p>
-              <div class="hero-actions">
-                <a
-                  class="btn btn-primary"
-                  href="https://github.com/gnatecheng/group-matters/releases/latest"
-                  rel="noopener noreferrer"
-                  data-i18n="class.hero.downloadApk"
-                >
-                  下载最新 APK
-                </a>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/gnatecheng/group-matters"
-                  rel="noopener noreferrer"
-                  data-i18n="class.hero.viewGithub"
-                >
-                  查看 GitHub 源码
-                </a>
+              <div class="hero-actions-block">
+                <div class="hero-actions">
+                  <a
+                    class="btn btn-primary"
+                    href="https://github.com/gnatecheng/group-matters/releases/latest"
+                    rel="noopener noreferrer"
+                    data-i18n="class.hero.downloadApk"
+                  >
+                    下载最新 APK
+                  </a>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://github.com/gnatecheng/group-matters"
+                    rel="noopener noreferrer"
+                    data-i18n="class.hero.viewGithub"
+                  >
+                    查看 GitHub 源码
+                  </a>
+                </div>
+                <figure class="download-qr">
+                  <div class="download-qr-frame">
+                    <img src="/assets/qr/group-matters.svg?v=1" width="112" height="112" alt="" decoding="async" />
+                  </div>
+                  <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                </figure>
               </div>
               <p class="hero-meta" data-i18n="class.hero.meta">
                 需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
@@ -650,6 +676,10 @@
               <p data-i18n-html="faq.install.body"></p>
             </article>
             <article class="faq-item">
+              <h3 data-i18n="faq.installTips.title">安装提示（Android 版本、未知来源、覆盖安装）</h3>
+              <p data-i18n-html="faq.installTips.body"></p>
+            </article>
+            <article class="faq-item">
               <h3 data-i18n="faq.requirements.title">系统要求是什么？</h3>
               <p data-i18n="faq.requirements.body"></p>
             </article>
@@ -680,7 +710,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=13" defer></script>
+    <script src="/js/translations.js?v=15" defer></script>
     <script src="/js/site.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=7" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

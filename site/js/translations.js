@@ -3,12 +3,12 @@ window.ETAI_TRANSLATIONS = {
     "meta.title": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
     "meta.description":
       "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.5.0）、轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）。",
-    "meta.ogTitle": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
+    "meta.ogTitle": "C一周通 · 轻记账 · 多人事务",
     "meta.ogDescription":
-      "三款离线 Android 应用：C一周通 v1.5.0、轻记账 v1.3.1、多人事务 v1.5.0。",
-    "meta.twitterTitle": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
+      "三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。",
+    "meta.twitterTitle": "C一周通 · 轻记账 · 多人事务",
     "meta.twitterDescription":
-      "C一周通 v1.5.0 · 轻记账 v1.3.1 · 多人事务 v1.5.0 — 离线可用，数据只存本机。",
+      "三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。",
     "meta.versionLabel": "版本",
     "meta.updatedLabel": "更新",
     "skipLink": "跳到主要内容",
@@ -119,6 +119,10 @@ window.ETAI_TRANSLATIONS = {
     "faq.install.title": "如何安装 APK？",
     "faq.install.body":
       "在各自仓库的 GitHub Releases 下载最新 APK 并安装：<a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">C一周通</a>、<a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">轻记账</a>、<a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">多人事务</a>。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面分别显示「C一周通」「轻记账」「多人事务」。",
+    "faq.installTips.title": "安装提示（Android 版本、未知来源、覆盖安装）",
+    "faq.installTips.body":
+      "三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：C一周通（<a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>）、轻记账（<a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>）、多人事务（<a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/多人事务的备份文件、C一周通的进度如有导出途径）。",
+    "download.qrCaption": "扫码下载",
     "faq.requirements.title": "系统要求是什么？",
     "faq.requirements.body":
       "三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。",
@@ -263,12 +267,12 @@ window.ETAI_TRANSLATIONS = {
     "meta.title": "Etai Apps — C Week · Easy Ledger · Group Matters",
     "meta.description":
       "Etai Apps features three offline-first Android apps that keep data on your device: C Week (learn C in 7 days, v1.5.0), Easy Ledger (local personal finance, v1.3.1), and Group Matters (attendance, fees, splits, checklists, v1.5.0).",
-    "meta.ogTitle": "Etai Apps — C Week · Easy Ledger · Group Matters",
+    "meta.ogTitle": "C Week · Easy Ledger · Group Matters",
     "meta.ogDescription":
-      "Three offline Android apps: C Week v1.5.0, Easy Ledger v1.3.1, Group Matters v1.5.0.",
-    "meta.twitterTitle": "Etai Apps — C Week · Easy Ledger · Group Matters",
+      "Three offline Android apps: C learning, personal ledger, and group activities—data stays on your device.",
+    "meta.twitterTitle": "C Week · Easy Ledger · Group Matters",
     "meta.twitterDescription":
-      "C Week v1.5.0 · Easy Ledger v1.3.1 · Group Matters v1.5.0 — offline-first, data on your device.",
+      "Three offline Android apps: C learning, personal ledger, and group activities—data stays on your device.",
     "meta.versionLabel": "Version",
     "meta.updatedLabel": "Updated",
     "skipLink": "Skip to main content",
@@ -388,6 +392,10 @@ window.ETAI_TRANSLATIONS = {
     "faq.install.title": "How do I install the APK?",
     "faq.install.body":
       "Download the latest APK from each app’s GitHub Releases and install: <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">C Week</a>, <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">Easy Ledger</a>, and <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">Group Matters</a>. Android may ask you to allow installs from unknown sources (varies by OEM). Launcher names are “C Week”, “Easy Ledger”, and “Group Matters”.",
+    "faq.installTips.title": "Install tips (Android version, unknown sources, upgrades)",
+    "faq.installTips.body":
+      "All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>, <a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>, <a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).",
+    "download.qrCaption": "Scan to download",
     "faq.requirements.title": "What are the system requirements?",
     "faq.requirements.body":
       "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.",
