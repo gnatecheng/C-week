@@ -19,15 +19,6 @@ export function buildJsonLd(lang, t) {
   const siteName = t["meta.siteName"];
   const altSite = lang === "en" ? "Etai 应用集" : "Etai Apps";
 
-  const faqPairs = [
-    ["faq.install.title", "faq.install.body"],
-    ["faq.installTips.title", "faq.installTips.body"],
-    ["faq.requirements.title", "faq.requirements.body"],
-    ["faq.offline.title", "faq.offline.body"],
-    ["faq.compile.title", "faq.compile.body"],
-    ["faq.vscode.title", "faq.vscode.body"],
-  ];
-
   const apps =
     lang === "en"
       ? [
@@ -111,18 +102,6 @@ export function buildJsonLd(lang, t) {
         priceCurrency: "USD",
       },
     })),
-    {
-      "@type": "FAQPage",
-      "@id": base + "#faq",
-      mainEntity: faqPairs.map(([titleKey, bodyKey]) => ({
-        "@type": "Question",
-        name: t[titleKey],
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t[bodyKey]),
-        },
-      })),
-    },
   ];
 
   return {

@@ -46,12 +46,22 @@ def h1_count(path):
     n = len(re.findall(r"<h1\b", html, re.I))
     assert n == 1, f"expected 1 h1 in {path}, got {n}"
 
+def hub_no_faq(path):
+    html = pathlib.Path(path).read_text(encoding="utf-8")
+    assert 'id="faq"' not in html, f"hub FAQ section must be removed: {path}"
+    assert "FAQPage" not in html, f"hub FAQPage JSON-LD must be removed: {path}"
+    assert 'href="#faq"' not in html, f"hub nav FAQ link must be removed: {path}"
+
 jsonld_ok("site/index.html")
+hub_no_faq("site/index.html")
 print("JSON-LD zh index: OK")
+print("hub FAQ removed zh: OK")
 h1_count("site/index.html")
 print("h1 zh index: OK")
 jsonld_ok("site/en/index.html")
+hub_no_faq("site/en/index.html")
 print("JSON-LD en index: OK")
+print("hub FAQ removed en: OK")
 h1_count("site/en/index.html")
 print("h1 en index: OK")
 

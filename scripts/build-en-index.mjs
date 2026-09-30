@@ -10,29 +10,6 @@ import { loadTranslations, applyStaticI18n } from "./static-i18n.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-function faqBlock(en) {
-  const items = [
-    ["faq.install.title", "faq.install.body"],
-    ["faq.installTips.title", "faq.installTips.body"],
-    ["faq.requirements.title", "faq.requirements.body"],
-    ["faq.offline.title", "faq.offline.body"],
-    ["faq.compile.title", "faq.compile.body"],
-    ["faq.vscode.title", "faq.vscode.body"],
-  ];
-  const htmlKeys = new Set(["faq.install.body", "faq.installTips.body", "faq.vscode.body"]);
-  return items
-    .map(([titleKey, bodyKey]) => {
-      const i18nHtml = htmlKeys.has(bodyKey)
-        ? ` data-i18n-html="${bodyKey}"`
-        : ` data-i18n="${bodyKey}"`;
-      return `            <article class="faq-item">
-              <h3 data-i18n="${titleKey}">${en[titleKey]}</h3>
-              <p${i18nHtml}>${en[bodyKey]}</p>
-            </article>`;
-    })
-    .join("\n");
-}
-
 function setMetaContent(html, attrMatch, value) {
   const re = new RegExp(`(<meta\\s[^>]*${attrMatch}[^>]*\\scontent=")([^"]*)(")`, "i");
   return html.replace(re, `$1${value.replace(/"/g, "&quot;")}$3`);
@@ -81,16 +58,11 @@ async function main() {
     `<script type="application/ld+json" id="structured-data">\n${jsonLd}\n    </script>`
   );
 
-  html = html.replace(
-    /<div class="faq-list">[\s\S]*?<\/div>\s*\n\s*<\/div>\s*\n\s*<\/section>\s*\n\s*<\/main>/,
-    `<div class="faq-list">\n${faqBlock(en)}\n          </div>\n        </div>\n      </section>\n\n    </main>`
-  );
-
   html = html.replace(/href="\/#([^"]+)"/g, 'href="/en/#$1"');
   html = html.replace('<a class="brand" href="/">', '<a class="brand" href="/en/">');
-  html = html.replace('href="/easy-ledger/"', 'href="/en/easy-ledger/"');
-  html = html.replace('href="/group-matters/"', 'href="/en/group-matters/"');
-  html = html.replace('href="/c-week/"', 'href="/en/c-week/"');
+  html = html.replace(/href="\/easy-ledger\/#features"/g, 'href="/en/easy-ledger/#features"');
+  html = html.replace(/href="\/group-matters\/#features"/g, 'href="/en/group-matters/#features"');
+  html = html.replace(/href="\/c-week\/#features"/g, 'href="/en/c-week/#features"');
   html = html.replace(
     /id="lang-hint-link" href="\/en\/"/,
     'id="lang-hint-link" href="/en/" style="display:none" aria-hidden="true"'
@@ -116,13 +88,11 @@ async function main() {
 
   html = applyStaticI18n(html, en);
 
-  html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=3");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=26");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=28");
-  html = html.replace(/\/assets\/qr\/[^"?]+\.svg\?v=\d+/g, (m) => m.replace(/\?v=\d+/, "?v=3"));
-  html = html.replace(/\/assets\/icon\.svg\?v=\d+/g, "/assets/icon.svg?v=2");
+  html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=4");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=27");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=30");
   html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");
-  html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=9");
+  html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=10");
   html = html.replace(/group-matters\.webp\?v=\d+/g, "group-matters.webp?v=3");
   html = html.replace(/class-record\/[^"?]+\.webp\?v=\d+/g, (m) => m.replace(/\?v=\d+/, "?v=12"));
   html = html.replace(/og-image\.png\?v=\d+/g, "og-image.png?v=6");

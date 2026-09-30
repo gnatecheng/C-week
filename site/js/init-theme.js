@@ -18,4 +18,5 @@
   var lang = path === "/en" || path.indexOf("/en/") === 0 ? "en" : "zh";
   document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
   document.documentElement.setAttribute("data-lang", lang);
+  document.documentElement.classList.add("etai-screens-pending");
 })();

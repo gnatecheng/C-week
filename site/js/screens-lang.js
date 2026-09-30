@@ -1,15 +1,17 @@
-/* Homepage carousels: lang × theme screenshots via manifest (no 404 probing). */
+/* Lang × theme screenshots via manifest (carousels + app “all screenshots” grids). */
 (function () {
   "use strict";
 
   var SCREEN_ROOT = "/assets/screens/";
-  var MANIFEST_URL = "/assets/screens/manifest.json?v=6";
-  var IMG_VER = "12";
+  var MANIFEST_URL = "/assets/screens/manifest.json?v=7";
+  var IMG_VER = "13";
 
   var manifest = null;
   var manifestReady = null;
 
   function getLang() {
+    var bodyLang = document.body && document.body.getAttribute("data-page-lang");
+    if (bodyLang === "en" || bodyLang === "zh") return bodyLang;
     var l = (document.documentElement.lang || "zh-CN").toLowerCase();
     return l.indexOf("en") === 0 ? "en" : "zh";
   }
@@ -40,6 +42,8 @@
     var rest = path.slice(SCREEN_ROOT.length);
     var m = rest.match(/^(zh|en)\/(light|dark)\/(.+)$/);
     if (m) return m[3];
+    var legacy = rest.match(/^([^/]+)\/(.+\.webp)$/);
+    if (legacy) return legacy[1] + "/" + legacy[2];
     if (rest.indexOf("en/") === 0) return rest.slice(3);
     return rest;
   }
@@ -58,7 +62,7 @@
         .catch(function () {
           manifest = {
             available: {
-              cweek: ["zh/light"],
+              cweek: ["zh/light", "zh/dark", "en/light", "en/dark"],
               qingjizhang: ["zh/light", "zh/dark", "en/light", "en/dark"],
               "class-record": ["zh/light", "zh/dark", "en/light", "en/dark"],
             },
@@ -117,7 +121,9 @@
 
   function collectImages() {
     return Array.prototype.slice.call(
-      document.querySelectorAll(".screenshot-gallery img[src*='/assets/screens/']")
+      document.querySelectorAll(
+        ".screenshot-gallery img[src*='/assets/screens/'], .app-screens-grid img[src*='/assets/screens/']"
+      )
     );
   }
 
@@ -127,6 +133,10 @@
         parseRelativePath(stripQuery(img.getAttribute("src") || "")) || "";
     }
     return img.dataset.screenshotRel;
+  }
+
+  function clearScreensPending() {
+    document.documentElement.classList.remove("etai-screens-pending");
   }
 
   function applyScreenshots() {
@@ -142,6 +152,7 @@
       var next = withVersion(url);
       if (stripQuery(img.getAttribute("src") || "") !== url) img.src = next;
     });
+    clearScreensPending();
   }
 
   function onVariantChange() {

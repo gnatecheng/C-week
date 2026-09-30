@@ -8,9 +8,16 @@ export function escHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-export function screenSrc(isEn, legacyDir, file, ver) {
-  const langPath = isEn ? `en/light/${legacyDir}` : `zh/light/${legacyDir}`;
-  return `/assets/screens/${langPath}/${file}?v=${ver}`;
+/** Default static src for SEO (zh/light legacy or en/light); JS swaps lang × theme. */
+export function screenDefaultSrc(isEn, legacyDir, file, ver) {
+  if (isEn) {
+    return `/assets/screens/en/light/${legacyDir}/${file}?v=${ver}`;
+  }
+  return `/assets/screens/${legacyDir}/${file}?v=${ver}`;
+}
+
+export function screenshotRel(legacyDir, file) {
+  return `${legacyDir}/${file}`;
 }
 
 export function renderFeatureGrid(dict, t, cards, footKey) {
@@ -74,12 +81,13 @@ export function renderAllScreens(app, dict, t, isEn, ver) {
     const altKey = `${app.galleryPrefix}.s${sn}.alt`;
     const capKey = `${app.galleryPrefix}.s${sn}.caption`;
     const file = app.slideFile(i);
-    const src = screenSrc(isEn, app.legacyScreenDir, file, ver);
+    const src = screenDefaultSrc(isEn, app.legacyScreenDir, file, ver);
+    const rel = screenshotRel(app.legacyScreenDir, file);
     slides.push(`            <figure class="app-screens-grid__item">
               <div class="phone-frame screenshot-phone">
                 <div class="phone-notch"><span></span></div>
                 <div class="phone-screen">
-                  <img src="${src}" width="540" height="1171" loading="lazy" alt="${escHtml(t(dict, altKey))}" />
+                  <img src="${src}" width="540" height="1171" loading="lazy" data-screenshot-rel="${rel}" alt="${escHtml(t(dict, altKey))}" />
                 </div>
               </div>
               <figcaption class="screenshot-caption">${t(dict, capKey)}</figcaption>
