@@ -6,9 +6,9 @@ window.ETAI_TRANSLATIONS = {
     "meta.ogTitle": "C一周通 · 轻记账 · 多人事务",
     "meta.ogDescription":
       "三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。",
-    "meta.twitterTitle": "Etai 应用集 — C一周通 · 轻记账 · 多人事务",
+    "meta.twitterTitle": "C一周通 · 轻记账 · 多人事务",
     "meta.twitterDescription":
-      "C一周通 v1.5.0 · 轻记账 v1.3.1 · 多人事务 v1.5.0 — 离线可用，数据只存本机。",
+      "三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。",
     "meta.versionLabel": "版本",
     "meta.updatedLabel": "更新",
     "skipLink": "跳到主要内容",
@@ -270,9 +270,9 @@ window.ETAI_TRANSLATIONS = {
     "meta.ogTitle": "C Week · Easy Ledger · Group Matters",
     "meta.ogDescription":
       "Three offline Android apps: C learning, personal ledger, and group activities—data stays on your device.",
-    "meta.twitterTitle": "Etai Apps — C Week · Easy Ledger · Group Matters",
+    "meta.twitterTitle": "C Week · Easy Ledger · Group Matters",
     "meta.twitterDescription":
-      "C Week v1.5.0 · Easy Ledger v1.3.1 · Group Matters v1.5.0 — offline-first, data on your device.",
+      "Three offline Android apps: C learning, personal ledger, and group activities—data stays on your device.",
     "meta.versionLabel": "Version",
     "meta.updatedLabel": "Updated",
     "skipLink": "Skip to main content",
