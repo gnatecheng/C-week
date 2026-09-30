@@ -20,7 +20,7 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CSS_V = 30;
 const TRANSLATIONS_V = 33;
-const SITE_JS_V = 10;
+const SITE_JS_V = 11;
 const SECTION_NAV_JS_V = 6;
 const INIT_THEME_V = 4;
 const SCREENS_LANG_V = 10;
@@ -298,7 +298,7 @@ function renderPage(app, lang, dict, T) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escAttrLocal(metaTitle)}</title>
-    <meta name="description" content="${escAttrLocal(metaDesc)}" />
+    <meta name="description" content="${escAttrLocal(metaDesc)}" data-i18n-content="${app.keys.metaDescription}" />
     <link rel="alternate" hreflang="zh-CN" href="${zhPath}" />
     <link rel="alternate" hreflang="en" href="${enPath}" />
     <link rel="alternate" hreflang="x-default" href="${zhPath}" />
@@ -312,8 +312,8 @@ function renderPage(app, lang, dict, T) {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${escAttrLocal(t(dict, "meta.siteName"))}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:title" content="${escAttrLocal(ogTitle)}" />
-    <meta property="og:description" content="${escAttrLocal(ogDesc)}" />
+    <meta property="og:title" content="${escAttrLocal(ogTitle)}" data-i18n-content="${app.keys.ogTitle}" />
+    <meta property="og:description" content="${escAttrLocal(ogDesc)}" data-i18n-content="${app.keys.ogDescription}" />
     <meta property="og:locale" content="${isEn ? "en_US" : "zh_CN"}" />
     <meta property="og:locale:alternate" content="${isEn ? "zh_CN" : "en_US"}" />
     <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
@@ -321,14 +321,14 @@ function renderPage(app, lang, dict, T) {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escAttrLocal(ogTitle)}" />
-    <meta name="twitter:description" content="${escAttrLocal(ogDesc)}" />
+    <meta name="twitter:title" content="${escAttrLocal(ogTitle)}" data-i18n-content="${app.keys.ogTitle}" />
+    <meta name="twitter:description" content="${escAttrLocal(ogDesc)}" data-i18n-content="${app.keys.ogDescription}" />
     <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
     <script type="application/ld+json" id="structured-data">
 ${jsonLd}
     </script>
   </head>
-  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}" data-app-accent="${appAccentAttr(app)}" class="app-subpage">
+  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}" data-app-accent="${appAccentAttr(app)}" class="app-subpage" data-page-title-key="${app.keys.metaTitle}" data-page-description-key="${app.keys.metaDescription}" data-page-og-title-key="${app.keys.ogTitle}" data-page-og-description-key="${app.keys.ogDescription}">
     <a class="skip-link" href="#main">${t(dict, "skipLink")}</a>
 ${renderAppStickyTop(isEn, dict, app)}
     <main id="main">

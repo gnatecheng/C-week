@@ -77,6 +77,15 @@ APP_PAGES = [
     ("site/en/c-week/index.html", "en"),
 ]
 
+SUBPAGE_TITLE_KEYS = {
+    "site/easy-ledger/index.html": "app.easyLedger.meta.title",
+    "site/en/easy-ledger/index.html": "app.easyLedger.meta.title",
+    "site/group-matters/index.html": "app.groupMatters.meta.title",
+    "site/en/group-matters/index.html": "app.groupMatters.meta.title",
+    "site/c-week/index.html": "app.cWeek.meta.title",
+    "site/en/c-week/index.html": "app.cWeek.meta.title",
+}
+
 SUBPAGE_CROSS_APP = {
     "site/easy-ledger/index.html": {
         "slug": "easy-ledger",
@@ -145,6 +154,9 @@ def subpage_no_cross_app(path):
         assert 'href="#roadmap"' in html, f"c-week subpage needs roadmap nav link: {path}"
     else:
         assert 'href="#roadmap"' not in html, f"non-c-week subpage must not have roadmap nav: {path}"
+    title_key = SUBPAGE_TITLE_KEYS.get(path)
+    assert title_key, f"missing title key mapping for {path}"
+    assert f'data-page-title-key="{title_key}"' in html, f"wrong data-page-title-key on {path}"
 
 for path, lang in APP_PAGES:
     p = pathlib.Path(path)
