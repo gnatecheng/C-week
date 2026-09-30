@@ -51,11 +51,19 @@ async function sectionShot(name, lang, theme, mobile = false) {
     deviceScaleFactor: 2,
   });
   await prep(page, lang, theme);
+  await page.evaluate(function () {
+    var header = document.querySelector(".site-header");
+    if (header) header.style.visibility = "hidden";
+  });
   const section = page.locator("#group-matters");
   if (mobile) {
     await page.screenshot({ path: `${OUT}/${name}.png` });
   } else {
     await section.scrollIntoViewIfNeeded();
+    await page.evaluate(function () {
+      var header = document.querySelector(".site-header");
+      if (header) header.style.visibility = "hidden";
+    });
     await section.screenshot({ path: `${OUT}/${name}.png` });
   }
   await page.close();
