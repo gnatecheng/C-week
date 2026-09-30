@@ -30,6 +30,14 @@ export default {
       });
     }
 
+    if (url.pathname === "/en") {
+      url.pathname = "/en/";
+      return new Response(null, {
+        status: 301,
+        headers: { Location: url.toString() },
+      });
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
