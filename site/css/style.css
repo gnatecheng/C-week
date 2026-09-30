@@ -1,4 +1,4 @@
-/* Etai 应用集 landing (C一周通 · 轻记账 · 多人事务) — mobile-first, prefers-color-scheme */
+/* Etai 应用集 landing (C一周通 · 轻记账 · 团团记) — mobile-first, prefers-color-scheme */
 
 :root {
   color-scheme: light dark;
@@ -1014,7 +1014,7 @@ code {
   background: linear-gradient(135deg, var(--class-bright), #0369a1);
 }
 
-/* ---------- project sections (轻记账 / 多人事务) ---------- */
+/* ---------- project sections (轻记账 / 团团记) ---------- */
 
 .project {
   --accent: var(--teal);
