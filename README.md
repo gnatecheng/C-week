@@ -198,3 +198,7 @@ gcc dijkstra.c -o dijkstra -Wall
 ```
 
 Reference: `app/src/main/assets/labs/day7_dijkstra.c`.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
