@@ -18,8 +18,10 @@ import {
 } from "./app-page-sections.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 27;
-const TRANSLATIONS_V = 30;
+const CSS_V = 31;
+const TRANSLATIONS_V = 35;
+const SITE_JS_V = 11;
+const SECTION_NAV_JS_V = 6;
 const INIT_THEME_V = 4;
 const SCREENS_LANG_V = 10;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
@@ -92,54 +94,80 @@ ${slides.join("\n")}
               </div>`;
 }
 
-function renderNavChip(slug, isEn, dict, activeSlug) {
-  const base = isEn ? "/en" : "";
-  const href = `${base}/${slug}/`;
-  const current = slug === activeSlug ? ' aria-current="page"' : "";
-  const labels = {
-    "easy-ledger": ["chip-qjz", "账", "nav.qingjizhang"],
-    "group-matters": ["chip-class", "团", "nav.classRecord"],
-    "c-week": ["chip-cweek", "C", "nav.cweek"],
-  };
-  const [cls, badge, key] = labels[slug];
-  return `<a class="app-chip ${cls}" href="${href}"${current}><span class="chip-badge" aria-hidden="true">${badge}</span><span>${t(dict, key)}</span></a>`;
-}
-
-function renderSiteHeader(isEn, dict, activeSlug) {
-  const homeHref = isEn ? "/en/" : "/";
-  return `    <header class="site-header">
-      <div class="wrap header-shell">
-        <div class="brand-block">
-          <a class="brand" href="${homeHref}">
-            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="${escAttrLocal(t(dict, "meta.brandIconAlt"))}" />
-            <span>${t(dict, "brand")}</span>
+function renderAppSiteHeader(app, dict, isEn) {
+  const name = t(dict, app.keys.name);
+  return `    <header class="site-header app-page-header">
+      <div class="wrap header-shell app-page-header-shell">
+        <div class="app-header-brand-block">
+          <a class="app-header-brand" href="#page-top">
+            <img
+              class="app-header-brand__icon"
+              src="${app.iconSrc}"
+              width="36"
+              height="36"
+              alt=""
+              decoding="async"
+              aria-hidden="true"
+            />
+            <span class="app-header-brand__text">
+              <span class="app-header-brand__name">${name}</span>
+              <span class="app-header-brand__tagline">${t(dict, app.headerTaglineKey)}</span>
+            </span>
           </a>
-          <p class="brand-tagline">
-            <span class="brand-tagline-full">${t(dict, "header.tagline")}</span>
-            <span class="brand-tagline-short">${t(dict, "header.taglineShort")}</span>
-          </p>
         </div>
-        <nav class="header-nav" aria-label="${escAttrLocal(t(dict, "navSectionsLabel"))}">
-          <div class="header-nav-inner">
-            ${renderNavChip("easy-ledger", isEn, dict, activeSlug)}
-            ${renderNavChip("group-matters", isEn, dict, activeSlug)}
-            ${renderNavChip("c-week", isEn, dict, activeSlug)}
-            <a class="nav-link" href="#faq">${t(dict, "nav.faq")}</a>
-          </div>
-        </nav>
         <div class="header-tools">
           <div class="site-prefs" id="lang-switch" role="group" aria-label="${escAttrLocal(t(dict, "prefs.langLabel"))}">
             <button type="button" id="lang-zh" aria-pressed="${isEn ? "false" : "true"}">${t(dict, "prefs.langZh")}</button>
             <button type="button" id="lang-en" aria-pressed="${isEn ? "true" : "false"}">${t(dict, "prefs.langEn")}</button>
           </div>
           <button type="button" id="theme-toggle" aria-label="${escAttrLocal(t(dict, "prefs.themeLabel"))}">
-            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
             <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </button>
         </div>
       </div>
     </header>`;
+}
+
+function renderSectionNav(app, dict, isEn) {
+  const items = [
+    ["features", "appPage.sectionNav.features"],
+    ...(app.showRoadmap ? [["roadmap", "appPage.sectionNav.roadmap"]] : []),
+    ["screenshots", "appPage.sectionNav.screenshots"],
+    ["privacy", "appPage.sectionNav.privacy"],
+    ["requirements", "appPage.sectionNav.requirements"],
+    ["changelog", "appPage.sectionNav.changelog"],
+    ["faq", "appPage.sectionNav.faq"],
+  ];
+  const links = items
+    .map(
+      ([id, key]) =>
+        `<a href="#${id}" data-section-nav="${id}">${t(dict, key)}</a>`
+    )
+    .join("\n            ");
+  const hubHref = isEn ? "/en/" : "/";
+  return `    <nav class="app-section-nav" id="app-section-nav" aria-label="${escAttrLocal(t(dict, "appPage.sectionNav.label"))}">
+      <div class="app-section-nav__track">
+        <div class="app-section-nav__inner wrap">
+            ${links}
+            <a class="app-section-nav__hub" href="${hubHref}">${t(dict, "appPage.moreEtaiApps")}</a>
+        </div>
+      </div>
+    </nav>`;
+}
+
+function renderAppStickyTop(isEn, dict, app) {
+  return `    <div class="site-sticky-top">
+${renderAppSiteHeader(app, dict, isEn)}
+${renderSectionNav(app, dict, isEn)}
+    </div>`;
+}
+
+function appAccentAttr(app) {
+  if (app.slug === "easy-ledger") return "qjz";
+  if (app.slug === "group-matters") return "class";
+  return "cweek";
 }
 
 function renderDownloadPanel(app, dict) {
@@ -203,27 +231,17 @@ function renderDownloadPanel(app, dict) {
               </a>`;
 }
 
-function renderFooter(dict) {
-  return `    <footer class="site-footer">
+function renderFooter(app, dict) {
+  return `    <footer class="site-footer app-page-footer">
       <div class="wrap inner">
-        <p>${t(dict, "footer.copyright")}</p>
-        <p class="footer-links">
-          <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
+        <p class="footer-copy">${t(dict, app.footerCopyrightKey)}</p>
+        <div class="footer-actions">
+          <a class="footer-repo-link" href="https://github.com/${app.github}" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
               ><path d="${GITHUB_ICON_PATH}" /></svg
-            ><span>${t(dict, "footer.linkCweek")}</span></a
+            ><span>${t(dict, app.footerLinkLabelKey)}</span></a
           >
-          <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="${GITHUB_ICON_PATH}" /></svg
-            ><span>${t(dict, "footer.linkQjz")}</span></a
-          >
-          <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="${GITHUB_ICON_PATH}" /></svg
-            ><span>${t(dict, "footer.linkClass")}</span></a
-          >
-        </p>
+        </div>
       </div>
     </footer>`;
 }
@@ -269,7 +287,7 @@ function renderPage(app, lang, dict, T) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escAttrLocal(metaTitle)}</title>
-    <meta name="description" content="${escAttrLocal(metaDesc)}" />
+    <meta name="description" content="${escAttrLocal(metaDesc)}" data-i18n-content="${app.keys.metaDescription}" />
     <link rel="alternate" hreflang="zh-CN" href="${zhPath}" />
     <link rel="alternate" hreflang="en" href="${enPath}" />
     <link rel="alternate" hreflang="x-default" href="${zhPath}" />
@@ -283,8 +301,8 @@ function renderPage(app, lang, dict, T) {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${escAttrLocal(t(dict, "meta.siteName"))}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:title" content="${escAttrLocal(ogTitle)}" />
-    <meta property="og:description" content="${escAttrLocal(ogDesc)}" />
+    <meta property="og:title" content="${escAttrLocal(ogTitle)}" data-i18n-content="${app.keys.ogTitle}" />
+    <meta property="og:description" content="${escAttrLocal(ogDesc)}" data-i18n-content="${app.keys.ogDescription}" />
     <meta property="og:locale" content="${isEn ? "en_US" : "zh_CN"}" />
     <meta property="og:locale:alternate" content="${isEn ? "zh_CN" : "en_US"}" />
     <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
@@ -292,16 +310,17 @@ function renderPage(app, lang, dict, T) {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escAttrLocal(ogTitle)}" />
-    <meta name="twitter:description" content="${escAttrLocal(ogDesc)}" />
+    <meta name="twitter:title" content="${escAttrLocal(ogTitle)}" data-i18n-content="${app.keys.ogTitle}" />
+    <meta name="twitter:description" content="${escAttrLocal(ogDesc)}" data-i18n-content="${app.keys.ogDescription}" />
     <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
     <script type="application/ld+json" id="structured-data">
 ${jsonLd}
     </script>
   </head>
-  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}">
+  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}" data-app-accent="${appAccentAttr(app)}" class="app-subpage" data-page-title-key="${app.keys.metaTitle}" data-page-description-key="${app.keys.metaDescription}" data-page-og-title-key="${app.keys.ogTitle}" data-page-og-description-key="${app.keys.ogDescription}">
+    <div id="page-top" class="page-top-anchor" tabindex="-1"></div>
     <a class="skip-link" href="#main">${t(dict, "skipLink")}</a>
-${renderSiteHeader(isEn, dict, app.slug)}
+${renderAppStickyTop(isEn, dict, app)}
     <main id="main">
       <section class="${app.sectionClass}" data-group="${app.appMeta}" aria-labelledby="${titleId}">
 ${gridWrap}
@@ -316,10 +335,10 @@ ${renderGallery(app, dict, isEn)}
 ${gridClose}
       </section>
 ${sections.join("\n")}
-      <section id="faq" data-group="faq">
+      <section id="faq" class="app-page-block" data-group="faq" aria-labelledby="faq-title">
         <div class="wrap">
           <header class="section-head">
-            <h2>${t(dict, "appPage.faqTitle")}</h2>
+            <h2 id="faq-title">${t(dict, "appPage.faqTitle")}</h2>
           </header>
           <div class="faq-list">
 ${renderFaqList(app, dict, t)}
@@ -327,9 +346,10 @@ ${renderFaqList(app, dict, t)}
         </div>
       </section>
     </main>
-${renderFooter(dict)}
+${renderFooter(app, dict)}
     <script src="/js/translations.js?v=${TRANSLATIONS_V}" defer></script>
-    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/site.js?v=${SITE_JS_V}" defer></script>
+    <script src="/js/app-section-nav.js?v=${SECTION_NAV_JS_V}" defer></script>
     <script src="/js/screens-lang.js?v=${SCREENS_LANG_V}" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>

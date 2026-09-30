@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>C一周通｜7 天学 C 语言 Android</title>
-    <meta name="description" content="C一周通：免费开源离线 Android C 语言课程，Hello World 到 Dijkstra，含 VS Code 实操录像与离线实验测验。" />
+    <meta name="description" content="C一周通：免费开源离线 Android C 语言课程，Hello World 到 Dijkstra，含 VS Code 实操录像与离线实验测验。" data-i18n-content="app.cWeek.meta.description" />
     <link rel="alternate" hreflang="zh-CN" href="https://etais.dev/c-week/" />
     <link rel="alternate" hreflang="en" href="https://etais.dev/en/c-week/" />
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/c-week/" />
@@ -14,12 +14,12 @@
     <link rel="manifest" href="/site.webmanifest?v=3" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=4"></script>
-    <link rel="stylesheet" href="/css/style.css?v=27" />
+    <link rel="stylesheet" href="/css/style.css?v=31" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai 应用集" />
     <meta property="og:url" content="https://etais.dev/c-week/" />
-    <meta property="og:title" content="C Week — Learn C on your phone, offline" />
-    <meta property="og:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." />
+    <meta property="og:title" content="C Week — Learn C on your phone, offline" data-i18n-content="app.cWeek.meta.ogTitle" />
+    <meta property="og:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." data-i18n-content="app.cWeek.meta.ogDescription" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
@@ -27,13 +27,31 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="C Week — Learn C on your phone, offline" />
-    <meta name="twitter:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." />
+    <meta name="twitter:title" content="C Week — Learn C on your phone, offline" data-i18n-content="app.cWeek.meta.ogTitle" />
+    <meta name="twitter:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." data-i18n-content="app.cWeek.meta.ogDescription" />
     <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
     <script type="application/ld+json" id="structured-data">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://etais.dev/c-week/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Etai 应用集",
+          "item": "https://etais.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "C一周通",
+          "item": "https://etais.dev/c-week/"
+        }
+      ]
+    },
     {
       "@type": "SoftwareApplication",
       "@id": "https://etais.dev/c-week/#app",
@@ -67,7 +85,7 @@
           "name": "安装提示（Android 版本、未知来源、覆盖安装）",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "三款应用均需 Android 8.0 及以上 。请从各应用 GitHub Releases 下载 正式签名版 APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。 轻记账与团团记 若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。"
+            "text": "C一周通需要 Android 8.0 及以上 。请从 GitHub Releases 下载 正式签名版 APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除学习进度等本机数据 ，如有导出功能请先备份。"
           }
         },
         {
@@ -108,41 +126,57 @@
 }
     </script>
   </head>
-  <body data-page-lang="zh" data-app-slug="c-week">
+  <body data-page-lang="zh" data-app-slug="c-week" data-app-accent="cweek" class="app-subpage" data-page-title-key="app.cWeek.meta.title" data-page-description-key="app.cWeek.meta.description" data-page-og-title-key="app.cWeek.meta.ogTitle" data-page-og-description-key="app.cWeek.meta.ogDescription">
+    <div id="page-top" class="page-top-anchor" tabindex="-1"></div>
     <a class="skip-link" href="#main">跳到主要内容</a>
-    <header class="site-header">
-      <div class="wrap header-shell">
-        <div class="brand-block">
-          <a class="brand" href="/">
-            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="Etai" />
-            <span>Etai 应用集</span>
+    <div class="site-sticky-top">
+    <header class="site-header app-page-header">
+      <div class="wrap header-shell app-page-header-shell">
+        <div class="app-header-brand-block">
+          <a class="app-header-brand" href="#page-top">
+            <img
+              class="app-header-brand__icon"
+              src="/assets/app-icons/c-week.webp?v=2"
+              width="36"
+              height="36"
+              alt=""
+              decoding="async"
+              aria-hidden="true"
+            />
+            <span class="app-header-brand__text">
+              <span class="app-header-brand__name">C一周通</span>
+              <span class="app-header-brand__tagline">七天学 C，全程可离线</span>
+            </span>
           </a>
-          <p class="brand-tagline">
-            <span class="brand-tagline-full">离线可用 · 数据只存本机</span>
-            <span class="brand-tagline-short">离线可用 · 数据只存本机</span>
-          </p>
         </div>
-        <nav class="header-nav" aria-label="页面章节">
-          <div class="header-nav-inner">
-            <a class="app-chip chip-qjz" href="/easy-ledger/"><span class="chip-badge" aria-hidden="true">账</span><span>轻记账</span></a>
-            <a class="app-chip chip-class" href="/group-matters/"><span class="chip-badge" aria-hidden="true">团</span><span>团团记</span></a>
-            <a class="app-chip chip-cweek" href="/c-week/" aria-current="page"><span class="chip-badge" aria-hidden="true">C</span><span>C一周通</span></a>
-            <a class="nav-link" href="#faq">常见问题</a>
-          </div>
-        </nav>
         <div class="header-tools">
           <div class="site-prefs" id="lang-switch" role="group" aria-label="语言">
             <button type="button" id="lang-zh" aria-pressed="true">中文</button>
             <button type="button" id="lang-en" aria-pressed="false">English</button>
           </div>
           <button type="button" id="theme-toggle" aria-label="主题">
-            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
             <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </button>
         </div>
       </div>
     </header>
+    <nav class="app-section-nav" id="app-section-nav" aria-label="本页章节">
+      <div class="app-section-nav__track">
+        <div class="app-section-nav__inner wrap">
+            <a href="#features" data-section-nav="features">功能</a>
+            <a href="#roadmap" data-section-nav="roadmap">7 天路线</a>
+            <a href="#screenshots" data-section-nav="screenshots">截图</a>
+            <a href="#privacy" data-section-nav="privacy">隐私</a>
+            <a href="#requirements" data-section-nav="requirements">系统要求</a>
+            <a href="#changelog" data-section-nav="changelog">更新记录</a>
+            <a href="#faq" data-section-nav="faq">常见问题</a>
+            <a class="app-section-nav__hub" href="/">查看更多 Etai 应用 →</a>
+        </div>
+      </div>
+    </nav>
+    </div>
     <main id="main">
       <section class="hero" data-group="cweek" aria-labelledby="cweek-title">
 <div class="wrap hero-grid">
@@ -519,10 +553,10 @@
           </div>
         </div>
       </section>
-      <section id="faq" data-group="faq">
+      <section id="faq" class="app-page-block" data-group="faq" aria-labelledby="faq-title">
         <div class="wrap">
           <header class="section-head">
-            <h2>常见问题</h2>
+            <h2 id="faq-title">常见问题</h2>
           </header>
           <div class="faq-list">
             <article class="faq-item">
@@ -531,7 +565,7 @@
             </article>
             <article class="faq-item">
               <h3>安装提示（Android 版本、未知来源、覆盖安装）</h3>
-              <div class="faq-body">三款应用均需 <strong>Android 8.0 及以上</strong>。请从各应用 GitHub Releases 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。<strong>轻记账与团团记</strong>若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。</div>
+              <div class="faq-body">C一周通需要 <strong>Android 8.0 及以上</strong>。请从 <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除学习进度等本机数据</strong>，如有导出功能请先备份。</div>
             </article>
             <article class="faq-item">
               <h3>系统要求是什么？</h3>
@@ -553,30 +587,21 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer">
+    <footer class="site-footer app-page-footer">
       <div class="wrap inner">
-        <p>© Etai 应用集 · 轻记账 / 团团记 / C一周通 · 开源 Android 应用</p>
-        <p class="footer-links">
-          <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
+        <p class="footer-copy">© Etai 应用集 · C一周通 · 开源安卓应用</p>
+        <div class="footer-actions">
+          <a class="footer-repo-link" href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
               ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>c-week</span></a
           >
-          <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
-            ><span>easy-ledger</span></a
-          >
-          <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
-            ><span>group-matters</span></a
-          >
-        </p>
+        </div>
       </div>
     </footer>
-    <script src="/js/translations.js?v=30" defer></script>
-    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/translations.js?v=35" defer></script>
+    <script src="/js/site.js?v=11" defer></script>
+    <script src="/js/app-section-nav.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=10" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>

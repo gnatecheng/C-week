@@ -30,6 +30,73 @@
     return "";
   }
 
+  var APP_PAGE_TITLE_KEYS = {
+    "easy-ledger": "app.easyLedger.meta.title",
+    "group-matters": "app.groupMatters.meta.title",
+    "c-week": "app.cWeek.meta.title",
+  };
+
+  var APP_PAGE_DESC_KEYS = {
+    "easy-ledger": "app.easyLedger.meta.description",
+    "group-matters": "app.groupMatters.meta.description",
+    "c-week": "app.cWeek.meta.description",
+  };
+
+  var APP_PAGE_OG_TITLE_KEYS = {
+    "easy-ledger": "app.easyLedger.meta.ogTitle",
+    "group-matters": "app.groupMatters.meta.ogTitle",
+    "c-week": "app.cWeek.meta.ogTitle",
+  };
+
+  var APP_PAGE_OG_DESC_KEYS = {
+    "easy-ledger": "app.easyLedger.meta.ogDescription",
+    "group-matters": "app.groupMatters.meta.ogDescription",
+    "c-week": "app.cWeek.meta.ogDescription",
+  };
+
+  function bodyMetaKey(attr, slugMap) {
+    if (!document.body) return null;
+    var direct = document.body.getAttribute(attr);
+    if (direct) return direct;
+    var slug = document.body.getAttribute("data-app-slug") || currentAppSlug();
+    if (slug && slugMap && slugMap[slug]) return slugMap[slug];
+    return null;
+  }
+
+  function setMetaContent(selector, value) {
+    if (!value) return;
+    document.querySelectorAll(selector).forEach(function (el) {
+      el.setAttribute("content", value);
+    });
+  }
+
+  function applyPageDocumentMeta(lang) {
+    var titleKey = bodyMetaKey("data-page-title-key", APP_PAGE_TITLE_KEYS);
+    if (titleKey) {
+      var titleVal = t(titleKey, lang);
+      if (titleVal) document.title = titleVal;
+    } else if (!document.body.getAttribute("data-app-slug") && !currentAppSlug()) {
+      var hubTitle = bodyMetaKey("data-page-title-key", null) || "meta.title";
+      var hubVal = t(hubTitle, lang);
+      if (hubVal) document.title = hubVal;
+    }
+
+    var descKey = bodyMetaKey("data-page-description-key", APP_PAGE_DESC_KEYS);
+    var ogTitleKey = bodyMetaKey("data-page-og-title-key", APP_PAGE_OG_TITLE_KEYS);
+    var ogDescKey = bodyMetaKey("data-page-og-description-key", APP_PAGE_OG_DESC_KEYS);
+    if (descKey) setMetaContent('meta[name="description"]', t(descKey, lang));
+    if (ogTitleKey) {
+      var ogT = t(ogTitleKey, lang);
+      setMetaContent('meta[property="og:title"]', ogT);
+      setMetaContent('meta[name="twitter:title"]', ogT);
+    }
+    if (ogDescKey) {
+      var ogD = t(ogDescKey, lang);
+      setMetaContent('meta[property="og:description"]', ogD);
+      setMetaContent('meta[name="twitter:description"]', ogD);
+    }
+  }
+
   function applyTheme(mode) {
     var prefersDark =
       window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -103,8 +170,7 @@
       if (val) el.setAttribute("aria-label", val);
     });
 
-    var titleKey = document.body.getAttribute("data-page-title-key") || "meta.title";
-    document.title = t(titleKey, lang);
+    applyPageDocumentMeta(lang);
 
     syncLangControl(lang);
     syncThemeControl(localStorage.getItem(THEME_KEY) || "system");

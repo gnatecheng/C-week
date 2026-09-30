@@ -151,7 +151,7 @@ window.ETAI_TRANSLATIONS = {
       "可在电脑上安装 VS Code 与 C 语言编译环境，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C一周通开源仓库</a> 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。",
     "qjz.hero.title": "轻记账",
     "qjz.hero.lead":
-      "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
+      "个人记账 Android 应用。数据<strong>只存在你的手机里</strong>，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
     "qjz.hero.downloadApk": "下载最新 APK",
     "qjz.hero.viewGithub": "查看源码",
     "qjz.hero.gallery.ariaLabel": "轻记账应用截图",
@@ -203,7 +203,7 @@ window.ETAI_TRANSLATIONS = {
       "支持浅色 / 深色 / 跟随系统主题（我的 → 设置）。首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。",
     "class.hero.title": "团团记",
     "class.hero.lead":
-      "面向任意小团体的 Android 事务记录应用：<strong>出勤、缴费、费用分摊、清单</strong>（社团、宿舍、小组等）。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
+      "面向任意小团体的 Android 事务记录应用：<strong>出勤、缴费、费用分摊、清单</strong>（社团、宿舍、小组等）。数据只存在你的手机里，<strong>无需登录或联网</strong>。",
     "class.hero.downloadApk": "下载最新 APK",
     "class.hero.viewGithub": "查看源码",
     "class.hero.gallery.ariaLabel": "团团记应用截图",
@@ -280,6 +280,26 @@ window.ETAI_TRANSLATIONS = {
     "appPage.section.changelog": "更新记录",
     "appPage.section.changelogLead": "完整记录见",
     "appPage.changelog.allReleases": "GitHub Releases",
+    "appPage.sectionNav.label": "本页章节",
+    "appPage.sectionNav.features": "功能",
+    "appPage.sectionNav.roadmap": "7 天路线",
+    "appPage.sectionNav.screenshots": "截图",
+    "appPage.sectionNav.privacy": "隐私",
+    "appPage.sectionNav.requirements": "系统要求",
+    "appPage.sectionNav.changelog": "更新记录",
+    "appPage.sectionNav.faq": "常见问题",
+    "appPage.moreEtaiApps": "查看更多 Etai 应用 →",
+    "app.easyLedger.footer.copyright": "© Etai 应用集 · 轻记账 · 开源安卓应用",
+    "app.groupMatters.footer.copyright": "© Etai 应用集 · 团团记 · 开源安卓应用",
+    "app.cWeek.footer.copyright": "© Etai 应用集 · C一周通 · 开源安卓应用",
+    "app.easyLedger.faq.installTips.body":
+      "轻记账需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先使用应用内备份。若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。",
+    "app.groupMatters.faq.installTips.body":
+      "团团记需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先使用应用内 zip 备份。若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。",
+    "app.groupMatters.faq.requirements.body":
+      "Android 8.0 及以上。当前正式版 v1.5.2，安装包约 13.1 MB（以 GitHub Releases 为准）。",
+    "app.cWeek.faq.installTips.body":
+      "C一周通需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除学习进度等本机数据</strong>，如有导出功能请先备份。",
     "app.easyLedger.privacy.body":
       "<p>记账流水、分类、账户、预算与提醒设置都保存在本机，无需注册账号，也没有云同步。</p><p>记账时可拍照或从相册选择收据，照片只存在您的手机里，可随时更换或删除。</p><p>应用未声明联网权限，日常记账不需要联网。备份、恢复或导出 CSV/JSON 只有您主动操作时才会生成文件，并通过系统分享或「另存为」离开本机。</p>",
     "app.easyLedger.requirements.body":
@@ -319,11 +339,12 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.changelog.140.2": "学习报告：连续打卡、分天完成度、测验正确率。",
     "app.cWeek.changelog.140.3": "学习日历 / 打卡（1.3.0 能力延续与增强）。",
     "app.cWeek.changelog.130.1": "学习日历 / 打卡：D1–D7 按天点亮，完成课文 / 实验 / 测验自动盖章。",
+    "app.easyLedger.headerTagline": "离线记账，数据只存本机",
     "app.easyLedger.tagline":
-      "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
+      "无需注册的个人记账 Android 应用，流水和预算只存在你的手机里，不用注册账号，也不上传云端。",
     "app.easyLedger.meta.title": "轻记账｜离线记账 Android App",
     "app.easyLedger.meta.description":
-      "轻记账：免费开源离线 Android 记账应用，Room 本地存储，预算与分类统计，无需登录。下载 APK。",
+      "轻记账：免费开源离线 Android 记账应用，数据只存本机，预算与分类统计，无需登录。下载 APK。",
     "app.easyLedger.meta.ogTitle": "轻记账 — 离线记账 Android App",
     "app.easyLedger.meta.ogDescription": "个人记账数据只存本机，无账号、无云同步。GitHub 开源 APK。",
     "app.easyLedger.highlight.1": "流水明细、搜索与筛选，支持拍照记账",
@@ -340,6 +361,7 @@ window.ETAI_TRANSLATIONS = {
     "app.easyLedger.faq.backup.title": "如何备份数据？",
     "app.easyLedger.faq.backup.body":
       "应用内提供数据备份 / 恢复（zip）与 CSV 导出；备份文件只有你主动分享或保存时才会离开本机。",
+    "app.groupMatters.headerTagline": "小团体事务，离线记清楚",
     "app.groupMatters.tagline":
       "任何小团体（社团、寝室、兴趣小组、球队、家庭/朋友聚会、班级）的点名、收团费、AA 分摊和清单，一个离线 App 记清楚，催缴文案一键发群。",
     "app.groupMatters.meta.title": "团团记｜离线小团体事务 Android",
@@ -364,6 +386,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.sync.title": "能否多人同步或协同编辑？",
     "app.groupMatters.faq.sync.body":
       "不能。团团记是单机离线应用，没有账号、服务器或多设备同步；如需换机请使用应用内的 zip 备份 / 恢复。",
+    "app.cWeek.headerTagline": "七天学 C，全程可离线",
     "app.cWeek.tagline": "7 天把编程初学者带到能用 C 写出 Dijkstra 最短路；课文含 VS Code 屏幕录像，Kotlin + Jetpack Compose，全程可离线学习。",
     "app.cWeek.meta.title": "C一周通｜7 天学 C 语言 Android",
     "app.cWeek.meta.description":
@@ -549,7 +572,7 @@ window.ETAI_TRANSLATIONS = {
       "Install VS Code and a C toolchain on your computer and follow along via the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.",
     "qjz.hero.title": "Easy Ledger",
     "qjz.hero.lead":
-      "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
+      "A personal finance Android app. Data <strong>stays on your phone</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
     "qjz.hero.downloadApk": "Download latest APK",
     "qjz.hero.viewGithub": "View source",
     "qjz.hero.gallery.ariaLabel": "Easy Ledger app screenshots",
@@ -604,7 +627,7 @@ window.ETAI_TRANSLATIONS = {
       "Light, dark, or system theme under Me → Settings. First launch adds sample entries—clear or restore under Me → Reminder settings.",
     "class.hero.title": "Group Matters",
     "class.hero.lead":
-      "Offline Android app for any small group—<strong>attendance, fee collection, cost splits, checklists</strong> (club, dorm, team, and more). Data stays on device (Room), <strong>no account or network required</strong>.",
+      "Offline Android app for any small group—<strong>attendance, fee collection, cost splits, checklists</strong> (club, dorm, team, and more). Data stays on your phone, <strong>no account or network required</strong>.",
     "class.hero.downloadApk": "Download latest APK",
     "class.hero.viewGithub": "View source",
     "class.hero.gallery.ariaLabel": "Group Matters app screenshots",
@@ -685,6 +708,26 @@ window.ETAI_TRANSLATIONS = {
     "appPage.section.changelog": "Release history",
     "appPage.section.changelogLead": "Full history on",
     "appPage.changelog.allReleases": "GitHub Releases",
+    "appPage.sectionNav.label": "On this page",
+    "appPage.sectionNav.features": "Features",
+    "appPage.sectionNav.roadmap": "7-day path",
+    "appPage.sectionNav.screenshots": "Screenshots",
+    "appPage.sectionNav.privacy": "Privacy",
+    "appPage.sectionNav.requirements": "Requirements",
+    "appPage.sectionNav.changelog": "Changelog",
+    "appPage.sectionNav.faq": "FAQ",
+    "appPage.moreEtaiApps": "More Etai apps →",
+    "app.easyLedger.footer.copyright": "© Etai Apps · Easy Ledger · Open-source Android app",
+    "app.groupMatters.footer.copyright": "© Etai Apps · Group Matters · Open-source Android app",
+    "app.cWeek.footer.copyright": "© Etai Apps · C Week · Open-source Android app",
+    "app.easyLedger.faq.installTips.body":
+      "Easy Ledger requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first using in-app backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.",
+    "app.groupMatters.faq.installTips.body":
+      "Group Matters requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first using in-app zip backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.",
+    "app.groupMatters.faq.requirements.body":
+      "Android 8.0 or newer. Current signed release v1.5.2, about 13.1 MB (see GitHub Releases).",
+    "app.cWeek.faq.installTips.body":
+      "C Week requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device progress and data</strong>, so export or back up first if the app offers it.",
     "app.easyLedger.privacy.body":
       "<p>Transactions, categories, accounts, budgets, and reminders stay on your phone—no sign-up and no cloud sync.</p><p>When you log spending, you can attach a receipt photo from the camera or gallery; photos stay on the device and can be replaced or deleted.</p><p>The app does not request the Internet permission—everyday budgeting works offline. Backup, restore, and CSV/JSON export only create files when you choose to, and they leave the phone only if you share or save them.</p>",
     "app.easyLedger.requirements.body":
@@ -724,11 +767,12 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.changelog.140.2": "Learning report: streak, per-day completion, quiz accuracy.",
     "app.cWeek.changelog.140.3": "Study calendar / check-in (extends 1.3.0 behavior).",
     "app.cWeek.changelog.130.1": "Study calendar / check-in: stamp D1–D7 when lesson, lab, or quiz completes.",
+    "app.easyLedger.headerTagline": "Offline budgeting on device",
     "app.easyLedger.tagline":
-      "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
+      "Private budgeting on Android—entries and budgets stay on your phone, with no sign-up or cloud sync.",
     "app.easyLedger.meta.title": "Easy Ledger — Offline budgeting Android app",
     "app.easyLedger.meta.description":
-      "Easy Ledger: free open-source offline Android budgeting app, local Room storage, budgets and category stats, no login.",
+      "Easy Ledger: free open-source offline Android budgeting app, data stays on device, budgets and category stats, no login.",
     "app.easyLedger.meta.ogTitle": "Easy Ledger — Offline budgeting Android app",
     "app.easyLedger.meta.ogDescription": "Your ledger stays on device—no account, no cloud sync. Open-source APK on GitHub.",
     "app.easyLedger.highlight.1": "Entry list with search and filters; optional photo receipts",
@@ -745,6 +789,7 @@ window.ETAI_TRANSLATIONS = {
     "app.easyLedger.faq.backup.title": "How do I back up data?",
     "app.easyLedger.faq.backup.body":
       "In-app backup / restore (zip) and CSV export; backup files leave your device only when you share or save them.",
+    "app.groupMatters.headerTagline": "Offline group admin on device",
     "app.groupMatters.tagline":
       "Roll call, group-fund collection, cost splits, and checklists for any small group—one offline app, reminder text ready to paste into group chat.",
     "app.groupMatters.meta.title": "Group Matters — Offline group admin Android app",
@@ -770,6 +815,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.sync.title": "Can multiple people sync or edit together?",
     "app.groupMatters.faq.sync.body":
       "No. Group Matters is single-device offline software—no accounts, server, or multi-device sync. Use zip backup / restore to move to a new phone.",
+    "app.cWeek.headerTagline": "Learn C offline in seven days",
     "app.cWeek.tagline": "Learn C on your phone, offline — Hello World to Dijkstra.",
     "app.cWeek.meta.title": "C Week — Learn C offline on Android app",
     "app.cWeek.meta.description":

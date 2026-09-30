@@ -56,7 +56,7 @@ async function main() {
   );
 
   html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=27");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=30");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=35");
 
   await writeFile(indexPath, html, "utf8");
   console.log("Slimmed site/index.html");

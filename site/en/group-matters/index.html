@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Group Matters — Offline group admin Android app</title>
-    <meta name="description" content="Group Matters (团团记): offline Android app for attendance, group-fund fees, splits, and checklists—data stays on the organizer’s phone." />
+    <meta name="description" content="Group Matters (团团记): offline Android app for attendance, group-fund fees, splits, and checklists—data stays on the organizer’s phone." data-i18n-content="app.groupMatters.meta.description" />
     <link rel="alternate" hreflang="zh-CN" href="https://etais.dev/group-matters/" />
     <link rel="alternate" hreflang="en" href="https://etais.dev/en/group-matters/" />
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/group-matters/" />
@@ -14,12 +14,12 @@
     <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=4"></script>
-    <link rel="stylesheet" href="/css/style.css?v=27" />
+    <link rel="stylesheet" href="/css/style.css?v=31" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai Apps" />
     <meta property="og:url" content="https://etais.dev/en/group-matters/" />
-    <meta property="og:title" content="Group Matters — Offline group admin app" />
-    <meta property="og:description" content="Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app." />
+    <meta property="og:title" content="Group Matters — Offline group admin app" data-i18n-content="app.groupMatters.meta.ogTitle" />
+    <meta property="og:description" content="Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app." data-i18n-content="app.groupMatters.meta.ogDescription" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_CN" />
     <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
@@ -27,13 +27,31 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Group Matters — Offline group admin app" />
-    <meta name="twitter:description" content="Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app." />
+    <meta name="twitter:title" content="Group Matters — Offline group admin app" data-i18n-content="app.groupMatters.meta.ogTitle" />
+    <meta name="twitter:description" content="Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app." data-i18n-content="app.groupMatters.meta.ogDescription" />
     <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
     <script type="application/ld+json" id="structured-data">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://etais.dev/en/group-matters/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Etai Apps",
+          "item": "https://etais.dev/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Group Matters",
+          "item": "https://etais.dev/en/group-matters/"
+        }
+      ]
+    },
     {
       "@type": "SoftwareApplication",
       "@id": "https://etais.dev/en/group-matters/#app",
@@ -67,7 +85,7 @@
           "name": "Install tips (Android version, unknown sources, upgrades)",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
+            "text": "Group Matters requires Android 8.0 or newer . Download the signed release APK from GitHub Releases . On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first using in-app zip backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
           }
         },
         {
@@ -75,7 +93,7 @@
           "name": "What are the system requirements?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably."
+            "text": "Android 8.0 or newer. Current signed release v1.5.2, about 13.1 MB (see GitHub Releases)."
           }
         },
         {
@@ -108,41 +126,56 @@
 }
     </script>
   </head>
-  <body data-page-lang="en" data-app-slug="group-matters">
+  <body data-page-lang="en" data-app-slug="group-matters" data-app-accent="class" class="app-subpage" data-page-title-key="app.groupMatters.meta.title" data-page-description-key="app.groupMatters.meta.description" data-page-og-title-key="app.groupMatters.meta.ogTitle" data-page-og-description-key="app.groupMatters.meta.ogDescription">
+    <div id="page-top" class="page-top-anchor" tabindex="-1"></div>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <header class="site-header">
-      <div class="wrap header-shell">
-        <div class="brand-block">
-          <a class="brand" href="/en/">
-            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="Etai" />
-            <span>Etai Apps</span>
+    <div class="site-sticky-top">
+    <header class="site-header app-page-header">
+      <div class="wrap header-shell app-page-header-shell">
+        <div class="app-header-brand-block">
+          <a class="app-header-brand" href="#page-top">
+            <img
+              class="app-header-brand__icon"
+              src="/assets/app-icons/group-matters.webp?v=3"
+              width="36"
+              height="36"
+              alt=""
+              decoding="async"
+              aria-hidden="true"
+            />
+            <span class="app-header-brand__text">
+              <span class="app-header-brand__name">Group Matters</span>
+              <span class="app-header-brand__tagline">Offline group admin on device</span>
+            </span>
           </a>
-          <p class="brand-tagline">
-            <span class="brand-tagline-full">Offline · Data stays on device</span>
-            <span class="brand-tagline-short">Offline · On-device</span>
-          </p>
         </div>
-        <nav class="header-nav" aria-label="Page sections">
-          <div class="header-nav-inner">
-            <a class="app-chip chip-qjz" href="/en/easy-ledger/"><span class="chip-badge" aria-hidden="true">账</span><span>Easy Ledger</span></a>
-            <a class="app-chip chip-class" href="/en/group-matters/" aria-current="page"><span class="chip-badge" aria-hidden="true">团</span><span>Group Matters</span></a>
-            <a class="app-chip chip-cweek" href="/en/c-week/"><span class="chip-badge" aria-hidden="true">C</span><span>C Week</span></a>
-            <a class="nav-link" href="#faq">FAQ</a>
-          </div>
-        </nav>
         <div class="header-tools">
           <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
             <button type="button" id="lang-zh" aria-pressed="false">中文</button>
             <button type="button" id="lang-en" aria-pressed="true">English</button>
           </div>
           <button type="button" id="theme-toggle" aria-label="Theme">
-            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
             <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </button>
         </div>
       </div>
     </header>
+    <nav class="app-section-nav" id="app-section-nav" aria-label="On this page">
+      <div class="app-section-nav__track">
+        <div class="app-section-nav__inner wrap">
+            <a href="#features" data-section-nav="features">Features</a>
+            <a href="#screenshots" data-section-nav="screenshots">Screenshots</a>
+            <a href="#privacy" data-section-nav="privacy">Privacy</a>
+            <a href="#requirements" data-section-nav="requirements">Requirements</a>
+            <a href="#changelog" data-section-nav="changelog">Changelog</a>
+            <a href="#faq" data-section-nav="faq">FAQ</a>
+            <a class="app-section-nav__hub" href="/en/">More Etai apps →</a>
+        </div>
+      </div>
+    </nav>
+    </div>
     <main id="main">
       <section class="project project-class" data-group="group-matters" aria-labelledby="groupmatters-title">
 <div class="wrap">
@@ -439,10 +472,10 @@
           </div>
         </div>
       </section>
-      <section id="faq" data-group="faq">
+      <section id="faq" class="app-page-block" data-group="faq" aria-labelledby="faq-title">
         <div class="wrap">
           <header class="section-head">
-            <h2>FAQ</h2>
+            <h2 id="faq-title">FAQ</h2>
           </header>
           <div class="faq-list">
             <article class="faq-item">
@@ -451,11 +484,11 @@
             </article>
             <article class="faq-item">
               <h3>Install tips (Android version, unknown sources, upgrades)</h3>
-              <div class="faq-body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
+              <div class="faq-body">Group Matters requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first using in-app zip backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
             </article>
             <article class="faq-item">
               <h3>What are the system requirements?</h3>
-              <p>All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably.</p>
+              <p>Android 8.0 or newer. Current signed release v1.5.2, about 13.1 MB (see GitHub Releases).</p>
             </article>
             <article class="faq-item">
               <h3>Do I need the internet?</h3>
@@ -473,30 +506,21 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer">
+    <footer class="site-footer app-page-footer">
       <div class="wrap inner">
-        <p>© Etai Apps · Easy Ledger / Group Matters / C Week · Open-source Android apps</p>
-        <p class="footer-links">
-          <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
-            ><span>c-week</span></a
-          >
-          <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
-            ><span>easy-ledger</span></a
-          >
-          <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
+        <p class="footer-copy">© Etai Apps · Group Matters · Open-source Android app</p>
+        <div class="footer-actions">
+          <a class="footer-repo-link" href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
               ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>group-matters</span></a
           >
-        </p>
+        </div>
       </div>
     </footer>
-    <script src="/js/translations.js?v=30" defer></script>
-    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/translations.js?v=35" defer></script>
+    <script src="/js/site.js?v=11" defer></script>
+    <script src="/js/app-section-nav.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=10" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>

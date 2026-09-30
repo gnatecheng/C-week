@@ -65,6 +65,9 @@ print("hub FAQ removed en: OK")
 h1_count("site/en/index.html")
 print("h1 en index: OK")
 
+def strip_scripts(html):
+    return re.sub(r"<script\b[\s\S]*?</script>", "", html, flags=re.I)
+
 APP_PAGES = [
     ("site/easy-ledger/index.html", "zh"),
     ("site/en/easy-ledger/index.html", "en"),
@@ -73,6 +76,90 @@ APP_PAGES = [
     ("site/c-week/index.html", "zh"),
     ("site/en/c-week/index.html", "en"),
 ]
+
+SUBPAGE_TITLE_KEYS = {
+    "site/easy-ledger/index.html": "app.easyLedger.meta.title",
+    "site/en/easy-ledger/index.html": "app.easyLedger.meta.title",
+    "site/group-matters/index.html": "app.groupMatters.meta.title",
+    "site/en/group-matters/index.html": "app.groupMatters.meta.title",
+    "site/c-week/index.html": "app.cWeek.meta.title",
+    "site/en/c-week/index.html": "app.cWeek.meta.title",
+}
+
+SUBPAGE_CROSS_APP = {
+    "site/easy-ledger/index.html": {
+        "slug": "easy-ledger",
+        "forbidden": [
+            "group-matters", "c-week", "团团记", "C一周通",
+            "Group Matters", "C Week",
+            "gnatecheng/group-matters", "gnatecheng/c-week",
+        ],
+    },
+    "site/en/easy-ledger/index.html": {
+        "slug": "easy-ledger",
+        "forbidden": [
+            "group-matters", "c-week", "团团记", "C一周通",
+            "Group Matters", "C Week",
+            "gnatecheng/group-matters", "gnatecheng/c-week",
+        ],
+    },
+    "site/group-matters/index.html": {
+        "slug": "group-matters",
+        "forbidden": [
+            "easy-ledger", "c-week", "轻记账", "C一周通",
+            "Easy Ledger", "C Week",
+            "gnatecheng/easy-ledger", "gnatecheng/c-week",
+        ],
+    },
+    "site/en/group-matters/index.html": {
+        "slug": "group-matters",
+        "forbidden": [
+            "easy-ledger", "c-week", "轻记账", "C一周通",
+            "Easy Ledger", "C Week",
+            "gnatecheng/easy-ledger", "gnatecheng/c-week",
+        ],
+    },
+    "site/c-week/index.html": {
+        "slug": "c-week",
+        "forbidden": [
+            "easy-ledger", "group-matters", "轻记账", "团团记",
+            "Easy Ledger", "Group Matters",
+            "gnatecheng/easy-ledger", "gnatecheng/group-matters",
+        ],
+    },
+    "site/en/c-week/index.html": {
+        "slug": "c-week",
+        "forbidden": [
+            "easy-ledger", "group-matters", "轻记账", "团团记",
+            "Easy Ledger", "Group Matters",
+            "gnatecheng/easy-ledger", "gnatecheng/group-matters",
+        ],
+    },
+}
+
+def subpage_no_cross_app(path):
+    cfg = SUBPAGE_CROSS_APP[path]
+    html = strip_scripts(pathlib.Path(path).read_text(encoding="utf-8"))
+    for needle in cfg["forbidden"]:
+        assert needle not in html, f"subpage {path} must not mention other app ({needle!r})"
+    chips = len(re.findall(r'class="app-chip\b', html))
+    assert chips == 0, f"app chip must be removed from subpage header on {path}, got {chips}"
+    assert 'class="app-header-brand"' in html, f"missing app header brand on {path}"
+    assert 'class="app-section-nav__hub"' in html, f"missing hub link in section nav on {path}"
+    assert "footer-hub-link" not in html, f"hub link must not remain in footer on {path}"
+    assert 'data-app-slug="' + cfg["slug"] + '"' in html, f"missing data-app-slug in {path}"
+    assert "BreadcrumbList" in pathlib.Path(path).read_text(encoding="utf-8"), f"missing BreadcrumbList JSON-LD in {path}"
+    assert 'id="app-section-nav"' in html, f"missing section nav in {path}"
+    assert 'href="#features"' in html and 'href="#faq"' in html, f"section nav anchors missing in {path}"
+    header_part = html.split("<main", 1)[0]
+    assert 'class="nav-link" href="#faq"' not in header_part, f"FAQ must not stay in header nav on {path}"
+    if cfg["slug"] == "c-week":
+        assert 'href="#roadmap"' in html, f"c-week subpage needs roadmap nav link: {path}"
+    else:
+        assert 'href="#roadmap"' not in html, f"non-c-week subpage must not have roadmap nav: {path}"
+    title_key = SUBPAGE_TITLE_KEYS.get(path)
+    assert title_key, f"missing title key mapping for {path}"
+    assert f'data-page-title-key="{title_key}"' in html, f"wrong data-page-title-key on {path}"
 
 for path, lang in APP_PAGES:
     p = pathlib.Path(path)
@@ -84,14 +171,12 @@ for path, lang in APP_PAGES:
     assert h1 == 1, f"expected 1 h1 in {path}, got {h1}"
     jsonld_ok(path)
     assert f'lang="{lang}"' in html or (lang == "zh" and 'lang="zh-CN"' in html), f"html lang in {path}"
+    subpage_no_cross_app(path)
     print(f"app page OK: {path}")
 
 WHITELIST = [
     "中文", "轻记账", "团团记", "C一周通", "Etai 应用集", "账", "团",
 ]
-
-def strip_scripts(html):
-    return re.sub(r"<script\b[\s\S]*?</script>", "", html, flags=re.I)
 
 def unexpected_cjk(text):
     chars = [c for c in text if "\u4e00" <= c <= "\u9fff"]
