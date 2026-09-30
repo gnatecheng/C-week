@@ -1,6 +1,6 @@
 **English** | [中文](README.zh-CN.md)
 
-[Homepage: Etai Apps — C Week section](https://etai.chengyitang.workers.dev/#cweek)
+[Homepage: Etai Apps — C Week section](https://etais.dev/#cweek)
 
 # C Week
 
@@ -11,7 +11,7 @@ Lesson IDE demos are **real VS Code screen recordings** (H.264, bundled in the A
 
 ## Homepage
 
-The static **Etai Apps** landing page (C Week features, 7-day path, download links, and two sibling apps) lives at **https://etai.chengyitang.workers.dev**.  
+The static **Etai Apps** landing page (C Week features, 7-day path, download links, and two sibling apps) lives at **https://etais.dev**.  
 Source is in [`site/`](site/). The page supports **Chinese / English** (toggle top-right; preference in `localStorage`) and **light / dark / system** theme. App version labels are fetched from GitHub Releases when possible (HTML fallbacks if the API fails).
 
 ### Site deploy (Cloudflare Worker `etai`)
