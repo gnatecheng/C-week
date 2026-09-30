@@ -2,7 +2,7 @@
   "available": {
     "cweek": ["zh/light", "zh/dark", "en/light", "en/dark"],
     "qingjizhang": ["zh/light", "zh/dark", "en/light", "en/dark"],
-    "class-record": ["zh/light"]
+    "class-record": ["zh/light", "zh/dark", "en/light", "en/dark"]
   },
   "legacyZhLight": true
 }

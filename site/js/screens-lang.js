@@ -3,8 +3,8 @@
   "use strict";
 
   var SCREEN_ROOT = "/assets/screens/";
-  var MANIFEST_URL = "/assets/screens/manifest.json?v=5";
-  var IMG_VER = "10";
+  var MANIFEST_URL = "/assets/screens/manifest.json?v=6";
+  var IMG_VER = "11";
 
   var manifest = null;
   var manifestReady = null;
@@ -60,7 +60,7 @@
             available: {
               cweek: ["zh/light"],
               qingjizhang: ["zh/light", "zh/dark", "en/light", "en/dark"],
-              "class-record": ["zh/light"],
+              "class-record": ["zh/light", "zh/dark", "en/light", "en/dark"],
             },
             legacyZhLight: true,
           };

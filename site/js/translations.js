@@ -2,13 +2,13 @@ window.ETAI_TRANSLATIONS = {
   zh: {
     "meta.title": "Etai 应用集 — 轻记账 · 多人事务 · C一周通",
     "meta.description":
-      "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）、C一周通（7 天学会 C，版本 1.5.0）。",
+      "Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：轻记账（个人记账，版本 1.3.1）、多人事务（任意小团体出勤、缴费、分摊、清单，版本 1.5.1）、C一周通（7 天学会 C，版本 1.5.0）。",
     "meta.ogTitle": "轻记账 · 多人事务 · C一周通",
     "meta.ogDescription":
-      "三款离线 Android 应用：个人记账、班级与小组事务、C 语言入门，数据只存本机。",
+      "三款离线 Android 应用：个人记账、小团体事务、C 语言入门，数据只存本机。",
     "meta.twitterTitle": "轻记账 · 多人事务 · C一周通",
     "meta.twitterDescription":
-      "三款离线 Android 应用：个人记账、班级与小组事务、C 语言入门，数据只存本机。",
+      "三款离线 Android 应用：个人记账、小团体事务、C 语言入门，数据只存本机。",
     "meta.versionLabel": "版本",
     "meta.updatedLabel": "更新",
     "skipLink": "跳到主要内容",
@@ -131,7 +131,7 @@ window.ETAI_TRANSLATIONS = {
       "三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。",
     "faq.offline.title": "需要联网吗？",
     "faq.offline.body":
-      "日常使用不需要联网，数据保存在本机：C一周通的课文、演示视频与实验数据打包在 APK 内，学习进度等存在 DataStore；轻记账的流水与设置在 Room（SQLite）中；多人事务的班级与事务数据在 Room 中。均无登录或必需的后端服务。",
+      "日常使用不需要联网，数据保存在本机：C一周通的课文、演示视频与实验数据打包在 APK 内，学习进度等存在 DataStore；轻记账的流水与设置在 Room（SQLite）中；多人事务的团体与事务数据在 Room 中。均无登录或必需的后端服务。",
     "faq.compile.title": "C一周通会在手机上编译 C 吗？",
     "faq.compile.body":
       "不会。C一周通使用离线模拟评测（多组用例 + 规则检查 + 错因提示），部分通过会显示分数，全部通过才记实验完成；手机端无需安装 gcc。",
@@ -192,18 +192,18 @@ window.ETAI_TRANSLATIONS = {
       "另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。",
     "class.hero.title": "多人事务",
     "class.hero.lead":
-      "单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
+      "面向任意小团体的 Android 事务记录应用：<strong>出勤、缴费、费用分摊、清单</strong>（班级、社团、宿舍、小组等）。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
     "class.hero.downloadApk": "下载最新 APK",
     "class.hero.viewGithub": "查看源码",
     "class.hero.gallery.ariaLabel": "多人事务应用截图",
-    "class.hero.gallery.s01.alt": "多人事务首页，班级与事务列表",
-    "class.hero.gallery.s01.caption": "首页 · 班级与事务列表",
-    "class.hero.gallery.s02.alt": "多人事务出勤点名，已到与请假状态",
-    "class.hero.gallery.s02.caption": "出勤点名 · 连续到课进度",
-    "class.hero.gallery.s03.alt": "多人事务缴费事务，仅未完成筛选",
-    "class.hero.gallery.s03.caption": "缴费 · 未完成提醒与应缴",
-    "class.hero.gallery.s04.alt": "多人事务班费账本，收支流水与余额",
-    "class.hero.gallery.s04.caption": "班费账本 · 收支与余额",
+    "class.hero.gallery.s01.alt": "多人事务首页，团体概况与进行中事务",
+    "class.hero.gallery.s01.caption": "首页 · 团体与进行中事务",
+    "class.hero.gallery.s02.alt": "多人事务早自习点名，未到与已到状态",
+    "class.hero.gallery.s02.caption": "早自习点名 · 到课进度",
+    "class.hero.gallery.s03.alt": "多人事务秋游费用缴费，仅未完成筛选",
+    "class.hero.gallery.s03.caption": "秋游费用 · 未完成催缴",
+    "class.hero.gallery.s04.alt": "多人事务团费账本，当前余额与收支流水",
+    "class.hero.gallery.s04.caption": "团费账本 · 余额与流水",
     "class.hero.gallery.s05.alt": "多人事务成员名单管理",
     "class.hero.gallery.s05.caption": "成员 · 12 人名单与学号",
     "class.featuresHeading": "主要功能",
@@ -212,17 +212,17 @@ window.ETAI_TRANSLATIONS = {
     "class.features.members.body":
       "成员增删改、软归档（学号、备注可选）；批量粘贴导入，支持学号在前、Tab 粘贴，重名/同学号会提示；可恢复已归档成员并保留历史事务。",
     "class.features.groups.tag": "团体",
-    "class.features.groups.title": "班内小团体",
+    "class.features.groups.title": "团内小团体",
     "class.features.groups.body":
-      "多选成员组成团体，一人可属于多个团体；事务范围可选全班或某个小团体（空团体不能作为事务范围）。",
+      "多选成员组成小团体，一人可属于多个小团体；事务范围可选全团或某个小团体（空团体不能作为事务范围）。",
     "class.features.activities.tag": "事务",
     "class.features.activities.title": "四种事务",
     "class.features.activities.body":
-      "出勤 / 缴费 / 分摊 / 清单；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。",
+      "出勤 / 缴费 / 分摊 / 清单；范围可选全团或某个小团体；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。",
     "class.features.split.tag": "分摊",
     "class.features.split.title": "灵活分摊",
     "class.features.split.body":
-      "金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除同学、按权重或固定金额分摊。",
+      "金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除成员、按权重或固定金额分摊。",
     "class.features.progress.tag": "进度",
     "class.features.progress.title": "进度与点名",
     "class.features.progress.body":
@@ -231,10 +231,10 @@ window.ETAI_TRANSLATIONS = {
     "class.features.reminders.title": "摘要与催缴文案",
     "class.features.reminders.body":
       "复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。",
-    "class.features.ledger.tag": "班费",
-    "class.features.ledger.title": "班费账本",
+    "class.features.ledger.tag": "团费",
+    "class.features.ledger.title": "团费账本",
     "class.features.ledger.body":
-      "收入/支出流水与余额；缴费事务可将已收合计记入班费；缴费/分摊可附加备注与图片凭证。",
+      "收入/支出流水与余额；缴费事务可将已收合计记入团费；缴费/分摊可附加备注与图片凭证。",
     "class.features.backup.tag": "备份",
     "class.features.backup.title": "备份与导出",
     "class.features.backup.body": "数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。",
@@ -242,7 +242,7 @@ window.ETAI_TRANSLATIONS = {
     "class.features.widget.title": "未完成人数小组件",
     "class.features.widget.body": "显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。",
     "class.foot":
-      "首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。",
+      "首页可按标题搜索事务、筛选进行中 / 已归档；新建事务与再开一期提供点名、团费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。",
     "footer.copyright": "© Etai 应用集 · 轻记账 / 多人事务 / C一周通 · 开源 Android 应用",
     "footer.linkCweek": "c-week",
     "footer.linkQjz": "easy-ledger",
@@ -267,7 +267,7 @@ window.ETAI_TRANSLATIONS = {
   en: {
     "meta.title": "Etai Apps — Easy Ledger · Group Matters · C Week",
     "meta.description":
-      "Etai Apps features three offline-first Android apps that keep data on your device: Easy Ledger (local personal finance, v1.3.1), Group Matters (attendance, fees, splits, checklists, v1.5.0), and C Week (learn C in 7 days, v1.5.0).",
+      "Etai Apps features three offline-first Android apps that keep data on your device: Easy Ledger (local personal finance, v1.3.1), Group Matters (attendance, fees, splits, checklists for any small group, v1.5.1), and C Week (learn C in 7 days, v1.5.0).",
     "meta.ogTitle": "Easy Ledger · Group Matters · C Week",
     "meta.ogDescription":
       "Three offline Android apps: personal ledger, group activities, and C learning—data stays on your device.",
@@ -404,7 +404,7 @@ window.ETAI_TRANSLATIONS = {
       "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.",
     "faq.offline.title": "Do I need the internet?",
     "faq.offline.body":
-      "No for everyday use—data stays on your device. C Week ships lessons, demo videos, and lab data in the APK; progress lives in DataStore. Easy Ledger stores entries and settings in Room (SQLite). Group Matters stores class and activity data in Room. None require login or a mandatory backend.",
+      "No for everyday use—data stays on your device. C Week ships lessons, demo videos, and lab data in the APK; progress lives in DataStore. Easy Ledger stores entries and settings in Room (SQLite). Group Matters stores group and activity data in Room. None require login or a mandatory backend.",
     "faq.compile.title": "Does C Week compile C on the phone?",
     "faq.compile.body":
       "No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone.",
@@ -468,18 +468,18 @@ window.ETAI_TRANSLATIONS = {
       "Dark mode toggle under Me / Settings; first launch seeds sample entries—clear or restore under Me → Reminder settings. Stack: Kotlin, Jetpack Compose, Material 3, Room, Navigation Compose.",
     "class.hero.title": "Group Matters",
     "class.hero.lead":
-      "Single-class Android admin: <strong>attendance, fees, cost splits, checklists</strong>. Data stays on device (Room), <strong>no login or network required</strong>.",
+      "Offline Android app for any small group—<strong>attendance, fee collection, cost splits, checklists</strong> (class, club, dorm, team, and more). Data stays on device (Room), <strong>no account or network required</strong>.",
     "class.hero.downloadApk": "Download latest APK",
     "class.hero.viewGithub": "View source",
     "class.hero.gallery.ariaLabel": "Group Matters app screenshots",
-    "class.hero.gallery.s01.alt": "Group Matters home with class and activity list",
-    "class.hero.gallery.s01.caption": "Home · Class and activities",
-    "class.hero.gallery.s02.alt": "Group Matters attendance with present and leave status",
-    "class.hero.gallery.s02.caption": "Attendance · Consecutive presence",
-    "class.hero.gallery.s03.alt": "Group Matters payment activity with incomplete-only filter",
-    "class.hero.gallery.s03.caption": "Payments · Incomplete reminders and amounts due",
-    "class.hero.gallery.s04.alt": "Group Matters class fund ledger with income, spending, balance",
-    "class.hero.gallery.s04.caption": "Class fund · Income, spending, balance",
+    "class.hero.gallery.s01.alt": "Group Matters home with group overview and active matters",
+    "class.hero.gallery.s01.caption": "Home · Group and active matters",
+    "class.hero.gallery.s02.alt": "Group Matters morning roll call with present and absent status",
+    "class.hero.gallery.s02.caption": "Morning roll call · Check-in progress",
+    "class.hero.gallery.s03.alt": "Group Matters autumn outing payment with incomplete-only filter",
+    "class.hero.gallery.s03.caption": "Autumn outing · Outstanding payments",
+    "class.hero.gallery.s04.alt": "Group Matters group fund ledger with balance and entries",
+    "class.hero.gallery.s04.caption": "Group fund · Balance and entries",
     "class.hero.gallery.s05.alt": "Group Matters member roster management",
     "class.hero.gallery.s05.caption": "Members · Roster and student IDs",
     "class.featuresHeading": "Main features",
@@ -488,17 +488,17 @@ window.ETAI_TRANSLATIONS = {
     "class.features.members.body":
       "Add/edit/archive members (optional student ID and notes); bulk paste import with ID-first Tab columns, warnings on duplicate names/IDs; restore archived members while keeping history.",
     "class.features.groups.tag": "Groups",
-    "class.features.groups.title": "Sub-groups in class",
+    "class.features.groups.title": "Sub-groups",
     "class.features.groups.body":
-      "Multi-select members into groups; one person can join several; activity scope is whole class or a group (empty groups cannot be selected).",
+      "Multi-select members into sub-groups; one person can join several; activity scope is the whole group or a sub-group (empty groups cannot be selected).",
     "class.features.activities.tag": "Activities",
     "class.features.activities.title": "Four activity types",
     "class.features.activities.body":
-      "Attendance / payment / split / checklist; member snapshot at creation—later roster changes do not alter history; “Start another round” re-snapshots the current roster.",
+      "Attendance / payment / split / checklist; scope is whole group or a sub-group; member snapshot at creation—later roster changes do not alter history; “Start another round” re-snapshots the current roster.",
     "class.features.split.tag": "Split",
     "class.features.split.title": "Flexible splits",
     "class.features.split.body":
-      "Amounts stored in cents, shown in yuan; remainder to first N people; exclude classmates, weight-based or fixed-amount splits.",
+      "Amounts stored in cents, shown as ¥ in the English UI; remainder to first N people; exclude members, weight-based or fixed-amount splits.",
     "class.features.progress.tag": "Progress",
     "class.features.progress.title": "Progress and roll call",
     "class.features.progress.body":
@@ -508,9 +508,9 @@ window.ETAI_TRANSLATIONS = {
     "class.features.reminders.body":
       "Copy summary / reminder text in WeChat-friendly format (one person per line with amounts); share or copy incomplete lists and CSV from details.",
     "class.features.ledger.tag": "Fund",
-    "class.features.ledger.title": "Class fund ledger",
+    "class.features.ledger.title": "Group fund ledger",
     "class.features.ledger.body":
-      "Income/expense ledger and balance; payment activities can post collected totals to the fund; notes and photo receipts on payments/splits.",
+      "Income/expense ledger and balance; payment activities can post collected totals to the group fund; notes and photo receipts on payments/splits.",
     "class.features.backup.tag": "Backup",
     "class.features.backup.title": "Backup and export",
     "class.features.backup.body":
@@ -520,7 +520,7 @@ window.ETAI_TRANSLATIONS = {
     "class.features.widget.body":
       "Shows incomplete counts for recent in-progress activities (total when several); tap opens the app.",
     "class.foot":
-      "Search activities by title on home; filter in progress / archived; quick title templates for roll call, class fund, dorm splits; Material 3 dark theme follows system or fixed light/dark. Stack: Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM.",
+      "Search activities by title on home; filter in progress / archived; quick title templates for roll call, group fund, dorm splits when creating activities or starting another round; Material 3 dark theme follows system or fixed light/dark. Stack: Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM.",
     "footer.copyright":
       "© Etai Apps · Easy Ledger / Group Matters / C Week · Open-source Android apps",
     "footer.linkCweek": "c-week",
