@@ -1,16 +1,17 @@
 window.ETAI_TRANSLATIONS = {
   zh: {
-    "meta.title": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
+    "meta.title": "Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记",
+    "meta.brandIconAlt": "Etai",
     "meta.description":
       "三款免费、离线、开源的 Android 应用：C一周通（7 天从 Hello World 学到 Dijkstra，含 VS Code 实操录像）、轻记账（无需注册的本地记账）、团团记（小团体点名、收费、费用分摊）。数据只存本机。",
     "meta.pageH1": "Etai 应用集：三款离线、数据只存本机的 Android 应用",
     "meta.pageH1Suffix": "：三款离线、数据只存本机的 Android 应用",
     "meta.siteName": "Etai 应用集",
-    "meta.ogTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
+    "meta.ogTitle": "Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记",
     "meta.ogDescription":
       "三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。",
     "meta.ogImageAlt": "Etai 应用集：C一周通、轻记账与团团记三款离线 Android 应用",
-    "meta.twitterTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
+    "meta.twitterTitle": "Etai 应用集｜离线安卓应用：7 天学 C 语言、记账、团团记",
     "meta.twitterDescription":
       "三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。",
     "langHint.message": "此页面为中文版。",
@@ -133,6 +134,9 @@ window.ETAI_TRANSLATIONS = {
     "download.scanOr": "或",
     "download.releasesNote": "GitHub Releases · 免费开源",
     "download.qrCaption": "扫码下载",
+    "download.qrAlt.easyLedger": "轻记账下载二维码",
+    "download.qrAlt.groupMatters": "团团记下载二维码",
+    "download.qrAlt.cWeek": "C一周通下载二维码",
     "faq.requirements.title": "系统要求是什么？",
     "faq.requirements.body":
       "三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。",
@@ -269,10 +273,10 @@ window.ETAI_TRANSLATIONS = {
     "appPage.highlightsTitle": "功能亮点",
     "app.easyLedger.tagline":
       "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
-    "app.easyLedger.meta.title": "轻记账｜离线本地记账 Android App · 隐私预算 · Etai",
+    "app.easyLedger.meta.title": "轻记账｜离线记账 Android App",
     "app.easyLedger.meta.description":
       "轻记账：免费开源离线 Android 记账应用，Room 本地存储，预算与分类统计，无需登录。下载 APK。",
-    "app.easyLedger.meta.ogTitle": "轻记账 — 离线本地记账 Android App",
+    "app.easyLedger.meta.ogTitle": "轻记账 — 离线记账 Android App",
     "app.easyLedger.meta.ogDescription": "个人记账数据只存本机，无账号、无云同步。GitHub 开源 APK。",
     "app.easyLedger.highlight.1": "流水明细、搜索与筛选，支持拍照记账",
     "app.easyLedger.highlight.2": "预算进度与超支提醒，分类统计与趋势",
@@ -290,10 +294,10 @@ window.ETAI_TRANSLATIONS = {
       "应用内提供数据备份 / 恢复（zip）与 CSV 导出；备份文件只有你主动分享或保存时才会离开本机。",
     "app.groupMatters.tagline":
       "任何小团体（社团、寝室、兴趣小组、球队、家庭/朋友聚会、班级）的点名、收团费、AA 分摊和清单，一个离线 App 记清楚，催缴文案一键发群。",
-    "app.groupMatters.meta.title": "团团记｜离线小团体点名团费分摊 Android App · Etai",
+    "app.groupMatters.meta.title": "团团记｜离线小团体事务 Android",
     "app.groupMatters.meta.description":
       "团团记（Group Matters）：离线 Android 小团体事务记录——出勤点名、团费收缴、费用分摊、清单；数据只存组织者手机。",
-    "app.groupMatters.meta.ogTitle": "团团记 — 离线小团体点名、团费与 AA 分摊",
+    "app.groupMatters.meta.ogTitle": "团团记 — 离线小团体事务 Android",
     "app.groupMatters.meta.ogDescription": "催缴文案一键复制；团费账本与 zip 备份；无联网权限，成员无需安装 App。",
     "app.groupMatters.highlight.1": "催缴文案一键复制，微信群可读格式",
     "app.groupMatters.highlight.2": "分摊支持排除成员、按权重或固定金额；金额按分存储，余数补给前 N 人",
@@ -313,7 +317,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.sync.body":
       "不能。团团记是单机离线应用，没有账号、服务器或多设备同步；如需换机请使用应用内的 zip 备份 / 恢复。",
     "app.cWeek.tagline": "7 天把编程初学者带到能用 C 写出 Dijkstra 最短路；课文含 VS Code 屏幕录像，Kotlin + Jetpack Compose，全程可离线学习。",
-    "app.cWeek.meta.title": "C一周通｜7 天学 C 语言 Android App · Hello World 到 Dijkstra · Etai",
+    "app.cWeek.meta.title": "C一周通｜7 天学 C 语言 Android",
     "app.cWeek.meta.description":
       "C一周通：免费开源离线 Android C 语言课程，Hello World 到 Dijkstra，含 VS Code 实操录像与离线实验测验。",
     "app.cWeek.meta.ogTitle": "C Week — Learn C on your phone, offline",
@@ -338,17 +342,18 @@ window.ETAI_TRANSLATIONS = {
     "prefs.themeSystem": "跟随系统",
   },
   en: {
-    "meta.title": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
+    "meta.title": "Etai Apps: Offline Android Apps for C, Budgets & Groups",
+    "meta.brandIconAlt": "Etai",
     "meta.description":
       "Three free, offline, open-source Android apps: C Week (Hello World to Dijkstra in 7 days with VS Code screen recordings), Easy Ledger (local budgeting without sign-up), Group Matters (small-group roll call, fees, and cost splits). Data stays on your device.",
     "meta.pageH1": "Etai Apps: three offline Android apps — data stays on your device",
     "meta.pageH1Suffix": ": three offline Android apps — data stays on your device",
     "meta.siteName": "Etai Apps",
-    "meta.ogTitle": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
+    "meta.ogTitle": "Etai Apps: Offline Android Apps for C, Budgets & Groups",
     "meta.ogDescription":
       "Three free, offline, open-source Android apps: C Week, Easy Ledger, and Group Matters. Data stays on your device.",
     "meta.ogImageAlt": "Etai Apps: C Week, Easy Ledger, and Group Matters offline Android apps",
-    "meta.twitterTitle": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
+    "meta.twitterTitle": "Etai Apps: Offline Android Apps for C, Budgets & Groups",
     "meta.twitterDescription":
       "Three free, offline, open-source Android apps: C Week, Easy Ledger, and Group Matters. Data stays on your device.",
     "langHint.message": "This page is in Chinese.",
@@ -479,6 +484,9 @@ window.ETAI_TRANSLATIONS = {
     "download.scanOr": "or",
     "download.releasesNote": "GitHub Releases · free & open source",
     "download.qrCaption": "Scan to download",
+    "download.qrAlt.easyLedger": "Easy Ledger download QR code",
+    "download.qrAlt.groupMatters": "Group Matters download QR code",
+    "download.qrAlt.cWeek": "C Week download QR code",
     "faq.requirements.title": "What are the system requirements?",
     "faq.requirements.body":
       "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.",
@@ -622,10 +630,10 @@ window.ETAI_TRANSLATIONS = {
     "appPage.highlightsTitle": "Highlights",
     "app.easyLedger.tagline":
       "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
-    "app.easyLedger.meta.title": "Easy Ledger — Offline local budgeting Android app · Etai",
+    "app.easyLedger.meta.title": "Easy Ledger — Offline budgeting Android app",
     "app.easyLedger.meta.description":
       "Easy Ledger: free open-source offline Android budgeting app, local Room storage, budgets and category stats, no login.",
-    "app.easyLedger.meta.ogTitle": "Easy Ledger — Offline local budgeting for Android",
+    "app.easyLedger.meta.ogTitle": "Easy Ledger — Offline budgeting Android app",
     "app.easyLedger.meta.ogDescription": "Your ledger stays on device—no account, no cloud sync. Open-source APK on GitHub.",
     "app.easyLedger.highlight.1": "Entry list with search and filters; optional photo receipts",
     "app.easyLedger.highlight.2": "Budget progress and overspend alerts; category stats and trends",
@@ -643,10 +651,10 @@ window.ETAI_TRANSLATIONS = {
       "In-app backup / restore (zip) and CSV export; backup files leave your device only when you share or save them.",
     "app.groupMatters.tagline":
       "Roll call, group-fund collection, cost splits, and checklists for any small group—one offline app, reminder text ready to paste into group chat.",
-    "app.groupMatters.meta.title": "Group Matters — Offline small-group admin Android app · Etai",
+    "app.groupMatters.meta.title": "Group Matters — Offline group admin Android app",
     "app.groupMatters.meta.description":
       "Group Matters (团团记): offline Android app for attendance, group-fund fees, splits, and checklists—data stays on the organizer’s phone.",
-    "app.groupMatters.meta.ogTitle": "Group Matters — Offline roll call, group fund & splits",
+    "app.groupMatters.meta.ogTitle": "Group Matters — Offline group admin app",
     "app.groupMatters.meta.ogDescription":
       "Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app.",
     "app.groupMatters.highlight.1": "Copy summary / reminder text in WeChat-friendly format",
@@ -667,7 +675,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.sync.body":
       "No. Group Matters is single-device offline software—no accounts, server, or multi-device sync. Use zip backup / restore to move to a new phone.",
     "app.cWeek.tagline": "Learn C on your phone, offline — Hello World to Dijkstra.",
-    "app.cWeek.meta.title": "C Week — Learn C in 7 days on Android · Etai",
+    "app.cWeek.meta.title": "C Week — Learn C offline on Android app",
     "app.cWeek.meta.description":
       "C Week: free open-source offline Android C course from Hello World to Dijkstra, with VS Code screen recordings and offline labs.",
     "app.cWeek.meta.ogTitle": "C Week — Learn C on your phone, offline",

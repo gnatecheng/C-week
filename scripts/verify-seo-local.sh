@@ -108,6 +108,64 @@ for path in en_paths:
         sys.exit(1)
     print(f"static EN text OK: {path}")
 
+def page_title(html):
+    m = re.search(r"<title>([^<]*)</title>", html, re.I)
+    assert m, "missing <title>"
+    return m.group(1).strip()
+
+# Hub zh title is user-specified (may exceed 30 chars); app subpages must stay within limits.
+TITLE_PAGES = [
+    ("site/en/index.html", "en", 60),
+    ("site/easy-ledger/index.html", "zh", 30),
+    ("site/en/easy-ledger/index.html", "en", 60),
+    ("site/group-matters/index.html", "zh", 30),
+    ("site/en/group-matters/index.html", "en", 60),
+    ("site/c-week/index.html", "zh", 30),
+    ("site/en/c-week/index.html", "en", 60),
+]
+
+hub_zh = pathlib.Path("site/index.html").read_text(encoding="utf-8")
+hub_title = page_title(hub_zh)
+assert hub_title, "missing zh hub title"
+print(f"zh hub title ({len(hub_title)} chars): {hub_title}")
+
+for path, lang, limit in TITLE_PAGES:
+    html = pathlib.Path(path).read_text(encoding="utf-8")
+    title = page_title(html)
+    n = len(title)
+    assert n <= limit, f"title too long ({n}>{limit}) in {path}: {title!r}"
+    print(f"title length OK ({n}/{limit}): {path}")
+
+ALT_PAGES = [
+    "site/index.html",
+    "site/en/index.html",
+    "site/easy-ledger/index.html",
+    "site/en/easy-ledger/index.html",
+    "site/group-matters/index.html",
+    "site/en/group-matters/index.html",
+    "site/c-week/index.html",
+    "site/en/c-week/index.html",
+]
+
+def img_tag_has_empty_alt(html, src_fragment):
+    for m in re.finditer(r"<img\b[^>]*>", html, re.I):
+        tag = m.group(0)
+        if src_fragment not in tag:
+            continue
+        alt_m = re.search(r'\balt="([^"]*)"', tag, re.I)
+        assert alt_m, f"missing alt on {src_fragment} in page"
+        assert alt_m.group(1).strip(), f"empty alt on {src_fragment}: {tag[:120]}"
+    assert src_fragment in html, f"expected {src_fragment} in page"
+
+for path in ALT_PAGES:
+    html = pathlib.Path(path).read_text(encoding="utf-8")
+    img_tag_has_empty_alt(html, "/assets/icon.svg")
+    for qr in ("easy-ledger.svg", "group-matters.svg", "c-week.svg"):
+        frag = f"/assets/qr/{qr}"
+        if frag in html:
+            img_tag_has_empty_alt(html, frag)
+    print(f"brand + QR alt OK: {path}")
+
 PY
 
 grep -q 'hreflang="zh-CN"' site/index.html && grep -q 'hreflang="en"' site/index.html && echo "hreflang in index: OK"

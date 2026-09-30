@@ -11,6 +11,7 @@ import { buildAppPageJsonLd } from "./site-seo-jsonld.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CSS_V = 25;
+const TRANSLATIONS_V = 27;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
 function escAttr(s) {
@@ -105,7 +106,7 @@ function renderSiteHeader(isEn, dict, activeSlug) {
       <div class="wrap header-shell">
         <div class="brand-block">
           <a class="brand" href="${homeHref}">
-            <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="${escAttr(t(dict, "meta.brandIconAlt"))}" />
             <span>${t(dict, "brand")}</span>
           </a>
           <p class="brand-tagline">
@@ -147,7 +148,7 @@ function renderDownloadPanel(app, dict) {
                     src="${app.iconSrc}"
                     width="44"
                     height="44"
-                    alt=""
+                    alt="${escAttr(name)}"
                     decoding="async"
                   />
                   <div>
@@ -178,7 +179,7 @@ function renderDownloadPanel(app, dict) {
                   <div class="download-panel__scan">
                     <figure class="download-panel__qr">
                       <div class="download-panel__qr-frame">
-                        <img src="${app.qrSrc}" width="120" height="120" alt="" decoding="async" />
+                        <img src="${app.qrSrc}" width="120" height="120" alt="${escAttr(t(dict, app.qrAltKey))}" decoding="async" />
                       </div>
                       <figcaption>${t(dict, "download.qrCaption")}</figcaption>
                     </figure>
@@ -310,7 +311,7 @@ ${renderFaq(app, dict)}
       </section>
     </main>
 ${renderFooter(dict)}
-    <script src="/js/translations.js?v=26" defer></script>
+    <script src="/js/translations.js?v=${TRANSLATIONS_V}" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
