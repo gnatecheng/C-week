@@ -1,5 +1,5 @@
 /**
- * Generate per-app landing pages (zh + en).
+ * Generate per-app landing pages (zh + en) — layout matches homepage app sections.
  * Run: node scripts/build-app-pages.mjs
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -10,7 +10,7 @@ import { loadTranslations, t } from "./static-i18n.mjs";
 import { buildAppPageJsonLd } from "./site-seo-jsonld.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 23;
+const CSS_V = 25;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
 function escAttr(s) {
@@ -33,8 +33,8 @@ function slideFile(slideIndex, screenDir) {
   return names[slideIndex];
 }
 
-function renderGallery(app, dict, lang) {
-  const ver = IMG_VER[app.screenDir] || "10";
+function renderGallery(app, dict) {
+  const ver = IMG_VER[app.legacyScreenDir] || "10";
   const legacyBase = `/assets/screens/${app.legacyScreenDir}/`;
   const slides = [];
   for (let i = 1; i <= app.slideCount; i++) {
@@ -63,15 +63,9 @@ ${slides.join("\n")}
 
 function renderFaq(app, dict) {
   return app.faqKeys
-    .map(([titleKey, bodyKey, isHtml]) => {
+    .map(([titleKey, bodyKey]) => {
       const body = t(dict, bodyKey);
       const title = t(dict, titleKey);
-      if (isHtml) {
-        return `            <article class="faq-item">
-              <h3>${title}</h3>
-              <p>${body}</p>
-            </article>`;
-      }
       return `            <article class="faq-item">
               <h3>${title}</h3>
               <p>${body}</p>
@@ -81,10 +75,151 @@ function renderFaq(app, dict) {
 }
 
 function renderHighlights(app, dict) {
-  const items = app.highlightKeys.map((key) => `              <li>${t(dict, key)}</li>`).join("\n");
-  return `          <ul class="app-highlights">
+  const items = app.highlightKeys.map((key) => `            <li>${t(dict, key)}</li>`).join("\n");
+  return `      <section id="highlights" class="project" aria-labelledby="highlights-title">
+        <div class="wrap">
+          <h2 id="highlights-title" class="project-subhead">${t(dict, "appPage.highlightsTitle")}</h2>
+          <ul class="app-highlights">
 ${items}
-          </ul>`;
+          </ul>
+        </div>
+      </section>`;
+}
+
+function renderNavChip(slug, isEn, dict, activeSlug) {
+  const base = isEn ? "/en" : "";
+  const href = `${base}/${slug}/`;
+  const current = slug === activeSlug ? ' aria-current="page"' : "";
+  const labels = {
+    "easy-ledger": ["chip-qjz", "账", "nav.qingjizhang"],
+    "group-matters": ["chip-class", "团", "nav.classRecord"],
+    "c-week": ["chip-cweek", "C", "nav.cweek"],
+  };
+  const [cls, badge, key] = labels[slug];
+  return `<a class="app-chip ${cls}" href="${href}"${current}><span class="chip-badge" aria-hidden="true">${badge}</span><span>${t(dict, key)}</span></a>`;
+}
+
+function renderSiteHeader(isEn, dict, activeSlug) {
+  const homeHref = isEn ? "/en/" : "/";
+  return `    <header class="site-header">
+      <div class="wrap header-shell">
+        <div class="brand-block">
+          <a class="brand" href="${homeHref}">
+            <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+            <span>${t(dict, "brand")}</span>
+          </a>
+          <p class="brand-tagline">
+            <span class="brand-tagline-full">${t(dict, "header.tagline")}</span>
+            <span class="brand-tagline-short">${t(dict, "header.taglineShort")}</span>
+          </p>
+        </div>
+        <nav class="header-nav" aria-label="${escAttr(t(dict, "navSectionsLabel"))}">
+          <div class="header-nav-inner">
+            ${renderNavChip("easy-ledger", isEn, dict, activeSlug)}
+            ${renderNavChip("group-matters", isEn, dict, activeSlug)}
+            ${renderNavChip("c-week", isEn, dict, activeSlug)}
+            <a class="nav-link" href="#faq">${t(dict, "nav.faq")}</a>
+          </div>
+        </nav>
+        <div class="header-tools">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="${escAttr(t(dict, "prefs.langLabel"))}">
+            <button type="button" id="lang-zh" aria-pressed="${isEn ? "false" : "true"}">${t(dict, "prefs.langZh")}</button>
+            <button type="button" id="lang-en" aria-pressed="${isEn ? "true" : "false"}">${t(dict, "prefs.langEn")}</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="${escAttr(t(dict, "prefs.themeLabel"))}">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>`;
+}
+
+function renderDownloadPanel(app, dict) {
+  const name = t(dict, app.keys.name);
+  return `              <div class="download-panel ${app.panelClass}" data-app-meta="${app.appMeta}">
+                <div class="download-panel__body">
+                  <div class="download-panel__left">
+                  <div class="download-panel__head">
+                  <img
+                    class="download-panel__icon"
+                    src="${app.iconSrc}"
+                    width="44"
+                    height="44"
+                    alt=""
+                    decoding="async"
+                  />
+                  <div>
+                    <p class="download-panel__name">${name}</p>
+                    <p class="download-panel__version">
+                      v<span class="app-meta-version">${app.versionFallback}</span><span aria-hidden="true"> · </span
+                      ><span>${t(dict, "download.androidMin")}</span><span aria-hidden="true"> · </span
+                      ><span>${t(dict, "download.apkLabel")}</span>
+                    </p>
+                  </div>
+                </div>
+                  <div class="download-panel__primary">
+                    <a
+                      class="btn btn-primary"
+                      href="https://github.com/${app.github}/releases/latest"
+                      rel="noopener noreferrer"
+                    >
+                      ${t(dict, app.keys.downloadApk)}
+                    </a>
+                    <p class="download-panel__note">${t(dict, "download.releasesNote")}</p>
+                  </div>
+                  </div>
+                  <div class="download-panel__divider" role="presentation">
+                    <div class="download-panel__divider-track">
+                      <span class="download-panel__divider-label">${t(dict, "download.scanOr")}</span>
+                    </div>
+                  </div>
+                  <div class="download-panel__scan">
+                    <figure class="download-panel__qr">
+                      <div class="download-panel__qr-frame">
+                        <img src="${app.qrSrc}" width="120" height="120" alt="" decoding="async" />
+                      </div>
+                      <figcaption>${t(dict, "download.qrCaption")}</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <a
+                class="download-panel__source"
+                href="https://github.com/${app.github}"
+                rel="noopener noreferrer"
+              >
+                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="${GITHUB_ICON_PATH}" />
+                </svg>
+                <span>${t(dict, app.keys.viewGithub)}</span>
+              </a>`;
+}
+
+function renderFooter(dict) {
+  return `    <footer class="site-footer">
+      <div class="wrap inner">
+        <p>${t(dict, "footer.copyright")}</p>
+        <p class="footer-links">
+          <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
+            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+              ><path d="${GITHUB_ICON_PATH}" /></svg
+            ><span>${t(dict, "footer.linkCweek")}</span></a
+          >
+          <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
+            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+              ><path d="${GITHUB_ICON_PATH}" /></svg
+            ><span>${t(dict, "footer.linkQjz")}</span></a
+          >
+          <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
+            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+              ><path d="${GITHUB_ICON_PATH}" /></svg
+            ><span>${t(dict, "footer.linkClass")}</span></a
+          >
+        </p>
+      </div>
+    </footer>`;
 }
 
 function renderPage(app, lang, dict, T) {
@@ -94,9 +229,6 @@ function renderPage(app, lang, dict, T) {
   const canonical = `https://etais.dev${basePath}`;
   const zhPath = `https://etais.dev/${app.slug}/`;
   const enPath = `https://etais.dev/en/${app.slug}/`;
-  const homeHref = isEn ? "/en/" : "/";
-  const altHome = isEn ? "/" : "/en/";
-  const siteName = t(dict, "meta.siteName");
   const name = t(dict, app.keys.name);
   const altName = t(isEn ? T.zh : T.en, app.keys.name);
   const metaTitle = t(dict, app.keys.metaTitle);
@@ -104,9 +236,14 @@ function renderPage(app, lang, dict, T) {
   const ogTitle = t(dict, app.keys.ogTitle);
   const ogDesc = t(dict, app.keys.ogDescription);
   const jsonLd = JSON.stringify(buildAppPageJsonLd(canonical, dict, app, altName), null, 2);
-  const learnOtherLang = isEn
-    ? `<a class="app-lang-alt" href="${zhPath}">${t(dict, "prefs.langZh")}</a>`
-    : `<a class="app-lang-alt" href="${enPath}">${t(dict, "prefs.langEn")}</a>`;
+  const titleId = `${app.slug.replace(/-/g, "")}-title`;
+  const gridWrap =
+    app.gridClass === "hero-grid"
+      ? `<div class="wrap hero-grid">`
+      : `<div class="wrap">
+          <div class="project-grid">`;
+  const gridClose = app.gridClass === "hero-grid" ? `        </div>` : `          </div>
+        </div>`;
 
   return `<!DOCTYPE html>
 <html lang="${htmlLang}">
@@ -126,7 +263,7 @@ function renderPage(app, lang, dict, T) {
     <script src="/js/init-theme.js?v=3"></script>
     <link rel="stylesheet" href="/css/style.css?v=${CSS_V}" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="${escAttr(siteName)}" />
+    <meta property="og:site_name" content="${escAttr(t(dict, "meta.siteName"))}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:title" content="${escAttr(ogTitle)}" />
     <meta property="og:description" content="${escAttr(ogDesc)}" />
@@ -144,96 +281,36 @@ function renderPage(app, lang, dict, T) {
 ${jsonLd}
     </script>
   </head>
-  <body class="app-page" data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}">
+  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}">
     <a class="skip-link" href="#main">${t(dict, "skipLink")}</a>
-    <header class="site-header app-page-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="${homeHref}">
-          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
-          <span>${t(dict, "brand")}</span>
-        </a>
-        <div class="header-tools">
-          <div class="site-prefs" id="lang-switch" role="group" aria-label="${escAttr(t(dict, "prefs.langLabel"))}">
-            <button type="button" id="lang-zh" aria-pressed="${isEn ? "false" : "true"}">${t(dict, "prefs.langZh")}</button>
-            <button type="button" id="lang-en" aria-pressed="${isEn ? "true" : "false"}">${t(dict, "prefs.langEn")}</button>
+${renderSiteHeader(isEn, dict, app.slug)}
+    <main id="main">
+      <section class="${app.sectionClass}" data-group="${app.appMeta}" aria-labelledby="${titleId}">
+${gridWrap}
+          <div>
+            <h1 id="${titleId}" class="${app.titleClass}">${name}</h1>
+            <p class="lead">${t(dict, app.keys.tagline)}</p>
+${renderDownloadPanel(app, dict)}
           </div>
-          <button type="button" id="theme-toggle" aria-label="${escAttr(t(dict, "prefs.themeLabel"))}">
-            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </button>
-        </div>
-      </div>
-    </header>
-    <main id="main" class="app-page-main">
-      <div class="wrap">
-        <p class="app-page-breadcrumb"><a href="${homeHref}">${t(dict, "appPage.backHome")}</a> · ${learnOtherLang}</p>
-        <header class="app-page-hero">
-          <img class="app-page-icon" src="${app.iconSrc}" width="72" height="72" alt="" decoding="async" />
-          <h1>${name}</h1>
-          <p class="lead">${t(dict, app.keys.tagline)}</p>
-        </header>
+          <div class="hero-visual screenshot-wrap">
+${renderGallery(app, dict)}
+          </div>
+${gridClose}
+      </section>
 ${renderHighlights(app, dict)}
-        <div class="app-page-grid">
-          <div class="app-page-primary">
-            <div class="download-panel ${app.panelClass}" data-app-meta="${app.appMeta}">
-              <div class="download-panel__body">
-                <div class="download-panel__left">
-                  <div class="download-panel__head">
-                    <img class="download-panel__icon" src="${app.iconSrc}" width="44" height="44" alt="" decoding="async" />
-                    <div>
-                      <p class="download-panel__name">${name}</p>
-                      <p class="download-panel__version">
-                        v<span class="app-meta-version">${app.versionFallback}</span><span aria-hidden="true"> · </span
-                        ><span>${t(dict, "download.androidMin")}</span><span aria-hidden="true"> · </span
-                        ><span>${t(dict, "download.apkLabel")}</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="download-panel__primary">
-                    <a class="btn btn-primary" href="https://github.com/${app.github}/releases/latest" rel="noopener noreferrer">${t(dict, app.keys.downloadApk)}</a>
-                    <p class="download-panel__note">${t(dict, "download.releasesNote")}</p>
-                  </div>
-                </div>
-                <div class="download-panel__divider" role="presentation">
-                  <div class="download-panel__divider-track">
-                    <span class="download-panel__divider-label">${t(dict, "download.scanOr")}</span>
-                  </div>
-                </div>
-                <div class="download-panel__scan">
-                  <figure class="download-panel__qr">
-                    <div class="download-panel__qr-frame">
-                      <img src="${app.qrSrc}" width="120" height="120" alt="" decoding="async" />
-                    </div>
-                    <figcaption>${t(dict, "download.qrCaption")}</figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <a class="download-panel__source" href="https://github.com/${app.github}" rel="noopener noreferrer">
-              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="${GITHUB_ICON_PATH}" /></svg>
-              <span>${t(dict, app.keys.viewGithub)}</span>
-            </a>
-          </div>
-          <div class="hero-visual screenshot-wrap app-page-shots">
-${renderGallery(app, dict, lang)}
-          </div>
-        </div>
-        <section class="app-page-faq" aria-labelledby="app-faq-title">
-          <h2 id="app-faq-title">${t(dict, "appPage.faqTitle")}</h2>
+      <section id="faq" data-group="faq">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>${t(dict, "appPage.faqTitle")}</h2>
+          </header>
           <div class="faq-list">
 ${renderFaq(app, dict)}
           </div>
-        </section>
-        <p class="app-page-back"><a class="btn btn-secondary" href="${homeHref}">${t(dict, "appPage.backHome")}</a></p>
-      </div>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer">
-      <div class="wrap inner">
-        <p>${t(dict, "footer.copyright")}</p>
-      </div>
-    </footer>
-    <script src="/js/translations.js?v=25" defer></script>
+${renderFooter(dict)}
+    <script src="/js/translations.js?v=26" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

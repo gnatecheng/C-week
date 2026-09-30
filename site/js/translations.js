@@ -4,6 +4,7 @@ window.ETAI_TRANSLATIONS = {
     "meta.description":
       "三款免费、离线、开源的 Android 应用：C一周通（7 天从 Hello World 学到 Dijkstra，含 VS Code 实操录像）、轻记账（无需注册的本地记账）、团团记（小团体点名、收费、费用分摊）。数据只存本机。",
     "meta.pageH1": "Etai 应用集：三款离线、数据只存本机的 Android 应用",
+    "meta.pageH1Suffix": "：三款离线、数据只存本机的 Android 应用",
     "meta.siteName": "Etai 应用集",
     "meta.ogTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
     "meta.ogDescription":
@@ -265,6 +266,7 @@ window.ETAI_TRANSLATIONS = {
     "appPage.learnMore": "了解更多",
     "appPage.backHome": "返回 Etai 应用集首页",
     "appPage.faqTitle": "常见问题",
+    "appPage.highlightsTitle": "功能亮点",
     "app.easyLedger.tagline":
       "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
     "app.easyLedger.meta.title": "轻记账｜离线本地记账 Android App · 隐私预算 · Etai",
@@ -340,6 +342,7 @@ window.ETAI_TRANSLATIONS = {
     "meta.description":
       "Three free, offline, open-source Android apps: C Week (Hello World to Dijkstra in 7 days with VS Code screen recordings), Easy Ledger (local budgeting without sign-up), Group Matters (small-group roll call, fees, and cost splits). Data stays on your device.",
     "meta.pageH1": "Etai Apps: three offline Android apps — data stays on your device",
+    "meta.pageH1Suffix": ": three offline Android apps — data stays on your device",
     "meta.siteName": "Etai Apps",
     "meta.ogTitle": "Etai Apps — Offline Android apps: learn C in 7 days, private budgeting, small-group admin",
     "meta.ogDescription":
@@ -616,6 +619,7 @@ window.ETAI_TRANSLATIONS = {
     "appPage.learnMore": "Learn more",
     "appPage.backHome": "Back to Etai Apps home",
     "appPage.faqTitle": "FAQ",
+    "appPage.highlightsTitle": "Highlights",
     "app.easyLedger.tagline":
       "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
     "app.easyLedger.meta.title": "Easy Ledger — Offline local budgeting Android app · Etai",

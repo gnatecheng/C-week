@@ -41,10 +41,19 @@ def jsonld_ok(path):
     assert m, f"missing JSON-LD in {path}"
     json.loads(m.group(1))
 
+def h1_count(path):
+    html = pathlib.Path(path).read_text(encoding="utf-8")
+    n = len(re.findall(r"<h1\b", html, re.I))
+    assert n == 1, f"expected 1 h1 in {path}, got {n}"
+
 jsonld_ok("site/index.html")
 print("JSON-LD zh index: OK")
+h1_count("site/index.html")
+print("h1 zh index: OK")
 jsonld_ok("site/en/index.html")
 print("JSON-LD en index: OK")
+h1_count("site/en/index.html")
+print("h1 en index: OK")
 
 APP_PAGES = [
     ("site/easy-ledger/index.html", "zh"),
