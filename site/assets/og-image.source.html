@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>OG image source — Etai Apps</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei",
+          sans-serif;
+      }
+      .canvas {
+        width: 1200px;
+        height: 630px;
+        background: radial-gradient(1200px 630px at 20% 0%, #134e4a 0%, #0b1416 55%, #050809 100%);
+        color: #ecfdf5;
+        padding: 56px 64px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #99f6e4;
+      }
+      .brand-row img {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+      }
+      .apps {
+        display: flex;
+        justify-content: space-between;
+        gap: 28px;
+        margin-top: 12px;
+      }
+      .app {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 28px 22px 24px;
+        text-align: center;
+      }
+      .badge {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        margin: 0 auto 18px;
+        display: grid;
+        place-items: center;
+        font-size: 34px;
+        font-weight: 800;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      }
+      .badge-c {
+        background: linear-gradient(135deg, #0f766e, #14b8a6);
+      }
+      .badge-qjz {
+        background: linear-gradient(135deg, #f59e0b, #b45309);
+      }
+      .badge-gm {
+        background: linear-gradient(135deg, #38bdf8, #0369a1);
+      }
+      .name-zh {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 6px;
+      }
+      .name-en {
+        font-size: 20px;
+        font-weight: 600;
+        color: #a7f3d0;
+        line-height: 1.3;
+      }
+      .tagline {
+        margin-top: 36px;
+        text-align: center;
+      }
+      .tagline-zh {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+      .tagline-en {
+        margin-top: 10px;
+        font-size: 22px;
+        color: #94a3b8;
+        font-weight: 500;
+      }
+      .domain {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 600;
+        color: #5eead4;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="brand-row">
+        <img src="icon.svg" alt="" />
+        <span>Etai 应用集 · Etai Apps</span>
+      </div>
+      <div class="apps">
+        <article class="app">
+          <div class="badge badge-c" aria-hidden="true">C</div>
+          <div class="name-zh">C一周通</div>
+          <div class="name-en">C Week</div>
+        </article>
+        <article class="app">
+          <div class="badge badge-qjz" aria-hidden="true">账</div>
+          <div class="name-zh">轻记账</div>
+          <div class="name-en">Easy Ledger</div>
+        </article>
+        <article class="app">
+          <div class="badge badge-gm" aria-hidden="true">多</div>
+          <div class="name-zh">多人事务</div>
+          <div class="name-en">Group Matters</div>
+        </article>
+      </div>
+      <div>
+        <div class="tagline">
+          <div class="tagline-zh">离线可用 · 数据只存本机</div>
+          <div class="tagline-en">Offline-first · On-device data only</div>
+        </div>
+        <div class="domain">etai.chengyitang.workers.dev</div>
+      </div>
+    </div>
+  </body>
+</html>

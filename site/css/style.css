@@ -347,11 +347,56 @@ html.theme-dark .btn-primary {
   max-width: 36em;
 }
 
+.hero-actions-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-actions-block .hero-actions {
+  margin-bottom: 0;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 1.25rem;
+}
+
+.download-qr {
+  display: none;
+  margin: 0;
+  text-align: center;
+}
+
+.download-qr-frame {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--outline);
+  line-height: 0;
+}
+
+.download-qr-frame img {
+  display: block;
+  width: 112px;
+  height: 112px;
+}
+
+.download-qr figcaption {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  line-height: 1.35;
+}
+
+@media (min-width: 641px) {
+  .download-qr {
+    display: block;
+  }
 }
 
 .hero-meta {
