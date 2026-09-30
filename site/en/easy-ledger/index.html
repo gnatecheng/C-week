@@ -10,11 +10,11 @@
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/easy-ledger/" />
     <link rel="canonical" href="https://etais.dev/en/easy-ledger/" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=25" />
+    <link rel="stylesheet" href="/css/style.css?v=26" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai Apps" />
     <meta property="og:url" content="https://etais.dev/en/easy-ledger/" />
@@ -60,6 +60,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Download the latest APK from GitHub Releases and install. Android may ask you to allow installs from unknown sources. Launcher name: “Easy Ledger”."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Install tips (Android version, unknown sources, upgrades)",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All three apps use minSdk 26 (Android 8.0)—the same value in each repo’s app/build.gradle.kts ( easy-ledger , group-matters , c-week ). On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording and location vary by device). If an upgrade fails with a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress)."
           }
         },
         {
@@ -149,7 +157,7 @@
                   <div>
                     <p class="download-panel__name">Easy Ledger</p>
                     <p class="download-panel__version">
-                      v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                      v<span class="app-meta-version">1.3.2</span><span aria-hidden="true"> · </span
                       ><span>Android 8.0+</span><span aria-hidden="true"> · </span
                       ><span>APK</span>
                     </p>
@@ -187,7 +195,7 @@
                 rel="noopener noreferrer"
               >
                 <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 <span>View source</span>
               </a>
@@ -256,15 +264,170 @@
           </div>
         </div>
       </section>
-      <section id="highlights" class="project" aria-labelledby="highlights-title">
+      <section id="features" class="project app-page-block" aria-labelledby="features-title">
         <div class="wrap">
-          <h2 id="highlights-title" class="project-subhead">Highlights</h2>
-          <ul class="app-highlights">
-            <li>Entry list with search and filters; optional photo receipts</li>
-            <li>Budget progress and overspend alerts; category stats and trends</li>
-            <li>Multiple accounts, categories, and tags; dark mode</li>
-            <li>Backup / restore (zip) and CSV export</li>
-          </ul>
+          <h2 id="features-title" class="project-subhead">Full features</h2>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">Entries</span>
+              
+              <h3>Quick entry · search and filter</h3>
+              <p>Amount, date/time, type, category, account, note, tags; quick add and month switch; full-text search on notes/tags; filter by category, account, tag, amount range, income/expense/transfer.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Transfer</span>
+              
+              <h3>Account transfers</h3>
+              <p>From/to accounts, amount, date, note; both balances update; excluded from monthly income/expense and shown separately in the list.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Categories · Accounts</span>
+              
+              <h3>Categories and accounts</h3>
+              <p>Separate expense/income categories with editable names and colors; default Chinese categories on first launch; cash, cards, Alipay, WeChat, etc., balances follow transactions.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Stats</span>
+              
+              <h3>Monthly stats and trends</h3>
+              <p>Monthly income, spending, balance (vs last month), category pie, 12-month trend; filter by time, account, tag; share a monthly image or export PDF.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Budget</span>
+              
+              <h3>Budgets and reminders</h3>
+              <p>Monthly total plus per-category budgets; 80% warning and 100% overspend; configurable large-transaction threshold; gentle nudge on the home screen after days without entries.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Backup</span>
+              
+              <h3>Import and export</h3>
+              <p>Export CSV and full JSON backup (entries, categories, accounts, budgets, reminder settings); import with preview, common column detection, duplicates: skip / import all / overwrite.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Auto</span>
+              
+              <h3>Recurring entries</h3>
+              <p>Daily / weekly / monthly rules; creates due entries when you open the app; edit, pause, or delete rules.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Widget</span>
+              
+              <h3>Home screen widget</h3>
+              <p>Shows monthly income, spending, balance (green/red); tap opens the app; refreshes after you log transactions.</p>
+            </article>
+            <article class="card">
+              <span class="tag">Privacy</span>
+              
+              <h3>Receipt photos</h3>
+              <p>Attach a camera shot or gallery image when logging; photos stay on device with thumbnail, replace, and delete.</p>
+            </article>
+          </div>
+          <p class="project-foot">Dark mode toggle under Me / Settings; first launch seeds sample entries—clear or restore under Me → Reminder settings. Stack: Kotlin, Jetpack Compose, Material 3, Room, Navigation Compose.</p>
+        </div>
+      </section>
+      <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="screenshots-title">All screenshots</h2>
+            <p>English UI, light theme (same slides as the homepage carousel; dark sets load when your theme is dark).</p>
+          </header>
+          <div class="app-screens-grid">
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/qingjizhang/01-home.webp?v=10" width="540" height="1171" loading="lazy" alt="Easy Ledger home with monthly income, spending, balance, and budget" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Home · Monthly cash flow and budget</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/qingjizhang/02-attendance.webp?v=10" width="540" height="1171" loading="lazy" alt="Easy Ledger transaction list with search and filters" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Entries · Transactions and filters</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/qingjizhang/03-payment.webp?v=10" width="540" height="1171" loading="lazy" alt="Easy Ledger stats with category pie chart and trends" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Stats · Pie chart and 12-month trend</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/qingjizhang/04-ledger.webp?v=10" width="540" height="1171" loading="lazy" alt="Easy Ledger budget screen with progress and overspend alerts" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Budget · 80% warning and overspend</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/en/light/qingjizhang/05-members.webp?v=10" width="540" height="1171" loading="lazy" alt="Easy Ledger profile with accounts, categories, and settings" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Me · Accounts, categories, settings</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title" class="project-subhead">Privacy & permissions</h2>
+          <div class="app-prose"><p>Transactions, categories, accounts, budgets, and reminder settings live in on-device SQLite (Room)—no account or cloud sync. Receipt photos stay in device storage until you capture or pick them.</p><p>The README describes a local-first app; everyday budgeting does not require network access. Backup / restore and CSV / JSON export only leave the device when you share or save files.</p></div>
+        </div>
+      </section>
+      <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
+        <div class="wrap">
+          <h2 id="requirements-title" class="project-subhead">System requirements</h2>
+          <div class="app-prose"><p>Minimum Android 8.0 (API 26, minSdk 26), compileSdk / targetSdk 35 (see <code>app/build.gradle.kts</code>). Release APK size varies—check the asset on <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a>.</p><p>Signed release APKs are built in GitHub Actions when signing secrets are configured; local release builds without secrets may be unsigned—use Releases for sideloading.</p></div>
+        </div>
+      </section>
+      <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="changelog-title">Release history</h2>
+            <p>Summarized from each repo README / GitHub Releases. Full list: <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">all Releases</a>.</p>
+          </header>
+          <div class="changelog-list">
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.2" rel="noopener noreferrer">v1.3.2</a></h3>
+              <ul>
+<li>Fix in-app English/Chinese switch (AppCompat locales, system per-app language sync).</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.1" rel="noopener noreferrer">v1.3.1</a></h3>
+              <ul>
+<li>English bottom navigation and stats legend layout improvements.</li>
+<li>Home budget / large-transaction alert cards adapted for dark mode.</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.0" rel="noopener noreferrer">v1.3.0</a></h3>
+              <ul>
+<li>Full English UI (language in Settings).</li>
+<li>Theme: follow system, light, or dark.</li>
+<li>About screen: version, build time, project link.</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.2.0" rel="noopener noreferrer">v1.2.0</a></h3>
+              <ul>
+<li>Search/filters, account transfers, dark mode, and more (see git history).</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
       <section id="faq" data-group="faq">
@@ -275,7 +438,11 @@
           <div class="faq-list">
             <article class="faq-item">
               <h3>How do I install Easy Ledger?</h3>
-              <p>Download the latest APK from <a href="https://github.com/gnatecheng/easy-ledger/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Android may ask you to allow installs from unknown sources. Launcher name: “Easy Ledger”.</p>
+              <div class="faq-body">Download the latest APK from <a href="https://github.com/gnatecheng/easy-ledger/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Android may ask you to allow installs from unknown sources. Launcher name: “Easy Ledger”.</div>
+            </article>
+            <article class="faq-item">
+              <h3>Install tips (Android version, unknown sources, upgrades)</h3>
+              <div class="faq-body">All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>, <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>, <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).</div>
             </article>
             <article class="faq-item">
               <h3>What are the system requirements?</h3>
@@ -299,23 +466,23 @@
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>c-week</span></a
           >
           <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>easy-ledger</span></a
           >
           <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>group-matters</span></a
           >
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=27" defer></script>
+    <script src="/js/translations.js?v=28" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

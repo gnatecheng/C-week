@@ -10,11 +10,11 @@
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/easy-ledger/" />
     <link rel="canonical" href="https://etais.dev/easy-ledger/" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest?v=3" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=25" />
+    <link rel="stylesheet" href="/css/style.css?v=26" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai 应用集" />
     <meta property="og:url" content="https://etais.dev/easy-ledger/" />
@@ -60,6 +60,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "在 GitHub Releases 下载最新 APK 并安装。Android 需允许「安装未知应用」。桌面显示「轻记账」。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "安装提示（Android 版本、未知来源、覆盖安装）",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "三款应用的 minSdk 均为 26 （Android 8.0）：轻记账（ easy-ledger ）、团团记（ group-matters ）、C一周通（ c-week ）的 app/build.gradle.kts 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。"
           }
         },
         {
@@ -149,7 +157,7 @@
                   <div>
                     <p class="download-panel__name">轻记账</p>
                     <p class="download-panel__version">
-                      v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                      v<span class="app-meta-version">1.3.2</span><span aria-hidden="true"> · </span
                       ><span>Android 8.0+</span><span aria-hidden="true"> · </span
                       ><span>APK</span>
                     </p>
@@ -187,7 +195,7 @@
                 rel="noopener noreferrer"
               >
                 <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 <span>查看源码</span>
               </a>
@@ -256,15 +264,170 @@
           </div>
         </div>
       </section>
-      <section id="highlights" class="project" aria-labelledby="highlights-title">
+      <section id="features" class="project app-page-block" aria-labelledby="features-title">
         <div class="wrap">
-          <h2 id="highlights-title" class="project-subhead">功能亮点</h2>
-          <ul class="app-highlights">
-            <li>流水明细、搜索与筛选，支持拍照记账</li>
-            <li>预算进度与超支提醒，分类统计与趋势</li>
-            <li>多账户、分类与标签，深色模式</li>
-            <li>数据备份 / 恢复（zip），导出 CSV</li>
-          </ul>
+          <h2 id="features-title" class="project-subhead">完整功能</h2>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag">流水</span>
+              
+              <h3>记一笔 · 搜索筛选</h3>
+              <p>金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
+            </article>
+            <article class="card">
+              <span class="tag">转账</span>
+              
+              <h3>账户之间互转</h3>
+              <p>转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
+            </article>
+            <article class="card">
+              <span class="tag">分类 · 账户</span>
+              
+              <h3>分类与账户</h3>
+              <p>支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
+            </article>
+            <article class="card">
+              <span class="tag">统计</span>
+              
+              <h3>月度统计与趋势</h3>
+              <p>月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
+            </article>
+            <article class="card">
+              <span class="tag">预算</span>
+              
+              <h3>预算与提醒</h3>
+              <p>每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
+            </article>
+            <article class="card">
+              <span class="tag">备份</span>
+              
+              <h3>导入导出</h3>
+              <p>导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
+            </article>
+            <article class="card">
+              <span class="tag">自动</span>
+              
+              <h3>周期记账</h3>
+              <p>每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
+            </article>
+            <article class="card">
+              <span class="tag">小组件</span>
+              
+              <h3>桌面小组件</h3>
+              <p>显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
+            </article>
+            <article class="card">
+              <span class="tag">隐私</span>
+              
+              <h3>收据拍照</h3>
+              <p>记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
+            </article>
+          </div>
+          <p class="project-foot">另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。</p>
+        </div>
+      </section>
+      <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="screenshots-title">全部截图</h2>
+            <p>以下为中文界面浅色主题截图（与首页轮播相同画面；切换系统深色主题时首页轮播会自动选用深色截图集）。</p>
+          </header>
+          <div class="app-screens-grid">
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/qingjizhang/01-home.webp?v=10" width="540" height="1171" loading="lazy" alt="轻记账首页，本月收支结余与预算概览" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">首页 · 本月收支与预算</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/qingjizhang/02-attendance.webp?v=10" width="540" height="1171" loading="lazy" alt="轻记账流水明细，搜索与筛选" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">明细 · 流水与筛选</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/qingjizhang/03-payment.webp?v=10" width="540" height="1171" loading="lazy" alt="轻记账统计页，分类饼图与趋势" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">统计 · 饼图与 12 个月趋势</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/qingjizhang/04-ledger.webp?v=10" width="540" height="1171" loading="lazy" alt="轻记账预算页，进度与超支提醒" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">预算 · 80% 警告与超支</figcaption>
+            </figure>
+            <figure class="app-screens-grid__item">
+              <div class="phone-frame screenshot-phone">
+                <div class="phone-notch"><span></span></div>
+                <div class="phone-screen">
+                  <img src="/assets/screens/zh/light/qingjizhang/05-members.webp?v=10" width="540" height="1171" loading="lazy" alt="轻记账我的页面，账户分类与设置" />
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">我的 · 账户、分类与设置</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title" class="project-subhead">隐私与权限</h2>
+          <div class="app-prose"><p>流水、分类、账户、预算与提醒设置保存在本机 SQLite（Room）中，无账号与云同步。收据照片保存在设备存储，仅在你拍照或从相册选择时写入。</p><p>仓库 README 描述为 local-first 个人记账；日常记账功能不需要联网。备份 / 恢复与 CSV、JSON 导出由你主动发起，文件经系统分享或「另存为」才会离开本机。</p></div>
+        </div>
+      </section>
+      <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
+        <div class="wrap">
+          <h2 id="requirements-title" class="project-subhead">系统要求</h2>
+          <div class="app-prose"><p>最低 Android 8.0（API 26，minSdk 26），compileSdk / targetSdk 35（见仓库 <code>app/build.gradle.kts</code>）。Release APK 体积随版本变化，请在 <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a> 查看具体下载文件大小。</p><p>正式发布 APK 由 GitHub Actions 在配置签名密钥后构建签名版；本地无密钥时 release 构建可能为未签名包，日常侧载请使用 Releases 中的 APK。</p></div>
+        </div>
+      </section>
+      <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="changelog-title">更新记录</h2>
+            <p>摘自各仓库 README / GitHub Releases，完整列表见 <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">全部 Releases</a>.</p>
+          </header>
+          <div class="changelog-list">
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.2" rel="noopener noreferrer">v1.3.2</a></h3>
+              <ul>
+<li>修复应用内中英文切换（AppCompat locales、系统 per-app 语言同步）。</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.1" rel="noopener noreferrer">v1.3.1</a></h3>
+              <ul>
+<li>英文底栏与统计图例布局优化（单行标签、分类名可读）。</li>
+<li>首页预算 / 大额提醒卡片在深色模式下颜色适配。</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.0" rel="noopener noreferrer">v1.3.0</a></h3>
+              <ul>
+<li>完整英文界面（Settings 切换语言）。</li>
+<li>主题：跟随系统、浅色、深色。</li>
+<li>关于页：版本、构建时间、项目链接。</li>
+              </ul>
+            </article>
+            <article class="changelog-release">
+              <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.2.0" rel="noopener noreferrer">v1.2.0</a></h3>
+              <ul>
+<li>流水搜索筛选、账户转账、深色模式等（详见 git 历史）。</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
       <section id="faq" data-group="faq">
@@ -275,7 +438,11 @@
           <div class="faq-list">
             <article class="faq-item">
               <h3>如何安装轻记账 APK？</h3>
-              <p>在 <a href="https://github.com/gnatecheng/easy-ledger/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK 并安装。Android 需允许「安装未知应用」。桌面显示「轻记账」。</p>
+              <div class="faq-body">在 <a href="https://github.com/gnatecheng/easy-ledger/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK 并安装。Android 需允许「安装未知应用」。桌面显示「轻记账」。</div>
+            </article>
+            <article class="faq-item">
+              <h3>安装提示（Android 版本、未知来源、覆盖安装）</h3>
+              <div class="faq-body">三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：轻记账（<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>）、团团记（<a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>）、C一周通（<a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。</div>
             </article>
             <article class="faq-item">
               <h3>系统要求是什么？</h3>
@@ -299,23 +466,23 @@
         <p class="footer-links">
           <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>c-week</span></a
           >
           <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>easy-ledger</span></a
           >
           <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
             ><span>group-matters</span></a
           >
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=27" defer></script>
+    <script src="/js/translations.js?v=28" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

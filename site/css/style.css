@@ -1155,19 +1155,82 @@ main > section.project:first-of-type {
   flex-shrink: 0;
 }
 
+.app-home-teasers {
+  margin: 1rem 0 0.75rem;
+  padding-left: 1.15rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.app-home-teasers li + li {
+  margin-top: 0.35rem;
+}
+
 .app-learn-more {
-  margin: 0.35rem 0 0;
-  font-size: 0.9rem;
-  font-weight: 600;
+  margin: 0.75rem 0 0;
 }
 
-.app-learn-more a {
-  color: var(--teal);
-  text-decoration: none;
+.btn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10.5rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 650;
 }
 
-.app-learn-more a:hover {
-  text-decoration: underline;
+.app-page-block {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.app-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem 1rem;
+}
+
+.app-screens-grid__item {
+  margin: 0;
+}
+
+.app-prose p {
+  margin: 0 0 0.85rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.app-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.changelog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.changelog-release h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.changelog-release ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.faq-body p,
+.faq-body a {
+  margin: 0 0 0.65rem;
+  line-height: 1.55;
+}
+
+/* Used only for artifact screenshots (class toggled via devtools / automation). */
+body.screenshot-hide-header .site-header {
+  display: none !important;
 }
 
 /* ---------- per-app landing pages ---------- */
