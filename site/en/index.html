@@ -13,7 +13,8 @@
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-    <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
     <link rel="manifest" href="/site.webmanifest?v=3" />
@@ -22,8 +23,8 @@
     <link rel="alternate" hreflang="x-default" href="https://etais.dev/" />
     <link rel="canonical" href="https://etais.dev/en/" />
     <meta name="theme-color" content="#0f766e" />
-    <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=26" />
+    <script src="/js/init-theme.js?v=4"></script>
+    <link rel="stylesheet" href="/css/style.css?v=27" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai Apps" data-i18n-content="meta.siteName" />
@@ -117,60 +118,6 @@
         "price": "0",
         "priceCurrency": "USD"
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://etais.dev/en/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I install the APK?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Download the latest APK from each app’s GitHub Releases and install: Easy Ledger , Group Matters , and C Week . Android may ask you to allow installs from unknown sources (varies by OEM). Launcher names are “Easy Ledger”, “Group Matters”, and “C Week”."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Install tips (Android version, unknown sources, upgrades)",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the system requirements?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need the internet?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Everyday use does not require internet—all data stays on your phone. C Week ships lessons, videos, and labs inside the install package; Easy Ledger keeps entries and settings on device; Group Matters keeps group and activity data on device. None require login or a cloud backend."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does C Week compile C on the phone?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does C Week work with VS Code on a computer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Install VS Code and a C toolchain on your computer and follow along via the C Week open-source repo (Day 7 capstone and examples). The in-app About screen also links to the repo."
-          }
-        }
-      ]
     }
   ]
 }
@@ -199,7 +146,6 @@
             <a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span><span data-i18n="nav.qingjizhang">Easy Ledger</span></a>
             <a class="app-chip chip-class" href="#group-matters"><span class="chip-badge" aria-hidden="true">团</span><span data-i18n="nav.classRecord">Group Matters</span></a>
             <a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="nav.cweek">C Week</span></a>
-            <a class="nav-link" href="#faq" data-i18n="nav.faq">FAQ</a>
           </div>
         </nav>
         <div class="header-tools">
@@ -295,7 +241,7 @@
                 <li data-i18n="app.easyLedger.highlight.4">Backup / restore (zip) and CSV export</li>
               </ul>
               <p class="app-learn-more">
-                <a class="btn btn-secondary btn-learn-more" href="/en/easy-ledger/" data-i18n="appPage.learnMore">Learn more</a>
+                <a class="btn btn-secondary btn-learn-more" href="/en/easy-ledger/#features" data-i18n="appPage.learnMore">Learn more</a>
               </p>
             </div>
             <div class="hero-visual screenshot-wrap">
@@ -436,7 +382,7 @@
                 <li data-i18n="app.groupMatters.highlight.4">Sub-groups; member snapshot when an activity is created</li>
               </ul>
               <p class="app-learn-more">
-                <a class="btn btn-secondary btn-learn-more" href="/en/group-matters/" data-i18n="appPage.learnMore">Learn more</a>
+                <a class="btn btn-secondary btn-learn-more" href="/en/group-matters/#features" data-i18n="appPage.learnMore">Learn more</a>
               </p>
             </div>
             <div class="hero-visual screenshot-wrap">
@@ -575,7 +521,7 @@
                 <li data-i18n="app.cWeek.highlight.4">Progress and streak report; pair with VS Code + gcc on a computer</li>
               </ul>
               <p class="app-learn-more">
-                <a class="btn btn-secondary btn-learn-more" href="/en/c-week/" data-i18n="appPage.learnMore">Learn more</a>
+                <a class="btn btn-secondary btn-learn-more" href="/en/c-week/#features" data-i18n="appPage.learnMore">Learn more</a>
               </p>
           </div>
           <div class="hero-visual screenshot-wrap">
@@ -653,41 +599,6 @@
         </div>
       </section>
 
-<section id="faq" data-group="faq">
-        <div class="wrap">
-          <header class="section-head">
-            <h2 data-i18n="faq.title">FAQ</h2>
-            <p data-i18n="faq.lead">Install, requirements, and offline use — for all three apps on this page.</p>
-          </header>
-          <div class="faq-list">
-            <article class="faq-item">
-              <h3 data-i18n="faq.install.title">How do I install the APK?</h3>
-              <p data-i18n-html="faq.install.body">Download the latest APK from each app’s GitHub Releases and install: <a href="https://github.com/gnatecheng/easy-ledger/releases/latest" rel="noopener noreferrer">Easy Ledger</a>, <a href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">Group Matters</a>, and <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">C Week</a>. Android may ask you to allow installs from unknown sources (varies by OEM). Launcher names are “Easy Ledger”, “Group Matters”, and “C Week”.</p>
-            </article>
-            <article class="faq-item">
-              <h3 data-i18n="faq.installTips.title">Install tips (Android version, unknown sources, upgrades)</h3>
-              <p data-i18n-html="faq.installTips.body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</p>
-            </article>
-            <article class="faq-item">
-              <h3 data-i18n="faq.requirements.title">What are the system requirements?</h3>
-              <p data-i18n="faq.requirements.body">All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably.</p>
-            </article>
-            <article class="faq-item">
-              <h3 data-i18n="faq.offline.title">Do I need the internet?</h3>
-              <p data-i18n="faq.offline.body">Everyday use does not require internet—all data stays on your phone. C Week ships lessons, videos, and labs inside the install package; Easy Ledger keeps entries and settings on device; Group Matters keeps group and activity data on device. None require login or a cloud backend.</p>
-            </article>
-            <article class="faq-item">
-              <h3 data-i18n="faq.compile.title">Does C Week compile C on the phone?</h3>
-              <p data-i18n="faq.compile.body">No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone.</p>
-            </article>
-            <article class="faq-item">
-              <h3 data-i18n="faq.vscode.title">How does C Week work with VS Code on a computer?</h3>
-              <p data-i18n-html="faq.vscode.body">Install VS Code and a C toolchain on your computer and follow along via the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
     </main>
 
     <footer class="site-footer">
@@ -718,9 +629,9 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=28" defer></script>
+    <script src="/js/translations.js?v=30" defer></script>
     <script src="/js/site.js?v=9" defer></script>
-    <script src="/js/screens-lang.js?v=9" defer></script>
+    <script src="/js/screens-lang.js?v=10" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>
     <!-- Cloudflare Web Analytics (public site token) -->

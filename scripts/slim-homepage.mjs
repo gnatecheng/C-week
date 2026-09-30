@@ -17,7 +17,7 @@ function learnMoreBlock(slug, keys, zh) {
 ${items}
               </ul>
               <p class="app-learn-more">
-                <a class="btn btn-secondary btn-learn-more" href="/${slug}/" data-i18n="appPage.learnMore">了解更多</a>
+                <a class="btn btn-secondary btn-learn-more" href="/${slug}/#features" data-i18n="appPage.learnMore">了解更多</a>
               </p>`;
 }
 
@@ -55,8 +55,8 @@ async function main() {
     "\n"
   );
 
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=26");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=28");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=27");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=30");
 
   await writeFile(indexPath, html, "utf8");
   console.log("Slimmed site/index.html");

@@ -18,8 +18,10 @@ import {
 } from "./app-page-sections.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 26;
-const TRANSLATIONS_V = 29;
+const CSS_V = 27;
+const TRANSLATIONS_V = 30;
+const INIT_THEME_V = 4;
+const SCREENS_LANG_V = 10;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
 function escAttrLocal(s) {
@@ -30,33 +32,53 @@ function padSlide(n) {
   return String(n).padStart(2, "0");
 }
 
-function slideFile(slideIndex, screenDir) {
-  const names = {
-    1: "01-home.webp",
-    2: screenDir === "cweek" ? "02-day1.webp" : "02-attendance.webp",
-    3: screenDir === "cweek" ? "03-lesson.webp" : "03-payment.webp",
-    4: screenDir === "cweek" ? "04-quiz.webp" : "04-ledger.webp",
-    5: screenDir === "cweek" ? "05-labs.webp" : "05-members.webp",
-    6: "06-report.webp",
+function slideFile(slideIndex, legacyDir) {
+  const sets = {
+    qingjizhang: [
+      "01-home.webp",
+      "02-entries.webp",
+      "03-stats.webp",
+      "04-budget.webp",
+      "05-mine.webp",
+    ],
+    "class-record": [
+      "01-home.webp",
+      "02-attendance.webp",
+      "03-payment.webp",
+      "04-ledger.webp",
+      "05-members.webp",
+    ],
+    cweek: [
+      "01-home.webp",
+      "02-day1.webp",
+      "03-lesson.webp",
+      "04-quiz.webp",
+      "05-labs.webp",
+      "06-report.webp",
+    ],
   };
-  return names[slideIndex];
+  const list = sets[legacyDir] || sets.qingjizhang;
+  return list[slideIndex - 1];
 }
 
-function renderGallery(app, dict) {
+function renderGallery(app, dict, isEn) {
   const ver = IMG_VER[app.legacyScreenDir] || "10";
-  const legacyBase = `/assets/screens/${app.legacyScreenDir}/`;
   const slides = [];
   for (let i = 1; i <= app.slideCount; i++) {
     const sn = padSlide(i);
     const altKey = `${app.galleryPrefix}.s${sn}.alt`;
     const capKey = `${app.galleryPrefix}.s${sn}.caption`;
-    const file = slideFile(i, app.screenDir);
+    const file = slideFile(i, app.legacyScreenDir);
+    const rel = `${app.legacyScreenDir}/${file}`;
+    const src = isEn
+      ? `/assets/screens/en/light/${rel}?v=${ver}`
+      : `/assets/screens/${rel}?v=${ver}`;
     slides.push(`                  <li class="screenshot-slide">
                     <figure class="screenshot-figure">
                       <div class="phone-frame screenshot-phone">
                         <div class="phone-notch"><span></span></div>
                         <div class="phone-screen">
-                          <img src="${legacyBase}${file}?v=${ver}" width="540" height="1171" loading="lazy" alt="${escAttrLocal(t(dict, altKey))}" />
+                          <img src="${src}" width="540" height="1171" loading="lazy" data-screenshot-rel="${rel}" alt="${escAttrLocal(t(dict, altKey))}" />
                         </div>
                       </div>
                       <figcaption class="screenshot-caption">${t(dict, capKey)}</figcaption>
@@ -230,7 +252,7 @@ function renderPage(app, lang, dict, T) {
         </div>`;
 
   const ver = IMG_VER[app.legacyScreenDir] || "10";
-  app.slideFile = (i) => slideFile(i, app.screenDir);
+  app.slideFile = (i) => slideFile(i, app.legacyScreenDir);
 
   const sections = [
     renderFeatureGrid(dict, t, app.featureCards, app.footKey),
@@ -256,7 +278,7 @@ function renderPage(app, lang, dict, T) {
     <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="manifest" href="${isEn ? "/site.webmanifest.en.json?v=2" : "/site.webmanifest?v=3"}" />
     <meta name="theme-color" content="#0f766e" />
-    <script src="/js/init-theme.js?v=3"></script>
+    <script src="/js/init-theme.js?v=${INIT_THEME_V}"></script>
     <link rel="stylesheet" href="/css/style.css?v=${CSS_V}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${escAttrLocal(t(dict, "meta.siteName"))}" />
@@ -289,7 +311,7 @@ ${gridWrap}
 ${renderDownloadPanel(app, dict)}
           </div>
           <div class="hero-visual screenshot-wrap">
-${renderGallery(app, dict)}
+${renderGallery(app, dict, isEn)}
           </div>
 ${gridClose}
       </section>
@@ -308,7 +330,7 @@ ${renderFaqList(app, dict, t)}
 ${renderFooter(dict)}
     <script src="/js/translations.js?v=${TRANSLATIONS_V}" defer></script>
     <script src="/js/site.js?v=9" defer></script>
-    <script src="/js/screens-lang.js?v=9" defer></script>
+    <script src="/js/screens-lang.js?v=${SCREENS_LANG_V}" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>
   </body>

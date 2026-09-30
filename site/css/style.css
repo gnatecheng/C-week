@@ -1233,6 +1233,16 @@ body.screenshot-hide-header .site-header {
   display: none !important;
 }
 
+html.etai-screens-pending .screenshot-gallery img[src*="/assets/screens/"],
+html.etai-screens-pending .app-screens-grid img[src*="/assets/screens/"] {
+  visibility: hidden;
+}
+
+#features,
+#features-title {
+  scroll-margin-top: 5.5rem;
+}
+
 /* ---------- per-app landing pages ---------- */
 
 .app-page-main {

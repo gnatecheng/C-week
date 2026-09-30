@@ -82,30 +82,6 @@ html = html.replace(
   '<h2 class="hero-title" data-i18n="cweek.hero.title">C一周通</h2>'
 );
 
-const faqHtmlKeys = new Set(["faq.install.body", "faq.installTips.body", "faq.vscode.body"]);
-const faqItems = [
-  ["faq.install.title", "faq.install.body"],
-  ["faq.installTips.title", "faq.installTips.body"],
-  ["faq.requirements.title", "faq.requirements.body"],
-  ["faq.offline.title", "faq.offline.body"],
-  ["faq.compile.title", "faq.compile.body"],
-  ["faq.vscode.title", "faq.vscode.body"],
-];
-const faqInner = faqItems
-  .map(([titleKey, bodyKey]) => {
-    const attr = faqHtmlKeys.has(bodyKey) ? ` data-i18n-html="${bodyKey}"` : ` data-i18n="${bodyKey}"`;
-    return `            <article class="faq-item">
-              <h3 data-i18n="${titleKey}">${zh[titleKey]}</h3>
-              <p${attr}>${zh[bodyKey]}</p>
-            </article>`;
-  })
-  .join("\n");
-
-html = html.replace(
-  /<div class="faq-list">[\s\S]*?<\/div>\s*\n\s*<\/div>\s*\n\s*<\/section>\s*\n\s*<\/main>/,
-  `<div class="faq-list">\n${faqInner}\n          </div>\n        </div>\n      </section>\n\n    </main>`
-);
-
 if (!html.includes('id="lang-hint"')) {
   html = html.replace(
     "</header>\n\n    <main id=\"main\">",
