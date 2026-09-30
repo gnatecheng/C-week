@@ -62,6 +62,7 @@ export const APP_PAGES = [
         itemKeys: ["app.easyLedger.changelog.120.1"],
       },
     ],
+    headerTaglineKey: "app.easyLedger.headerTagline",
     keys: {
       name: "qjz.hero.title",
       tagline: "app.easyLedger.tagline",
@@ -155,6 +156,7 @@ export const APP_PAGES = [
         ],
       },
     ],
+    headerTaglineKey: "app.groupMatters.headerTagline",
     keys: {
       name: "class.hero.title",
       tagline: "app.groupMatters.tagline",
@@ -237,6 +239,7 @@ export const APP_PAGES = [
         itemKeys: ["app.cWeek.changelog.130.1"],
       },
     ],
+    headerTaglineKey: "app.cWeek.headerTagline",
     keys: {
       name: "cweek.hero.title",
       tagline: "app.cWeek.tagline",

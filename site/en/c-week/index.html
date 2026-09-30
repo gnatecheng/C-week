@@ -14,7 +14,7 @@
     <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=4"></script>
-    <link rel="stylesheet" href="/css/style.css?v=30" />
+    <link rel="stylesheet" href="/css/style.css?v=31" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai Apps" />
     <meta property="og:url" content="https://etais.dev/en/c-week/" />
@@ -127,32 +127,35 @@
     </script>
   </head>
   <body data-page-lang="en" data-app-slug="c-week" data-app-accent="cweek" class="app-subpage" data-page-title-key="app.cWeek.meta.title" data-page-description-key="app.cWeek.meta.description" data-page-og-title-key="app.cWeek.meta.ogTitle" data-page-og-description-key="app.cWeek.meta.ogDescription">
+    <div id="page-top" class="page-top-anchor" tabindex="-1"></div>
     <a class="skip-link" href="#main">Skip to main content</a>
     <div class="site-sticky-top">
-    <header class="site-header">
-      <div class="wrap header-shell">
-        <div class="brand-block">
-          <a class="brand" href="/en/">
-            <img src="/assets/icon.svg?v=2" width="36" height="36" alt="Etai" />
-            <span>Etai Apps</span>
+    <header class="site-header app-page-header">
+      <div class="wrap header-shell app-page-header-shell">
+        <div class="app-header-brand-block">
+          <a class="app-header-brand" href="#page-top">
+            <img
+              class="app-header-brand__icon"
+              src="/assets/app-icons/c-week.webp?v=2"
+              width="36"
+              height="36"
+              alt=""
+              decoding="async"
+              aria-hidden="true"
+            />
+            <span class="app-header-brand__text">
+              <span class="app-header-brand__name">C Week</span>
+              <span class="app-header-brand__tagline">Learn C offline in seven days</span>
+            </span>
           </a>
-          <p class="brand-tagline">
-            <span class="brand-tagline-full">Offline · Data stays on device</span>
-            <span class="brand-tagline-short">Offline · On-device</span>
-          </p>
         </div>
-        <nav class="header-nav" aria-label="Page sections">
-          <div class="header-nav-inner">
-            <a class="app-chip chip-cweek" href="/en/c-week/" aria-current="page"><span class="chip-badge" aria-hidden="true">C</span><span>C Week</span></a>
-          </div>
-        </nav>
         <div class="header-tools">
           <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
             <button type="button" id="lang-zh" aria-pressed="false">中文</button>
             <button type="button" id="lang-en" aria-pressed="true">English</button>
           </div>
           <button type="button" id="theme-toggle" aria-label="Theme">
-            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
             <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </button>
@@ -169,6 +172,7 @@
             <a href="#requirements" data-section-nav="requirements">Requirements</a>
             <a href="#changelog" data-section-nav="changelog">Changelog</a>
             <a href="#faq" data-section-nav="faq">FAQ</a>
+            <a class="app-section-nav__hub" href="/en/">More Etai apps →</a>
         </div>
       </div>
     </nav>
@@ -587,7 +591,6 @@
       <div class="wrap inner">
         <p class="footer-copy">© Etai Apps · C Week · Open-source Android app</p>
         <div class="footer-actions">
-          <a class="footer-hub-link" href="/en/">More Etai apps →</a>
           <a class="footer-repo-link" href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
               ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3 .405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
@@ -596,7 +599,7 @@
         </div>
       </div>
     </footer>
-    <script src="/js/translations.js?v=33" defer></script>
+    <script src="/js/translations.js?v=34" defer></script>
     <script src="/js/site.js?v=11" defer></script>
     <script src="/js/app-section-nav.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=10" defer></script>

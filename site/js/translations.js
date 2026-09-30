@@ -339,6 +339,7 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.changelog.140.2": "学习报告：连续打卡、分天完成度、测验正确率。",
     "app.cWeek.changelog.140.3": "学习日历 / 打卡（1.3.0 能力延续与增强）。",
     "app.cWeek.changelog.130.1": "学习日历 / 打卡：D1–D7 按天点亮，完成课文 / 实验 / 测验自动盖章。",
+    "app.easyLedger.headerTagline": "离线记账，数据只存本机",
     "app.easyLedger.tagline":
       "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
     "app.easyLedger.meta.title": "轻记账｜离线记账 Android App",
@@ -360,6 +361,7 @@ window.ETAI_TRANSLATIONS = {
     "app.easyLedger.faq.backup.title": "如何备份数据？",
     "app.easyLedger.faq.backup.body":
       "应用内提供数据备份 / 恢复（zip）与 CSV 导出；备份文件只有你主动分享或保存时才会离开本机。",
+    "app.groupMatters.headerTagline": "小团体事务，离线记清楚",
     "app.groupMatters.tagline":
       "任何小团体（社团、寝室、兴趣小组、球队、家庭/朋友聚会、班级）的点名、收团费、AA 分摊和清单，一个离线 App 记清楚，催缴文案一键发群。",
     "app.groupMatters.meta.title": "团团记｜离线小团体事务 Android",
@@ -384,6 +386,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.sync.title": "能否多人同步或协同编辑？",
     "app.groupMatters.faq.sync.body":
       "不能。团团记是单机离线应用，没有账号、服务器或多设备同步；如需换机请使用应用内的 zip 备份 / 恢复。",
+    "app.cWeek.headerTagline": "七天学 C，全程可离线",
     "app.cWeek.tagline": "7 天把编程初学者带到能用 C 写出 Dijkstra 最短路；课文含 VS Code 屏幕录像，Kotlin + Jetpack Compose，全程可离线学习。",
     "app.cWeek.meta.title": "C一周通｜7 天学 C 语言 Android",
     "app.cWeek.meta.description":
@@ -764,6 +767,7 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.changelog.140.2": "Learning report: streak, per-day completion, quiz accuracy.",
     "app.cWeek.changelog.140.3": "Study calendar / check-in (extends 1.3.0 behavior).",
     "app.cWeek.changelog.130.1": "Study calendar / check-in: stamp D1–D7 when lesson, lab, or quiz completes.",
+    "app.easyLedger.headerTagline": "Offline budgeting on device",
     "app.easyLedger.tagline":
       "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
     "app.easyLedger.meta.title": "Easy Ledger — Offline budgeting Android app",
@@ -785,6 +789,7 @@ window.ETAI_TRANSLATIONS = {
     "app.easyLedger.faq.backup.title": "How do I back up data?",
     "app.easyLedger.faq.backup.body":
       "In-app backup / restore (zip) and CSV export; backup files leave your device only when you share or save them.",
+    "app.groupMatters.headerTagline": "Offline group admin on device",
     "app.groupMatters.tagline":
       "Roll call, group-fund collection, cost splits, and checklists for any small group—one offline app, reminder text ready to paste into group chat.",
     "app.groupMatters.meta.title": "Group Matters — Offline group admin Android app",
@@ -810,6 +815,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.sync.title": "Can multiple people sync or edit together?",
     "app.groupMatters.faq.sync.body":
       "No. Group Matters is single-device offline software—no accounts, server, or multi-device sync. Use zip backup / restore to move to a new phone.",
+    "app.cWeek.headerTagline": "Learn C offline in seven days",
     "app.cWeek.tagline": "Learn C on your phone, offline — Hello World to Dijkstra.",
     "app.cWeek.meta.title": "C Week — Learn C offline on Android app",
     "app.cWeek.meta.description":

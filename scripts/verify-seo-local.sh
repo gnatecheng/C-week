@@ -143,7 +143,10 @@ def subpage_no_cross_app(path):
     for needle in cfg["forbidden"]:
         assert needle not in html, f"subpage {path} must not mention other app ({needle!r})"
     chips = len(re.findall(r'class="app-chip\b', html))
-    assert chips == 1, f"expected 1 app chip in {path}, got {chips}"
+    assert chips == 0, f"app chip must be removed from subpage header on {path}, got {chips}"
+    assert 'class="app-header-brand"' in html, f"missing app header brand on {path}"
+    assert 'class="app-section-nav__hub"' in html, f"missing hub link in section nav on {path}"
+    assert "footer-hub-link" not in html, f"hub link must not remain in footer on {path}"
     assert 'data-app-slug="' + cfg["slug"] + '"' in html, f"missing data-app-slug in {path}"
     assert "BreadcrumbList" in pathlib.Path(path).read_text(encoding="utf-8"), f"missing BreadcrumbList JSON-LD in {path}"
     assert 'id="app-section-nav"' in html, f"missing section nav in {path}"
