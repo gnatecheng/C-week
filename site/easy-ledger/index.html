@@ -14,7 +14,7 @@
     <link rel="manifest" href="/site.webmanifest?v=3" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=4"></script>
-    <link rel="stylesheet" href="/css/style.css?v=28" />
+    <link rel="stylesheet" href="/css/style.css?v=29" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai 应用集" />
     <meta property="og:url" content="https://etais.dev/easy-ledger/" />
@@ -118,8 +118,9 @@
 }
     </script>
   </head>
-  <body data-page-lang="zh" data-app-slug="easy-ledger">
+  <body data-page-lang="zh" data-app-slug="easy-ledger" data-app-accent="qjz" class="app-subpage">
     <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="site-sticky-top">
     <header class="site-header">
       <div class="wrap header-shell">
         <div class="brand-block">
@@ -135,7 +136,6 @@
         <nav class="header-nav" aria-label="页面章节">
           <div class="header-nav-inner">
             <a class="app-chip chip-qjz" href="/easy-ledger/" aria-current="page"><span class="chip-badge" aria-hidden="true">账</span><span>轻记账</span></a>
-            <a class="nav-link" href="#faq">常见问题</a>
           </div>
         </nav>
         <div class="header-tools">
@@ -151,6 +151,19 @@
         </div>
       </div>
     </header>
+    <nav class="app-section-nav" id="app-section-nav" aria-label="本页章节">
+      <div class="app-section-nav__track">
+        <div class="app-section-nav__inner wrap">
+            <a href="#features" data-section-nav="features">功能</a>
+            <a href="#screenshots" data-section-nav="screenshots">截图</a>
+            <a href="#privacy" data-section-nav="privacy">隐私</a>
+            <a href="#requirements" data-section-nav="requirements">系统要求</a>
+            <a href="#changelog" data-section-nav="changelog">更新记录</a>
+            <a href="#faq" data-section-nav="faq">常见问题</a>
+        </div>
+      </div>
+    </nav>
+    </div>
     <main id="main">
       <section class="project project-qjz" data-group="qingjizhang" aria-labelledby="easyledger-title">
 <div class="wrap">
@@ -447,10 +460,10 @@
           </div>
         </div>
       </section>
-      <section id="faq" data-group="faq">
+      <section id="faq" class="app-page-block" data-group="faq" aria-labelledby="faq-title">
         <div class="wrap">
           <header class="section-head">
-            <h2>常见问题</h2>
+            <h2 id="faq-title">常见问题</h2>
           </header>
           <div class="faq-list">
             <article class="faq-item">
@@ -492,8 +505,9 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=31" defer></script>
+    <script src="/js/translations.js?v=32" defer></script>
     <script src="/js/site.js?v=10" defer></script>
+    <script src="/js/app-section-nav.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=10" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>

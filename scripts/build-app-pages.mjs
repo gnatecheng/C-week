@@ -18,9 +18,10 @@ import {
 } from "./app-page-sections.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 28;
-const TRANSLATIONS_V = 31;
+const CSS_V = 29;
+const TRANSLATIONS_V = 32;
 const SITE_JS_V = 10;
+const SECTION_NAV_JS_V = 6;
 const INIT_THEME_V = 4;
 const SCREENS_LANG_V = 10;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
@@ -123,7 +124,6 @@ function renderSiteHeader(isEn, dict, activeSlug) {
         <nav class="header-nav" aria-label="${escAttrLocal(t(dict, "navSectionsLabel"))}">
           <div class="header-nav-inner">
             ${renderNavChip(activeSlug, isEn, dict, activeSlug)}
-            <a class="nav-link" href="#faq">${t(dict, "nav.faq")}</a>
           </div>
         </nav>
         <div class="header-tools">
@@ -139,6 +139,44 @@ function renderSiteHeader(isEn, dict, activeSlug) {
         </div>
       </div>
     </header>`;
+}
+
+function renderSectionNav(app, dict) {
+  const items = [
+    ["features", "appPage.sectionNav.features"],
+    ...(app.showRoadmap ? [["roadmap", "appPage.sectionNav.roadmap"]] : []),
+    ["screenshots", "appPage.sectionNav.screenshots"],
+    ["privacy", "appPage.sectionNav.privacy"],
+    ["requirements", "appPage.sectionNav.requirements"],
+    ["changelog", "appPage.sectionNav.changelog"],
+    ["faq", "appPage.sectionNav.faq"],
+  ];
+  const links = items
+    .map(
+      ([id, key]) =>
+        `<a href="#${id}" data-section-nav="${id}">${t(dict, key)}</a>`
+    )
+    .join("\n            ");
+  return `    <nav class="app-section-nav" id="app-section-nav" aria-label="${escAttrLocal(t(dict, "appPage.sectionNav.label"))}">
+      <div class="app-section-nav__track">
+        <div class="app-section-nav__inner wrap">
+            ${links}
+        </div>
+      </div>
+    </nav>`;
+}
+
+function renderAppStickyTop(isEn, dict, app) {
+  return `    <div class="site-sticky-top">
+${renderSiteHeader(isEn, dict, app.slug)}
+${renderSectionNav(app, dict)}
+    </div>`;
+}
+
+function appAccentAttr(app) {
+  if (app.slug === "easy-ledger") return "qjz";
+  if (app.slug === "group-matters") return "class";
+  return "cweek";
 }
 
 function renderDownloadPanel(app, dict) {
@@ -292,9 +330,9 @@ function renderPage(app, lang, dict, T) {
 ${jsonLd}
     </script>
   </head>
-  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}">
+  <body data-page-lang="${isEn ? "en" : "zh"}" data-app-slug="${app.slug}" data-app-accent="${appAccentAttr(app)}" class="app-subpage">
     <a class="skip-link" href="#main">${t(dict, "skipLink")}</a>
-${renderSiteHeader(isEn, dict, app.slug)}
+${renderAppStickyTop(isEn, dict, app)}
     <main id="main">
       <section class="${app.sectionClass}" data-group="${app.appMeta}" aria-labelledby="${titleId}">
 ${gridWrap}
@@ -309,10 +347,10 @@ ${renderGallery(app, dict, isEn)}
 ${gridClose}
       </section>
 ${sections.join("\n")}
-      <section id="faq" data-group="faq">
+      <section id="faq" class="app-page-block" data-group="faq" aria-labelledby="faq-title">
         <div class="wrap">
           <header class="section-head">
-            <h2>${t(dict, "appPage.faqTitle")}</h2>
+            <h2 id="faq-title">${t(dict, "appPage.faqTitle")}</h2>
           </header>
           <div class="faq-list">
 ${renderFaqList(app, dict, t)}
@@ -323,6 +361,7 @@ ${renderFaqList(app, dict, t)}
 ${renderFooter(app, isEn, dict)}
     <script src="/js/translations.js?v=${TRANSLATIONS_V}" defer></script>
     <script src="/js/site.js?v=${SITE_JS_V}" defer></script>
+    <script src="/js/app-section-nav.js?v=${SECTION_NAV_JS_V}" defer></script>
     <script src="/js/screens-lang.js?v=${SCREENS_LANG_V}" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>

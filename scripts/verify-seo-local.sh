@@ -137,6 +137,14 @@ def subpage_no_cross_app(path):
     assert chips == 1, f"expected 1 app chip in {path}, got {chips}"
     assert 'data-app-slug="' + cfg["slug"] + '"' in html, f"missing data-app-slug in {path}"
     assert "BreadcrumbList" in pathlib.Path(path).read_text(encoding="utf-8"), f"missing BreadcrumbList JSON-LD in {path}"
+    assert 'id="app-section-nav"' in html, f"missing section nav in {path}"
+    assert 'href="#features"' in html and 'href="#faq"' in html, f"section nav anchors missing in {path}"
+    header_part = html.split("<main", 1)[0]
+    assert 'class="nav-link" href="#faq"' not in header_part, f"FAQ must not stay in header nav on {path}"
+    if cfg["slug"] == "c-week":
+        assert 'href="#roadmap"' in html, f"c-week subpage needs roadmap nav link: {path}"
+    else:
+        assert 'href="#roadmap"' not in html, f"non-c-week subpage must not have roadmap nav: {path}"
 
 for path, lang in APP_PAGES:
     p = pathlib.Path(path)
