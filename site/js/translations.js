@@ -1,15 +1,15 @@
 window.ETAI_TRANSLATIONS = {
   zh: {
-    "meta.title": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、团团记",
+    "meta.title": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
     "meta.description":
       "三款免费、离线、开源的 Android 应用：C一周通（7 天从 Hello World 学到 Dijkstra，含 VS Code 实操录像）、轻记账（无需注册的本地记账）、团团记（小团体点名、收费、费用分摊）。数据只存本机。",
     "meta.pageH1": "Etai 应用集：三款离线、数据只存本机的 Android 应用",
     "meta.siteName": "Etai 应用集",
-    "meta.ogTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、团团记",
+    "meta.ogTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
     "meta.ogDescription":
       "三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。",
     "meta.ogImageAlt": "Etai 应用集：C一周通、轻记账与团团记三款离线 Android 应用",
-    "meta.twitterTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、团团记",
+    "meta.twitterTitle": "Etai 应用集｜离线安卓应用：7 天学会 C 语言、隐私记账、小团体事务（团团记）",
     "meta.twitterDescription":
       "三款免费、离线、开源 Android 应用：C一周通、轻记账、团团记。数据只存本机。",
     "langHint.message": "此页面为中文版。",
