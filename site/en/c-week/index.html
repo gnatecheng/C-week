@@ -67,7 +67,7 @@
           "name": "Install tips (Android version, unknown sources, upgrades)",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps use minSdk 26 (Android 8.0)—the same value in each repo’s app/build.gradle.kts ( easy-ledger , group-matters , c-week ). On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording and location vary by device). If an upgrade fails with a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress)."
+            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
           }
         },
         {
@@ -75,7 +75,7 @@
           "name": "What are the system requirements?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices."
+            "text": "Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.0, about 15.6 MB (see GitHub Releases)."
           }
         },
         {
@@ -83,7 +83,7 @@
           "name": "Do I need the internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline."
+            "text": "Lessons, demo videos, and lab content ship in the install package; progress stays on your phone—learning works offline."
           }
         },
         {
@@ -99,7 +99,7 @@
           "name": "How does C Week work with VS Code on a computer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Install VS Code and gcc on PC/Mac/Linux, open the c-week repo, and follow the .c files under app/src/main/assets/labs/ ; for Day 7 see day7_dijkstra.c and expected output in that repo’s README."
+            "text": "Install VS Code and a C toolchain on your computer and follow along via the C Week open-source repo (Day 7 capstone and examples). The in-app About screen also links to the repo."
           }
         }
       ]
@@ -289,7 +289,7 @@
               <span class="tag">Plan</span>
               
               <h3>Weekly plan and progress</h3>
-              <p>Day 1–7 cards, checkmarks, and overall percentage; progress persisted with DataStore and follows system light/dark theme.</p>
+              <p>Day 1–7 cards, checkmarks, and overall percentage; progress stays on your phone; UI follows system light/dark theme.</p>
             </article>
             <article class="card">
               <span class="tag">1.3.0</span>
@@ -343,7 +343,7 @@
         <div class="wrap">
           <header class="section-head">
             <h2 id="roadmap-title">7-day learning path</h2>
-            <p>Matches the course map in `app/src/main/assets/curriculum/map.json` and the Kotlin lessons; each day has a micro-lesson, quiz, and lab.</p>
+            <p>The seven-day path matches the in-app curriculum; each day has a micro-lesson, quiz, and lab.</p>
           </header>
           <div class="roadmap">
             <article class="card day-card">
@@ -479,28 +479,27 @@
       <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
         <div class="wrap">
           <h2 id="privacy-title" class="project-subhead">Privacy & permissions</h2>
-          <div class="app-prose"><p>Lessons, bundled H.264 VS Code recordings, lab assets, and map.json ship inside the APK; progress, streaks, and wrong-answer data live in on-device DataStore. Everyday study does not require network access.</p><p>The phone does not run gcc—labs use offline simulated grading. Cloudflare Web Analytics applies to etais.dev only, not the APK.</p></div>
+          <div class="app-prose"><p>Lessons, VS Code screen recordings, labs, and quizzes ship inside the install package; progress, streaks, and wrong-answer notes stay on your phone.</p><p>The app does not request the Internet permission—everyday study works offline. The phone does not compile C code; labs use offline simulated grading.</p><p>This marketing site, etais.dev, uses Cloudflare Web Analytics (not part of the Android app).</p></div>
         </div>
       </section>
       <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
         <div class="wrap">
           <h2 id="requirements-title" class="project-subhead">System requirements</h2>
-          <div class="app-prose"><p>Minimum Android 8.0 (API 26); bundled H.264 lessons play best on newer devices. README notes debug build 1.5.0 (versionCode 7). Check APK size on <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a>.</p><p>Release APKs build on semver tags <code>vX.Y.Z</code> via GitHub Actions when ANDROID_KEYSTORE_* secrets are set; tag must match <code>versionName</code> in <code>app/build.gradle.kts</code>.</p></div>
+          <div class="app-prose"><p>Android 8.0 or newer. Bundled lesson videos usually play more reliably on newer phones.</p><p>Current release: C Week v1.5.0, about 15.6 MB (see <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p></div>
         </div>
       </section>
       <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
         <div class="wrap">
           <header class="section-head">
             <h2 id="changelog-title">Release history</h2>
-            <p>Summarized from each repo README / GitHub Releases. Full list: <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">all Releases</a>.</p>
+            <p>Full history on <a href="https://github.com/gnatecheng/c-week/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
           </header>
           <div class="changelog-list">
             <article class="changelog-release">
               <h3><a href="https://github.com/gnatecheng/c-week/releases/tag/v1.5.0" rel="noopener noreferrer">v1.5.0</a></h3>
               <ul>
-<li>Full English curriculum and UI in Settings (Days 1–7 lessons, quizzes, labs).</li>
-<li>Language plus light/dark/system theme; About page with version and repo link.</li>
-<li>Homepage screenshot paths and bilingual static site alignment.</li>
+<li>Full English curriculum and UI in Settings (7 days of lessons, quizzes, and labs).</li>
+<li>Light, dark, or system theme; About page shows version and open-source link.</li>
               </ul>
             </article>
             <article class="changelog-release">
@@ -532,15 +531,15 @@
             </article>
             <article class="faq-item">
               <h3>Install tips (Android version, unknown sources, upgrades)</h3>
-              <div class="faq-body">All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>, <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>, <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).</div>
+              <div class="faq-body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
             </article>
             <article class="faq-item">
               <h3>What are the system requirements?</h3>
-              <p>Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices.</p>
+              <p>Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.0, about 15.6 MB (see GitHub Releases).</p>
             </article>
             <article class="faq-item">
               <h3>Do I need the internet?</h3>
-              <p>Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline.</p>
+              <p>Lessons, demo videos, and lab content ship in the install package; progress stays on your phone—learning works offline.</p>
             </article>
             <article class="faq-item">
               <h3>Does C Week compile C on the phone?</h3>
@@ -548,7 +547,7 @@
             </article>
             <article class="faq-item">
               <h3>How does C Week work with VS Code on a computer?</h3>
-              <div class="faq-body">Install VS Code and gcc on PC/Mac/Linux, open the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.</div>
+              <div class="faq-body">Install VS Code and a C toolchain on your computer and follow along via the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.</div>
             </article>
           </div>
         </div>
@@ -576,7 +575,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=28" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

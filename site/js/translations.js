@@ -51,7 +51,7 @@ window.ETAI_TRANSLATIONS = {
     "cweek.features.plan.tag": "计划",
     "cweek.features.plan.title": "本周计划与进度",
     "cweek.features.plan.body":
-      "Day 1–7 卡片、勾选与总体百分比；进度由 DataStore 持久化，跟随系统深色/浅色。",
+      "Day 1–7 卡片、勾选与总体百分比；学习进度保存在本机，界面跟随系统深色/浅色。",
     "cweek.features.streak.tag": "1.3.0",
     "cweek.features.streak.title": "学习日历 / 打卡",
     "cweek.features.streak.body":
@@ -81,7 +81,7 @@ window.ETAI_TRANSLATIONS = {
       "pointer、栈/堆、数组退化、launch.json、bash 路径等术语可查；大点击区域与等宽代码字体便于阅读。",
     "roadmap.title": "7 天学习路线",
     "roadmap.lead":
-      "课程地图与 `app/src/main/assets/curriculum/map.json` 及 Kotlin 课文一致；每天含微课、测验与实验。",
+      "7 天路线与应用内课程一致；每天含微课、测验与实验。",
     "roadmap.d1.title": "环境、文件与 Hello World",
     "roadmap.d1.sub": "路径 · bash · VS Code · 第一次编译",
     "roadmap.d1.outcome":
@@ -128,7 +128,7 @@ window.ETAI_TRANSLATIONS = {
       "在各自仓库的 GitHub Releases 下载最新 APK 并安装：<a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">轻记账</a>、<a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">团团记</a>、<a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">C一周通</a>。Android 需允许「安装未知应用」（因渠道而异）。安装后桌面分别显示「轻记账」「团团记」「C一周通」。",
     "faq.installTips.title": "安装提示（Android 版本、未知来源、覆盖安装）",
     "faq.installTips.body":
-      "三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：轻记账（<a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>）、团团记（<a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>）、C一周通（<a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。",
+      "三款应用均需 <strong>Android 8.0 及以上</strong>。请从各应用 GitHub Releases 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。<strong>轻记账与团团记</strong>若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。",
     "download.androidMin": "Android 8.0+",
     "download.apkLabel": "APK",
     "download.scanOr": "或",
@@ -139,16 +139,16 @@ window.ETAI_TRANSLATIONS = {
     "download.qrAlt.cWeek": "C一周通下载二维码",
     "faq.requirements.title": "系统要求是什么？",
     "faq.requirements.body":
-      "三款应用均为最低 Android 8.0（API 26，minSdk 26）、目标 SDK 35（compileSdk 35）。C一周通内含打包的 H.264 教学视频，较新系统通常播放更稳定。",
+      "三款应用均支持 Android 8.0 及以上。C一周通内含打包的教学视频，较新的手机系统通常播放更稳定。",
     "faq.offline.title": "需要联网吗？",
     "faq.offline.body":
-      "日常使用不需要联网，数据保存在本机：C一周通的课文、演示视频与实验数据打包在 APK 内，学习进度等存在 DataStore；轻记账的流水与设置在 Room（SQLite）中；团团记的团体与事务数据在 Room 中。均无登录或必需的后端服务。",
+      "日常使用不需要联网，数据都保存在本机：C一周通的课文、演示视频与实验内容打包在安装包内；轻记账的流水与设置在本机；团团记的团体与事务数据在本机。均无登录或必需的后端服务。",
     "faq.compile.title": "C一周通会在手机上编译 C 吗？",
     "faq.compile.body":
       "不会。C一周通使用离线模拟评测（多组用例 + 规则检查 + 错因提示），部分通过会显示分数，全部通过才记实验完成；手机端无需安装 gcc。",
     "faq.vscode.title": "C一周通和电脑上的 VS Code 怎么配合？",
     "faq.vscode.body":
-      "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。",
+      "可在电脑上安装 VS Code 与 C 语言编译环境，打开 <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C一周通开源仓库</a> 跟练第 7 天大作业等示例；应用内 About 页也有项目链接。",
     "qjz.hero.title": "轻记账",
     "qjz.hero.lead":
       "个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。",
@@ -200,7 +200,7 @@ window.ETAI_TRANSLATIONS = {
     "qjz.features.receipt.title": "收据拍照",
     "qjz.features.receipt.body": "记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。",
     "qjz.foot":
-      "另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。",
+      "支持浅色 / 深色 / 跟随系统主题（我的 → 设置）。首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。",
     "class.hero.title": "团团记",
     "class.hero.lead":
       "面向任意小团体的 Android 事务记录应用：<strong>出勤、缴费、费用分摊、清单</strong>（社团、宿舍、小组等）。数据保存在本机（Room），<strong>无需登录或联网</strong>。",
@@ -253,7 +253,7 @@ window.ETAI_TRANSLATIONS = {
     "class.features.widget.title": "未完成人数小组件",
     "class.features.widget.body": "显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。",
     "class.foot":
-      "首页可按标题搜索事务、筛选进行中 / 已归档；新建事务与再开一期提供点名、团费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。",
+      "首页可按标题搜索事务、筛选进行中 / 已归档；新建事务与再开一期提供点名、团费、分摊等快捷标题模板；主题可跟随系统或固定浅色 / 深色（设置中切换）。",
     "footer.copyright": "© Etai 应用集 · 轻记账 / 团团记 / C一周通 · 开源 Android 应用",
     "footer.linkCweek": "c-week",
     "footer.linkQjz": "easy-ledger",
@@ -278,27 +278,29 @@ window.ETAI_TRANSLATIONS = {
     "appPage.section.privacy": "隐私与权限",
     "appPage.section.requirements": "系统要求",
     "appPage.section.changelog": "更新记录",
-    "appPage.section.changelogLead": "摘自各仓库 README / GitHub Releases，完整列表见",
-    "appPage.changelog.allReleases": "全部 Releases",
+    "appPage.section.changelogLead": "完整记录见",
+    "appPage.changelog.allReleases": "GitHub Releases",
     "app.easyLedger.privacy.body":
-      "<p>流水、分类、账户、预算与提醒设置保存在本机 SQLite（Room）中，无账号与云同步。收据照片保存在设备存储，仅在你拍照或从相册选择时写入。</p><p>仓库 README 描述为 local-first 个人记账；日常记账功能不需要联网。备份 / 恢复与 CSV、JSON 导出由你主动发起，文件经系统分享或「另存为」才会离开本机。</p>",
+      "<p>记账流水、分类、账户、预算与提醒设置都保存在本机，无需注册账号，也没有云同步。</p><p>记账时可拍照或从相册选择收据，照片只存在您的手机里，可随时更换或删除。</p><p>应用未声明联网权限，日常记账不需要联网。备份、恢复或导出 CSV/JSON 只有您主动操作时才会生成文件，并通过系统分享或「另存为」离开本机。</p>",
     "app.easyLedger.requirements.body":
-      "<p>最低 Android 8.0（API 26，minSdk 26），compileSdk / targetSdk 35（见仓库 <code>app/build.gradle.kts</code>）。Release APK 体积随版本变化，请在 <a href=\"https://github.com/gnatecheng/easy-ledger/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 查看具体下载文件大小。</p><p>正式发布 APK 由 GitHub Actions 在配置签名密钥后构建签名版；本地无密钥时 release 构建可能为未签名包，日常侧载请使用 Releases 中的 APK。</p>",
-    "app.easyLedger.changelog.132.1": "修复应用内中英文切换（AppCompat locales、系统 per-app 语言同步）。",
+      "<p>支持 Android 8.0 及以上。</p><p>当前版本：轻记账 v1.3.2，安装包约 13.0 MB（以 <a href=\"https://github.com/gnatecheng/easy-ledger/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p><p>若您曾安装过测试版或旧签名版本，请先卸载再安装当前正式版，否则可能提示签名冲突；卸载会清除应用内数据，请先使用应用内备份。</p>",
+    "app.easyLedger.changelog.132.1": "修复设置里切换中英文偶尔不生效的问题。",
+    "app.easyLedger.changelog.132.2": "首个正式签名版：请从 GitHub Releases 下载安装；曾装测试版或旧签名版请先卸载。",
     "app.easyLedger.changelog.131.1": "英文底栏与统计图例布局优化（单行标签、分类名可读）。",
     "app.easyLedger.changelog.131.2": "首页预算 / 大额提醒卡片在深色模式下颜色适配。",
     "app.easyLedger.changelog.130.1": "完整英文界面（Settings 切换语言）。",
     "app.easyLedger.changelog.130.2": "主题：跟随系统、浅色、深色。",
     "app.easyLedger.changelog.130.3": "关于页：版本、构建时间、项目链接。",
-    "app.easyLedger.changelog.120.1": "流水搜索筛选、账户转账、深色模式等（详见 git 历史）。",
+    "app.easyLedger.changelog.120.1": "新增流水搜索与筛选、账户转账、深色模式等。",
     "app.groupMatters.privacy.body":
-      "<p>团体、成员与事务数据保存在本机 Room（SQLite）中，无账号、无服务器。备份 zip 含缴费凭证图片，仅在你导出 / 恢复时离开设备。</p><p>仓库说明为单机离线应用；APK 无联网权限，成员无需安装 App，组织者在一台手机上维护数据。</p>",
+      "<p>团体、成员与事务记录都保存在本机，无需注册账号，也没有云端服务器。</p><p>备份文件为 zip，可包含缴费凭证照片；只有您主动导出或恢复时才会离开手机。</p><p>应用未声明联网权限，日常记录不需要联网。通常只需组织者在手机上安装；成员不必安装 App。</p>",
     "app.groupMatters.requirements.body":
-      "<p>最低 Android 8.0（API 26），versionCode 9 对应 v1.5.2（见仓库 README）。compileSdk 35。APK 大小请在 <a href=\"https://github.com/gnatecheng/group-matters/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 查看。</p><p>Debug 包输出路径见 README：<code>app/build/outputs/apk/debug/app-debug.apk</code>。Release 签名方式与 easy-ledger 类似，侧载请使用 Releases。</p>",
-    "app.groupMatters.changelog.152.1": "中文应用名改为团团记（由多人事务更名）。",
-    "app.groupMatters.changelog.152.2": "英文 UI 统一 group fund 表述。",
-    "app.groupMatters.changelog.152.3": "新启动图标「团」；更新首页截图集。",
-    "app.groupMatters.changelog.152.4": "界面 copy 改为中性 group / member 表述；演示数据为通用社团场景。",
+      "<p>支持 Android 8.0 及以上。</p><p>当前版本：团团记 v1.5.2，安装包约 13.1 MB（以 <a href=\"https://github.com/gnatecheng/group-matters/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p><p>若您曾安装过测试版或旧签名版本，请先卸载再安装当前正式版，否则可能提示签名冲突；卸载会清除应用内数据，请先使用应用内 zip 备份。</p>",
+    "app.groupMatters.changelog.152.1": "中文应用名改为「团团记」。",
+    "app.groupMatters.changelog.152.2": "英文界面「团费」等用语更统一。",
+    "app.groupMatters.changelog.152.3": "换新应用图标，桌面更易辨认。",
+    "app.groupMatters.changelog.152.4": "演示示例改为通用社团场景，用语更中性。",
+    "app.groupMatters.changelog.152.5": "首个正式签名版：请从 GitHub Releases 下载安装；曾装测试版或旧签名版请先卸载。",
     "app.groupMatters.changelog.151.1": "英文文案全面改写。",
     "app.groupMatters.changelog.151.2": "修复 Android 13/14 应用内语言切换。",
     "app.groupMatters.changelog.151.3": "演示团体按当前 UI 语言加载（仅空数据库）。",
@@ -308,12 +310,11 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.changelog.150.3": "深色主题：跟随系统或固定浅 / 深。",
     "app.groupMatters.changelog.150.4": "设置关于页（版本、更新日期、GitHub）。",
     "app.cWeek.privacy.body":
-      "<p>课文、演示视频（H.264）、实验数据与 map.json 打包在 APK 内；学习进度、打卡与错题等保存在本机 DataStore。日常学习不需要联网。</p><p>手机端不运行 gcc；实验为离线模拟评测。Cloudflare Web Analytics 仅用于 etais.dev 网站本身，与 APK 无关。</p>",
+      "<p>课文、VS Code 演示视频、实验与测验内容都打包在安装包内；学习进度、打卡与错题记录保存在本机。</p><p>应用未声明联网权限，日常学习不需要联网。手机不会编译 C 代码，实验采用离线模拟判分。</p><p>本介绍网站 etais.dev 使用 Cloudflare Web Analytics 统计访问（与应用 APK 无关）。</p>",
     "app.cWeek.requirements.body":
-      "<p>最低 Android 8.0（API 26）；内含打包 H.264 教学视频，较新系统播放更稳定。当前 README 标注 debug 构建 1.5.0（versionCode 7）。APK 体积随资源增长，请在 <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 查看。</p><p>Release APK 通过推送 semver tag <code>vX.Y.Z</code> 触发 GitHub Actions 签名构建（需配置 ANDROID_KEYSTORE_* 密钥）；tag 须与 <code>app/build.gradle.kts</code> 中 versionName 一致。</p>",
-    "app.cWeek.changelog.150.1": "设置内完整英文课程与 UI（Days 1–7 课文、测验、实验文案）。",
-    "app.cWeek.changelog.150.2": "语言、浅 / 深 / 跟随系统主题；关于页版本与仓库链接。",
-    "app.cWeek.changelog.150.3": "与 etais.dev 首页截图路径、多语言静态页同步。",
+      "<p>支持 Android 8.0 及以上。应用内含打包的教学视频，较新的手机系统通常播放更稳定。</p><p>当前版本：C一周通 v1.5.0，安装包约 15.6 MB（以 <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p>",
+    "app.cWeek.changelog.150.1": "设置中可切换完整英文课程与界面（7 天课文、测验与实验）。",
+    "app.cWeek.changelog.150.2": "支持浅色 / 深色 / 跟随系统主题；关于页可查看版本与开源链接。",
     "app.cWeek.changelog.140.1": "错题本与重练；实验多组用例与部分得分。",
     "app.cWeek.changelog.140.2": "学习报告：连续打卡、分天完成度、测验正确率。",
     "app.cWeek.changelog.140.3": "学习日历 / 打卡（1.3.0 能力延续与增强）。",
@@ -333,9 +334,9 @@ window.ETAI_TRANSLATIONS = {
     "app.easyLedger.faq.install.body":
       "在 <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。Android 需允许「安装未知应用」。桌面显示「轻记账」。",
     "app.easyLedger.faq.requirements.body":
-      "最低 Android 8.0（API 26，minSdk 26），目标 SDK 35。详见仓库 <code>app/build.gradle.kts</code>。",
+      "Android 8.0 及以上。当前正式版 v1.3.2，安装包约 13.0 MB（以 GitHub Releases 为准）。",
     "app.easyLedger.faq.offline.body":
-      "日常使用不需要联网；流水与设置在 Room（SQLite）中，无登录或必需的后端服务。",
+      "日常使用不需要联网；流水与设置都保存在本机，无登录或必需的后端服务。",
     "app.easyLedger.faq.backup.title": "如何备份数据？",
     "app.easyLedger.faq.backup.body":
       "应用内提供数据备份 / 恢复（zip）与 CSV 导出；备份文件只有你主动分享或保存时才会离开本机。",
@@ -356,7 +357,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.install.body":
       "在 <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「团团记」。",
     "app.groupMatters.faq.offline.body":
-      "团体与事务数据保存在本机 Room 中；APK 无联网权限，日常使用不需要联网，也无登录或后端服务。",
+      "团体与事务数据保存在本机；应用未声明联网权限，日常使用不需要联网，也无登录或后端服务。",
     "app.groupMatters.faq.limits.title": "谁需要安装 App？",
     "app.groupMatters.faq.limits.body":
       "目前只有 Android 版，且通常由组织者在一台手机上维护团体与事务；成员不用安装 App，点名/缴费状态由组织者在应用内更新。",
@@ -377,9 +378,9 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.faq.install.body":
       "在 <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「C一周通」。",
     "app.cWeek.faq.requirements.body":
-      "最低 Android 8.0（API 26）；内含 H.264 教学视频，较新系统通常播放更稳定。",
+      "Android 8.0 及以上；内含打包教学视频。当前正式版 v1.5.0，安装包约 15.6 MB（以 GitHub Releases 为准）。",
     "app.cWeek.faq.offline.body":
-      "课文、演示视频与实验数据打包在 APK 内；学习进度等存在 DataStore，日常学习不需要联网。",
+      "课文、演示视频与实验内容都打包在安装包内；学习进度保存在本机，日常学习不需要联网。",
     "prefs.langLabel": "语言",
     "prefs.langZh": "中文",
     "prefs.langEn": "English",
@@ -441,7 +442,7 @@ window.ETAI_TRANSLATIONS = {
     "cweek.features.plan.tag": "Plan",
     "cweek.features.plan.title": "Weekly plan and progress",
     "cweek.features.plan.body":
-      "Day 1–7 cards, checkmarks, and overall percentage; progress persisted with DataStore and follows system light/dark theme.",
+      "Day 1–7 cards, checkmarks, and overall percentage; progress stays on your phone; UI follows system light/dark theme.",
     "cweek.features.streak.tag": "1.3.0",
     "cweek.features.streak.title": "Learning calendar / check-ins",
     "cweek.features.streak.body":
@@ -472,7 +473,7 @@ window.ETAI_TRANSLATIONS = {
       "Look up pointer, stack/heap, array decay, launch.json, bash paths, and more; large tap targets and monospace code for reading comfort.",
     "roadmap.title": "7-day learning path",
     "roadmap.lead":
-      "Matches the course map in `app/src/main/assets/curriculum/map.json` and the Kotlin lessons; each day has a micro-lesson, quiz, and lab.",
+      "The seven-day path matches the in-app curriculum; each day has a micro-lesson, quiz, and lab.",
     "roadmap.d1.title": "Environment, files, and Hello World",
     "roadmap.d1.sub": "Paths · bash · VS Code · first compile",
     "roadmap.d1.outcome":
@@ -525,7 +526,7 @@ window.ETAI_TRANSLATIONS = {
       "Download the latest APK from each app’s GitHub Releases and install: <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">Easy Ledger</a>, <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">Group Matters</a>, and <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">C Week</a>. Android may ask you to allow installs from unknown sources (varies by OEM). Launcher names are “Easy Ledger”, “Group Matters”, and “C Week”.",
     "faq.installTips.title": "Install tips (Android version, unknown sources, upgrades)",
     "faq.installTips.body":
-      "All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href=\"https://github.com/gnatecheng/easy-ledger\" rel=\"noopener noreferrer\">easy-ledger</a>, <a href=\"https://github.com/gnatecheng/group-matters\" rel=\"noopener noreferrer\">group-matters</a>, <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).",
+      "All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.",
     "download.androidMin": "Android 8.0+",
     "download.apkLabel": "APK",
     "download.scanOr": "or",
@@ -536,16 +537,16 @@ window.ETAI_TRANSLATIONS = {
     "download.qrAlt.cWeek": "C Week download QR code",
     "faq.requirements.title": "What are the system requirements?",
     "faq.requirements.body":
-      "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.",
+      "All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably.",
     "faq.offline.title": "Do I need the internet?",
     "faq.offline.body":
-      "No for everyday use—data stays on your device. C Week ships lessons, demo videos, and lab data in the APK; progress lives in DataStore. Easy Ledger stores entries and settings in Room (SQLite). Group Matters stores group and activity data in Room. None require login or a mandatory backend.",
+      "Everyday use does not require internet—all data stays on your phone. C Week ships lessons, videos, and labs inside the install package; Easy Ledger keeps entries and settings on device; Group Matters keeps group and activity data on device. None require login or a cloud backend.",
     "faq.compile.title": "Does C Week compile C on the phone?",
     "faq.compile.body":
       "No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone.",
     "faq.vscode.title": "How does C Week work with VS Code on a computer?",
     "faq.vscode.body":
-      "Install VS Code and gcc on PC/Mac/Linux, open the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">c-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.",
+      "Install VS Code and a C toolchain on your computer and follow along via the <a href=\"https://github.com/gnatecheng/c-week\" rel=\"noopener noreferrer\">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.",
     "qjz.hero.title": "Easy Ledger",
     "qjz.hero.lead":
       "A personal finance Android app. Data lives in on-device <strong>SQLite (Room)</strong>, <strong>no login and no server</strong>; no accounts or cloud sync—backups leave the device only when you export or share them.",
@@ -600,7 +601,7 @@ window.ETAI_TRANSLATIONS = {
     "qjz.features.receipt.body":
       "Attach a camera shot or gallery image when logging; photos stay on device with thumbnail, replace, and delete.",
     "qjz.foot":
-      "Dark mode toggle under Me / Settings; first launch seeds sample entries—clear or restore under Me → Reminder settings. Stack: Kotlin, Jetpack Compose, Material 3, Room, Navigation Compose.",
+      "Light, dark, or system theme under Me → Settings. First launch adds sample entries—clear or restore under Me → Reminder settings.",
     "class.hero.title": "Group Matters",
     "class.hero.lead":
       "Offline Android app for any small group—<strong>attendance, fee collection, cost splits, checklists</strong> (club, dorm, team, and more). Data stays on device (Room), <strong>no account or network required</strong>.",
@@ -655,7 +656,7 @@ window.ETAI_TRANSLATIONS = {
     "class.features.widget.body":
       "Shows incomplete counts for recent in-progress activities (total when several); tap opens the app.",
     "class.foot":
-      "Search activities by title on home; filter in progress / archived; quick title templates for roll call, group fund, dorm splits when creating activities or starting another round; Material 3 dark theme follows system or fixed light/dark. Stack: Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM.",
+      "Search activities by title on home; filter in progress / archived; quick title templates for roll call, group fund, and splits when creating activities or starting another round; theme follows system or fixed light/dark in Settings.",
     "footer.copyright":
       "© Etai Apps · Easy Ledger / Group Matters / C Week · Open-source Android apps",
     "footer.linkCweek": "c-week",
@@ -682,27 +683,29 @@ window.ETAI_TRANSLATIONS = {
     "appPage.section.privacy": "Privacy & permissions",
     "appPage.section.requirements": "System requirements",
     "appPage.section.changelog": "Release history",
-    "appPage.section.changelogLead": "Summarized from each repo README / GitHub Releases. Full list:",
-    "appPage.changelog.allReleases": "all Releases",
+    "appPage.section.changelogLead": "Full history on",
+    "appPage.changelog.allReleases": "GitHub Releases",
     "app.easyLedger.privacy.body":
-      "<p>Transactions, categories, accounts, budgets, and reminder settings live in on-device SQLite (Room)—no account or cloud sync. Receipt photos stay in device storage until you capture or pick them.</p><p>The README describes a local-first app; everyday budgeting does not require network access. Backup / restore and CSV / JSON export only leave the device when you share or save files.</p>",
+      "<p>Transactions, categories, accounts, budgets, and reminders stay on your phone—no sign-up and no cloud sync.</p><p>When you log spending, you can attach a receipt photo from the camera or gallery; photos stay on the device and can be replaced or deleted.</p><p>The app does not request the Internet permission—everyday budgeting works offline. Backup, restore, and CSV/JSON export only create files when you choose to, and they leave the phone only if you share or save them.</p>",
     "app.easyLedger.requirements.body":
-      "<p>Minimum Android 8.0 (API 26, minSdk 26), compileSdk / targetSdk 35 (see <code>app/build.gradle.kts</code>). Release APK size varies—check the asset on <a href=\"https://github.com/gnatecheng/easy-ledger/releases\" rel=\"noopener noreferrer\">GitHub Releases</a>.</p><p>Signed release APKs are built in GitHub Actions when signing secrets are configured; local release builds without secrets may be unsigned—use Releases for sideloading.</p>",
-    "app.easyLedger.changelog.132.1": "Fix in-app English/Chinese switch (AppCompat locales, system per-app language sync).",
+      "<p>Android 8.0 or newer.</p><p>Current release: Easy Ledger v1.3.2, about 13.0 MB (see <a href=\"https://github.com/gnatecheng/easy-ledger/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p><p>If you installed a test build or an APK signed with an older key, uninstall it before installing this release, or Android may report a signature conflict. Uninstalling clears app data—back up in the app first.</p>",
+    "app.easyLedger.changelog.132.1": "Fixes cases where switching Chinese/English in Settings did not apply correctly.",
+    "app.easyLedger.changelog.132.2": "First signed release on GitHub Releases—uninstall older test or differently signed builds before installing.",
     "app.easyLedger.changelog.131.1": "English bottom navigation and stats legend layout improvements.",
     "app.easyLedger.changelog.131.2": "Home budget / large-transaction alert cards adapted for dark mode.",
     "app.easyLedger.changelog.130.1": "Full English UI (language in Settings).",
     "app.easyLedger.changelog.130.2": "Theme: follow system, light, or dark.",
     "app.easyLedger.changelog.130.3": "About screen: version, build time, project link.",
-    "app.easyLedger.changelog.120.1": "Search/filters, account transfers, dark mode, and more (see git history).",
+    "app.easyLedger.changelog.120.1": "Search and filters, account transfers, dark mode, and more.",
     "app.groupMatters.privacy.body":
-      "<p>Groups, members, and activity data stay in on-device Room (SQLite)—no account or server. Backup zips include payment receipt images and only leave the device when you export or restore.</p><p>The README states a single-device offline app with no network permission; members do not need the app—one organizer phone holds the data.</p>",
+      "<p>Groups, members, and activities stay on your phone—no account and no cloud server.</p><p>Backup files are zip archives and can include payment receipt photos; they leave the phone only when you export or restore.</p><p>The app does not request the Internet permission—everyday use is offline. Usually only the organizer installs the app; members do not need it.</p>",
     "app.groupMatters.requirements.body":
-      "<p>Minimum Android 8.0 (API 26); README lists v1.5.2 (versionCode 9), compileSdk 35. APK size is listed on <a href=\"https://github.com/gnatecheng/group-matters/releases\" rel=\"noopener noreferrer\">GitHub Releases</a>.</p><p>Debug APK path per README: <code>app/build/outputs/apk/debug/app-debug.apk</code>. Use Releases APKs for sideloading.</p>",
+      "<p>Android 8.0 or newer.</p><p>Current release: Group Matters v1.5.2, about 13.1 MB (see <a href=\"https://github.com/gnatecheng/group-matters/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p><p>If you installed a test build or an APK signed with an older key, uninstall it before installing this release, or Android may report a signature conflict. Uninstalling clears app data—use in-app zip backup first.</p>",
     "app.groupMatters.changelog.152.1": "Chinese app name updated to the current Tuántuánjì branding (see release notes).",
     "app.groupMatters.changelog.152.2": "Unified group fund wording in English UI.",
-    "app.groupMatters.changelog.152.3": "New launcher icon with 团; refreshed homepage screenshot sets.",
-    "app.groupMatters.changelog.152.4": "Neutral group/member copy; demo data uses a generic club-style group.",
+    "app.groupMatters.changelog.152.3": "New launcher icon for easier recognition on the home screen.",
+    "app.groupMatters.changelog.152.4": "Demo sample uses a generic club-style group; wording is more neutral.",
+    "app.groupMatters.changelog.152.5": "First signed release on GitHub Releases—uninstall older test or differently signed builds before installing.",
     "app.groupMatters.changelog.151.1": "Full English copy rewrite.",
     "app.groupMatters.changelog.151.2": "Fix in-app language switching on Android 13/14.",
     "app.groupMatters.changelog.151.3": "Demo group loads in the current UI language (empty DB only).",
@@ -712,12 +715,11 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.changelog.150.3": "Dark theme: system or fixed light/dark.",
     "app.groupMatters.changelog.150.4": "Settings About page (version, update date, GitHub).",
     "app.cWeek.privacy.body":
-      "<p>Lessons, bundled H.264 VS Code recordings, lab assets, and map.json ship inside the APK; progress, streaks, and wrong-answer data live in on-device DataStore. Everyday study does not require network access.</p><p>The phone does not run gcc—labs use offline simulated grading. Cloudflare Web Analytics applies to etais.dev only, not the APK.</p>",
+      "<p>Lessons, VS Code screen recordings, labs, and quizzes ship inside the install package; progress, streaks, and wrong-answer notes stay on your phone.</p><p>The app does not request the Internet permission—everyday study works offline. The phone does not compile C code; labs use offline simulated grading.</p><p>This marketing site, etais.dev, uses Cloudflare Web Analytics (not part of the Android app).</p>",
     "app.cWeek.requirements.body":
-      "<p>Minimum Android 8.0 (API 26); bundled H.264 lessons play best on newer devices. README notes debug build 1.5.0 (versionCode 7). Check APK size on <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a>.</p><p>Release APKs build on semver tags <code>vX.Y.Z</code> via GitHub Actions when ANDROID_KEYSTORE_* secrets are set; tag must match <code>versionName</code> in <code>app/build.gradle.kts</code>.</p>",
-    "app.cWeek.changelog.150.1": "Full English curriculum and UI in Settings (Days 1–7 lessons, quizzes, labs).",
-    "app.cWeek.changelog.150.2": "Language plus light/dark/system theme; About page with version and repo link.",
-    "app.cWeek.changelog.150.3": "Homepage screenshot paths and bilingual static site alignment.",
+      "<p>Android 8.0 or newer. Bundled lesson videos usually play more reliably on newer phones.</p><p>Current release: C Week v1.5.0, about 15.6 MB (see <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p>",
+    "app.cWeek.changelog.150.1": "Full English curriculum and UI in Settings (7 days of lessons, quizzes, and labs).",
+    "app.cWeek.changelog.150.2": "Light, dark, or system theme; About page shows version and open-source link.",
     "app.cWeek.changelog.140.1": "Wrong-answer book with retry; multi-case labs with partial scores.",
     "app.cWeek.changelog.140.2": "Learning report: streak, per-day completion, quiz accuracy.",
     "app.cWeek.changelog.140.3": "Study calendar / check-in (extends 1.3.0 behavior).",
@@ -737,9 +739,9 @@ window.ETAI_TRANSLATIONS = {
     "app.easyLedger.faq.install.body":
       "Download the latest APK from <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Android may ask you to allow installs from unknown sources. Launcher name: “Easy Ledger”.",
     "app.easyLedger.faq.requirements.body":
-      "Minimum Android 8.0 (API 26, minSdk 26), target SDK 35—see <code>app/build.gradle.kts</code> in the repo.",
+      "Android 8.0 or newer. Current signed release v1.3.2, about 13.0 MB (see GitHub Releases).",
     "app.easyLedger.faq.offline.body":
-      "No internet needed for everyday use; entries and settings live in Room (SQLite) with no login or required backend.",
+      "No internet needed for everyday use; entries and settings stay on your phone with no login or required backend.",
     "app.easyLedger.faq.backup.title": "How do I back up data?",
     "app.easyLedger.faq.backup.body":
       "In-app backup / restore (zip) and CSV export; backup files leave your device only when you share or save them.",
@@ -761,7 +763,7 @@ window.ETAI_TRANSLATIONS = {
     "app.groupMatters.faq.install.body":
       "Download the latest APK from <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Launcher name: “Group Matters” (团团记).",
     "app.groupMatters.faq.offline.body":
-      "Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use.",
+      "Group and activity data stay on your phone; the app does not request the Internet permission—no login or backend for daily use.",
     "app.groupMatters.faq.limits.title": "Who needs to install the app?",
     "app.groupMatters.faq.limits.body":
       "Android only, usually on one organizer phone; members do not need the app—status is updated by the organizer in the app.",
@@ -782,9 +784,9 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.faq.install.body":
       "Download the latest APK from <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Launcher name: “C Week” (C一周通).",
     "app.cWeek.faq.requirements.body":
-      "Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices.",
+      "Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.0, about 15.6 MB (see GitHub Releases).",
     "app.cWeek.faq.offline.body":
-      "Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline.",
+      "Lessons, demo videos, and lab content ship in the install package; progress stays on your phone—learning works offline.",
     "prefs.langLabel": "Language",
     "prefs.langZh": "中文",
     "prefs.langEn": "English",

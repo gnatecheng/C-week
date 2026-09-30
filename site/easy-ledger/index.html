@@ -67,7 +67,7 @@
           "name": "安装提示（Android 版本、未知来源、覆盖安装）",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "三款应用的 minSdk 均为 26 （Android 8.0）：轻记账（ easy-ledger ）、团团记（ group-matters ）、C一周通（ c-week ）的 app/build.gradle.kts 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。"
+            "text": "三款应用均需 Android 8.0 及以上 。请从各应用 GitHub Releases 下载 正式签名版 APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示 签名冲突 ，需先卸载旧版再装新版； 卸载会删除应用内数据 ，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。 轻记账与团团记 若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。"
           }
         },
         {
@@ -75,7 +75,7 @@
           "name": "系统要求是什么？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "最低 Android 8.0（API 26，minSdk 26），目标 SDK 35。详见仓库 app/build.gradle.kts 。"
+            "text": "Android 8.0 及以上。当前正式版 v1.3.2，安装包约 13.0 MB（以 GitHub Releases 为准）。"
           }
         },
         {
@@ -83,7 +83,7 @@
           "name": "需要联网吗？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "日常使用不需要联网；流水与设置在 Room（SQLite）中，无登录或必需的后端服务。"
+            "text": "日常使用不需要联网；流水与设置都保存在本机，无登录或必需的后端服务。"
           }
         },
         {
@@ -323,7 +323,7 @@
               <p>记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
             </article>
           </div>
-          <p class="project-foot">另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。</p>
+          <p class="project-foot">支持浅色 / 深色 / 跟随系统主题（我的 → 设置）。首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。</p>
         </div>
       </section>
       <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
@@ -384,26 +384,27 @@
       <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
         <div class="wrap">
           <h2 id="privacy-title" class="project-subhead">隐私与权限</h2>
-          <div class="app-prose"><p>流水、分类、账户、预算与提醒设置保存在本机 SQLite（Room）中，无账号与云同步。收据照片保存在设备存储，仅在你拍照或从相册选择时写入。</p><p>仓库 README 描述为 local-first 个人记账；日常记账功能不需要联网。备份 / 恢复与 CSV、JSON 导出由你主动发起，文件经系统分享或「另存为」才会离开本机。</p></div>
+          <div class="app-prose"><p>记账流水、分类、账户、预算与提醒设置都保存在本机，无需注册账号，也没有云同步。</p><p>记账时可拍照或从相册选择收据，照片只存在您的手机里，可随时更换或删除。</p><p>应用未声明联网权限，日常记账不需要联网。备份、恢复或导出 CSV/JSON 只有您主动操作时才会生成文件，并通过系统分享或「另存为」离开本机。</p></div>
         </div>
       </section>
       <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
         <div class="wrap">
           <h2 id="requirements-title" class="project-subhead">系统要求</h2>
-          <div class="app-prose"><p>最低 Android 8.0（API 26，minSdk 26），compileSdk / targetSdk 35（见仓库 <code>app/build.gradle.kts</code>）。Release APK 体积随版本变化，请在 <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a> 查看具体下载文件大小。</p><p>正式发布 APK 由 GitHub Actions 在配置签名密钥后构建签名版；本地无密钥时 release 构建可能为未签名包，日常侧载请使用 Releases 中的 APK。</p></div>
+          <div class="app-prose"><p>支持 Android 8.0 及以上。</p><p>当前版本：轻记账 v1.3.2，安装包约 13.0 MB（以 <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p><p>若您曾安装过测试版或旧签名版本，请先卸载再安装当前正式版，否则可能提示签名冲突；卸载会清除应用内数据，请先使用应用内备份。</p></div>
         </div>
       </section>
       <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
         <div class="wrap">
           <header class="section-head">
             <h2 id="changelog-title">更新记录</h2>
-            <p>摘自各仓库 README / GitHub Releases，完整列表见 <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">全部 Releases</a>.</p>
+            <p>完整记录见 <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
           </header>
           <div class="changelog-list">
             <article class="changelog-release">
               <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.2" rel="noopener noreferrer">v1.3.2</a></h3>
               <ul>
-<li>修复应用内中英文切换（AppCompat locales、系统 per-app 语言同步）。</li>
+<li>修复设置里切换中英文偶尔不生效的问题。</li>
+<li>首个正式签名版：请从 GitHub Releases 下载安装；曾装测试版或旧签名版请先卸载。</li>
               </ul>
             </article>
             <article class="changelog-release">
@@ -424,7 +425,7 @@
             <article class="changelog-release">
               <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.2.0" rel="noopener noreferrer">v1.2.0</a></h3>
               <ul>
-<li>流水搜索筛选、账户转账、深色模式等（详见 git 历史）。</li>
+<li>新增流水搜索与筛选、账户转账、深色模式等。</li>
               </ul>
             </article>
           </div>
@@ -442,15 +443,15 @@
             </article>
             <article class="faq-item">
               <h3>安装提示（Android 版本、未知来源、覆盖安装）</h3>
-              <div class="faq-body">三款应用的 <code>minSdk</code> 均为 <strong>26</strong>（Android 8.0）：轻记账（<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>）、团团记（<a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>）、C一周通（<a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>）的 <code>app/build.gradle.kts</code> 中一致。首次安装 APK 时，系统可能提示「不允许安装未知应用」——在设置里为浏览器或文件管理器开启「允许安装未知应用 / Install unknown apps」（各品牌路径不同）。若覆盖安装失败并提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先导出或备份（如轻记账/团团记的备份文件、C一周通的进度如有导出途径）。</div>
+              <div class="faq-body">三款应用均需 <strong>Android 8.0 及以上</strong>。请从各应用 GitHub Releases 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先备份（轻记账 / 团团记可用应用内备份，C一周通请按应用内说明导出进度如有）。<strong>轻记账与团团记</strong>若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。</div>
             </article>
             <article class="faq-item">
               <h3>系统要求是什么？</h3>
-              <p>最低 Android 8.0（API 26，minSdk 26），目标 SDK 35。详见仓库 <code>app/build.gradle.kts</code>。</p>
+              <p>Android 8.0 及以上。当前正式版 v1.3.2，安装包约 13.0 MB（以 GitHub Releases 为准）。</p>
             </article>
             <article class="faq-item">
               <h3>需要联网吗？</h3>
-              <p>日常使用不需要联网；流水与设置在 Room（SQLite）中，无登录或必需的后端服务。</p>
+              <p>日常使用不需要联网；流水与设置都保存在本机，无登录或必需的后端服务。</p>
             </article>
             <article class="faq-item">
               <h3>如何备份数据？</h3>
@@ -482,7 +483,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=28" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

@@ -19,7 +19,7 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CSS_V = 26;
-const TRANSLATIONS_V = 28;
+const TRANSLATIONS_V = 29;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
 function escAttrLocal(s) {

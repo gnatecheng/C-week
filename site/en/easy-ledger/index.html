@@ -67,7 +67,7 @@
           "name": "Install tips (Android version, unknown sources, upgrades)",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps use minSdk 26 (Android 8.0)—the same value in each repo’s app/build.gradle.kts ( easy-ledger , group-matters , c-week ). On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording and location vary by device). If an upgrade fails with a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress)."
+            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
           }
         },
         {
@@ -75,7 +75,7 @@
           "name": "What are the system requirements?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Minimum Android 8.0 (API 26, minSdk 26), target SDK 35—see app/build.gradle.kts in the repo."
+            "text": "Android 8.0 or newer. Current signed release v1.3.2, about 13.0 MB (see GitHub Releases)."
           }
         },
         {
@@ -83,7 +83,7 @@
           "name": "Do I need the internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No internet needed for everyday use; entries and settings live in Room (SQLite) with no login or required backend."
+            "text": "No internet needed for everyday use; entries and settings stay on your phone with no login or required backend."
           }
         },
         {
@@ -323,7 +323,7 @@
               <p>Attach a camera shot or gallery image when logging; photos stay on device with thumbnail, replace, and delete.</p>
             </article>
           </div>
-          <p class="project-foot">Dark mode toggle under Me / Settings; first launch seeds sample entries—clear or restore under Me → Reminder settings. Stack: Kotlin, Jetpack Compose, Material 3, Room, Navigation Compose.</p>
+          <p class="project-foot">Light, dark, or system theme under Me → Settings. First launch adds sample entries—clear or restore under Me → Reminder settings.</p>
         </div>
       </section>
       <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
@@ -384,26 +384,27 @@
       <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
         <div class="wrap">
           <h2 id="privacy-title" class="project-subhead">Privacy & permissions</h2>
-          <div class="app-prose"><p>Transactions, categories, accounts, budgets, and reminder settings live in on-device SQLite (Room)—no account or cloud sync. Receipt photos stay in device storage until you capture or pick them.</p><p>The README describes a local-first app; everyday budgeting does not require network access. Backup / restore and CSV / JSON export only leave the device when you share or save files.</p></div>
+          <div class="app-prose"><p>Transactions, categories, accounts, budgets, and reminders stay on your phone—no sign-up and no cloud sync.</p><p>When you log spending, you can attach a receipt photo from the camera or gallery; photos stay on the device and can be replaced or deleted.</p><p>The app does not request the Internet permission—everyday budgeting works offline. Backup, restore, and CSV/JSON export only create files when you choose to, and they leave the phone only if you share or save them.</p></div>
         </div>
       </section>
       <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
         <div class="wrap">
           <h2 id="requirements-title" class="project-subhead">System requirements</h2>
-          <div class="app-prose"><p>Minimum Android 8.0 (API 26, minSdk 26), compileSdk / targetSdk 35 (see <code>app/build.gradle.kts</code>). Release APK size varies—check the asset on <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a>.</p><p>Signed release APKs are built in GitHub Actions when signing secrets are configured; local release builds without secrets may be unsigned—use Releases for sideloading.</p></div>
+          <div class="app-prose"><p>Android 8.0 or newer.</p><p>Current release: Easy Ledger v1.3.2, about 13.0 MB (see <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p><p>If you installed a test build or an APK signed with an older key, uninstall it before installing this release, or Android may report a signature conflict. Uninstalling clears app data—back up in the app first.</p></div>
         </div>
       </section>
       <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
         <div class="wrap">
           <header class="section-head">
             <h2 id="changelog-title">Release history</h2>
-            <p>Summarized from each repo README / GitHub Releases. Full list: <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">all Releases</a>.</p>
+            <p>Full history on <a href="https://github.com/gnatecheng/easy-ledger/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
           </header>
           <div class="changelog-list">
             <article class="changelog-release">
               <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.2" rel="noopener noreferrer">v1.3.2</a></h3>
               <ul>
-<li>Fix in-app English/Chinese switch (AppCompat locales, system per-app language sync).</li>
+<li>Fixes cases where switching Chinese/English in Settings did not apply correctly.</li>
+<li>First signed release on GitHub Releases—uninstall older test or differently signed builds before installing.</li>
               </ul>
             </article>
             <article class="changelog-release">
@@ -424,7 +425,7 @@
             <article class="changelog-release">
               <h3><a href="https://github.com/gnatecheng/easy-ledger/releases/tag/v1.2.0" rel="noopener noreferrer">v1.2.0</a></h3>
               <ul>
-<li>Search/filters, account transfers, dark mode, and more (see git history).</li>
+<li>Search and filters, account transfers, dark mode, and more.</li>
               </ul>
             </article>
           </div>
@@ -442,15 +443,15 @@
             </article>
             <article class="faq-item">
               <h3>Install tips (Android version, unknown sources, upgrades)</h3>
-              <div class="faq-body">All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>, <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>, <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).</div>
+              <div class="faq-body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
             </article>
             <article class="faq-item">
               <h3>What are the system requirements?</h3>
-              <p>Minimum Android 8.0 (API 26, minSdk 26), target SDK 35—see <code>app/build.gradle.kts</code> in the repo.</p>
+              <p>Android 8.0 or newer. Current signed release v1.3.2, about 13.0 MB (see GitHub Releases).</p>
             </article>
             <article class="faq-item">
               <h3>Do I need the internet?</h3>
-              <p>No internet needed for everyday use; entries and settings live in Room (SQLite) with no login or required backend.</p>
+              <p>No internet needed for everyday use; entries and settings stay on your phone with no login or required backend.</p>
             </article>
             <article class="faq-item">
               <h3>How do I back up data?</h3>
@@ -482,7 +483,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=28" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

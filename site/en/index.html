@@ -12,6 +12,7 @@
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
     <link rel="icon" href="/assets/icon.svg?v=2" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
@@ -134,7 +135,7 @@
           "name": "Install tips (Android version, unknown sources, upgrades)",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps use minSdk 26 (Android 8.0)—the same value in each repo’s app/build.gradle.kts ( easy-ledger , group-matters , c-week ). On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording and location vary by device). If an upgrade fails with a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress)."
+            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
           }
         },
         {
@@ -142,7 +143,7 @@
           "name": "What are the system requirements?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably."
+            "text": "All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably."
           }
         },
         {
@@ -150,7 +151,7 @@
           "name": "Do I need the internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No for everyday use—data stays on your device. C Week ships lessons, demo videos, and lab data in the APK; progress lives in DataStore. Easy Ledger stores entries and settings in Room (SQLite). Group Matters stores group and activity data in Room. None require login or a mandatory backend."
+            "text": "Everyday use does not require internet—all data stays on your phone. C Week ships lessons, videos, and labs inside the install package; Easy Ledger keeps entries and settings on device; Group Matters keeps group and activity data on device. None require login or a cloud backend."
           }
         },
         {
@@ -166,7 +167,7 @@
           "name": "How does C Week work with VS Code on a computer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Install VS Code and gcc on PC/Mac/Linux, open the c-week repo, and follow the .c files under app/src/main/assets/labs/ ; for Day 7 see day7_dijkstra.c and expected output in that repo’s README."
+            "text": "Install VS Code and a C toolchain on your computer and follow along via the C Week open-source repo (Day 7 capstone and examples). The in-app About screen also links to the repo."
           }
         }
       ]
@@ -665,15 +666,15 @@
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.installTips.title">Install tips (Android version, unknown sources, upgrades)</h3>
-              <p data-i18n-html="faq.installTips.body">All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>, <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>, <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).</p>
+              <p data-i18n-html="faq.installTips.body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</p>
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.requirements.title">What are the system requirements?</h3>
-              <p data-i18n="faq.requirements.body">All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.</p>
+              <p data-i18n="faq.requirements.body">All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably.</p>
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.offline.title">Do I need the internet?</h3>
-              <p data-i18n="faq.offline.body">No for everyday use—data stays on your device. C Week ships lessons, demo videos, and lab data in the APK; progress lives in DataStore. Easy Ledger stores entries and settings in Room (SQLite). Group Matters stores group and activity data in Room. None require login or a mandatory backend.</p>
+              <p data-i18n="faq.offline.body">Everyday use does not require internet—all data stays on your phone. C Week ships lessons, videos, and labs inside the install package; Easy Ledger keeps entries and settings on device; Group Matters keeps group and activity data on device. None require login or a cloud backend.</p>
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.compile.title">Does C Week compile C on the phone?</h3>
@@ -681,7 +682,7 @@
             </article>
             <article class="faq-item">
               <h3 data-i18n="faq.vscode.title">How does C Week work with VS Code on a computer?</h3>
-              <p data-i18n-html="faq.vscode.body">Install VS Code and gcc on PC/Mac/Linux, open the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.</p>
+              <p data-i18n-html="faq.vscode.body">Install VS Code and a C toolchain on your computer and follow along via the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">C Week open-source repo</a> (Day 7 capstone and examples). The in-app About screen also links to the repo.</p>
             </article>
           </div>
         </div>

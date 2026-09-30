@@ -67,7 +67,7 @@
           "name": "Install tips (Android version, unknown sources, upgrades)",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps use minSdk 26 (Android 8.0)—the same value in each repo’s app/build.gradle.kts ( easy-ledger , group-matters , c-week ). On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording and location vary by device). If an upgrade fails with a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress)."
+            "text": "All three apps require Android 8.0 or newer . Download the signed release APK from each app’s GitHub Releases page. On first install, Android may block APKs until you allow Install unknown apps for your browser or file manager (wording varies by device). If you see a signature conflict , uninstall the old build before installing the new one— uninstalling erases on-device app data , so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For Easy Ledger and Group Matters , if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release."
           }
         },
         {
@@ -75,7 +75,7 @@
           "name": "What are the system requirements?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably."
+            "text": "All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably."
           }
         },
         {
@@ -83,7 +83,7 @@
           "name": "Do I need the internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use."
+            "text": "Group and activity data stay on your phone; the app does not request the Internet permission—no login or backend for daily use."
           }
         },
         {
@@ -331,7 +331,7 @@
               <p>Shows incomplete counts for recent in-progress activities (total when several); tap opens the app.</p>
             </article>
           </div>
-          <p class="project-foot">Search activities by title on home; filter in progress / archived; quick title templates for roll call, group fund, dorm splits when creating activities or starting another round; Material 3 dark theme follows system or fixed light/dark. Stack: Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM.</p>
+          <p class="project-foot">Search activities by title on home; filter in progress / archived; quick title templates for roll call, group fund, and splits when creating activities or starting another round; theme follows system or fixed light/dark in Settings.</p>
         </div>
       </section>
       <section id="screenshots" class="app-page-block" aria-labelledby="screenshots-title">
@@ -392,20 +392,20 @@
       <section id="privacy" class="app-page-block" aria-labelledby="privacy-title">
         <div class="wrap">
           <h2 id="privacy-title" class="project-subhead">Privacy & permissions</h2>
-          <div class="app-prose"><p>Groups, members, and activity data stay in on-device Room (SQLite)—no account or server. Backup zips include payment receipt images and only leave the device when you export or restore.</p><p>The README states a single-device offline app with no network permission; members do not need the app—one organizer phone holds the data.</p></div>
+          <div class="app-prose"><p>Groups, members, and activities stay on your phone—no account and no cloud server.</p><p>Backup files are zip archives and can include payment receipt photos; they leave the phone only when you export or restore.</p><p>The app does not request the Internet permission—everyday use is offline. Usually only the organizer installs the app; members do not need it.</p></div>
         </div>
       </section>
       <section id="requirements" class="app-page-block" aria-labelledby="requirements-title">
         <div class="wrap">
           <h2 id="requirements-title" class="project-subhead">System requirements</h2>
-          <div class="app-prose"><p>Minimum Android 8.0 (API 26); README lists v1.5.2 (versionCode 9), compileSdk 35. APK size is listed on <a href="https://github.com/gnatecheng/group-matters/releases" rel="noopener noreferrer">GitHub Releases</a>.</p><p>Debug APK path per README: <code>app/build/outputs/apk/debug/app-debug.apk</code>. Use Releases APKs for sideloading.</p></div>
+          <div class="app-prose"><p>Android 8.0 or newer.</p><p>Current release: Group Matters v1.5.2, about 13.1 MB (see <a href="https://github.com/gnatecheng/group-matters/releases" rel="noopener noreferrer">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p><p>If you installed a test build or an APK signed with an older key, uninstall it before installing this release, or Android may report a signature conflict. Uninstalling clears app data—use in-app zip backup first.</p></div>
         </div>
       </section>
       <section id="changelog" class="app-page-block" aria-labelledby="changelog-title">
         <div class="wrap">
           <header class="section-head">
             <h2 id="changelog-title">Release history</h2>
-            <p>Summarized from each repo README / GitHub Releases. Full list: <a href="https://github.com/gnatecheng/group-matters/releases" rel="noopener noreferrer">all Releases</a>.</p>
+            <p>Full history on <a href="https://github.com/gnatecheng/group-matters/releases" rel="noopener noreferrer">GitHub Releases</a>.</p>
           </header>
           <div class="changelog-list">
             <article class="changelog-release">
@@ -413,8 +413,9 @@
               <ul>
 <li>Chinese app name updated to the current Tuántuánjì branding (see release notes).</li>
 <li>Unified group fund wording in English UI.</li>
-<li>New launcher icon with 团; refreshed homepage screenshot sets.</li>
-<li>Neutral group/member copy; demo data uses a generic club-style group.</li>
+<li>New launcher icon for easier recognition on the home screen.</li>
+<li>Demo sample uses a generic club-style group; wording is more neutral.</li>
+<li>First signed release on GitHub Releases—uninstall older test or differently signed builds before installing.</li>
               </ul>
             </article>
             <article class="changelog-release">
@@ -450,15 +451,15 @@
             </article>
             <article class="faq-item">
               <h3>Install tips (Android version, unknown sources, upgrades)</h3>
-              <div class="faq-body">All three apps use <code>minSdk</code> <strong>26</strong> (Android 8.0)—the same value in each repo’s <code>app/build.gradle.kts</code> (<a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">easy-ledger</a>, <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">group-matters</a>, <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a>). On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording and location vary by device). If an upgrade fails with a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so export or back up first (backup files for Easy Ledger / Group Matters, and any export path for C Week progress).</div>
+              <div class="faq-body">All three apps require <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from each app’s GitHub Releases page. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first (in-app backup for Easy Ledger / Group Matters; export progress in C Week if available). For <strong>Easy Ledger and Group Matters</strong>, if you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.</div>
             </article>
             <article class="faq-item">
               <h3>What are the system requirements?</h3>
-              <p>All three apps require at least Android 8.0 (API 26, minSdk 26) and target SDK 35 (compileSdk 35). C Week bundles H.264 lesson videos; a recent OS version usually plays them more reliably.</p>
+              <p>All three apps support Android 8.0 or newer. C Week bundles lesson videos; a recent phone usually plays them more reliably.</p>
             </article>
             <article class="faq-item">
               <h3>Do I need the internet?</h3>
-              <p>Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use.</p>
+              <p>Group and activity data stay on your phone; the app does not request the Internet permission—no login or backend for daily use.</p>
             </article>
             <article class="faq-item">
               <h3>Who needs to install the app?</h3>
@@ -494,7 +495,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=28" defer></script>
+    <script src="/js/translations.js?v=29" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

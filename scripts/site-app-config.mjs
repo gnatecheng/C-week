@@ -44,7 +44,7 @@ export const APP_PAGES = [
       {
         version: "1.3.2",
         url: "https://github.com/gnatecheng/easy-ledger/releases/tag/v1.3.2",
-        itemKeys: ["app.easyLedger.changelog.132.1"],
+        itemKeys: ["app.easyLedger.changelog.132.1", "app.easyLedger.changelog.132.2"],
       },
       {
         version: "1.3.1",
@@ -129,6 +129,7 @@ export const APP_PAGES = [
           "app.groupMatters.changelog.152.2",
           "app.groupMatters.changelog.152.3",
           "app.groupMatters.changelog.152.4",
+          "app.groupMatters.changelog.152.5",
         ],
       },
       {
@@ -215,11 +216,7 @@ export const APP_PAGES = [
       {
         version: "1.5.0",
         url: "https://github.com/gnatecheng/c-week/releases/tag/v1.5.0",
-        itemKeys: [
-          "app.cWeek.changelog.150.1",
-          "app.cWeek.changelog.150.2",
-          "app.cWeek.changelog.150.3",
-        ],
+        itemKeys: ["app.cWeek.changelog.150.1", "app.cWeek.changelog.150.2"],
       },
       {
         version: "1.4.0",
