@@ -1,7 +1,7 @@
 {
   "name": "Etai 应用集",
   "short_name": "Etai",
-  "description": "C一周通、轻记账、多人事务三款离线 Android 应用",
+  "description": "轻记账、多人事务、C一周通三款离线 Android 应用",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f4f7f7",
