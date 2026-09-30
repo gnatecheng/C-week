@@ -10,7 +10,7 @@ import { loadTranslations, t } from "./static-i18n.mjs";
 import { buildAppPageJsonLd } from "./site-seo-jsonld.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 24;
+const CSS_V = 25;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
 function escAttr(s) {
@@ -310,7 +310,7 @@ ${renderFaq(app, dict)}
       </section>
     </main>
 ${renderFooter(dict)}
-    <script src="/js/translations.js?v=25" defer></script>
+    <script src="/js/translations.js?v=26" defer></script>
     <script src="/js/site.js?v=9" defer></script>
     <script src="/js/screens-lang.js?v=9" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

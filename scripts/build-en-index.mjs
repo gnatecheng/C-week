@@ -71,8 +71,8 @@ async function main() {
   );
 
   html = html.replace(
-    /<h1 class="page-title"[^>]*>[\s\S]*?<\/h1>/,
-    `<h1 class="page-title" data-i18n="meta.pageH1">${en["meta.pageH1"]}</h1>`
+    /\s*<div class="wrap">\s*<h1 class="page-title"[^>]*>[\s\S]*?<\/h1>\s*<\/div>\s*/g,
+    "\n"
   );
 
   const jsonLd = JSON.stringify(buildJsonLd("en", en), null, 2);
@@ -117,8 +117,8 @@ async function main() {
   html = applyStaticI18n(html, en);
 
   html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=3");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=24");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=25");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=25");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=26");
   html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");
   html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=9");
   html = html.replace(/group-matters\.webp\?v=\d+/g, "group-matters.webp?v=3");

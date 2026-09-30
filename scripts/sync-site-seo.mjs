@@ -72,12 +72,10 @@ const ld = JSON.stringify(buildJsonLd("zh", zh), null, 2);
 const block = `<script type="application/ld+json" id="structured-data">\n${ld}\n    </script>`;
 html = html.replace(/<script type="application\/ld\+json" id="structured-data">[\s\S]*?<\/script>/, block);
 
-if (!html.includes('class="page-title"')) {
-  html = html.replace(
-    "<main id=\"main\">",
-    `<main id="main">\n      <div class="wrap">\n        <h1 class="page-title" data-i18n="meta.pageH1">${zh["meta.pageH1"]}</h1>\n      </div>`
-  );
-}
+html = html.replace(
+  /\s*<div class="wrap">\s*<h1 class="page-title"[^>]*>[\s\S]*?<\/h1>\s*<\/div>\s*/g,
+  "\n"
+);
 
 html = html.replace(
   '<h1 data-i18n="cweek.hero.title">C一周通</h1>',
