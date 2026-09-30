@@ -18,8 +18,8 @@ import {
 } from "./app-page-sections.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 29;
-const TRANSLATIONS_V = 32;
+const CSS_V = 30;
+const TRANSLATIONS_V = 33;
 const SITE_JS_V = 10;
 const SECTION_NAV_JS_V = 6;
 const INIT_THEME_V = 4;
@@ -242,19 +242,17 @@ function renderDownloadPanel(app, dict) {
 
 function renderFooter(app, isEn, dict) {
   const hubHref = isEn ? "/en/" : "/";
-  return `    <footer class="site-footer">
+  return `    <footer class="site-footer app-page-footer">
       <div class="wrap inner">
-        <p>${t(dict, app.footerCopyrightKey)}</p>
-        <p class="footer-links">
-          <a href="https://github.com/${app.github}" rel="noopener noreferrer"
+        <p class="footer-copy">${t(dict, app.footerCopyrightKey)}</p>
+        <div class="footer-actions">
+          <a class="footer-hub-link" href="${hubHref}">${t(dict, "appPage.moreEtaiApps")}</a>
+          <a class="footer-repo-link" href="https://github.com/${app.github}" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
               ><path d="${GITHUB_ICON_PATH}" /></svg
             ><span>${t(dict, app.footerLinkLabelKey)}</span></a
           >
-        </p>
-        <p class="footer-more-apps">
-          <a href="${hubHref}">${t(dict, "appPage.moreEtaiApps")}</a>
-        </p>
+        </div>
       </div>
     </footer>`;
 }

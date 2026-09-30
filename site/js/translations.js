@@ -288,10 +288,10 @@ window.ETAI_TRANSLATIONS = {
     "appPage.sectionNav.requirements": "系统要求",
     "appPage.sectionNav.changelog": "更新记录",
     "appPage.sectionNav.faq": "常见问题",
-    "appPage.moreEtaiApps": "查看更多 Etai 应用",
-    "app.easyLedger.footer.copyright": "© Etai 应用集 · 轻记账 · 开源 Android 应用",
-    "app.groupMatters.footer.copyright": "© Etai 应用集 · 团团记 · 开源 Android 应用",
-    "app.cWeek.footer.copyright": "© Etai 应用集 · C一周通 · 开源 Android 应用",
+    "appPage.moreEtaiApps": "查看更多 Etai 应用 →",
+    "app.easyLedger.footer.copyright": "© Etai 应用集 · 轻记账 · 开源安卓应用",
+    "app.groupMatters.footer.copyright": "© Etai 应用集 · 团团记 · 开源安卓应用",
+    "app.cWeek.footer.copyright": "© Etai 应用集 · C一周通 · 开源安卓应用",
     "app.easyLedger.faq.installTips.body":
       "轻记账需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先使用应用内备份。若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。",
     "app.groupMatters.faq.installTips.body":
@@ -713,10 +713,10 @@ window.ETAI_TRANSLATIONS = {
     "appPage.sectionNav.requirements": "Requirements",
     "appPage.sectionNav.changelog": "Changelog",
     "appPage.sectionNav.faq": "FAQ",
-    "appPage.moreEtaiApps": "More Etai apps",
-    "app.easyLedger.footer.copyright": "© Etai Apps · Easy Ledger · open-source Android app",
-    "app.groupMatters.footer.copyright": "© Etai Apps · Group Matters · open-source Android app",
-    "app.cWeek.footer.copyright": "© Etai Apps · C Week · open-source Android app",
+    "appPage.moreEtaiApps": "More Etai apps →",
+    "app.easyLedger.footer.copyright": "© Etai Apps · Easy Ledger · Open-source Android app",
+    "app.groupMatters.footer.copyright": "© Etai Apps · Group Matters · Open-source Android app",
+    "app.cWeek.footer.copyright": "© Etai Apps · C Week · Open-source Android app",
     "app.easyLedger.faq.installTips.body":
       "Easy Ledger requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first using in-app backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.",
     "app.groupMatters.faq.installTips.body":
