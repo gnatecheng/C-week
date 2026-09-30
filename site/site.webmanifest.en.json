@@ -1,7 +1,7 @@
 {
   "name": "Etai Apps",
   "short_name": "Etai",
-  "description": "C Week, Easy Ledger, and Group Matters — three offline Android apps",
+  "description": "Easy Ledger, Group Matters, and C Week — three offline Android apps",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f4f7f7",

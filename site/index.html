@@ -3,36 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Etai 应用集 — C一周通 · 轻记账 · 多人事务</title>
+    <title>Etai 应用集 — 轻记账 · 多人事务 · C一周通</title>
     <meta
       name="description"
       data-i18n-content="meta.description"
-      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：C一周通（7 天学会 C，版本 1.5.0）、轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）。"
+      content="Etai 应用集收录三款离线可用、数据只存本机的 Android 应用：轻记账（个人记账，版本 1.3.1）、多人事务（出勤、缴费、分摊、清单，版本 1.5.0）、C一周通（7 天学会 C，版本 1.5.0）。"
     />
     <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
     <link rel="icon" href="/assets/favicon-32.png?v=1" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=1" />
-    <link rel="manifest" href="/site.webmanifest?v=2" />
+    <link rel="manifest" href="/site.webmanifest?v=3" />
     <link rel="canonical" href="https://etais.dev/" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=2"></script>
-    <link rel="stylesheet" href="/css/style.css?v=16" />
+    <link rel="stylesheet" href="/css/style.css?v=17" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://etais.dev/" />
     <meta
       property="og:title"
       data-i18n-content="meta.ogTitle"
-      content="C一周通 · 轻记账 · 多人事务"
+      content="轻记账 · 多人事务 · C一周通"
     />
     <meta
       property="og:description"
       data-i18n-content="meta.ogDescription"
-      content="三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。"
+      content="三款离线 Android 应用：个人记账、班级与小组事务、C 语言入门，数据只存本机。"
     />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=3" />
+    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
@@ -41,14 +41,14 @@
     <meta
       name="twitter:title"
       data-i18n-content="meta.twitterTitle"
-      content="C一周通 · 轻记账 · 多人事务"
+      content="轻记账 · 多人事务 · C一周通"
     />
     <meta
       name="twitter:description"
       data-i18n-content="meta.twitterDescription"
-      content="三款离线 Android 应用：C 语言入门、个人记账、班级与小组事务，数据只存本机。"
+      content="三款离线 Android 应用：个人记账、班级与小组事务、C 语言入门，数据只存本机。"
     />
-    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=3" />
+    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=4" />
   </head>
   <body data-page-title-key="meta.title">
     <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要内容</a>
@@ -67,9 +67,9 @@
         </div>
         <nav class="header-nav" data-i18n-aria="navSectionsLabel" aria-label="页面章节">
           <div class="header-nav-inner">
-            <a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="nav.cweek">C一周通</span></a>
             <a class="app-chip chip-qjz" href="#qingjizhang"><span class="chip-badge" aria-hidden="true">账</span><span data-i18n="nav.qingjizhang">轻记账</span></a>
             <a class="app-chip chip-class" href="#group-matters"><span class="chip-badge" aria-hidden="true">多</span><span data-i18n="nav.classRecord">多人事务</span></a>
+            <a class="app-chip chip-cweek" href="#cweek"><span class="chip-badge" aria-hidden="true">C</span><span data-i18n="nav.cweek">C一周通</span></a>
             <a class="nav-link" href="#faq" data-i18n="nav.faq">常见问题</a>
           </div>
         </nav>
@@ -89,7 +89,382 @@
 
     <main id="main">
 
-      <section id="cweek" class="hero" data-group="cweek">
+<section id="qingjizhang" class="project project-qjz" data-group="qingjizhang" aria-labelledby="qjz-title">
+        <div class="wrap">
+          <div class="project-grid">
+            <div>
+              <h2 id="qjz-title" class="project-title" data-i18n="qjz.hero.title">轻记账</h2>
+              <p class="lead" data-i18n-html="qjz.hero.lead">
+                个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
+              </p>
+              <div class="download-panel download-panel--qjz" data-app-meta="qingjizhang">
+                <div class="download-panel__head">
+                  <img
+                    class="download-panel__icon"
+                    src="/assets/app-icons/easy-ledger.webp?v=2"
+                    width="44"
+                    height="44"
+                    alt=""
+                    decoding="async"
+                  />
+                  <div>
+                    <p class="download-panel__name" data-i18n="qjz.hero.title">轻记账</p>
+                    <p class="download-panel__version">
+                      v<span class="app-meta-version">1.3.1</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.apkLabel">APK</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="download-panel__body">
+                  <div class="download-panel__primary">
+                    <a
+                      class="btn btn-primary"
+                      href="https://github.com/gnatecheng/easy-ledger/releases/latest"
+                      rel="noopener noreferrer"
+                      data-i18n="qjz.hero.downloadApk"
+                    >
+                      下载最新 APK
+                    </a>
+                    <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
+                  </div>
+                  <div class="download-panel__scan">
+                    <div class="download-panel__divider" role="presentation">
+                      <div class="download-panel__divider-track">
+                        <span class="download-panel__divider-label" data-i18n="download.scanOr">或扫码</span>
+                      </div>
+                    </div>
+                    <figure class="download-panel__qr">
+                      <div class="download-panel__qr-frame">
+                        <img src="/assets/qr/easy-ledger.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                      </div>
+                      <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <a
+                class="download-panel__source"
+                href="https://github.com/gnatecheng/easy-ledger"
+                rel="noopener noreferrer"
+              >
+                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span data-i18n="qjz.hero.viewGithub">查看 GitHub 源码</span>
+              </a>
+              <p class="hero-meta" data-i18n="qjz.hero.meta">
+                需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
+              </p>
+            </div>
+            <div class="hero-visual screenshot-wrap">
+              <div class="screenshot-gallery" role="region" data-i18n-aria="qjz.hero.gallery.ariaLabel" aria-label="轻记账应用截图">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/01-home.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s01.alt" alt="轻记账首页，本月收支结余与预算概览" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s01.caption">首页 · 本月收支与预算</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/02-entries.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s02.alt" alt="轻记账流水明细，搜索与筛选" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s02.caption">明细 · 流水与筛选</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/03-stats.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s03.alt" alt="轻记账统计页，分类饼图与趋势" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s03.caption">统计 · 饼图与 12 个月趋势</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/04-budget.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s04.alt" alt="轻记账预算页，进度与超支提醒" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s04.caption">预算 · 80% 警告与超支</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/qingjizhang/05-mine.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s05.alt" alt="轻记账我的页面，账户分类与设置" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s05.caption">我的 · 账户、分类与设置</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="project-subhead" data-i18n="qjz.featuresHeading">主要功能</h3>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.entry.tag">流水</span>
+              <h3 data-i18n="qjz.features.entry.title">记一笔 · 搜索筛选</h3>
+              <p data-i18n="qjz.features.entry.body">金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.transfer.tag">转账</span>
+              <h3 data-i18n="qjz.features.transfer.title">账户之间互转</h3>
+              <p data-i18n="qjz.features.transfer.body">转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.categories.tag">分类 · 账户</span>
+              <h3 data-i18n="qjz.features.categories.title">分类与账户</h3>
+              <p data-i18n="qjz.features.categories.body">支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.stats.tag">统计</span>
+              <h3 data-i18n="qjz.features.stats.title">月度统计与趋势</h3>
+              <p data-i18n="qjz.features.stats.body">月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.budget.tag">预算</span>
+              <h3 data-i18n="qjz.features.budget.title">预算与提醒</h3>
+              <p data-i18n="qjz.features.budget.body">每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.backup.tag">备份</span>
+              <h3 data-i18n="qjz.features.backup.title">导入导出</h3>
+              <p data-i18n="qjz.features.backup.body">导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.recurring.tag">自动</span>
+              <h3 data-i18n="qjz.features.recurring.title">周期记账</h3>
+              <p data-i18n="qjz.features.recurring.body">每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.widget.tag">小组件</span>
+              <h3 data-i18n="qjz.features.widget.title">桌面小组件</h3>
+              <p data-i18n="qjz.features.widget.body">显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="qjz.features.receipt.tag">隐私</span>
+              <h3 data-i18n="qjz.features.receipt.title">收据拍照</h3>
+              <p data-i18n="qjz.features.receipt.body">记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
+            </article>
+          </div>
+          <p class="project-foot" data-i18n="qjz.foot">
+            另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。
+          </p>
+        </div>
+      </section>
+
+<section id="group-matters" class="project project-class" data-group="group-matters" aria-labelledby="class-title">
+        <span id="class-record" class="legacy-section-anchor" tabindex="-1" aria-hidden="true"></span>
+        <div class="wrap">
+          <div class="project-grid">
+            <div>
+              <h2 id="class-title" class="project-title" data-i18n="class.hero.title">多人事务</h2>
+              <p class="lead" data-i18n-html="class.hero.lead">
+                单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
+              </p>
+              <div class="download-panel download-panel--class" data-app-meta="group-matters">
+                <div class="download-panel__head">
+                  <img
+                    class="download-panel__icon"
+                    src="/assets/app-icons/group-matters.webp?v=2"
+                    width="44"
+                    height="44"
+                    alt=""
+                    decoding="async"
+                  />
+                  <div>
+                    <p class="download-panel__name" data-i18n="class.hero.title">多人事务</p>
+                    <p class="download-panel__version">
+                      v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
+                      ><span data-i18n="download.apkLabel">APK</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="download-panel__body">
+                  <div class="download-panel__primary">
+                    <a
+                      class="btn btn-primary"
+                      href="https://github.com/gnatecheng/group-matters/releases/latest"
+                      rel="noopener noreferrer"
+                      data-i18n="class.hero.downloadApk"
+                    >
+                      下载最新 APK
+                    </a>
+                    <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
+                  </div>
+                  <div class="download-panel__scan">
+                    <div class="download-panel__divider" role="presentation">
+                      <div class="download-panel__divider-track">
+                        <span class="download-panel__divider-label" data-i18n="download.scanOr">或扫码</span>
+                      </div>
+                    </div>
+                    <figure class="download-panel__qr">
+                      <div class="download-panel__qr-frame">
+                        <img src="/assets/qr/group-matters.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                      </div>
+                      <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <a
+                class="download-panel__source"
+                href="https://github.com/gnatecheng/group-matters"
+                rel="noopener noreferrer"
+              >
+                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span data-i18n="class.hero.viewGithub">查看 GitHub 源码</span>
+              </a>
+              <p class="hero-meta" data-i18n="class.hero.meta">
+                需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
+              </p>
+            </div>
+            <div class="hero-visual screenshot-wrap">
+              <div class="screenshot-gallery" role="region" data-i18n-aria="class.hero.gallery.ariaLabel" aria-label="多人事务应用截图">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/01-home.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s01.alt" alt="多人事务首页，班级与事务列表" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s01.caption">首页 · 班级与事务列表</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/02-attendance.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s02.alt" alt="多人事务出勤点名，已到与请假状态" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s02.caption">出勤点名 · 连续到课进度</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/03-payment.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s03.alt" alt="多人事务缴费事务，仅未完成筛选" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s03.caption">缴费 · 未完成提醒与应缴</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/04-ledger.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s04.alt" alt="多人事务班费账本，收支流水与余额" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s04.caption">班费账本 · 收支与余额</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/05-members.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s05.alt" alt="多人事务成员名单管理" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s05.caption">成员 · 12 人名单与学号</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="project-subhead" data-i18n="class.featuresHeading">主要功能</h3>
+          <div class="feature-grid">
+            <article class="card">
+              <span class="tag" data-i18n="class.features.members.tag">成员</span>
+              <h3 data-i18n="class.features.members.title">成员与名单</h3>
+              <p data-i18n="class.features.members.body">成员增删改、软归档（学号、备注可选）；批量粘贴导入，支持学号在前、Tab 粘贴，重名/同学号会提示；可恢复已归档成员并保留历史事务。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.groups.tag">团体</span>
+              <h3 data-i18n="class.features.groups.title">班内小团体</h3>
+              <p data-i18n="class.features.groups.body">多选成员组成团体，一人可属于多个团体；事务范围可选全班或某个小团体（空团体不能作为事务范围）。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.activities.tag">事务</span>
+              <h3 data-i18n="class.features.activities.title">四种事务</h3>
+              <p data-i18n="class.features.activities.body">出勤 / 缴费 / 分摊 / 清单；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.split.tag">分摊</span>
+              <h3 data-i18n="class.features.split.title">灵活分摊</h3>
+              <p data-i18n="class.features.split.body">金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除同学、按权重或固定金额分摊。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.progress.tag">进度</span>
+              <h3 data-i18n="class.features.progress.title">进度与点名</h3>
+              <p data-i18n="class.features.progress.body">事务详情默认「仅未完成」，点按更新状态；缴费/分摊可编辑金额；出勤事务支持连续点名；名单按学号排序（可关）。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.reminders.tag">催缴</span>
+              <h3 data-i18n="class.features.reminders.title">摘要与催缴文案</h3>
+              <p data-i18n="class.features.reminders.body">复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.ledger.tag">班费</span>
+              <h3 data-i18n="class.features.ledger.title">班费账本</h3>
+              <p data-i18n="class.features.ledger.body">收入/支出流水与余额；缴费事务可将已收合计记入班费；缴费/分摊可附加备注与图片凭证。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.backup.tag">备份</span>
+              <h3 data-i18n="class.features.backup.title">备份与导出</h3>
+              <p data-i18n="class.features.backup.body">数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。</p>
+            </article>
+            <article class="card">
+              <span class="tag" data-i18n="class.features.widget.tag">小组件</span>
+              <h3 data-i18n="class.features.widget.title">未完成人数小组件</h3>
+              <p data-i18n="class.features.widget.body">显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。</p>
+            </article>
+          </div>
+          <p class="project-foot" data-i18n="class.foot">
+            首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。
+          </p>
+        </div>
+      </section>
+
+<section id="cweek" class="hero" data-group="cweek">
         <div class="wrap hero-grid">
           <div>
             <h1 data-i18n="cweek.hero.title">C一周通</h1>
@@ -373,382 +748,7 @@
         </div>
       </section>
 
-      <section id="qingjizhang" class="project project-qjz" data-group="qingjizhang" aria-labelledby="qjz-title">
-        <div class="wrap">
-          <div class="project-grid">
-            <div>
-              <h2 id="qjz-title" class="project-title" data-i18n="qjz.hero.title">轻记账</h2>
-              <p class="lead" data-i18n-html="qjz.hero.lead">
-                个人记账 Android 应用。数据保存在手机上的 <strong>SQLite（Room）</strong>里，<strong>无需登录、无需服务器</strong>；没有账号系统，也没有网络同步，备份文件只有你分享或保存时才会离开本机。
-              </p>
-              <div class="download-panel download-panel--qjz" data-app-meta="qingjizhang">
-                <div class="download-panel__head">
-                  <img
-                    class="download-panel__icon"
-                    src="/assets/app-icons/easy-ledger.webp?v=2"
-                    width="44"
-                    height="44"
-                    alt=""
-                    decoding="async"
-                  />
-                  <div>
-                    <p class="download-panel__name" data-i18n="qjz.hero.title">轻记账</p>
-                    <p class="download-panel__version">
-                      v<span class="app-meta-version">1.3.1</span><span aria-hidden="true"> · </span
-                      ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
-                      ><span data-i18n="download.apkLabel">APK</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="download-panel__body">
-                  <div class="download-panel__primary">
-                    <a
-                      class="btn btn-primary"
-                      href="https://github.com/gnatecheng/easy-ledger/releases/latest"
-                      rel="noopener noreferrer"
-                      data-i18n="qjz.hero.downloadApk"
-                    >
-                      下载最新 APK
-                    </a>
-                    <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
-                  </div>
-                  <div class="download-panel__scan">
-                    <div class="download-panel__divider" role="presentation">
-                      <div class="download-panel__divider-track">
-                        <span class="download-panel__divider-label" data-i18n="download.scanOr">或扫码</span>
-                      </div>
-                    </div>
-                    <figure class="download-panel__qr">
-                      <div class="download-panel__qr-frame">
-                        <img src="/assets/qr/easy-ledger.svg?v=2" width="120" height="120" alt="" decoding="async" />
-                      </div>
-                      <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-              <a
-                class="download-panel__source"
-                href="https://github.com/gnatecheng/easy-ledger"
-                rel="noopener noreferrer"
-              >
-                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
-                  />
-                </svg>
-                <span data-i18n="qjz.hero.viewGithub">查看 GitHub 源码</span>
-              </a>
-              <p class="hero-meta" data-i18n="qjz.hero.meta">
-                需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
-              </p>
-            </div>
-            <div class="hero-visual screenshot-wrap">
-              <div class="screenshot-gallery" role="region" data-i18n-aria="qjz.hero.gallery.ariaLabel" aria-label="轻记账应用截图">
-                <ul class="screenshot-gallery-track">
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/01-home.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s01.alt" alt="轻记账首页，本月收支结余与预算概览" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s01.caption">首页 · 本月收支与预算</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/02-entries.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s02.alt" alt="轻记账流水明细，搜索与筛选" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s02.caption">明细 · 流水与筛选</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/03-stats.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s03.alt" alt="轻记账统计页，分类饼图与趋势" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s03.caption">统计 · 饼图与 12 个月趋势</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/04-budget.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s04.alt" alt="轻记账预算页，进度与超支提醒" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s04.caption">预算 · 80% 警告与超支</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/qingjizhang/05-mine.webp?v=10" width="540" height="1171" loading="lazy" data-i18n-alt="qjz.hero.gallery.s05.alt" alt="轻记账我的页面，账户分类与设置" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="qjz.hero.gallery.s05.caption">我的 · 账户、分类与设置</figcaption>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="project-subhead" data-i18n="qjz.featuresHeading">主要功能</h3>
-          <div class="feature-grid">
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.entry.tag">流水</span>
-              <h3 data-i18n="qjz.features.entry.title">记一笔 · 搜索筛选</h3>
-              <p data-i18n="qjz.features.entry.body">金额、日期时间、收支、分类、账户、备注、标签；快速记一笔、按月切换；备注/标签全文搜索，可按分类、账户、标签、金额区间、收支/转账类型筛选。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.transfer.tag">转账</span>
-              <h3 data-i18n="qjz.features.transfer.title">账户之间互转</h3>
-              <p data-i18n="qjz.features.transfer.body">转出/转入、金额、日期、备注；两端余额同步更新；不计入月度收入/支出，明细中以独立样式展示。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.categories.tag">分类 · 账户</span>
-              <h3 data-i18n="qjz.features.categories.title">分类与账户</h3>
-              <p data-i18n="qjz.features.categories.body">支出/收入两套分类，可编辑名称与颜色，首次启动带中文默认分类；现金、银行卡、信用卡、支付宝、微信等账户，余额随流水更新。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.stats.tag">统计</span>
-              <h3 data-i18n="qjz.features.stats.title">月度统计与趋势</h3>
-              <p data-i18n="qjz.features.stats.body">月度收支与结余（对比上月）、分类饼图、近 12 个月趋势；可按时间、账户、标签筛选，可分享月报图片或导出 PDF。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.budget.tag">预算</span>
-              <h3 data-i18n="qjz.features.budget.title">预算与提醒</h3>
-              <p data-i18n="qjz.features.budget.body">每月总预算 + 分类预算；达到 80% 警告、超过 100% 超支；可配置大额单笔阈值；多日未记账会在首页轻提醒。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.backup.tag">备份</span>
-              <h3 data-i18n="qjz.features.backup.title">导入导出</h3>
-              <p data-i18n="qjz.features.backup.body">导出 CSV 与 JSON 完整备份（流水、分类、账户、预算、提醒设置）；导入可预览、识别常见列名，重复可选跳过 / 全部导入 / 覆盖。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.recurring.tag">自动</span>
-              <h3 data-i18n="qjz.features.recurring.title">周期记账</h3>
-              <p data-i18n="qjz.features.recurring.body">每天 / 每周 / 每月规则；打开应用时自动生成到期流水；可编辑、暂停、删除。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.widget.tag">小组件</span>
-              <h3 data-i18n="qjz.features.widget.title">桌面小组件</h3>
-              <p data-i18n="qjz.features.widget.body">显示本月收入、支出、结余（绿/红），点按打开应用，记账后自动刷新。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="qjz.features.receipt.tag">隐私</span>
-              <h3 data-i18n="qjz.features.receipt.title">收据拍照</h3>
-              <p data-i18n="qjz.features.receipt.body">记账时可拍照或从相册选图，照片只保存在本机，支持缩略图、更换和删除。</p>
-            </article>
-          </div>
-          <p class="project-foot" data-i18n="qjz.foot">
-            另有深色模式开关（我的 / 设置）；首次打开会写入示例流水，可在「我的 → 提醒设置」中清除或恢复。技术栈：Kotlin、Jetpack Compose、Material 3、Room、Navigation Compose。
-          </p>
-        </div>
-      </section>
-
-      <section id="group-matters" class="project project-class" data-group="group-matters" aria-labelledby="class-title">
-        <span id="class-record" class="legacy-section-anchor" tabindex="-1" aria-hidden="true"></span>
-        <div class="wrap">
-          <div class="project-grid">
-            <div>
-              <h2 id="class-title" class="project-title" data-i18n="class.hero.title">多人事务</h2>
-              <p class="lead" data-i18n-html="class.hero.lead">
-                单班事务记录 Android 应用：<strong>出勤、缴费、费用分摊、清单</strong>。数据保存在本机（Room），<strong>无需登录或联网</strong>。
-              </p>
-              <div class="download-panel download-panel--class" data-app-meta="group-matters">
-                <div class="download-panel__head">
-                  <img
-                    class="download-panel__icon"
-                    src="/assets/app-icons/group-matters.webp?v=2"
-                    width="44"
-                    height="44"
-                    alt=""
-                    decoding="async"
-                  />
-                  <div>
-                    <p class="download-panel__name" data-i18n="class.hero.title">多人事务</p>
-                    <p class="download-panel__version">
-                      v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
-                      ><span data-i18n="download.androidMin">Android 8.0+</span><span aria-hidden="true"> · </span
-                      ><span data-i18n="download.apkLabel">APK</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="download-panel__body">
-                  <div class="download-panel__primary">
-                    <a
-                      class="btn btn-primary"
-                      href="https://github.com/gnatecheng/group-matters/releases/latest"
-                      rel="noopener noreferrer"
-                      data-i18n="class.hero.downloadApk"
-                    >
-                      下载最新 APK
-                    </a>
-                    <p class="download-panel__note" data-i18n="download.releasesNote">GitHub Releases · 免费开源</p>
-                  </div>
-                  <div class="download-panel__scan">
-                    <div class="download-panel__divider" role="presentation">
-                      <div class="download-panel__divider-track">
-                        <span class="download-panel__divider-label" data-i18n="download.scanOr">或扫码</span>
-                      </div>
-                    </div>
-                    <figure class="download-panel__qr">
-                      <div class="download-panel__qr-frame">
-                        <img src="/assets/qr/group-matters.svg?v=2" width="120" height="120" alt="" decoding="async" />
-                      </div>
-                      <figcaption data-i18n="download.qrCaption">扫码下载</figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-              <a
-                class="download-panel__source"
-                href="https://github.com/gnatecheng/group-matters"
-                rel="noopener noreferrer"
-              >
-                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
-                  />
-                </svg>
-                <span data-i18n="class.hero.viewGithub">查看 GitHub 源码</span>
-              </a>
-              <p class="hero-meta" data-i18n="class.hero.meta">
-                需要 Android 8.0 及以上（API 26）· 从 GitHub Releases 下载最新 APK 后安装
-              </p>
-            </div>
-            <div class="hero-visual screenshot-wrap">
-              <div class="screenshot-gallery" role="region" data-i18n-aria="class.hero.gallery.ariaLabel" aria-label="多人事务应用截图">
-                <ul class="screenshot-gallery-track">
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/class-record/01-home.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s01.alt" alt="多人事务首页，班级与事务列表" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s01.caption">首页 · 班级与事务列表</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/class-record/02-attendance.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s02.alt" alt="多人事务出勤点名，已到与请假状态" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s02.caption">出勤点名 · 连续到课进度</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/class-record/03-payment.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s03.alt" alt="多人事务缴费事务，仅未完成筛选" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s03.caption">缴费 · 未完成提醒与应缴</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/class-record/04-ledger.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s04.alt" alt="多人事务班费账本，收支流水与余额" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s04.caption">班费账本 · 收支与余额</figcaption>
-                    </figure>
-                  </li>
-                  <li class="screenshot-slide">
-                    <figure class="screenshot-figure">
-                      <div class="phone-frame screenshot-phone">
-                        <div class="phone-notch"><span></span></div>
-                        <div class="phone-screen">
-                          <img src="/assets/screens/class-record/05-members.webp?v=5" width="540" height="1171" loading="lazy" data-i18n-alt="class.hero.gallery.s05.alt" alt="多人事务成员名单管理" />
-                        </div>
-                      </div>
-                      <figcaption class="screenshot-caption" data-i18n="class.hero.gallery.s05.caption">成员 · 12 人名单与学号</figcaption>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="project-subhead" data-i18n="class.featuresHeading">主要功能</h3>
-          <div class="feature-grid">
-            <article class="card">
-              <span class="tag" data-i18n="class.features.members.tag">成员</span>
-              <h3 data-i18n="class.features.members.title">成员与名单</h3>
-              <p data-i18n="class.features.members.body">成员增删改、软归档（学号、备注可选）；批量粘贴导入，支持学号在前、Tab 粘贴，重名/同学号会提示；可恢复已归档成员并保留历史事务。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.groups.tag">团体</span>
-              <h3 data-i18n="class.features.groups.title">班内小团体</h3>
-              <p data-i18n="class.features.groups.body">多选成员组成团体，一人可属于多个团体；事务范围可选全班或某个小团体（空团体不能作为事务范围）。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.activities.tag">事务</span>
-              <h3 data-i18n="class.features.activities.title">四种事务</h3>
-              <p data-i18n="class.features.activities.body">出勤 / 缴费 / 分摊 / 清单；创建时快照成员，之后改团体名单不影响历史；「再开一期」按当前名单重新快照。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.split.tag">分摊</span>
-              <h3 data-i18n="class.features.split.title">灵活分摊</h3>
-              <p data-i18n="class.features.split.body">金额以「分」存储、界面以「元」显示，余数补给前 N 人；可排除同学、按权重或固定金额分摊。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.progress.tag">进度</span>
-              <h3 data-i18n="class.features.progress.title">进度与点名</h3>
-              <p data-i18n="class.features.progress.body">事务详情默认「仅未完成」，点按更新状态；缴费/分摊可编辑金额；出勤事务支持连续点名；名单按学号排序（可关）。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.reminders.tag">催缴</span>
-              <h3 data-i18n="class.features.reminders.title">摘要与催缴文案</h3>
-              <p data-i18n="class.features.reminders.body">复制摘要 / 催缴文案，按微信群可读格式（一人一行、含金额）；详情可复制/分享未完成名单与 CSV。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.ledger.tag">班费</span>
-              <h3 data-i18n="class.features.ledger.title">班费账本</h3>
-              <p data-i18n="class.features.ledger.body">收入/支出流水与余额；缴费事务可将已收合计记入班费；缴费/分摊可附加备注与图片凭证。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.backup.tag">备份</span>
-              <h3 data-i18n="class.features.backup.title">备份与导出</h3>
-              <p data-i18n="class.features.backup.body">数据备份 / 恢复（zip，含缴费凭证图片）；导出成员、事务进度、账本 CSV。</p>
-            </article>
-            <article class="card">
-              <span class="tag" data-i18n="class.features.widget.tag">小组件</span>
-              <h3 data-i18n="class.features.widget.title">未完成人数小组件</h3>
-              <p data-i18n="class.features.widget.body">显示近期进行中事务的未完成人数（多项时附全部合计），点按打开应用。</p>
-            </article>
-          </div>
-          <p class="project-foot" data-i18n="class.foot">
-            首页可按标题搜索事务、筛选进行中 / 已归档；新建事务提供点名、班费、寝室分摊等快捷标题模板；Material 3 深色主题可跟随系统或固定浅色 / 深色。技术栈：Kotlin · Jetpack Compose · Material 3 · Navigation Compose · Room · DataStore · App Widget · Flow · Coroutines · MVVM。
-          </p>
-        </div>
-      </section>
-
-      <section id="faq" data-group="faq">
+<section id="faq" data-group="faq">
         <div class="wrap">
           <header class="section-head">
             <h2 data-i18n="faq.title">常见问题</h2>
@@ -782,6 +782,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
@@ -794,7 +795,7 @@
         </p>
       </div>
     </footer>
-    <script src="/js/translations.js?v=16" defer></script>
+    <script src="/js/translations.js?v=17" defer></script>
     <script src="/js/site.js?v=6" defer></script>
     <script src="/js/screens-lang.js?v=7" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>

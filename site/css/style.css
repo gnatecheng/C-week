@@ -964,6 +964,10 @@ code {
   padding: 3.5rem 0;
 }
 
+main > section.project:first-of-type {
+  border-top: none;
+}
+
 .project-qjz {
   --accent: var(--qjz);
   --accent-bright: var(--qjz-bright);
