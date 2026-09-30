@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C Week — Learn C in 7 days on Android · Etai</title>
+    <meta name="description" content="C Week: free open-source offline Android C course from Hello World to Dijkstra, with VS Code screen recordings and offline labs." />
+    <link rel="alternate" hreflang="zh-CN" href="https://etais.dev/c-week/" />
+    <link rel="alternate" hreflang="en" href="https://etais.dev/en/c-week/" />
+    <link rel="alternate" hreflang="x-default" href="https://etais.dev/c-week/" />
+    <link rel="canonical" href="https://etais.dev/en/c-week/" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
+    <meta name="theme-color" content="#0f766e" />
+    <script src="/js/init-theme.js?v=3"></script>
+    <link rel="stylesheet" href="/css/style.css?v=23" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Etai Apps" />
+    <meta property="og:url" content="https://etais.dev/en/c-week/" />
+    <meta property="og:title" content="C Week — Learn C on your phone, offline" />
+    <meta property="og:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="C Week — Learn C on your phone, offline" />
+    <meta name="twitter:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." />
+    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <script type="application/ld+json" id="structured-data">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://etais.dev/en/c-week/#app",
+      "name": "C Week",
+      "alternateName": "C一周通",
+      "url": "https://etais.dev/en/c-week/",
+      "operatingSystem": "Android 8.0+",
+      "applicationCategory": "EducationalApplication",
+      "description": "Learn C on your phone, offline — Hello World to Dijkstra.",
+      "downloadUrl": "https://github.com/gnatecheng/c-week/releases/latest",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://etais.dev/en/c-week/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I install C Week?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Download the latest APK from GitHub Releases and install. Launcher name: “C Week” (C一周通)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the system requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need the internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does C Week compile C on the phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does C Week work with VS Code on a computer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Install VS Code and gcc on PC/Mac/Linux, open the c-week repo, and follow the .c files under app/src/main/assets/labs/ ; for Day 7 see day7_dijkstra.c and expected output in that repo’s README."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body class="app-page" data-page-lang="en" data-app-slug="c-week">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header app-page-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/en/">
+          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+          <span>Etai Apps</span>
+        </a>
+        <div class="header-tools">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
+            <button type="button" id="lang-zh" aria-pressed="false">中文</button>
+            <button type="button" id="lang-en" aria-pressed="true">English</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="Theme">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="app-page-main">
+      <div class="wrap">
+        <p class="app-page-breadcrumb"><a href="/en/">Back to Etai Apps home</a> · <a class="app-lang-alt" href="https://etais.dev/c-week/">中文</a></p>
+        <header class="app-page-hero">
+          <img class="app-page-icon" src="/assets/app-icons/c-week.webp?v=2" width="72" height="72" alt="" decoding="async" />
+          <h1>C Week</h1>
+          <p class="lead">Learn C on your phone, offline — Hello World to Dijkstra.</p>
+        </header>
+          <ul class="app-highlights">
+              <li>Seven-day path: Hello World → pointers & arrays → Dijkstra shortest path</li>
+              <li>Lessons include bundled VS Code screen recordings (H.264 in the APK)</li>
+              <li>Offline simulated lab grading and quizzes with wrong-answer hints</li>
+              <li>Progress and streak report; pair with VS Code + gcc on a computer</li>
+          </ul>
+        <div class="app-page-grid">
+          <div class="app-page-primary">
+            <div class="download-panel download-panel--cweek" data-app-meta="cweek">
+              <div class="download-panel__body">
+                <div class="download-panel__left">
+                  <div class="download-panel__head">
+                    <img class="download-panel__icon" src="/assets/app-icons/c-week.webp?v=2" width="44" height="44" alt="" decoding="async" />
+                    <div>
+                      <p class="download-panel__name">C Week</p>
+                      <p class="download-panel__version">
+                        v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                        ><span>Android 8.0+</span><span aria-hidden="true"> · </span
+                        ><span>APK</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="download-panel__primary">
+                    <a class="btn btn-primary" href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">Download latest APK</a>
+                    <p class="download-panel__note">GitHub Releases · free & open source</p>
+                  </div>
+                </div>
+                <div class="download-panel__divider" role="presentation">
+                  <div class="download-panel__divider-track">
+                    <span class="download-panel__divider-label">or</span>
+                  </div>
+                </div>
+                <div class="download-panel__scan">
+                  <figure class="download-panel__qr">
+                    <div class="download-panel__qr-frame">
+                      <img src="/assets/qr/c-week.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                    </div>
+                    <figcaption>Scan to download</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <a class="download-panel__source" href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">
+              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
+              <span>View source</span>
+            </a>
+          </div>
+          <div class="hero-visual screenshot-wrap app-page-shots">
+              <div class="screenshot-gallery" role="region" aria-label="C Week app screenshots">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/01-home.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week home screen with the 7-day path and overall progress" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Week home · 7-day path and progress</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/02-day1.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week Day 1 detail with micro-lesson, lab, and quiz entry points" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Day 1 · Micro-lesson / lab / quiz</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/03-lesson.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week lesson reader with code samples and VS Code demo entry" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Lessons · Code and VS Code demos</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/04-quiz.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week Day 1 quiz with multiple choice and auto-graded feedback" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Daily quiz · Options, scoring, and hints</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/05-labs.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week coding labs list with offline simulated grading" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Coding labs · Offline simulated tests</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/06-report.webp?v=5" width="540" height="1171" loading="lazy" alt="C Week learning report with streak and quiz accuracy" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Learning report · Streaks and accuracy</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        <section class="app-page-faq" aria-labelledby="app-faq-title">
+          <h2 id="app-faq-title">FAQ</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>How do I install C Week?</h3>
+              <p>Download the latest APK from <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Launcher name: “C Week” (C一周通).</p>
+            </article>
+            <article class="faq-item">
+              <h3>What are the system requirements?</h3>
+              <p>Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Do I need the internet?</h3>
+              <p>Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Does C Week compile C on the phone?</h3>
+              <p>No. C Week uses offline simulated grading (multiple test cases, rule checks, and feedback). Partial credit shows a score; a lab counts complete only when all cases pass. You do not need gcc on the phone.</p>
+            </article>
+            <article class="faq-item">
+              <h3>How does C Week work with VS Code on a computer?</h3>
+              <p>Install VS Code and gcc on PC/Mac/Linux, open the <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> repo, and follow the .c files under <code>app/src/main/assets/labs/</code>; for Day 7 see <code>day7_dijkstra.c</code> and expected output in that repo’s README.</p>
+            </article>
+          </div>
+        </section>
+        <p class="app-page-back"><a class="btn btn-secondary" href="/en/">Back to Etai Apps home</a></p>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap inner">
+        <p>© Etai Apps · Easy Ledger / Group Matters / C Week · Open-source Android apps</p>
+      </div>
+    </footer>
+    <script src="/js/translations.js?v=25" defer></script>
+    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/screens-lang.js?v=9" defer></script>
+    <script src="/js/carousel.js?v=3" defer></script>
+    <script src="/js/github-meta.js?v=6" defer></script>
+  </body>
+</html>

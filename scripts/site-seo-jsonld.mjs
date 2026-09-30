@@ -130,3 +130,42 @@ export function buildJsonLd(lang, t) {
     "@graph": graph,
   };
 }
+
+/** Single-app landing page: SoftwareApplication + FAQPage. */
+export function buildAppPageJsonLd(canonicalUrl, t, app, alternateAppName) {
+  const faqEntity = app.faqKeys.map(([titleKey, bodyKey]) => ({
+    "@type": "Question",
+    name: t[titleKey],
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: stripHtml(t[bodyKey]),
+    },
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": canonicalUrl + "#app",
+        name: t[app.keys.name],
+        alternateName: alternateAppName,
+        url: canonicalUrl,
+        operatingSystem: "Android 8.0+",
+        applicationCategory: app.category,
+        description: stripHtml(t[app.keys.tagline]),
+        downloadUrl: `https://github.com/${app.github}/releases/latest`,
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": canonicalUrl + "#faq",
+        mainEntity: faqEntity,
+      },
+    ],
+  };
+}

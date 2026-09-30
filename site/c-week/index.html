@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C一周通｜7 天学 C 语言 Android App · Hello World 到 Dijkstra · Etai</title>
+    <meta name="description" content="C一周通：免费开源离线 Android C 语言课程，Hello World 到 Dijkstra，含 VS Code 实操录像与离线实验测验。" />
+    <link rel="alternate" hreflang="zh-CN" href="https://etais.dev/c-week/" />
+    <link rel="alternate" hreflang="en" href="https://etais.dev/en/c-week/" />
+    <link rel="alternate" hreflang="x-default" href="https://etais.dev/c-week/" />
+    <link rel="canonical" href="https://etais.dev/c-week/" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest?v=3" />
+    <meta name="theme-color" content="#0f766e" />
+    <script src="/js/init-theme.js?v=3"></script>
+    <link rel="stylesheet" href="/css/style.css?v=23" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Etai 应用集" />
+    <meta property="og:url" content="https://etais.dev/c-week/" />
+    <meta property="og:title" content="C Week — Learn C on your phone, offline" />
+    <meta property="og:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="C Week — Learn C on your phone, offline" />
+    <meta name="twitter:description" content="Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs." />
+    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <script type="application/ld+json" id="structured-data">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://etais.dev/c-week/#app",
+      "name": "C一周通",
+      "alternateName": "C Week",
+      "url": "https://etais.dev/c-week/",
+      "operatingSystem": "Android 8.0+",
+      "applicationCategory": "EducationalApplication",
+      "description": "7 天把编程初学者带到能用 C 写出 Dijkstra 最短路；课文含 VS Code 屏幕录像，Kotlin + Jetpack Compose，全程可离线学习。",
+      "downloadUrl": "https://github.com/gnatecheng/c-week/releases/latest",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://etais.dev/c-week/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "如何安装 C一周通 APK？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在 GitHub Releases 下载最新 APK 并安装。桌面显示「C一周通」。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "系统要求是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最低 Android 8.0（API 26）；内含 H.264 教学视频，较新系统通常播放更稳定。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要联网吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "课文、演示视频与实验数据打包在 APK 内；学习进度等存在 DataStore，日常学习不需要联网。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C一周通会在手机上编译 C 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。C一周通使用离线模拟评测（多组用例 + 规则检查 + 错因提示），部分通过会显示分数，全部通过才记实验完成；手机端无需安装 gcc。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C一周通和电脑上的 VS Code 怎么配合？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 c-week 仓库，对照 app/src/main/assets/labs/ 中的 .c 文件跟做；Day 7 参考 day7_dijkstra.c ，期望输出示例见该仓库 README。"
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body class="app-page" data-page-lang="zh" data-app-slug="c-week">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header app-page-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+          <span>Etai 应用集</span>
+        </a>
+        <div class="header-tools">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="语言">
+            <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+            <button type="button" id="lang-en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="主题">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="app-page-main">
+      <div class="wrap">
+        <p class="app-page-breadcrumb"><a href="/">返回 Etai 应用集首页</a> · <a class="app-lang-alt" href="https://etais.dev/en/c-week/">English</a></p>
+        <header class="app-page-hero">
+          <img class="app-page-icon" src="/assets/app-icons/c-week.webp?v=2" width="72" height="72" alt="" decoding="async" />
+          <h1>C一周通</h1>
+          <p class="lead">7 天把编程初学者带到能用 C 写出 Dijkstra 最短路；课文含 VS Code 屏幕录像，Kotlin + Jetpack Compose，全程可离线学习。</p>
+        </header>
+          <ul class="app-highlights">
+              <li>7 天路线：Hello World → 指针与数组 → Dijkstra 最短路</li>
+              <li>课文内嵌 VS Code 屏幕录像（H.264，打包进 APK）</li>
+              <li>离线模拟评测实验与测验，错因提示</li>
+              <li>学习进度与打卡报告，可配合 PC 上 VS Code + gcc 跟做</li>
+          </ul>
+        <div class="app-page-grid">
+          <div class="app-page-primary">
+            <div class="download-panel download-panel--cweek" data-app-meta="cweek">
+              <div class="download-panel__body">
+                <div class="download-panel__left">
+                  <div class="download-panel__head">
+                    <img class="download-panel__icon" src="/assets/app-icons/c-week.webp?v=2" width="44" height="44" alt="" decoding="async" />
+                    <div>
+                      <p class="download-panel__name">C一周通</p>
+                      <p class="download-panel__version">
+                        v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                        ><span>Android 8.0+</span><span aria-hidden="true"> · </span
+                        ><span>APK</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="download-panel__primary">
+                    <a class="btn btn-primary" href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">下载最新 APK</a>
+                    <p class="download-panel__note">GitHub Releases · 免费开源</p>
+                  </div>
+                </div>
+                <div class="download-panel__divider" role="presentation">
+                  <div class="download-panel__divider-track">
+                    <span class="download-panel__divider-label">或</span>
+                  </div>
+                </div>
+                <div class="download-panel__scan">
+                  <figure class="download-panel__qr">
+                    <div class="download-panel__qr-frame">
+                      <img src="/assets/qr/c-week.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                    </div>
+                    <figcaption>扫码下载</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <a class="download-panel__source" href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">
+              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
+              <span>查看源码</span>
+            </a>
+          </div>
+          <div class="hero-visual screenshot-wrap app-page-shots">
+              <div class="screenshot-gallery" role="region" aria-label="C一周通应用截图">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/01-home.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通本周课程首页，7 天路线与总体进度" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">本周课程首页 · 7 天路线与进度</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/02-day1.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通第 1 天详情，微课、实验与测验入口" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">第 1 天详情 · 微课 / 实验 / 测验</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/03-lesson.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通课文阅读界面，含代码示例与 VS Code 演示入口" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">课文阅读 · 代码与 VS Code 演示</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/04-quiz.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通第 1 天测验，单选题作答与自动判分错因提示" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">今日测验 · 选项、判分与错因</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/05-labs.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通代码实验列表，离线模拟评测" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">代码实验 · 离线模拟评测</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/cweek/06-report.webp?v=5" width="540" height="1171" loading="lazy" alt="C一周通学习报告，连续打卡与测验正确率" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">学习报告 · 打卡与正确率</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        <section class="app-page-faq" aria-labelledby="app-faq-title">
+          <h2 id="app-faq-title">常见问题</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>如何安装 C一周通 APK？</h3>
+              <p>在 <a href="https://github.com/gnatecheng/c-week/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「C一周通」。</p>
+            </article>
+            <article class="faq-item">
+              <h3>系统要求是什么？</h3>
+              <p>最低 Android 8.0（API 26）；内含 H.264 教学视频，较新系统通常播放更稳定。</p>
+            </article>
+            <article class="faq-item">
+              <h3>需要联网吗？</h3>
+              <p>课文、演示视频与实验数据打包在 APK 内；学习进度等存在 DataStore，日常学习不需要联网。</p>
+            </article>
+            <article class="faq-item">
+              <h3>C一周通会在手机上编译 C 吗？</h3>
+              <p>不会。C一周通使用离线模拟评测（多组用例 + 规则检查 + 错因提示），部分通过会显示分数，全部通过才记实验完成；手机端无需安装 gcc。</p>
+            </article>
+            <article class="faq-item">
+              <h3>C一周通和电脑上的 VS Code 怎么配合？</h3>
+              <p>可在 PC/Mac/Linux 安装 VS Code 与 gcc，打开 <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer">c-week</a> 仓库，对照 <code>app/src/main/assets/labs/</code> 中的 .c 文件跟做；Day 7 参考 <code>day7_dijkstra.c</code>，期望输出示例见该仓库 README。</p>
+            </article>
+          </div>
+        </section>
+        <p class="app-page-back"><a class="btn btn-secondary" href="/">返回 Etai 应用集首页</a></p>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap inner">
+        <p>© Etai 应用集 · 轻记账 / 团团记 / C一周通 · 开源 Android 应用</p>
+      </div>
+    </footer>
+    <script src="/js/translations.js?v=25" defer></script>
+    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/screens-lang.js?v=9" defer></script>
+    <script src="/js/carousel.js?v=3" defer></script>
+    <script src="/js/github-meta.js?v=6" defer></script>
+  </body>
+</html>

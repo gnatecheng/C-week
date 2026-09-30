@@ -38,6 +38,22 @@ export default {
       });
     }
 
+    const slashPaths = [
+      "/easy-ledger",
+      "/group-matters",
+      "/c-week",
+      "/en/easy-ledger",
+      "/en/group-matters",
+      "/en/c-week",
+    ];
+    if (slashPaths.includes(url.pathname)) {
+      url.pathname = url.pathname + "/";
+      return new Response(null, {
+        status: 301,
+        headers: { Location: url.toString() },
+      });
+    }
+
     return env.ASSETS.fetch(request);
   },
 };

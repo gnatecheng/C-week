@@ -1129,6 +1129,124 @@ main > section.project:first-of-type {
   flex-shrink: 0;
 }
 
+.app-learn-more {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.app-learn-more a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.app-learn-more a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- per-app landing pages ---------- */
+
+.app-page-main {
+  padding: 1.25rem 0 2.5rem;
+}
+
+.app-page-breadcrumb {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.app-page-breadcrumb a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-lang-alt {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-page-hero {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.app-page-icon {
+  display: block;
+  margin: 0 auto 0.75rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.app-page-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.65rem, 4vw, 2.1rem);
+}
+
+.app-page-hero .lead {
+  margin: 0 auto;
+  max-width: 40em;
+}
+
+.app-highlights {
+  margin: 0 auto 1.75rem;
+  padding-left: 1.25rem;
+  max-width: 40em;
+  color: var(--text);
+}
+
+.app-highlights li {
+  margin: 0.35rem 0;
+  line-height: 1.45;
+}
+
+.app-page-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 900px) {
+  .app-page-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    align-items: start;
+  }
+}
+
+.app-page-faq h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.app-page-back {
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--outline);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.app-page-header .brand span {
+  font-weight: 700;
+}
+
 /* ---------- real app screenshot galleries ---------- */
 
 .hero-visual.screenshot-wrap {
