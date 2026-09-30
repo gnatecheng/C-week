@@ -117,7 +117,7 @@ async function main() {
   html = applyStaticI18n(html, en);
 
   html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=3");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=23");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=24");
   html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=25");
   html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");
   html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=9");

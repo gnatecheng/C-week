@@ -265,6 +265,7 @@ window.ETAI_TRANSLATIONS = {
     "appPage.learnMore": "了解更多",
     "appPage.backHome": "返回 Etai 应用集首页",
     "appPage.faqTitle": "常见问题",
+    "appPage.highlightsTitle": "功能亮点",
     "app.easyLedger.tagline":
       "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
     "app.easyLedger.meta.title": "轻记账｜离线本地记账 Android App · 隐私预算 · Etai",
@@ -616,6 +617,7 @@ window.ETAI_TRANSLATIONS = {
     "appPage.learnMore": "Learn more",
     "appPage.backHome": "Back to Etai Apps home",
     "appPage.faqTitle": "FAQ",
+    "appPage.highlightsTitle": "Highlights",
     "app.easyLedger.tagline":
       "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
     "app.easyLedger.meta.title": "Easy Ledger — Offline local budgeting Android app · Etai",

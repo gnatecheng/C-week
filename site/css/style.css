@@ -441,6 +441,7 @@ html.theme-dark .btn-primary {
   font-size: 0.82rem;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .download-panel__body {
@@ -1006,6 +1007,11 @@ code {
   flex-shrink: 0;
 }
 
+.app-chip[aria-current="page"] {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px currentColor;
+  font-weight: 700;
+}
+
 .app-chip:hover {
   border-color: var(--teal);
 }
@@ -1191,9 +1197,9 @@ main > section.project:first-of-type {
 }
 
 .app-highlights {
-  margin: 0 auto 1.75rem;
+  margin: 0 0 1.25rem;
   padding-left: 1.25rem;
-  max-width: 40em;
+  max-width: 48em;
   color: var(--text);
 }
 

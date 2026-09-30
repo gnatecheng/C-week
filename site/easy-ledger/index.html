@@ -14,7 +14,7 @@
     <link rel="manifest" href="/site.webmanifest?v=3" />
     <meta name="theme-color" content="#0f766e" />
     <script src="/js/init-theme.js?v=3"></script>
-    <link rel="stylesheet" href="/css/style.css?v=23" />
+    <link rel="stylesheet" href="/css/style.css?v=24" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Etai 应用集" />
     <meta property="og:url" content="https://etais.dev/easy-ledger/" />
@@ -92,14 +92,28 @@
 }
     </script>
   </head>
-  <body class="app-page" data-page-lang="zh" data-app-slug="easy-ledger">
+  <body data-page-lang="zh" data-app-slug="easy-ledger">
     <a class="skip-link" href="#main">跳到主要内容</a>
-    <header class="site-header app-page-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="/">
-          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
-          <span>Etai 应用集</span>
-        </a>
+    <header class="site-header">
+      <div class="wrap header-shell">
+        <div class="brand-block">
+          <a class="brand" href="/">
+            <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+            <span>Etai 应用集</span>
+          </a>
+          <p class="brand-tagline">
+            <span class="brand-tagline-full">离线可用 · 数据只存本机</span>
+            <span class="brand-tagline-short">离线可用 · 数据只存本机</span>
+          </p>
+        </div>
+        <nav class="header-nav" aria-label="页面章节">
+          <div class="header-nav-inner">
+            <a class="app-chip chip-qjz" href="/easy-ledger/" aria-current="page"><span class="chip-badge" aria-hidden="true">账</span><span>轻记账</span></a>
+            <a class="app-chip chip-class" href="/group-matters/"><span class="chip-badge" aria-hidden="true">团</span><span>团团记</span></a>
+            <a class="app-chip chip-cweek" href="/c-week/"><span class="chip-badge" aria-hidden="true">C</span><span>C一周通</span></a>
+            <a class="nav-link" href="#faq">常见问题</a>
+          </div>
+        </nav>
         <div class="header-tools">
           <div class="site-prefs" id="lang-switch" role="group" aria-label="语言">
             <button type="button" id="lang-zh" aria-pressed="true">中文</button>
@@ -113,62 +127,72 @@
         </div>
       </div>
     </header>
-    <main id="main" class="app-page-main">
-      <div class="wrap">
-        <p class="app-page-breadcrumb"><a href="/">返回 Etai 应用集首页</a> · <a class="app-lang-alt" href="https://etais.dev/en/easy-ledger/">English</a></p>
-        <header class="app-page-hero">
-          <img class="app-page-icon" src="/assets/app-icons/easy-ledger.webp?v=2" width="72" height="72" alt="" decoding="async" />
-          <h1>轻记账</h1>
-          <p class="lead">无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。</p>
-        </header>
-          <ul class="app-highlights">
-              <li>流水明细、搜索与筛选，支持拍照记账</li>
-              <li>预算进度与超支提醒，分类统计与趋势</li>
-              <li>多账户、分类与标签，深色模式</li>
-              <li>数据备份 / 恢复（zip），导出 CSV</li>
-          </ul>
-        <div class="app-page-grid">
-          <div class="app-page-primary">
-            <div class="download-panel download-panel--qjz" data-app-meta="qingjizhang">
-              <div class="download-panel__body">
-                <div class="download-panel__left">
+    <main id="main">
+      <section class="project project-qjz" data-group="qingjizhang" aria-labelledby="easyledger-title">
+<div class="wrap">
+          <div class="project-grid">
+          <div>
+            <h1 id="easyledger-title" class="project-title">轻记账</h1>
+            <p class="lead">无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。</p>
+              <div class="download-panel download-panel--qjz" data-app-meta="qingjizhang">
+                <div class="download-panel__body">
+                  <div class="download-panel__left">
                   <div class="download-panel__head">
-                    <img class="download-panel__icon" src="/assets/app-icons/easy-ledger.webp?v=2" width="44" height="44" alt="" decoding="async" />
-                    <div>
-                      <p class="download-panel__name">轻记账</p>
-                      <p class="download-panel__version">
-                        v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
-                        ><span>Android 8.0+</span><span aria-hidden="true"> · </span
-                        ><span>APK</span>
-                      </p>
-                    </div>
+                  <img
+                    class="download-panel__icon"
+                    src="/assets/app-icons/easy-ledger.webp?v=2"
+                    width="44"
+                    height="44"
+                    alt=""
+                    decoding="async"
+                  />
+                  <div>
+                    <p class="download-panel__name">轻记账</p>
+                    <p class="download-panel__version">
+                      v<span class="app-meta-version">1.5.0</span><span aria-hidden="true"> · </span
+                      ><span>Android 8.0+</span><span aria-hidden="true"> · </span
+                      ><span>APK</span>
+                    </p>
                   </div>
+                </div>
                   <div class="download-panel__primary">
-                    <a class="btn btn-primary" href="https://github.com/gnatecheng/easy-ledger/releases/latest" rel="noopener noreferrer">下载最新 APK</a>
+                    <a
+                      class="btn btn-primary"
+                      href="https://github.com/gnatecheng/easy-ledger/releases/latest"
+                      rel="noopener noreferrer"
+                    >
+                      下载最新 APK
+                    </a>
                     <p class="download-panel__note">GitHub Releases · 免费开源</p>
                   </div>
-                </div>
-                <div class="download-panel__divider" role="presentation">
-                  <div class="download-panel__divider-track">
-                    <span class="download-panel__divider-label">或</span>
+                  </div>
+                  <div class="download-panel__divider" role="presentation">
+                    <div class="download-panel__divider-track">
+                      <span class="download-panel__divider-label">或</span>
+                    </div>
+                  </div>
+                  <div class="download-panel__scan">
+                    <figure class="download-panel__qr">
+                      <div class="download-panel__qr-frame">
+                        <img src="/assets/qr/easy-ledger.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                      </div>
+                      <figcaption>扫码下载</figcaption>
+                    </figure>
                   </div>
                 </div>
-                <div class="download-panel__scan">
-                  <figure class="download-panel__qr">
-                    <div class="download-panel__qr-frame">
-                      <img src="/assets/qr/easy-ledger.svg?v=2" width="120" height="120" alt="" decoding="async" />
-                    </div>
-                    <figcaption>扫码下载</figcaption>
-                  </figure>
-                </div>
               </div>
-            </div>
-            <a class="download-panel__source" href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer">
-              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
-              <span>查看源码</span>
-            </a>
+              <a
+                class="download-panel__source"
+                href="https://github.com/gnatecheng/easy-ledger"
+                rel="noopener noreferrer"
+              >
+                <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>查看源码</span>
+              </a>
           </div>
-          <div class="hero-visual screenshot-wrap app-page-shots">
+          <div class="hero-visual screenshot-wrap">
               <div class="screenshot-gallery" role="region" aria-label="轻记账应用截图">
                 <ul class="screenshot-gallery-track">
                   <li class="screenshot-slide">
@@ -229,9 +253,25 @@
                 </ul>
               </div>
           </div>
+          </div>
         </div>
-        <section class="app-page-faq" aria-labelledby="app-faq-title">
-          <h2 id="app-faq-title">常见问题</h2>
+      </section>
+      <section id="highlights" class="project" aria-labelledby="highlights-title">
+        <div class="wrap">
+          <h2 id="highlights-title" class="project-subhead">功能亮点</h2>
+          <ul class="app-highlights">
+            <li>流水明细、搜索与筛选，支持拍照记账</li>
+            <li>预算进度与超支提醒，分类统计与趋势</li>
+            <li>多账户、分类与标签，深色模式</li>
+            <li>数据备份 / 恢复（zip），导出 CSV</li>
+          </ul>
+        </div>
+      </section>
+      <section id="faq" data-group="faq">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>常见问题</h2>
+          </header>
           <div class="faq-list">
             <article class="faq-item">
               <h3>如何安装轻记账 APK？</h3>
@@ -250,13 +290,29 @@
               <p>应用内提供数据备份 / 恢复（zip）与 CSV 导出；备份文件只有你主动分享或保存时才会离开本机。</p>
             </article>
           </div>
-        </section>
-        <p class="app-page-back"><a class="btn btn-secondary" href="/">返回 Etai 应用集首页</a></p>
-      </div>
+        </div>
+      </section>
     </main>
     <footer class="site-footer">
       <div class="wrap inner">
         <p>© Etai 应用集 · 轻记账 / 团团记 / C一周通 · 开源 Android 应用</p>
+        <p class="footer-links">
+          <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
+            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+            ><span>c-week</span></a
+          >
+          <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
+            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+            ><span>easy-ledger</span></a
+          >
+          <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
+            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+              ><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg
+            ><span>group-matters</span></a
+          >
+        </p>
       </div>
     </footer>
     <script src="/js/translations.js?v=25" defer></script>
