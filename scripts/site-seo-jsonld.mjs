@@ -50,7 +50,7 @@ export function buildJsonLd(lang, t) {
           },
           {
             name: "Group Matters",
-            alternateName: "多人事务",
+            alternateName: "团团记",
             url: base + "#group-matters",
             category: "BusinessApplication",
             description:
@@ -77,7 +77,7 @@ export function buildJsonLd(lang, t) {
             downloadUrl: "https://github.com/gnatecheng/easy-ledger/releases/latest",
           },
           {
-            name: "多人事务",
+            name: "团团记",
             alternateName: "Group Matters",
             url: base + "#group-matters",
             category: "BusinessApplication",

@@ -118,10 +118,13 @@ async function main() {
   }
 
   html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=3");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=20");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=22");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=21");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=23");
   html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=8");
-  html = html.replace(/og-image\.png\?v=\d+/g, "og-image.png?v=5");
+  html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=9");
+  html = html.replace(/group-matters\.webp\?v=\d+/g, "group-matters.webp?v=3");
+  html = html.replace(/class-record\/[^"?]+\.webp\?v=\d+/g, (m) => m.replace(/\?v=\d+/, "?v=12"));
+  html = html.replace(/og-image\.png\?v=\d+/g, "og-image.png?v=6");
 
   await mkdir(path.join(root, "site/en"), { recursive: true });
   await writeFile(path.join(root, "site/en/index.html"), html, "utf8");

@@ -15,6 +15,12 @@ await page.goto(fileUrl, { waitUntil: "networkidle", timeout: 30000 });
 await page.screenshot({ path: outPath, type: "png", omitBackground: false });
 await browser.close();
 
-const { statSync } = await import("node:fs");
+import sharp from "sharp";
+const { statSync, writeFileSync, readFileSync } = await import("node:fs");
+const raw = readFileSync(outPath);
+const optimized = await sharp(raw)
+  .png({ compressionLevel: 9, palette: true, quality: 65, effort: 10 })
+  .toBuffer();
+writeFileSync(outPath, optimized);
 const kb = (statSync(outPath).size / 1024).toFixed(1);
 console.log("wrote", outPath, kb, "KB");

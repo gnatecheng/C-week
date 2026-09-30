@@ -4,7 +4,7 @@
 
   var SCREEN_ROOT = "/assets/screens/";
   var MANIFEST_URL = "/assets/screens/manifest.json?v=6";
-  var IMG_VER = "11";
+  var IMG_VER = "12";
 
   var manifest = null;
   var manifestReady = null;
