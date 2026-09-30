@@ -589,11 +589,6 @@ html.theme-dark .btn-primary {
   }
 }
 
-.hero-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
 .hero-visual {
   background: var(--surface);
   border: 1px solid var(--outline);
