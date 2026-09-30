@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>团团记｜离线小团体点名团费分摊 Android App · Etai</title>
+    <meta name="description" content="团团记（Group Matters）：离线 Android 小团体事务记录——出勤点名、团费收缴、费用分摊、清单；数据只存组织者手机。" />
+    <link rel="alternate" hreflang="zh-CN" href="https://etais.dev/group-matters/" />
+    <link rel="alternate" hreflang="en" href="https://etais.dev/en/group-matters/" />
+    <link rel="alternate" hreflang="x-default" href="https://etais.dev/group-matters/" />
+    <link rel="canonical" href="https://etais.dev/group-matters/" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest?v=3" />
+    <meta name="theme-color" content="#0f766e" />
+    <script src="/js/init-theme.js?v=3"></script>
+    <link rel="stylesheet" href="/css/style.css?v=23" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Etai 应用集" />
+    <meta property="og:url" content="https://etais.dev/group-matters/" />
+    <meta property="og:title" content="团团记 — 离线小团体点名、团费与 AA 分摊" />
+    <meta property="og:description" content="催缴文案一键复制；团费账本与 zip 备份；无联网权限，成员无需安装 App。" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="团团记 — 离线小团体点名、团费与 AA 分摊" />
+    <meta name="twitter:description" content="催缴文案一键复制；团费账本与 zip 备份；无联网权限，成员无需安装 App。" />
+    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <script type="application/ld+json" id="structured-data">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://etais.dev/group-matters/#app",
+      "name": "团团记",
+      "alternateName": "Group Matters",
+      "url": "https://etais.dev/group-matters/",
+      "operatingSystem": "Android 8.0+",
+      "applicationCategory": "BusinessApplication",
+      "description": "任何小团体（社团、寝室、兴趣小组、球队、家庭/朋友聚会、班级）的点名、收团费、AA 分摊和清单，一个离线 App 记清楚，催缴文案一键发群。",
+      "downloadUrl": "https://github.com/gnatecheng/group-matters/releases/latest",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://etais.dev/group-matters/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "如何安装团团记 APK？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在 GitHub Releases 下载最新 APK 并安装。桌面显示「团团记」。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要联网吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "团体与事务数据保存在本机 Room 中；APK 无联网权限，日常使用不需要联网，也无登录或后端服务。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "谁需要安装 App？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "目前只有 Android 版，且通常由组织者在一台手机上维护团体与事务；成员不用安装 App，点名/缴费状态由组织者在应用内更新。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能否多人同步或协同编辑？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。团团记是单机离线应用，没有账号、服务器或多设备同步；如需换机请使用应用内的 zip 备份 / 恢复。"
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body class="app-page" data-page-lang="zh" data-app-slug="group-matters">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header app-page-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+          <span>Etai 应用集</span>
+        </a>
+        <div class="header-tools">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="语言">
+            <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+            <button type="button" id="lang-en" aria-pressed="false">English</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="主题">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="app-page-main">
+      <div class="wrap">
+        <p class="app-page-breadcrumb"><a href="/">返回 Etai 应用集首页</a> · <a class="app-lang-alt" href="https://etais.dev/en/group-matters/">English</a></p>
+        <header class="app-page-hero">
+          <img class="app-page-icon" src="/assets/app-icons/group-matters.webp?v=3" width="72" height="72" alt="" decoding="async" />
+          <h1>团团记</h1>
+          <p class="lead">任何小团体（社团、寝室、兴趣小组、球队、家庭/朋友聚会、班级）的点名、收团费、AA 分摊和清单，一个离线 App 记清楚，催缴文案一键发群。</p>
+        </header>
+          <ul class="app-highlights">
+              <li>催缴文案一键复制，微信群可读格式</li>
+              <li>分摊支持排除成员、按权重或固定金额；金额按分存储，余数补给前 N 人</li>
+              <li>团费账本，支持凭证图片与 CSV 导出</li>
+              <li>一人可属于多个小组；创建事务时名单快照</li>
+              <li>数据不离开手机，APK 无联网权限；成员不用装 App</li>
+              <li>桌面小组件、zip 备份、中英文界面</li>
+          </ul>
+        <div class="app-page-grid">
+          <div class="app-page-primary">
+            <div class="download-panel download-panel--class" data-app-meta="group-matters">
+              <div class="download-panel__body">
+                <div class="download-panel__left">
+                  <div class="download-panel__head">
+                    <img class="download-panel__icon" src="/assets/app-icons/group-matters.webp?v=3" width="44" height="44" alt="" decoding="async" />
+                    <div>
+                      <p class="download-panel__name">团团记</p>
+                      <p class="download-panel__version">
+                        v<span class="app-meta-version">1.5.2</span><span aria-hidden="true"> · </span
+                        ><span>Android 8.0+</span><span aria-hidden="true"> · </span
+                        ><span>APK</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="download-panel__primary">
+                    <a class="btn btn-primary" href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">下载最新 APK</a>
+                    <p class="download-panel__note">GitHub Releases · 免费开源</p>
+                  </div>
+                </div>
+                <div class="download-panel__divider" role="presentation">
+                  <div class="download-panel__divider-track">
+                    <span class="download-panel__divider-label">或</span>
+                  </div>
+                </div>
+                <div class="download-panel__scan">
+                  <figure class="download-panel__qr">
+                    <div class="download-panel__qr-frame">
+                      <img src="/assets/qr/group-matters.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                    </div>
+                    <figcaption>扫码下载</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <a class="download-panel__source" href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">
+              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
+              <span>查看源码</span>
+            </a>
+          </div>
+          <div class="hero-visual screenshot-wrap app-page-shots">
+              <div class="screenshot-gallery" role="region" aria-label="团团记应用截图">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/01-home.webp?v=12" width="540" height="1171" loading="lazy" alt="团团记首页，周末羽毛球群与进行中事务" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">首页 · 周末羽毛球群</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/02-attendance.webp?v=12" width="540" height="1171" loading="lazy" alt="团团记周六活动点名，未到与已到状态" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">周六活动点名 · 到课进度</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/03-payment.webp?v=12" width="540" height="1171" loading="lazy" alt="团团记秋季出游费用缴费，仅未完成筛选" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">秋季出游费用 · 未完成催缴</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/04-ledger.webp?v=12" width="540" height="1171" loading="lazy" alt="团团记团费账本，当前余额与收支流水" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">团费账本 · 余额与流水</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/05-members.webp?v=12" width="540" height="1171" loading="lazy" alt="团团记团体成员名单" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">团体成员 · 名单与编号</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        <section class="app-page-faq" aria-labelledby="app-faq-title">
+          <h2 id="app-faq-title">常见问题</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>如何安装团团记 APK？</h3>
+              <p>在 <a href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「团团记」。</p>
+            </article>
+            <article class="faq-item">
+              <h3>需要联网吗？</h3>
+              <p>团体与事务数据保存在本机 Room 中；APK 无联网权限，日常使用不需要联网，也无登录或后端服务。</p>
+            </article>
+            <article class="faq-item">
+              <h3>谁需要安装 App？</h3>
+              <p>目前只有 Android 版，且通常由组织者在一台手机上维护团体与事务；成员不用安装 App，点名/缴费状态由组织者在应用内更新。</p>
+            </article>
+            <article class="faq-item">
+              <h3>能否多人同步或协同编辑？</h3>
+              <p>不能。团团记是单机离线应用，没有账号、服务器或多设备同步；如需换机请使用应用内的 zip 备份 / 恢复。</p>
+            </article>
+          </div>
+        </section>
+        <p class="app-page-back"><a class="btn btn-secondary" href="/">返回 Etai 应用集首页</a></p>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap inner">
+        <p>© Etai 应用集 · 轻记账 / 团团记 / C一周通 · 开源 Android 应用</p>
+      </div>
+    </footer>
+    <script src="/js/translations.js?v=25" defer></script>
+    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/screens-lang.js?v=9" defer></script>
+    <script src="/js/carousel.js?v=3" defer></script>
+    <script src="/js/github-meta.js?v=6" defer></script>
+  </body>
+</html>

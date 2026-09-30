@@ -6,15 +6,9 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildJsonLd } from "./site-seo-jsonld.mjs";
+import { loadTranslations, applyStaticI18n } from "./static-i18n.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-
-async function loadTranslations() {
-  let code = await readFile(path.join(root, "site/js/translations.js"), "utf8");
-  code = code.replace("window.ETAI_TRANSLATIONS", "var ETAI_TRANSLATIONS");
-  const fn = new Function(code + "\nreturn ETAI_TRANSLATIONS;");
-  return fn();
-}
 
 function faqBlock(en) {
   const items = [
@@ -45,7 +39,7 @@ function setMetaContent(html, attrMatch, value) {
 }
 
 async function main() {
-  const T = await loadTranslations();
+  const T = await loadTranslations(readFile, root);
   const en = T.en;
   let html = await readFile(path.join(root, "site/index.html"), "utf8");
 
@@ -94,6 +88,9 @@ async function main() {
 
   html = html.replace(/href="\/#([^"]+)"/g, 'href="/en/#$1"');
   html = html.replace('<a class="brand" href="/">', '<a class="brand" href="/en/">');
+  html = html.replace('href="/easy-ledger/"', 'href="/en/easy-ledger/"');
+  html = html.replace('href="/group-matters/"', 'href="/en/group-matters/"');
+  html = html.replace('href="/c-week/"', 'href="/en/c-week/"');
   html = html.replace(
     /id="lang-hint-link" href="\/en\/"/,
     'id="lang-hint-link" href="/en/" style="display:none" aria-hidden="true"'
@@ -117,10 +114,12 @@ async function main() {
     );
   }
 
+  html = applyStaticI18n(html, en);
+
   html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=3");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=22");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=23");
-  html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=8");
+  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=23");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=25");
+  html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");
   html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=9");
   html = html.replace(/group-matters\.webp\?v=\d+/g, "group-matters.webp?v=3");
   html = html.replace(/class-record\/[^"?]+\.webp\?v=\d+/g, (m) => m.replace(/\?v=\d+/, "?v=12"));

@@ -114,7 +114,19 @@
     document.dispatchEvent(new CustomEvent("etai:langchange", { detail: { lang: lang } }));
   }
 
+  var APP_SLUGS = ["easy-ledger", "group-matters", "c-week"];
+
+  function currentAppSlug() {
+    var path = (location.pathname || "/").replace(/\/+$/, "") || "/";
+    var parts = path.split("/").filter(Boolean);
+    if (parts.length === 1 && APP_SLUGS.indexOf(parts[0]) >= 0) return parts[0];
+    if (parts.length === 2 && parts[0] === "en" && APP_SLUGS.indexOf(parts[1]) >= 0) return parts[1];
+    return null;
+  }
+
   function langHomePath(lang) {
+    var slug = currentAppSlug();
+    if (slug) return (lang === "en" ? "/en/" : "/") + slug + "/";
     return lang === "en" ? "/en/" : "/";
   }
 

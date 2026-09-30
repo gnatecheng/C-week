@@ -262,6 +262,71 @@ window.ETAI_TRANSLATIONS = {
     "carousel.nextAria": "下一张，{gallery}",
     "carousel.dotAria": "第 {n} 张，共 {total} 张，{gallery}",
     "carousel.slideAria": "第 {n} 张，共 {total} 张，{gallery}",
+    "appPage.learnMore": "了解更多",
+    "appPage.backHome": "返回 Etai 应用集首页",
+    "appPage.faqTitle": "常见问题",
+    "app.easyLedger.tagline":
+      "无需注册的个人记账 Android 应用，流水与预算保存在本机 Room（SQLite），无账号与云同步。",
+    "app.easyLedger.meta.title": "轻记账｜离线本地记账 Android App · 隐私预算 · Etai",
+    "app.easyLedger.meta.description":
+      "轻记账：免费开源离线 Android 记账应用，Room 本地存储，预算与分类统计，无需登录。下载 APK。",
+    "app.easyLedger.meta.ogTitle": "轻记账 — 离线本地记账 Android App",
+    "app.easyLedger.meta.ogDescription": "个人记账数据只存本机，无账号、无云同步。GitHub 开源 APK。",
+    "app.easyLedger.highlight.1": "流水明细、搜索与筛选，支持拍照记账",
+    "app.easyLedger.highlight.2": "预算进度与超支提醒，分类统计与趋势",
+    "app.easyLedger.highlight.3": "多账户、分类与标签，深色模式",
+    "app.easyLedger.highlight.4": "数据备份 / 恢复（zip），导出 CSV",
+    "app.easyLedger.faq.install.title": "如何安装轻记账 APK？",
+    "app.easyLedger.faq.install.body":
+      "在 <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。Android 需允许「安装未知应用」。桌面显示「轻记账」。",
+    "app.easyLedger.faq.requirements.body":
+      "最低 Android 8.0（API 26，minSdk 26），目标 SDK 35。详见仓库 <code>app/build.gradle.kts</code>。",
+    "app.easyLedger.faq.offline.body":
+      "日常使用不需要联网；流水与设置在 Room（SQLite）中，无登录或必需的后端服务。",
+    "app.easyLedger.faq.backup.title": "如何备份数据？",
+    "app.easyLedger.faq.backup.body":
+      "应用内提供数据备份 / 恢复（zip）与 CSV 导出；备份文件只有你主动分享或保存时才会离开本机。",
+    "app.groupMatters.tagline":
+      "任何小团体（社团、寝室、兴趣小组、球队、家庭/朋友聚会、班级）的点名、收团费、AA 分摊和清单，一个离线 App 记清楚，催缴文案一键发群。",
+    "app.groupMatters.meta.title": "团团记｜离线小团体点名团费分摊 Android App · Etai",
+    "app.groupMatters.meta.description":
+      "团团记（Group Matters）：离线 Android 小团体事务记录——出勤点名、团费收缴、费用分摊、清单；数据只存组织者手机。",
+    "app.groupMatters.meta.ogTitle": "团团记 — 离线小团体点名、团费与 AA 分摊",
+    "app.groupMatters.meta.ogDescription": "催缴文案一键复制；团费账本与 zip 备份；无联网权限，成员无需安装 App。",
+    "app.groupMatters.highlight.1": "催缴文案一键复制，微信群可读格式",
+    "app.groupMatters.highlight.2": "分摊支持排除成员、按权重或固定金额；金额按分存储，余数补给前 N 人",
+    "app.groupMatters.highlight.3": "团费账本，支持凭证图片与 CSV 导出",
+    "app.groupMatters.highlight.4": "一人可属于多个小组；创建事务时名单快照",
+    "app.groupMatters.highlight.5": "数据不离开手机，APK 无联网权限；成员不用装 App",
+    "app.groupMatters.highlight.6": "桌面小组件、zip 备份、中英文界面",
+    "app.groupMatters.faq.install.title": "如何安装团团记 APK？",
+    "app.groupMatters.faq.install.body":
+      "在 <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「团团记」。",
+    "app.groupMatters.faq.offline.body":
+      "团体与事务数据保存在本机 Room 中；APK 无联网权限，日常使用不需要联网，也无登录或后端服务。",
+    "app.groupMatters.faq.limits.title": "谁需要安装 App？",
+    "app.groupMatters.faq.limits.body":
+      "目前只有 Android 版，且通常由组织者在一台手机上维护团体与事务；成员不用安装 App，点名/缴费状态由组织者在应用内更新。",
+    "app.groupMatters.faq.sync.title": "能否多人同步或协同编辑？",
+    "app.groupMatters.faq.sync.body":
+      "不能。团团记是单机离线应用，没有账号、服务器或多设备同步；如需换机请使用应用内的 zip 备份 / 恢复。",
+    "app.cWeek.tagline": "7 天把编程初学者带到能用 C 写出 Dijkstra 最短路；课文含 VS Code 屏幕录像，Kotlin + Jetpack Compose，全程可离线学习。",
+    "app.cWeek.meta.title": "C一周通｜7 天学 C 语言 Android App · Hello World 到 Dijkstra · Etai",
+    "app.cWeek.meta.description":
+      "C一周通：免费开源离线 Android C 语言课程，Hello World 到 Dijkstra，含 VS Code 实操录像与离线实验测验。",
+    "app.cWeek.meta.ogTitle": "C Week — Learn C on your phone, offline",
+    "app.cWeek.meta.ogDescription": "Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs.",
+    "app.cWeek.highlight.1": "7 天路线：Hello World → 指针与数组 → Dijkstra 最短路",
+    "app.cWeek.highlight.2": "课文内嵌 VS Code 屏幕录像（H.264，打包进 APK）",
+    "app.cWeek.highlight.3": "离线模拟评测实验与测验，错因提示",
+    "app.cWeek.highlight.4": "学习进度与打卡报告，可配合 PC 上 VS Code + gcc 跟做",
+    "app.cWeek.faq.install.title": "如何安装 C一周通 APK？",
+    "app.cWeek.faq.install.body":
+      "在 <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「C一周通」。",
+    "app.cWeek.faq.requirements.body":
+      "最低 Android 8.0（API 26）；内含 H.264 教学视频，较新系统通常播放更稳定。",
+    "app.cWeek.faq.offline.body":
+      "课文、演示视频与实验数据打包在 APK 内；学习进度等存在 DataStore，日常学习不需要联网。",
     "prefs.langLabel": "语言",
     "prefs.langZh": "中文",
     "prefs.langEn": "English",
@@ -548,6 +613,72 @@ window.ETAI_TRANSLATIONS = {
     "carousel.nextAria": "Next slide, {gallery}",
     "carousel.dotAria": "Slide {n} of {total}, {gallery}",
     "carousel.slideAria": "Slide {n} of {total}, {gallery}",
+    "appPage.learnMore": "Learn more",
+    "appPage.backHome": "Back to Etai Apps home",
+    "appPage.faqTitle": "FAQ",
+    "app.easyLedger.tagline":
+      "Private budgeting on Android—entries and budgets stay on device in Room (SQLite), with no sign-up or cloud sync.",
+    "app.easyLedger.meta.title": "Easy Ledger — Offline local budgeting Android app · Etai",
+    "app.easyLedger.meta.description":
+      "Easy Ledger: free open-source offline Android budgeting app, local Room storage, budgets and category stats, no login.",
+    "app.easyLedger.meta.ogTitle": "Easy Ledger — Offline local budgeting for Android",
+    "app.easyLedger.meta.ogDescription": "Your ledger stays on device—no account, no cloud sync. Open-source APK on GitHub.",
+    "app.easyLedger.highlight.1": "Entry list with search and filters; optional photo receipts",
+    "app.easyLedger.highlight.2": "Budget progress and overspend alerts; category stats and trends",
+    "app.easyLedger.highlight.3": "Multiple accounts, categories, and tags; dark mode",
+    "app.easyLedger.highlight.4": "Backup / restore (zip) and CSV export",
+    "app.easyLedger.faq.install.title": "How do I install Easy Ledger?",
+    "app.easyLedger.faq.install.body":
+      "Download the latest APK from <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Android may ask you to allow installs from unknown sources. Launcher name: “Easy Ledger”.",
+    "app.easyLedger.faq.requirements.body":
+      "Minimum Android 8.0 (API 26, minSdk 26), target SDK 35—see <code>app/build.gradle.kts</code> in the repo.",
+    "app.easyLedger.faq.offline.body":
+      "No internet needed for everyday use; entries and settings live in Room (SQLite) with no login or required backend.",
+    "app.easyLedger.faq.backup.title": "How do I back up data?",
+    "app.easyLedger.faq.backup.body":
+      "In-app backup / restore (zip) and CSV export; backup files leave your device only when you share or save them.",
+    "app.groupMatters.tagline":
+      "Roll call, group-fund collection, cost splits, and checklists for any small group—one offline app, reminder text ready to paste into group chat.",
+    "app.groupMatters.meta.title": "Group Matters — Offline small-group admin Android app · Etai",
+    "app.groupMatters.meta.description":
+      "Group Matters (团团记): offline Android app for attendance, group-fund fees, splits, and checklists—data stays on the organizer’s phone.",
+    "app.groupMatters.meta.ogTitle": "Group Matters — Offline roll call, group fund & splits",
+    "app.groupMatters.meta.ogDescription":
+      "Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app.",
+    "app.groupMatters.highlight.1": "Copy summary / reminder text in WeChat-friendly format",
+    "app.groupMatters.highlight.2": "Splits: exclude members, weights, or fixed amounts; cents storage with remainder to first N people",
+    "app.groupMatters.highlight.3": "Group fund ledger with photo receipts and CSV export",
+    "app.groupMatters.highlight.4": "Sub-groups; member snapshot when an activity is created",
+    "app.groupMatters.highlight.5": "Data stays on phone; APK has no network permission; members need not install the app",
+    "app.groupMatters.highlight.6": "Home-screen widget, zip backup, Chinese & English UI",
+    "app.groupMatters.faq.install.title": "How do I install Group Matters?",
+    "app.groupMatters.faq.install.body":
+      "Download the latest APK from <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Launcher name: “Group Matters” (团团记).",
+    "app.groupMatters.faq.offline.body":
+      "Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use.",
+    "app.groupMatters.faq.limits.title": "Who needs to install the app?",
+    "app.groupMatters.faq.limits.body":
+      "Android only, usually on one organizer phone; members do not need the app—status is updated by the organizer in the app.",
+    "app.groupMatters.faq.sync.title": "Can multiple people sync or edit together?",
+    "app.groupMatters.faq.sync.body":
+      "No. Group Matters is single-device offline software—no accounts, server, or multi-device sync. Use zip backup / restore to move to a new phone.",
+    "app.cWeek.tagline": "Learn C on your phone, offline — Hello World to Dijkstra.",
+    "app.cWeek.meta.title": "C Week — Learn C in 7 days on Android · Etai",
+    "app.cWeek.meta.description":
+      "C Week: free open-source offline Android C course from Hello World to Dijkstra, with VS Code screen recordings and offline labs.",
+    "app.cWeek.meta.ogTitle": "C Week — Learn C on your phone, offline",
+    "app.cWeek.meta.ogDescription": "Hello World to Dijkstra in 7 days with bundled VS Code screen recordings and offline labs.",
+    "app.cWeek.highlight.1": "Seven-day path: Hello World → pointers & arrays → Dijkstra shortest path",
+    "app.cWeek.highlight.2": "Lessons include bundled VS Code screen recordings (H.264 in the APK)",
+    "app.cWeek.highlight.3": "Offline simulated lab grading and quizzes with wrong-answer hints",
+    "app.cWeek.highlight.4": "Progress and streak report; pair with VS Code + gcc on a computer",
+    "app.cWeek.faq.install.title": "How do I install C Week?",
+    "app.cWeek.faq.install.body":
+      "Download the latest APK from <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Launcher name: “C Week” (C一周通).",
+    "app.cWeek.faq.requirements.body":
+      "Minimum Android 8.0 (API 26); bundled H.264 lesson videos usually play best on newer devices.",
+    "app.cWeek.faq.offline.body":
+      "Lessons, demo videos, and lab data ship in the APK; progress lives in DataStore—learning works offline.",
     "prefs.langLabel": "Language",
     "prefs.langZh": "中文",
     "prefs.langEn": "English",

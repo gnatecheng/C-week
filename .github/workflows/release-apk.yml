@@ -83,7 +83,7 @@ jobs:
       - name: Prepare release asset
         run: |
           VERSION_NAME="${{ steps.version.outputs.name }}"
-          APK_NAME="C一周通-${VERSION_NAME}.apk"
+          APK_NAME="c-week-${VERSION_NAME}.apk"
           cp app/build/outputs/apk/release/app-release.apk "${APK_NAME}"
           echo "APK_NAME=${APK_NAME}" >> "$GITHUB_ENV"
           ls -la "${APK_NAME}"
@@ -97,7 +97,7 @@ jobs:
             echo
             echo "---"
             echo
-            echo "Release 包 \`assembleRelease\`，applicationId \`com.py2c.week\`，由 CI 使用仓库 Secrets 中的发布 keystore 签名。"
+            echo "Release 包为 \`assembleRelease\` 正式签名版，applicationId \`com.py2c.week\`，由 CI 使用仓库 Secrets 中的发布 keystore 签名。"
           } > release_body.md
 
       - name: Publish GitHub Release

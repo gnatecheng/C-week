@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Group Matters — Offline small-group admin Android app · Etai</title>
+    <meta name="description" content="Group Matters (团团记): offline Android app for attendance, group-fund fees, splits, and checklists—data stays on the organizer’s phone." />
+    <link rel="alternate" hreflang="zh-CN" href="https://etais.dev/group-matters/" />
+    <link rel="alternate" hreflang="en" href="https://etais.dev/en/group-matters/" />
+    <link rel="alternate" hreflang="x-default" href="https://etais.dev/group-matters/" />
+    <link rel="canonical" href="https://etais.dev/en/group-matters/" />
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+    <link rel="icon" href="/assets/icon.svg?v=1" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest.en.json?v=2" />
+    <meta name="theme-color" content="#0f766e" />
+    <script src="/js/init-theme.js?v=3"></script>
+    <link rel="stylesheet" href="/css/style.css?v=23" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Etai Apps" />
+    <meta property="og:url" content="https://etais.dev/en/group-matters/" />
+    <meta property="og:title" content="Group Matters — Offline roll call, group fund &amp; splits" />
+    <meta property="og:description" content="Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Group Matters — Offline roll call, group fund &amp; splits" />
+    <meta name="twitter:description" content="Copy reminder text in one tap; group fund ledger with receipts; no network permission—members don’t need the app." />
+    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <script type="application/ld+json" id="structured-data">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://etais.dev/en/group-matters/#app",
+      "name": "Group Matters",
+      "alternateName": "团团记",
+      "url": "https://etais.dev/en/group-matters/",
+      "operatingSystem": "Android 8.0+",
+      "applicationCategory": "BusinessApplication",
+      "description": "Roll call, group-fund collection, cost splits, and checklists for any small group—one offline app, reminder text ready to paste into group chat.",
+      "downloadUrl": "https://github.com/gnatecheng/group-matters/releases/latest",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://etais.dev/en/group-matters/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I install Group Matters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Download the latest APK from GitHub Releases and install. Launcher name: “Group Matters” (团团记)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need the internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who needs to install the app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Android only, usually on one organizer phone; members do not need the app—status is updated by the organizer in the app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can multiple people sync or edit together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Group Matters is single-device offline software—no accounts, server, or multi-device sync. Use zip backup / restore to move to a new phone."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body class="app-page" data-page-lang="en" data-app-slug="group-matters">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header app-page-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/en/">
+          <img src="/assets/icon.svg?v=1" width="36" height="36" alt="" />
+          <span>Etai Apps</span>
+        </a>
+        <div class="header-tools">
+          <div class="site-prefs" id="lang-switch" role="group" aria-label="Language">
+            <button type="button" id="lang-zh" aria-pressed="false">中文</button>
+            <button type="button" id="lang-en" aria-pressed="true">English</button>
+          </div>
+          <button type="button" id="theme-toggle" aria-label="Theme">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-system" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="app-page-main">
+      <div class="wrap">
+        <p class="app-page-breadcrumb"><a href="/en/">Back to Etai Apps home</a> · <a class="app-lang-alt" href="https://etais.dev/group-matters/">中文</a></p>
+        <header class="app-page-hero">
+          <img class="app-page-icon" src="/assets/app-icons/group-matters.webp?v=3" width="72" height="72" alt="" decoding="async" />
+          <h1>Group Matters</h1>
+          <p class="lead">Roll call, group-fund collection, cost splits, and checklists for any small group—one offline app, reminder text ready to paste into group chat.</p>
+        </header>
+          <ul class="app-highlights">
+              <li>Copy summary / reminder text in WeChat-friendly format</li>
+              <li>Splits: exclude members, weights, or fixed amounts; cents storage with remainder to first N people</li>
+              <li>Group fund ledger with photo receipts and CSV export</li>
+              <li>Sub-groups; member snapshot when an activity is created</li>
+              <li>Data stays on phone; APK has no network permission; members need not install the app</li>
+              <li>Home-screen widget, zip backup, Chinese & English UI</li>
+          </ul>
+        <div class="app-page-grid">
+          <div class="app-page-primary">
+            <div class="download-panel download-panel--class" data-app-meta="group-matters">
+              <div class="download-panel__body">
+                <div class="download-panel__left">
+                  <div class="download-panel__head">
+                    <img class="download-panel__icon" src="/assets/app-icons/group-matters.webp?v=3" width="44" height="44" alt="" decoding="async" />
+                    <div>
+                      <p class="download-panel__name">Group Matters</p>
+                      <p class="download-panel__version">
+                        v<span class="app-meta-version">1.5.2</span><span aria-hidden="true"> · </span
+                        ><span>Android 8.0+</span><span aria-hidden="true"> · </span
+                        ><span>APK</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="download-panel__primary">
+                    <a class="btn btn-primary" href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">Download latest APK</a>
+                    <p class="download-panel__note">GitHub Releases · free & open source</p>
+                  </div>
+                </div>
+                <div class="download-panel__divider" role="presentation">
+                  <div class="download-panel__divider-track">
+                    <span class="download-panel__divider-label">or</span>
+                  </div>
+                </div>
+                <div class="download-panel__scan">
+                  <figure class="download-panel__qr">
+                    <div class="download-panel__qr-frame">
+                      <img src="/assets/qr/group-matters.svg?v=2" width="120" height="120" alt="" decoding="async" />
+                    </div>
+                    <figcaption>Scan to download</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <a class="download-panel__source" href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer">
+              <svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
+              <span>View source</span>
+            </a>
+          </div>
+          <div class="hero-visual screenshot-wrap app-page-shots">
+              <div class="screenshot-gallery" role="region" aria-label="Group Matters app screenshots">
+                <ul class="screenshot-gallery-track">
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/01-home.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters home for the Weekend Badminton Club group" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Home · Weekend Badminton Club</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/02-attendance.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters Saturday activity roll call with present and absent status" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Saturday activity · Check-in progress</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/03-payment.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters autumn outing payment with incomplete-only filter" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Autumn outing · Outstanding payments</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/04-ledger.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters group fund ledger with balance and entries" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Group fund · Balance and entries</figcaption>
+                    </figure>
+                  </li>
+                  <li class="screenshot-slide">
+                    <figure class="screenshot-figure">
+                      <div class="phone-frame screenshot-phone">
+                        <div class="phone-notch"><span></span></div>
+                        <div class="phone-screen">
+                          <img src="/assets/screens/class-record/05-members.webp?v=12" width="540" height="1171" loading="lazy" alt="Group Matters group member roster" />
+                        </div>
+                      </div>
+                      <figcaption class="screenshot-caption">Group members · Roster and IDs</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        <section class="app-page-faq" aria-labelledby="app-faq-title">
+          <h2 id="app-faq-title">FAQ</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>How do I install Group Matters?</h3>
+              <p>Download the latest APK from <a href="https://github.com/gnatecheng/group-matters/releases/latest" rel="noopener noreferrer">GitHub Releases</a> and install. Launcher name: “Group Matters” (团团记).</p>
+            </article>
+            <article class="faq-item">
+              <h3>Do I need the internet?</h3>
+              <p>Group and activity data live in Room on device; the APK has no network permission—no login or backend for daily use.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Who needs to install the app?</h3>
+              <p>Android only, usually on one organizer phone; members do not need the app—status is updated by the organizer in the app.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Can multiple people sync or edit together?</h3>
+              <p>No. Group Matters is single-device offline software—no accounts, server, or multi-device sync. Use zip backup / restore to move to a new phone.</p>
+            </article>
+          </div>
+        </section>
+        <p class="app-page-back"><a class="btn btn-secondary" href="/en/">Back to Etai Apps home</a></p>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap inner">
+        <p>© Etai Apps · Easy Ledger / Group Matters / C Week · Open-source Android apps</p>
+      </div>
+    </footer>
+    <script src="/js/translations.js?v=25" defer></script>
+    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/screens-lang.js?v=9" defer></script>
+    <script src="/js/carousel.js?v=3" defer></script>
+    <script src="/js/github-meta.js?v=6" defer></script>
+  </body>
+</html>
