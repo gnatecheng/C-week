@@ -280,6 +280,18 @@ window.ETAI_TRANSLATIONS = {
     "appPage.section.changelog": "更新记录",
     "appPage.section.changelogLead": "完整记录见",
     "appPage.changelog.allReleases": "GitHub Releases",
+    "appPage.moreEtaiApps": "查看更多 Etai 应用",
+    "app.easyLedger.footer.copyright": "© Etai 应用集 · 轻记账 · 开源 Android 应用",
+    "app.groupMatters.footer.copyright": "© Etai 应用集 · 团团记 · 开源 Android 应用",
+    "app.cWeek.footer.copyright": "© Etai 应用集 · C一周通 · 开源 Android 应用",
+    "app.easyLedger.faq.installTips.body":
+      "轻记账需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先使用应用内备份。若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。",
+    "app.groupMatters.faq.installTips.body":
+      "团团记需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除应用内数据</strong>，请先使用应用内 zip 备份。若曾安装测试版或旧签名版本，请先卸载后再安装当前正式版。",
+    "app.groupMatters.faq.requirements.body":
+      "Android 8.0 及以上。当前正式版 v1.5.2，安装包约 13.1 MB（以 GitHub Releases 为准）。",
+    "app.cWeek.faq.installTips.body":
+      "C一周通需要 <strong>Android 8.0 及以上</strong>。请从 <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载<strong>正式签名版</strong> APK 安装。首次安装时，系统可能提示「不允许安装未知应用」——请在设置里为浏览器或文件管理器开启「允许安装未知来源应用」（各品牌路径与 wording 不同）。若提示<strong>签名冲突</strong>，需先卸载旧版再装新版；<strong>卸载会删除学习进度等本机数据</strong>，如有导出功能请先备份。",
     "app.easyLedger.privacy.body":
       "<p>记账流水、分类、账户、预算与提醒设置都保存在本机，无需注册账号，也没有云同步。</p><p>记账时可拍照或从相册选择收据，照片只存在您的手机里，可随时更换或删除。</p><p>应用未声明联网权限，日常记账不需要联网。备份、恢复或导出 CSV/JSON 只有您主动操作时才会生成文件，并通过系统分享或「另存为」离开本机。</p>",
     "app.easyLedger.requirements.body":
@@ -685,6 +697,18 @@ window.ETAI_TRANSLATIONS = {
     "appPage.section.changelog": "Release history",
     "appPage.section.changelogLead": "Full history on",
     "appPage.changelog.allReleases": "GitHub Releases",
+    "appPage.moreEtaiApps": "More Etai apps",
+    "app.easyLedger.footer.copyright": "© Etai Apps · Easy Ledger · open-source Android app",
+    "app.groupMatters.footer.copyright": "© Etai Apps · Group Matters · open-source Android app",
+    "app.cWeek.footer.copyright": "© Etai Apps · C Week · open-source Android app",
+    "app.easyLedger.faq.installTips.body":
+      "Easy Ledger requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/easy-ledger/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first using in-app backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.",
+    "app.groupMatters.faq.installTips.body":
+      "Group Matters requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/group-matters/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device app data</strong>, so back up first using in-app zip backup. If you previously installed a test build or an APK signed with an older key, uninstall it before installing the current signed release.",
+    "app.groupMatters.faq.requirements.body":
+      "Android 8.0 or newer. Current signed release v1.5.2, about 13.1 MB (see GitHub Releases).",
+    "app.cWeek.faq.installTips.body":
+      "C Week requires <strong>Android 8.0 or newer</strong>. Download the <strong>signed release APK</strong> from <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a>. On first install, Android may block APKs until you allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies by device). If you see a <strong>signature conflict</strong>, uninstall the old build before installing the new one—<strong>uninstalling erases on-device progress and data</strong>, so export or back up first if the app offers it.",
     "app.easyLedger.privacy.body":
       "<p>Transactions, categories, accounts, budgets, and reminders stay on your phone—no sign-up and no cloud sync.</p><p>When you log spending, you can attach a receipt photo from the camera or gallery; photos stay on the device and can be replaced or deleted.</p><p>The app does not request the Internet permission—everyday budgeting works offline. Backup, restore, and CSV/JSON export only create files when you choose to, and they leave the phone only if you share or save them.</p>",
     "app.easyLedger.requirements.body":

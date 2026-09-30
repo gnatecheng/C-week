@@ -112,6 +112,8 @@ export function buildJsonLd(lang, t) {
 
 /** Single-app landing page: SoftwareApplication + FAQPage. */
 export function buildAppPageJsonLd(canonicalUrl, t, app, alternateAppName) {
+  const isEn = canonicalUrl.includes("/en/");
+  const hubUrl = isEn ? "https://etais.dev/en/" : "https://etais.dev/";
   const faqEntity = app.faqKeys.map(([titleKey, bodyKey]) => ({
     "@type": "Question",
     name: t[titleKey],
@@ -124,6 +126,24 @@ export function buildAppPageJsonLd(canonicalUrl, t, app, alternateAppName) {
   return {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": canonicalUrl + "#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: t["meta.siteName"],
+            item: hubUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: t[app.keys.name],
+            item: canonicalUrl,
+          },
+        ],
+      },
       {
         "@type": "SoftwareApplication",
         "@id": canonicalUrl + "#app",

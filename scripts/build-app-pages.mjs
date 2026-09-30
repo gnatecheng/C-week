@@ -18,8 +18,9 @@ import {
 } from "./app-page-sections.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 27;
-const TRANSLATIONS_V = 30;
+const CSS_V = 28;
+const TRANSLATIONS_V = 31;
+const SITE_JS_V = 10;
 const INIT_THEME_V = 4;
 const SCREENS_LANG_V = 10;
 const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
@@ -121,9 +122,7 @@ function renderSiteHeader(isEn, dict, activeSlug) {
         </div>
         <nav class="header-nav" aria-label="${escAttrLocal(t(dict, "navSectionsLabel"))}">
           <div class="header-nav-inner">
-            ${renderNavChip("easy-ledger", isEn, dict, activeSlug)}
-            ${renderNavChip("group-matters", isEn, dict, activeSlug)}
-            ${renderNavChip("c-week", isEn, dict, activeSlug)}
+            ${renderNavChip(activeSlug, isEn, dict, activeSlug)}
             <a class="nav-link" href="#faq">${t(dict, "nav.faq")}</a>
           </div>
         </nav>
@@ -203,26 +202,20 @@ function renderDownloadPanel(app, dict) {
               </a>`;
 }
 
-function renderFooter(dict) {
+function renderFooter(app, isEn, dict) {
+  const hubHref = isEn ? "/en/" : "/";
   return `    <footer class="site-footer">
       <div class="wrap inner">
-        <p>${t(dict, "footer.copyright")}</p>
+        <p>${t(dict, app.footerCopyrightKey)}</p>
         <p class="footer-links">
-          <a href="https://github.com/gnatecheng/c-week" rel="noopener noreferrer"
+          <a href="https://github.com/${app.github}" rel="noopener noreferrer"
             ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
               ><path d="${GITHUB_ICON_PATH}" /></svg
-            ><span>${t(dict, "footer.linkCweek")}</span></a
+            ><span>${t(dict, app.footerLinkLabelKey)}</span></a
           >
-          <a href="https://github.com/gnatecheng/easy-ledger" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="${GITHUB_ICON_PATH}" /></svg
-            ><span>${t(dict, "footer.linkQjz")}</span></a
-          >
-          <a href="https://github.com/gnatecheng/group-matters" rel="noopener noreferrer"
-            ><svg class="icon-github" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
-              ><path d="${GITHUB_ICON_PATH}" /></svg
-            ><span>${t(dict, "footer.linkClass")}</span></a
-          >
+        </p>
+        <p class="footer-more-apps">
+          <a href="${hubHref}">${t(dict, "appPage.moreEtaiApps")}</a>
         </p>
       </div>
     </footer>`;
@@ -327,9 +320,9 @@ ${renderFaqList(app, dict, t)}
         </div>
       </section>
     </main>
-${renderFooter(dict)}
+${renderFooter(app, isEn, dict)}
     <script src="/js/translations.js?v=${TRANSLATIONS_V}" defer></script>
-    <script src="/js/site.js?v=9" defer></script>
+    <script src="/js/site.js?v=${SITE_JS_V}" defer></script>
     <script src="/js/screens-lang.js?v=${SCREENS_LANG_V}" defer></script>
     <script src="/js/carousel.js?v=3" defer></script>
     <script src="/js/github-meta.js?v=6" defer></script>

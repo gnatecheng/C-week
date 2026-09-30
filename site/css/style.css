@@ -1155,6 +1155,22 @@ main > section.project:first-of-type {
   flex-shrink: 0;
 }
 
+.footer-more-apps {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.footer-more-apps a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.footer-more-apps a:hover {
+  color: var(--text);
+}
+
 .app-home-teasers {
   margin: 1rem 0 0.75rem;
   padding-left: 1.15rem;
