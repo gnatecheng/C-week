@@ -16,10 +16,6 @@
         <item quantity="one">%1$d / %2$d item</item>
         <item quantity="other">%1$d / %2$d items</item>
     </plurals>
-    <plurals name="days_lit_of_seven">
-        <item quantity="one">%1$d / 7 day lit</item>
-        <item quantity="other">%1$d / 7 days lit</item>
-    </plurals>
     <plurals name="day_progress_lessons">
         <item quantity="one">%1$d/%2$d lesson</item>
         <item quantity="other">%1$d/%2$d lessons</item>

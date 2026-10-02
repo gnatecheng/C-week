@@ -19,7 +19,8 @@ class StringsEnPluralsTest {
     @Test
     fun streakUsesSingularForOne() {
         assertEquals("Streak 1 day", strings.reportStreak(1))
-        assertEquals("Streak 1 day · 1 / 7 day lit", strings.calendarStreak(1, 1))
+        assertEquals("Streak 1 day · 0 / 7 days lit", strings.calendarStreak(1, 0))
+        assertEquals("Streak 1 day · 1 / 7 days lit", strings.calendarStreak(1, 1))
         assertEquals("Streak 1 day · Overall 0% · Share via system sheet", strings.homeReportBody(1, 0))
     }
 

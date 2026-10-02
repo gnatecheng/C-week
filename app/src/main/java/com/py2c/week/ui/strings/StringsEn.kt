@@ -67,7 +67,7 @@ class StringsEn(private val resources: Resources) : AppStrings {
     override val calendarTitle = "Study calendar"
     override fun calendarStreak(streak: Int, litCount: Int): String {
         val streakPart = resources.getQuantityString(R.plurals.report_streak, streak, streak)
-        val litPart = resources.getQuantityString(R.plurals.days_lit_of_seven, litCount, litCount)
+        val litPart = resources.getString(R.string.days_lit_of_seven, litCount)
         return resources.getString(R.string.calendar_streak_join, streakPart, litPart)
     }
     override fun calendarNudgeAllDone() = "All seven days lit — week complete. Re-run Dijkstra with gcc on your computer."

@@ -70,6 +70,7 @@ class HomeScreenRoborazziTest {
             locale = AppLocale.EN,
             darkTheme = false,
             streakDays = 1,
+            litDays = 1,
             output = "/opt/cursor/artifacts/cweek-home-en-light-streak1.png",
         )
     }
@@ -80,6 +81,7 @@ class HomeScreenRoborazziTest {
             locale = AppLocale.EN,
             darkTheme = true,
             streakDays = 1,
+            litDays = 1,
             output = "/opt/cursor/artifacts/cweek-home-en-dark-streak1.png",
         )
     }
@@ -90,6 +92,7 @@ class HomeScreenRoborazziTest {
             locale = AppLocale.EN,
             darkTheme = false,
             streakDays = 2,
+            litDays = 2,
             output = "/opt/cursor/artifacts/cweek-home-en-light-streak2.png",
         )
     }
@@ -100,6 +103,7 @@ class HomeScreenRoborazziTest {
             locale = AppLocale.EN,
             darkTheme = true,
             streakDays = 2,
+            litDays = 2,
             output = "/opt/cursor/artifacts/cweek-home-en-dark-streak2.png",
         )
     }
@@ -108,13 +112,18 @@ class HomeScreenRoborazziTest {
         locale: AppLocale,
         darkTheme: Boolean,
         streakDays: Int,
+        litDays: Int = streakDays,
         output: String,
     ) {
         val context = ApplicationProvider.getApplicationContext<android.content.Context>()
         val container = AppContainer(context)
         val curriculum = container.curriculumFor(locale)
         val checkins = (0 until streakDays).map { fixedToday.minusDays(it.toLong()).toString() }.toSet()
-        val progress = ProgressSnapshot(checkinDates = checkins)
+        val checkedCourseDays = (1..litDays).toSet()
+        val progress = ProgressSnapshot(
+            checkinDates = checkins,
+            checkedCourseDays = checkedCourseDays,
+        )
         val strings = stringsFor(locale, context.resources)
 
         composeRule.setContent {
