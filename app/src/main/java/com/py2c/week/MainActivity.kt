@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                 initial = com.py2c.week.data.UserPreferences(),
             )
             val locale = UserPreferencesStore.resolveLocale(userPrefs.language, resources.configuration)
-            val strings = stringsFor(locale)
+            val strings = stringsFor(locale, resources)
             val darkTheme = when (userPrefs.theme) {
                 ThemePreference.DARK -> true
                 ThemePreference.LIGHT -> false

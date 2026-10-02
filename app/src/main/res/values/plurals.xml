@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="report_streak">
+        <item quantity="one">Streak %d day</item>
+        <item quantity="other">Streak %d days</item>
+    </plurals>
+    <plurals name="days_with_activity">
+        <item quantity="one">%d day with activity</item>
+        <item quantity="other">%d days with activity</item>
+    </plurals>
+    <plurals name="home_report_body">
+        <item quantity="one">Streak %1$d day · Overall %2$d%% · Share via system sheet</item>
+        <item quantity="other">Streak %1$d days · Overall %2$d%% · Share via system sheet</item>
+    </plurals>
+    <plurals name="home_day_progress">
+        <item quantity="one">%1$d / %2$d item</item>
+        <item quantity="other">%1$d / %2$d items</item>
+    </plurals>
+    <plurals name="days_lit_of_seven">
+        <item quantity="one">%1$d / 7 day lit</item>
+        <item quantity="other">%1$d / 7 days lit</item>
+    </plurals>
+    <plurals name="day_progress_lessons">
+        <item quantity="one">%1$d/%2$d lesson</item>
+        <item quantity="other">%1$d/%2$d lessons</item>
+    </plurals>
+    <plurals name="day_quiz_questions">
+        <item quantity="one">Today\'s quiz · %d question</item>
+        <item quantity="other">Today\'s quiz · %d questions</item>
+    </plurals>
+    <plurals name="lab_test_case_groups">
+        <item quantity="one">Test cases (%d group, not just one golden output)</item>
+        <item quantity="other">Test cases (%d groups, not just one golden output)</item>
+    </plurals>
+    <plurals name="lab_hints_attempts">
+        <item quantity="one">Hints (attempt %d)</item>
+        <item quantity="other">Hints (attempts %d)</item>
+    </plurals>
+    <plurals name="lab_reveal_times">
+        <item quantity="one">Try %d more time to unlock solution</item>
+        <item quantity="other">Try %d more times to unlock solution</item>
+    </plurals>
+</resources>

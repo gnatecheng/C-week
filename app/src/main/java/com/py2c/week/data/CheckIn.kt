@@ -8,13 +8,13 @@ import java.util.Locale
 
 private val ISO: DateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE
 
-fun todayIso(): String = LocalDate.now().format(ISO)
+fun todayIso(): String = CheckInClock.today().format(ISO)
 
 fun parseIsoDate(value: String): LocalDate? = runCatching { LocalDate.parse(value, ISO) }.getOrNull()
 
 /** Consecutive activity days. If today is empty, still count a streak that ended yesterday. */
 fun streakCount(checkinDates: Set<String>): Int {
-    val today = LocalDate.now()
+    val today = CheckInClock.today()
     val start = when {
         checkinDates.contains(today.format(ISO)) -> today
         checkinDates.contains(today.minusDays(1).format(ISO)) -> today.minusDays(1)
@@ -30,7 +30,7 @@ fun streakCount(checkinDates: Set<String>): Int {
 }
 
 fun thisCalendarWeek(): List<LocalDate> {
-    val today = LocalDate.now()
+    val today = CheckInClock.today()
     val monday = today.with(DayOfWeek.MONDAY)
     return (0..6).map { monday.plusDays(it.toLong()) }
 }

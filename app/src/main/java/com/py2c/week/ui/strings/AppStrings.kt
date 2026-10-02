@@ -1,5 +1,6 @@
 package com.py2c.week.ui.strings
 
+import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.py2c.week.data.AppLocale
@@ -94,6 +95,7 @@ interface AppStrings {
 
     val reportTitle: String
     fun reportStreak(streak: Int): String
+    fun reportShareStreakLine(streak: Int, checkinDays: Int): String
     fun reportCheckins(checkinDays: Int, percent: Int): String
     val reportQuizAccuracy: String
     val reportLabsPassed: String
@@ -228,9 +230,9 @@ val LocalStrings = staticCompositionLocalOf<AppStrings> { StringsZh }
 
 val LocalAppLocale = staticCompositionLocalOf { AppLocale.ZH }
 
-fun stringsFor(locale: AppLocale): AppStrings = when (locale) {
+fun stringsFor(locale: AppLocale, resources: Resources): AppStrings = when (locale) {
     AppLocale.ZH -> StringsZh
-    AppLocale.EN -> StringsEn
+    AppLocale.EN -> StringsEn(resources)
 }
 
 fun languagePreferenceLabel(strings: AppStrings, pref: LanguagePreference): String = when (pref) {
