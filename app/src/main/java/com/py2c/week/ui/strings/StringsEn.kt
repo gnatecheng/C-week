@@ -1,9 +1,11 @@
 package com.py2c.week.ui.strings
 
+import android.content.res.Resources
+import com.py2c.week.R
 import com.py2c.week.data.WrongSource
 
 @Suppress("TooManyFunctions")
-object StringsEn : AppStrings {
+class StringsEn(private val resources: Resources) : AppStrings {
     override val brandName = "C Week"
     override val brandSubtitle = "Learn C in one week"
     override val tagline = "Seven days from zero to implementing Dijkstra in C"
@@ -51,17 +53,23 @@ object StringsEn : AppStrings {
         "$openWrongs to fix · Tap a day to retry; correct answers mark items resolved"
     }
     override val homeReportTitle = "Learning report"
-    override fun homeReportBody(streak: Int, percent: Int) = "Streak $streak days · Overall $percent% · Share via system sheet"
+    override fun homeReportBody(streak: Int, percent: Int): String =
+        resources.getQuantityString(R.plurals.home_report_body, streak, streak, percent)
     override val homeClearProgress = "Clear local progress"
     override val homeClearProgressTitle = "Clear progress?"
     override val homeClearProgressMessage = "Course content stays; only on-device completion records in DataStore are removed."
     override fun homeDayMeta(dayId: Int, minutes: Int) = "Day $dayId · $minutes min"
-    override fun homeDayProgress(done: Int, total: Int) = "$done / $total items"
+    override fun homeDayProgress(done: Int, total: Int): String =
+        resources.getQuantityString(R.plurals.home_day_progress, total, done, total)
     override fun homeDayContentDescription(dayId: Int, title: String) = "Day $dayId $title"
     override fun overallProgressDescription(percent: Int) = "Overall progress $percent percent"
 
     override val calendarTitle = "Study calendar"
-    override fun calendarStreak(streak: Int, litCount: Int) = "Streak $streak days · $litCount / 7 days lit"
+    override fun calendarStreak(streak: Int, litCount: Int): String {
+        val streakPart = resources.getQuantityString(R.plurals.report_streak, streak, streak)
+        val litPart = resources.getString(R.string.days_lit_of_seven, litCount)
+        return resources.getString(R.string.calendar_streak_join, streakPart, litPart)
+    }
     override fun calendarNudgeAllDone() = "All seven days lit — week complete. Re-run Dijkstra with gcc on your computer."
     override fun calendarNudgeNext(dayId: Int, title: String) = "One day at a time: next is Day $dayId «$title». Light all seven to graduate."
     override val calendarNudgeFinish = "Finish remaining labs and quizzes to fill the calendar."
@@ -94,8 +102,16 @@ object StringsEn : AppStrings {
     override val wrongRedoLab = "Tap to reopen the lab"
 
     override val reportTitle = "Learning report"
-    override fun reportStreak(streak: Int) = "Streak $streak days"
-    override fun reportCheckins(checkinDays: Int, percent: Int) = "$checkinDays days with activity · Overall $percent%"
+    override fun reportStreak(streak: Int): String =
+        resources.getQuantityString(R.plurals.report_streak, streak, streak)
+    override fun reportShareStreakLine(streak: Int, checkinDays: Int): String {
+        val activity = resources.getQuantityString(R.plurals.days_with_activity, checkinDays, checkinDays)
+        return resources.getString(R.string.report_share_streak_line, reportStreak(streak), activity)
+    }
+    override fun reportCheckins(checkinDays: Int, percent: Int): String {
+        val days = resources.getQuantityString(R.plurals.days_with_activity, checkinDays, checkinDays)
+        return "$days · Overall $percent%"
+    }
     override val reportQuizAccuracy = "Quiz accuracy"
     override val reportLabsPassed = "Labs passed"
     override val reportQuizNotTaken = "No quiz submitted"
@@ -126,16 +142,19 @@ object StringsEn : AppStrings {
     override fun labDayLabel(dayId: Int) = "Day $dayId"
     override fun labCompileHint(capstone: Boolean) =
         "On desktop: gcc ${if (capstone) "dijkstra.c -o dijkstra" else "lab.c -o lab"} -Wall. Below is the teaching simulator."
-    override fun labTestCasesHeader(count: Int) = "Test cases ($count groups, not just one golden output)"
+    override fun labTestCasesHeader(count: Int): String =
+        resources.getQuantityString(R.plurals.lab_test_case_groups, count, count)
     override val labSimulatedInput = "Simulated input: "
     override val labExpected = "Expected: "
     override val labEditor = "Editor"
     override val labRunCheck = "Simulate run / check"
-    override fun labHintsTitle(attempts: Int) = "Hints (attempt $attempts)"
+    override fun labHintsTitle(attempts: Int): String =
+        resources.getQuantityString(R.plurals.lab_hints_attempts, attempts, attempts)
     override val labExpectedOutput = "Expected output"
     override val labSolutionShown = "Reference solution shown"
     override val labRevealSolution = "Show reference solution"
-    override fun labRevealAfterAttempts(remaining: Int) = "Try $remaining more time(s) to unlock solution"
+    override fun labRevealAfterAttempts(remaining: Int): String =
+        resources.getQuantityString(R.plurals.lab_reveal_times, remaining, remaining)
     override val labReferenceSolution = "Reference solution"
 
     override fun labSimPassed() = "Simulation passed · 100%"
@@ -173,11 +192,19 @@ object StringsEn : AppStrings {
     override fun dayTodayFocus(focus: String) = "Today's focus: $focus"
     override fun dayCompleteBanner(dayId: Int) = "Day complete — lights Day $dayId on the home calendar"
     override fun dayIncompleteBanner(dayId: Int) = "Finish all lessons, lab, and quiz below to light D$dayId on the home calendar"
-    override fun dayProgressDetail(lessonsDone: Int, lessonTotal: Int, labDone: Int, quizDone: Int) =
-        "$lessonsDone/$lessonTotal lessons · $labDone/1 lab · $quizDone/1 quiz"
+    override fun dayProgressDetail(lessonsDone: Int, lessonTotal: Int, labDone: Int, quizDone: Int): String {
+        val lessons = resources.getQuantityString(
+            R.plurals.day_progress_lessons,
+            lessonTotal,
+            lessonsDone,
+            lessonTotal,
+        )
+        return "$lessons · $labDone/1 lab · $quizDone/1 quiz"
+    }
     override val dayCapstoneLab = "Capstone lab"
     override val dayTodayLab = "Today's lab"
-    override fun dayQuizLabel(count: Int) = "Today's quiz · $count questions"
+    override fun dayQuizLabel(count: Int): String =
+        resources.getQuantityString(R.plurals.day_quiz_questions, count, count)
     override fun dayQuizSubmitted(score: Int, total: Int) = "Submitted · score $score/$total"
     override val dayQuizPending = "Submit to record progress"
     override fun dayTitle(dayId: Int) = "Day $dayId"

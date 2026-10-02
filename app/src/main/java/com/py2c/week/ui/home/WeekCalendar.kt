@@ -30,6 +30,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.py2c.week.data.CheckInClock
 import com.py2c.week.data.ProgressSnapshot
 import com.py2c.week.data.WeekCurriculum
 import com.py2c.week.data.isFullyComplete
@@ -134,7 +135,7 @@ private fun CourseDayCell(
 @Composable
 private fun CalendarStrip(checkinDates: Set<String>, locale: com.py2c.week.data.AppLocale) {
     val week = thisCalendarWeek()
-    val today = LocalDate.now()
+    val today = CheckInClock.today()
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
         week.forEach { date ->
             val iso = date.toString()

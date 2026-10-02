@@ -46,7 +46,7 @@ data class LearningReport(
 
     fun shareText(brand: String, strings: com.py2c.week.ui.strings.AppStrings): String = buildString {
         appendLine(strings.reportShareSubject(brand))
-        appendLine("${strings.reportStreak(streak)} (${checkinDays} days with activity)")
+        appendLine(strings.reportShareStreakLine(streak, checkinDays))
         appendLine("Overall: $overallPercent%")
         appendLine("${strings.reportLabsPassed}: $labsPassed / $labsTotal")
         appendLine(

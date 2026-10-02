@@ -5,10 +5,15 @@ PORT="${PORT:-8787}"
 BASE="http://127.0.0.1:${PORT}"
 
 SESSION_NAME="wrangler-seo-verify"
-tmux -f /exec-daemon/tmux.portal.conf has-session -t "=$SESSION_NAME" 2>/dev/null || \
-  tmux -f /exec-daemon/tmux.portal.conf new-session -d -s "$SESSION_NAME" -c "$ROOT" -- "${SHELL:-zsh}" -l
-tmux -f /exec-daemon/tmux.portal.conf send-keys -t "$SESSION_NAME:0.0" "npx wrangler dev --port ${PORT} --ip 127.0.0.1" C-m
-sleep 5
+tmux -f /exec-daemon/tmux.portal.conf kill-session -t "$SESSION_NAME" 2>/dev/null || true
+tmux -f /exec-daemon/tmux.portal.conf new-session -d -s "$SESSION_NAME" -c "$ROOT" -- "${SHELL:-zsh}" -l
+tmux -f /exec-daemon/tmux.portal.conf send-keys -t "$SESSION_NAME:0.0" "npx --yes wrangler dev --port ${PORT} --ip 127.0.0.1 --local-protocol http" C-m
+for _ in 1 2 3 4 5 6 7 8 9 10; do
+  if curl -sf -o /dev/null "$BASE/"; then
+    break
+  fi
+  sleep 2
+done
 
 echo "== / =="
 curl -sI "$BASE/" | head -5

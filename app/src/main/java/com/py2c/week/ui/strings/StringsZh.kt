@@ -95,6 +95,8 @@ object StringsZh : AppStrings {
 
     override val reportTitle = "学习报告"
     override fun reportStreak(streak: Int) = "连续打卡 $streak 天"
+    override fun reportShareStreakLine(streak: Int, checkinDays: Int) =
+        "${reportStreak(streak)}（累计 $checkinDays 天有学习记录）"
     override fun reportCheckins(checkinDays: Int, percent: Int) = "累计 $checkinDays 天有学习记录 · 总体进度 $percent%"
     override val reportQuizAccuracy = "测验正确率"
     override val reportLabsPassed = "实验通过"

@@ -73,12 +73,13 @@ Apps featured on the homepage:
 - **Learning report** (1.4.0): streak, per-day completion, quiz accuracy; share via system sheet.
 - **English UI + full English curriculum** (1.5.0): Settings → Chinese / English; Days 1–7 lessons, quiz hints, lab grading, VS Code demo copy in English.
 - **Settings & About** (1.5.0): language, light / dark / system theme, version, build time, open-source repo link.
+- **English plural strings** (1.5.1): streaks, quiz counts, lab hints, and other quantity labels use correct singular/plural forms (e.g. “Streak 1 day” instead of “Streak 1 days”).
 - **Lessons:** Chinese narration (with analogies), quizzes, **real VS Code recordings**. Day 1 includes paths/files and **step-by-step bash** (pwd/ls/cd/… plus cheat sheet).
 - **Code labs:** edit C in-app; **simulated run** against cases; categorized hints (missing headers, off-by-one, pointers, formulas, empty TODO shells, BFS vs Dijkstra confusion, etc.).
 - **Day 7 capstone:** adjacency list + O(V²) Dijkstra fill-in; multiple tests; optional grid walkthrough for dist and shortest path.
 - **Glossary:** pointer, stack/heap, array decay, launch.json, bash paths, etc.
 - System light/dark (overridable in Settings); large tap targets; monospace code font.
-- Current debug build: **1.5.0** (versionCode 7).
+- Current debug build: **1.5.1** (versionCode 8).
 
 ---
 
