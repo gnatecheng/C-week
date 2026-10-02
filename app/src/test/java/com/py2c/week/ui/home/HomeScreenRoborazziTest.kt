@@ -1,6 +1,10 @@
 package com.py2c.week.ui.home
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.test.core.app.ApplicationProvider
@@ -21,6 +25,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 import java.time.LocalDate
@@ -33,6 +38,7 @@ class HomeScreenRoborazziTest {
     val composeRule = createComposeRule()
 
     private val fixedToday = LocalDate.of(2026, 9, 28)
+    private val baseQualifiers = "w411dp-h891dp-420dpi"
 
     @Before
     fun fixClock() {
@@ -42,6 +48,12 @@ class HomeScreenRoborazziTest {
     @After
     fun resetClock() {
         CheckInClock.clearFixedToday()
+        RuntimeEnvironment.setQualifiers(baseQualifiers)
+    }
+
+    @Before
+    fun resetQualifiers() {
+        RuntimeEnvironment.setQualifiers(baseQualifiers)
     }
 
     @Test
@@ -125,23 +137,32 @@ class HomeScreenRoborazziTest {
             checkedCourseDays = checkedCourseDays,
         )
         val strings = stringsFor(locale, context.resources)
+        RuntimeEnvironment.setQualifiers(baseQualifiers)
+        if (darkTheme) {
+            RuntimeEnvironment.setQualifiers("+night")
+        }
 
         composeRule.setContent {
             Py2CTheme(darkTheme = darkTheme) {
-                CompositionLocalProvider(
-                    LocalStrings provides strings,
-                    LocalAppLocale provides locale,
-                    LocalContainer provides container,
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
                 ) {
-                    HomeScreen(
-                        curriculum = curriculum,
-                        progress = progress,
-                        onOpenDay = {},
-                        onOpenWrongBook = {},
-                        onOpenReport = {},
-                        onOpenSettings = {},
-                        onReset = {},
-                    )
+                    CompositionLocalProvider(
+                        LocalStrings provides strings,
+                        LocalAppLocale provides locale,
+                        LocalContainer provides container,
+                    ) {
+                        HomeScreen(
+                            curriculum = curriculum,
+                            progress = progress,
+                            onOpenDay = {},
+                            onOpenWrongBook = {},
+                            onOpenReport = {},
+                            onOpenSettings = {},
+                            onReset = {},
+                        )
+                    }
                 }
             }
         }
