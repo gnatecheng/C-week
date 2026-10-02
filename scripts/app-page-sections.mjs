@@ -74,13 +74,17 @@ ${cards}
       </section>`;
 }
 
-export function renderAllScreens(app, dict, t, isEn, ver) {
+export function renderAllScreens(app, dict, t, isEn, verForFile) {
   const slides = [];
   for (let i = 1; i <= app.slideCount; i++) {
     const sn = String(i).padStart(2, "0");
     const altKey = `${app.galleryPrefix}.s${sn}.alt`;
     const capKey = `${app.galleryPrefix}.s${sn}.caption`;
     const file = app.slideFile(i);
+    const ver =
+      typeof verForFile === "function"
+        ? verForFile(app.legacyScreenDir, file)
+        : verForFile;
     const src = screenDefaultSrc(isEn, app.legacyScreenDir, file, ver);
     const rel = screenshotRel(app.legacyScreenDir, file);
     slides.push(`            <figure class="app-screens-grid__item">

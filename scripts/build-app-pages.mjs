@@ -16,15 +16,20 @@ import {
   renderProseSection,
   renderRoadmap,
 } from "./app-page-sections.mjs";
+import {
+  CAROUSEL_JS_V,
+  CSS_V,
+  GITHUB_META_JS_V,
+  INIT_THEME_V,
+  OG_IMAGE_V,
+  SCREENS_LANG_V,
+  SECTION_NAV_JS_V,
+  SITE_JS_V,
+  TRANSLATIONS_V,
+  screenshotVer,
+} from "./site-cache-versions.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CSS_V = 31;
-const TRANSLATIONS_V = 36;
-const SITE_JS_V = 11;
-const SECTION_NAV_JS_V = 6;
-const INIT_THEME_V = 4;
-const SCREENS_LANG_V = 10;
-const IMG_VER = { qingjizhang: "10", "class-record": "12", cweek: "5" };
 
 function escAttrLocal(s) {
   return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
@@ -64,7 +69,6 @@ function slideFile(slideIndex, legacyDir) {
 }
 
 function renderGallery(app, dict, isEn) {
-  const ver = IMG_VER[app.legacyScreenDir] || "10";
   const slides = [];
   for (let i = 1; i <= app.slideCount; i++) {
     const sn = padSlide(i);
@@ -72,6 +76,7 @@ function renderGallery(app, dict, isEn) {
     const capKey = `${app.galleryPrefix}.s${sn}.caption`;
     const file = slideFile(i, app.legacyScreenDir);
     const rel = `${app.legacyScreenDir}/${file}`;
+    const ver = screenshotVer(app.legacyScreenDir, file);
     const src = isEn
       ? `/assets/screens/en/light/${rel}?v=${ver}`
       : `/assets/screens/${rel}?v=${ver}`;
@@ -269,13 +274,12 @@ function renderPage(app, lang, dict, T) {
   const gridClose = app.gridClass === "hero-grid" ? `        </div>` : `          </div>
         </div>`;
 
-  const ver = IMG_VER[app.legacyScreenDir] || "10";
   app.slideFile = (i) => slideFile(i, app.legacyScreenDir);
 
   const sections = [
     renderFeatureGrid(dict, t, app.featureCards, app.footKey),
     app.showRoadmap ? renderRoadmap(dict, t) : "",
-    renderAllScreens(app, dict, t, isEn, ver),
+    renderAllScreens(app, dict, t, isEn, screenshotVer),
     renderProseSection("privacy", "appPage.section.privacy", app.privacyBodyKey, dict, t),
     renderProseSection("requirements", "appPage.section.requirements", app.requirementsBodyKey, dict, t),
     renderChangelog(app, dict, t),
@@ -305,14 +309,14 @@ function renderPage(app, lang, dict, T) {
     <meta property="og:description" content="${escAttrLocal(ogDesc)}" data-i18n-content="${app.keys.ogDescription}" />
     <meta property="og:locale" content="${isEn ? "en_US" : "zh_CN"}" />
     <meta property="og:locale:alternate" content="${isEn ? "zh_CN" : "en_US"}" />
-    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <meta property="og:image" content="https://etais.dev/assets/og-image.png?v=${OG_IMAGE_V}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escAttrLocal(ogTitle)}" data-i18n-content="${app.keys.ogTitle}" />
     <meta name="twitter:description" content="${escAttrLocal(ogDesc)}" data-i18n-content="${app.keys.ogDescription}" />
-    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=6" />
+    <meta name="twitter:image" content="https://etais.dev/assets/og-image.png?v=${OG_IMAGE_V}" />
     <script type="application/ld+json" id="structured-data">
 ${jsonLd}
     </script>
@@ -351,8 +355,8 @@ ${renderFooter(app, dict)}
     <script src="/js/site.js?v=${SITE_JS_V}" defer></script>
     <script src="/js/app-section-nav.js?v=${SECTION_NAV_JS_V}" defer></script>
     <script src="/js/screens-lang.js?v=${SCREENS_LANG_V}" defer></script>
-    <script src="/js/carousel.js?v=3" defer></script>
-    <script src="/js/github-meta.js?v=6" defer></script>
+    <script src="/js/carousel.js?v=${CAROUSEL_JS_V}" defer></script>
+    <script src="/js/github-meta.js?v=${GITHUB_META_JS_V}" defer></script>
   </body>
 </html>
 `;
