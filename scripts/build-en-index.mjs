@@ -7,6 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildJsonLd } from "./site-seo-jsonld.mjs";
 import { loadTranslations, applyStaticI18n } from "./static-i18n.mjs";
+import { applyHubEnCacheVersions } from "./site-cache-versions.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -88,14 +89,7 @@ async function main() {
 
   html = applyStaticI18n(html, en);
 
-  html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=4");
-  html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=27");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=35");
-  html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");
-  html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=10");
-  html = html.replace(/group-matters\.webp\?v=\d+/g, "group-matters.webp?v=3");
-  html = html.replace(/class-record\/[^"?]+\.webp\?v=\d+/g, (m) => m.replace(/\?v=\d+/, "?v=12"));
-  html = html.replace(/og-image\.png\?v=\d+/g, "og-image.png?v=6");
+  html = applyHubEnCacheVersions(html);
 
   await mkdir(path.join(root, "site/en"), { recursive: true });
   await writeFile(path.join(root, "site/en/index.html"), html, "utf8");

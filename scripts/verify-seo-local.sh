@@ -270,6 +270,8 @@ PY
 
 grep -q 'hreflang="zh-CN"' site/index.html && grep -q 'hreflang="en"' site/index.html && echo "hreflang in index: OK"
 
+node "$ROOT/scripts/check-site-cache-versions.mjs"
+
 tmux -f /exec-daemon/tmux.portal.conf send-keys -t "$SESSION_NAME:0.0" C-c
 sleep 1
 echo "done"

@@ -196,7 +196,7 @@ export const APP_PAGES = [
     slideCount: 6,
     galleryPrefix: "cweek.hero.gallery",
     category: "EducationalApplication",
-    versionFallback: "1.5.0",
+    versionFallback: "1.5.1",
     footKey: null,
     showRoadmap: true,
     privacyBodyKey: "app.cWeek.privacy.body",
@@ -219,6 +219,11 @@ export const APP_PAGES = [
       [null, "cweek.features.glossary.title", "cweek.features.glossary.body"],
     ],
     changelog: [
+      {
+        version: "1.5.1",
+        url: "https://github.com/gnatecheng/c-week/releases/tag/v1.5.1",
+        itemKeys: ["app.cWeek.changelog.151.1"],
+      },
       {
         version: "1.5.0",
         url: "https://github.com/gnatecheng/c-week/releases/tag/v1.5.0",

@@ -332,7 +332,9 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.privacy.body":
       "<p>课文、VS Code 演示视频、实验与测验内容都打包在安装包内；学习进度、打卡与错题记录保存在本机。</p><p>应用未声明联网权限，日常学习不需要联网。手机不会编译 C 代码，实验采用离线模拟判分。</p><p>本介绍网站 etais.dev 使用 Cloudflare Web Analytics 统计访问（与应用 APK 无关）。</p>",
     "app.cWeek.requirements.body":
-      "<p>支持 Android 8.0 及以上。应用内含打包的教学视频，较新的手机系统通常播放更稳定。</p><p>当前版本：C一周通 v1.5.0，安装包约 15.6 MB（以 <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p>",
+      "<p>支持 Android 8.0 及以上。应用内含打包的教学视频，较新的手机系统通常播放更稳定。</p><p>当前版本：C一周通 v1.5.1，安装包约 15.6 MB（以 <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> 显示为准）。</p><p>正式签名版，请从 GitHub Releases 下载；首次安装需在系统设置中允许「安装未知来源应用」（具体名称因手机而异）。</p>",
+    "app.cWeek.changelog.151.1":
+      "英文界面的数量说法更自然：1 天显示「1 day」，多天显示「days」，课时、题目等也一样；中文界面不变。",
     "app.cWeek.changelog.150.1": "设置中可切换完整英文课程与界面（7 天课文、测验与实验）。",
     "app.cWeek.changelog.150.2": "支持浅色 / 深色 / 跟随系统主题；关于页可查看版本与开源链接。",
     "app.cWeek.changelog.140.1": "错题本与重练；实验多组用例与部分得分。",
@@ -401,7 +403,7 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.faq.install.body":
       "在 <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> 下载最新 APK 并安装。桌面显示「C一周通」。",
     "app.cWeek.faq.requirements.body":
-      "Android 8.0 及以上；内含打包教学视频。当前正式版 v1.5.0，安装包约 15.6 MB（以 GitHub Releases 为准）。",
+      "Android 8.0 及以上；内含打包教学视频。当前正式版 v1.5.1，安装包约 15.6 MB（以 GitHub Releases 为准）。",
     "app.cWeek.faq.offline.body":
       "课文、演示视频与实验内容都打包在安装包内；学习进度保存在本机，日常学习不需要联网。",
     "prefs.langLabel": "语言",
@@ -760,7 +762,9 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.privacy.body":
       "<p>Lessons, VS Code screen recordings, labs, and quizzes ship inside the install package; progress, streaks, and wrong-answer notes stay on your phone.</p><p>The app does not request the Internet permission—everyday study works offline. The phone does not compile C code; labs use offline simulated grading.</p><p>This marketing site, etais.dev, uses Cloudflare Web Analytics (not part of the Android app).</p>",
     "app.cWeek.requirements.body":
-      "<p>Android 8.0 or newer. Bundled lesson videos usually play more reliably on newer phones.</p><p>Current release: C Week v1.5.0, about 15.6 MB (see <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p>",
+      "<p>Android 8.0 or newer. Bundled lesson videos usually play more reliably on newer phones.</p><p>Current release: C Week v1.5.1, about 15.6 MB (see <a href=\"https://github.com/gnatecheng/c-week/releases\" rel=\"noopener noreferrer\">GitHub Releases</a> for the exact file size).</p><p>Signed release—download from GitHub Releases. On first install, allow <strong>Install unknown apps</strong> for your browser or file manager (wording varies).</p>",
+    "app.cWeek.changelog.151.1":
+      "More natural English counts: “1 day” vs “2 days”, and the same for lessons, questions, and other items. Chinese UI unchanged.",
     "app.cWeek.changelog.150.1": "Full English curriculum and UI in Settings (7 days of lessons, quizzes, and labs).",
     "app.cWeek.changelog.150.2": "Light, dark, or system theme; About page shows version and open-source link.",
     "app.cWeek.changelog.140.1": "Wrong-answer book with retry; multi-case labs with partial scores.",
@@ -830,7 +834,7 @@ window.ETAI_TRANSLATIONS = {
     "app.cWeek.faq.install.body":
       "Download the latest APK from <a href=\"https://github.com/gnatecheng/c-week/releases/latest\" rel=\"noopener noreferrer\">GitHub Releases</a> and install. Launcher name: “C Week” (C一周通).",
     "app.cWeek.faq.requirements.body":
-      "Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.0, about 15.6 MB (see GitHub Releases).",
+      "Android 8.0 or newer; bundled lesson videos. Current signed release v1.5.1, about 15.6 MB (see GitHub Releases).",
     "app.cWeek.faq.offline.body":
       "Lessons, demo videos, and lab content ship in the install package; progress stays on your phone—learning works offline.",
     "prefs.langLabel": "Language",
