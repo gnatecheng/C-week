@@ -90,7 +90,7 @@ async function main() {
 
   html = html.replace(/\/js\/init-theme\.js\?v=\d+/g, "/js/init-theme.js?v=4");
   html = html.replace(/\/css\/style\.css\?v=\d+/g, "/css/style.css?v=27");
-  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=35");
+  html = html.replace(/\/js\/translations\.js\?v=\d+/g, "/js/translations.js?v=36");
   html = html.replace(/\/js\/site\.js\?v=\d+/g, "/js/site.js?v=9");
   html = html.replace(/\/js\/screens-lang\.js\?v=\d+/g, "/js/screens-lang.js?v=10");
   html = html.replace(/group-matters\.webp\?v=\d+/g, "group-matters.webp?v=3");

@@ -19,7 +19,7 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CSS_V = 31;
-const TRANSLATIONS_V = 35;
+const TRANSLATIONS_V = 36;
 const SITE_JS_V = 11;
 const SECTION_NAV_JS_V = 6;
 const INIT_THEME_V = 4;
